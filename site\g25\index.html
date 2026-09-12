@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<base href="/">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#f2f5f9">
+<title>三国冰河时代 —— 精品版本 · 丝滑畅玩</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{
+    font-family:"PingFang SC","Microsoft YaHei","Helvetica Neue",sans-serif;
+    background:#f2f5f9;color:#1f2937;line-height:1.85;font-size:16px;
+    -webkit-text-size-adjust:100%;padding-bottom:96px;
+  }
+  a{text-decoration:none;}
+  .wrap{max-width:580px;margin:0 auto;background:#ffffff;min-height:100vh;box-shadow:0 0 20px rgba(15,23,42,.06);}
+
+  .topbar{
+    background:#ffffff;border-bottom:1px solid #e5e9f0;
+    padding:12px 18px;display:flex;align-items:center;justify-content:space-between;
+    position:sticky;top:0;z-index:50;
+  }
+  .topbar .logo{font-size:15px;font-weight:bold;color:#0f172a;letter-spacing:.5px;}
+  .topbar a{color:#2563eb;font-size:13px;border:1px solid #dbe3ee;padding:5px 12px;border-radius:16px;}
+
+  .hero{
+    background:linear-gradient(165deg,#eef4ff 0%,#dbeafe 100%);
+    padding:38px 22px 34px;text-align:center;position:relative;overflow:hidden;
+    display:flex;flex-direction:column;align-items:center;
+  }
+  .hero .badge{
+    display:inline-block;background:#2563eb;color:#fff;font-size:12px;font-weight:bold;
+    padding:6px 18px;border-radius:20px;letter-spacing:1px;margin:0 auto 14px;position:relative;z-index:2;
+    box-shadow:0 3px 10px rgba(37,99,235,.35);
+  }
+  .hero h1{font-size:24px;color:#0f172a;line-height:1.45;position:relative;z-index:2;font-weight:800;max-width:100%;}
+  .hero .sub{color:#334155;font-size:14px;margin-top:12px;position:relative;z-index:2;}
+  .points{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:18px;position:relative;z-index:2;}
+  .points span{
+    background:#fff;border:1px solid #cddcf5;font-size:12px;padding:5px 12px;
+    border-radius:16px;color:#1e40af;box-shadow:0 1px 3px rgba(15,23,42,.06);
+  }
+
+  .btn{
+    display:block;text-align:center;color:#fff;font-size:17px;font-weight:bold;letter-spacing:.5px;
+    padding:16px 0;border-radius:14px;margin:12px 0;box-shadow:0 3px 10px rgba(37,99,235,.22);
+    transition:transform .12s;
+  }
+  .btn:active{transform:scale(.98);}
+  .btn.blue{background:linear-gradient(135deg,#2563eb,#1d4ed8);}
+  .btn.orange{background:linear-gradient(135deg,#f59e0b,#ea580c);box-shadow:0 3px 10px rgba(234,88,12,.25);}
+  .btn.purple{background:linear-gradient(135deg,#7c3aed,#5b21b6);box-shadow:0 3px 10px rgba(124,58,237,.22);}
+  .btn.green{background:linear-gradient(135deg,#059669,#047857);box-shadow:0 3px 10px rgba(5,150,105,.22);}
+  .btn.pending{background:linear-gradient(135deg,#94a3b8,#64748b)!important;box-shadow:none;}
+  .btn.info{background:linear-gradient(135deg,#0891b2,#0e7490)!important;box-shadow:0 3px 10px rgba(8,145,178,.25);}
+  .heropic{width:88px;height:88px;border-radius:50%;border:3px solid #fff;box-shadow:0 4px 12px rgba(15,23,42,.18);margin-bottom:12px;object-fit:cover;}
+  .btn .small{display:block;font-size:12px;font-weight:normal;opacity:.92;margin-top:3px;letter-spacing:0;}
+
+  section{padding:28px 20px 6px;}
+  h2{font-size:20px;color:#0f172a;margin-bottom:14px;padding-left:12px;border-left:5px solid #2563eb;line-height:1.4;font-weight:800;}
+  h3{font-size:16px;color:#2563eb;margin:18px 0 8px;font-weight:700;}
+  p{margin-bottom:12px;color:#374151;}
+  strong{color:#b45309;}
+  em{color:#dc2626;font-style:normal;font-weight:bold;}
+
+  .card{background:#f8fafc;border:1px solid #e5e9f0;border-radius:14px;padding:18px;margin:14px 0;}
+  .card h4{color:#1e40af;font-size:16px;margin-bottom:8px;}
+  .card.gold{background:#fffbeb;border-color:#fde68a;}
+  .card.gold h4{color:#b45309;}
+  .card.warn{background:#fef2f2;border-color:#fecaca;}
+  .card.warn h4{color:#dc2626;}
+  .divider{text-align:center;color:#94a3b8;font-size:12px;margin:30px 0 0;letter-spacing:4px;}
+
+  .step{display:flex;gap:12px;margin-bottom:18px;}
+  .step .no{flex:0 0 30px;height:30px;border-radius:50%;background:#2563eb;color:#fff;font-weight:bold;text-align:center;line-height:30px;font-size:15px;}
+  .step .body{flex:1;}
+  .step .body h4{color:#0f172a;font-size:16px;margin-bottom:6px;}
+
+  ul.codes{list-style:none;}
+  ul.codes li{
+    background:#f8fafc;border:1px dashed #cbd5e1;border-radius:12px;padding:12px;margin-bottom:8px;
+    display:flex;align-items:center;gap:10px;
+  }
+  ul.codes li .code{flex:0 0 auto;font-size:16px;font-weight:800;color:#1e40af;letter-spacing:1px;font-family:Consolas,Monaco,monospace;}
+  ul.codes li .desc{flex:1;font-size:13px;color:#475569;line-height:1.65;}
+  ul.codes li .cp{flex:0 0 auto;background:#2563eb;color:#fff;border:0;border-radius:8px;font-size:12px;padding:7px 12px;cursor:pointer;}
+  ul.codes li .cp.ok{background:#059669;}
+
+  .tip{background:#fffbeb;border-left:4px solid #f59e0b;padding:13px 15px;border-radius:0 12px 12px 0;margin:14px 0;font-size:15px;color:#78350f;}
+  .alarm{background:#fef2f2;border-left:4px solid #dc2626;padding:13px 15px;border-radius:0 12px 12px 0;margin:14px 0;font-size:15px;color:#7f1d1d;}
+  .alarm strong{color:#dc2626;}
+  .tag{display:inline-block;background:#2563eb;color:#fff;font-weight:bold;border-radius:6px;padding:2px 10px;font-size:13px;margin-right:6px;}
+
+  .welfare img{width:100%;border-radius:14px;display:block;margin:10px 0;}
+  .welfare .ph{background:#f1f5f9;border:1px dashed #cbd5e1;border-radius:14px;padding:26px;text-align:center;color:#94a3b8;font-size:14px;}
+
+  .bar{
+    position:fixed;left:0;right:0;bottom:0;z-index:60;background:rgba(255,255,255,.97);
+    border-top:1px solid #e5e9f0;display:flex;gap:8px;padding:10px 12px;max-width:580px;margin:0 auto;
+    box-shadow:0 -2px 12px rgba(15,23,42,.06);
+  }
+  .bar a{flex:1;text-align:center;font-size:15px;font-weight:bold;padding:12px 0;border-radius:12px;color:#fff;}
+  .bar .b1{background:linear-gradient(135deg,#2563eb,#1d4ed8);padding:12px 0;border-radius:var(--radius);color:#fff;}
+  .bar .b2{background:linear-gradient(135deg,#f59e0b,#ea580c);padding:12px 0;border-radius:var(--radius);color:#fff;}
+  .bar .b3{background:linear-gradient(135deg,#7c3aed,#5b21b6);padding:12px 0;border-radius:var(--radius);color:#fff;}
+  .bar .off{opacity:.55;filter:grayscale(.4);}
+  .footer{text-align:center;color:#94a3b8;font-size:12px;padding:30px 20px 0;line-height:2;}
+  /* 返回主站按钮 */
+  .topbar .back{background:#2563eb;color:#fff;border:0;font-size:13px;font-weight:bold;padding:6px 14px;border-radius:16px;box-shadow:0 2px 6px rgba(37,99,235,.25);}
+  /* 邀请码 */
+  .invite{background:#fffbeb;border:1px solid #fde68a;border-radius:14px;padding:16px;margin:14px 0;text-align:center;}
+  .invite-t{font-size:14px;color:#92400e;font-weight:bold;}
+  .invite-row{display:flex;align-items:center;justify-content:center;gap:10px;margin:10px 0 6px;}
+  .invite-code{font-family:Consolas,Monaco,monospace;font-size:24px;font-weight:800;color:#b45309;letter-spacing:3px;}
+  .cp-big{background:#f59e0b;color:#fff;border:0;border-radius:10px;padding:10px 18px;font-size:14px;font-weight:bold;cursor:pointer;}
+  .cp-big.ok{background:#059669;}
+  .invite-tip{font-size:12px;color:#a16207;}
+  /* 攻略正文 */
+  .guide{margin-top:4px;}
+  .guide-title{font-size:20px;color:#0f172a;margin-bottom:14px;padding-left:12px;border-left:5px solid #2563eb;line-height:1.4;font-weight:800;}
+  .guide .gsec-divider{text-align:center;color:#94a3b8;font-size:12px;margin:26px 0 10px;letter-spacing:3px;}
+  .guide h3.section-head{font-size:17px;color:#0f172a;margin:22px 0 14px;padding:10px 14px;background:#f1f5f9;border-radius:10px;border-left:4px solid #2563eb;font-weight:800;}
+  .guide .gcard{background:#f8fafc;border:1px solid #e5e9f0;border-radius:14px;padding:16px;margin:14px 0;}
+  .guide .gcard h4{color:#1e40af;font-size:15px;margin-bottom:10px;font-weight:800;}
+  .guide .gcard>:last-child{margin-bottom:0;}
+  .guide p{margin-bottom:14px;color:#374151;line-height:1.85;}
+  .guide p:last-child{margin-bottom:0;}
+  .guide ul.glist{list-style:none;margin:10px 0 14px;}
+  .guide ul.glist li{position:relative;padding-left:22px;margin-bottom:8px;color:#374151;line-height:1.7;}
+  .guide ul.glist li::before{content:"";position:absolute;left:6px;top:10px;width:6px;height:6px;border-radius:50%;background:#2563eb;}
+  .guide .gtip{background:#fffbeb;border-left:4px solid #f59e0b;padding:12px 14px;border-radius:0 12px 12px 0;margin:14px 0;font-size:14px;color:#78350f;}
+  .guide .galarm{background:#fef2f2;border-left:4px solid #dc2626;padding:12px 14px;border-radius:0 12px 12px 0;margin:14px 0;font-size:14px;color:#7f1d1d;}
+  .guide .gday{display:flex;gap:12px;margin-bottom:16px;}
+  .guide .gday .no{flex:0 0 46px;height:46px;border-radius:12px;background:#2563eb;color:#fff;font-weight:bold;text-align:center;font-size:12px;display:flex;align-items:center;justify-content:center;line-height:1.2;padding:4px;}
+  .guide .gday .body{flex:1;background:#f8fafc;border:1px solid #e5e9f0;border-radius:14px;padding:14px 16px;}
+  .guide .gday .body h4{color:#1e40af;font-size:15px;margin-bottom:6px;font-weight:800;}
+  .guide .gday .body p{margin-bottom:0;}
+  /* 福利图 */
+  .welfare img{width:100%;border-radius:14px;display:block;margin:10px 0;box-shadow:0 4px 14px rgba(15,23,42,.12);}
+  .muted{font-size:13px;color:#94a3b8;}
+  /* 正文里内联的兑换码 + 复制键 */
+  .cc{display:inline-flex;align-items:center;gap:6px;vertical-align:middle;margin:0 2px;}
+  .cc b{font-family:Consolas,Monaco,monospace;font-size:14px;color:#b45309;background:#fffbeb;
+    border:1px solid #fde68a;border-radius:6px;padding:1px 6px;letter-spacing:.5px;font-weight:800;}
+  .cc .cp{background:#f59e0b;color:#fff;border:0;border-radius:6px;padding:2px 8px;font-size:11px;
+    font-weight:bold;cursor:pointer;line-height:1.6;}
+  .cc .cp.ok{background:#059669;}
+  .bar .b4{background:linear-gradient(135deg,#0f172a,#334155);padding:12px 0;border-radius:var(--radius);color:#fff;flex:0 0 84px;font-size:14px;}
+  .toast{position:fixed;left:50%;bottom:96px;transform:translateX(-50%);background:rgba(15,23,42,.9);color:#fff;
+    font-size:14px;padding:10px 18px;border-radius:20px;opacity:0;transition:opacity .25s;pointer-events:none;z-index:99;}
+  .toast.show{opacity:1;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="topbar">
+    <div class="logo">🎮  三国冰河时代</div>
+    <a class="back" href="../index.html">🏠 返回主站</a>
+  </div>
+
+  <div class="hero">
+    <img class="heropic" src="assets/icons/g25.jpg" alt="">
+    <div class="badge">精品版本 · 丝滑畅玩</div>
+    <h1>三国冰河时代</h1>
+    <p class="sub">不卡不掉 · 持续更新<br>我们只想给各位玩家一个长久的家</p>
+    <div class="points"><span>✅ 不卡不掉</span><span>✅ 持续更新</span><span>✅ 安卓苹果双端</span></div>
+  </div>
+
+  <section>
+    <a class="btn blue" href="https://newbhsd.qeig8.com/?p=10778" target="_blank" rel="noopener">📝 点击注册账号（1 分钟搞定）<span class="small">必须走这个链接注册，否则无售后</span></a>
+    <a class="btn orange" href="https://tt.ppba.top/lZzu" target="_blank" rel="noopener">⬇ 点击下载游戏（安卓 / 苹果通用）<span class="small">安装后选「账号密码登录」</span></a>
+    
+  </section>
+
+  <div class="divider">—·— 三 步 开 玩 —·—</div>
+
+  <section>
+    <h2>一、三步开玩（点一下就走，两分钟进游戏）</h2>
+    <div class="step">
+      <div class="no">1</div>
+      <div class="body">
+        <h4>注册账号</h4>
+        <p>点下面的按钮直接进注册页。这是<strong>唯一有效注册地址</strong>——不是从这个链接注册的<em>没有售后</em>。</p><a class="btn blue" href="https://newbhsd.qeig8.com/?p=10778" target="_blank" rel="noopener">📝 点击注册账号</a>
+      </div>
+    </div>
+    <div class="step">
+      <div class="no">2</div>
+      <div class="body">
+        <h4>下载游戏</h4>
+        <p>点按钮直接下载，安卓苹果都能装。</p><a class="btn orange" href="https://tt.ppba.top/lZzu" target="_blank" rel="noopener">⬇ 点击下载（主线路）</a>
+      </div>
+    </div>
+    <div class="step">
+      <div class="no">3</div>
+      <div class="body">
+        <h4>登录游戏</h4>
+        <p>打开游戏后，<strong>选择「账号密码登录」，不要用手机号登录</strong>，账号就是第 1 步注册的那个；<strong>本服充值在游戏内直接进行</strong>，无需外部充值链接。</p>
+      </div>
+    </div>
+    <div class="card warn">
+      <h4>⚠️ 登录提示网络异常怎么办？</h4>
+      <p>装个「爱加速」，把本地网络切到<strong>上海</strong>再登录，基本一次解决。</p>
+      <a class="btn green" href="https://m.91ajs.com" target="_blank" rel="noopener">🔧 点击下载爱加速</a>
+    </div>
+  </section>
+
+  <div class="divider">—·— 进 服 先 领 —·—</div>
+  <section>
+    <h2>二、进服先白嫖：兑换码全部领满</h2>
+    <p class="muted">兑换路径：游戏内 设置 → 礼包兑换码（点右侧按钮可直接复制）</p>
+    <ul class="codes">
+      <li><span class="code">huiguei2026</span><span class="desc">进服直接兑，先领先爽</span><button class="cp" data-code="huiguei2026">复制</button></li>
+    </ul>
+    <a class="btn orange" href="https://tt.ppba.top/lZzu" target="_blank" rel="noopener">还没下载？点击下载，马上领码 ⬇</a>
+  </section>
+
+  <div class="divider">—·— 新 手 起 号 攻 略 —·—</div>
+  <section>
+    <h2>新手起号全攻略（起号 + 充值 + 冠名）</h2>
+    <div class="guide">
+<h2 class="guide-title">新手起号全攻略！（起号 + 充值 + 冠名）</h2><p>（0.5 折福利服・从白嫖到神豪，每个档位都给你安排明白！）</p><p>先给所有新手划重点：这是充值比例 1:50 的 0.5 折高福利服，10 元 = 500 莲花币，100 元 = 5000 莲花币，500 元 = 25000 莲花币，花官服一半的钱，拿翻倍的资源和属性，开局直接赢在起跑线！</p><h3 class="section-head">一、开局必做：免费福利全领，直接贵族 7+3 星吕布起飞</h3><p>先解决安装和免费福利，零氪也能开局爽玩！</p><div class="gcard"><h4>1. 鸿蒙系统安装指南（必看！）</h4><p>纯血鸿蒙手机的玩家，先把游戏安装包下载到手机，再去浏览器搜「伏羲 X64」软件并安装；打开伏羲 X64 后，点右下角三个点，选择「从文件管理器安装」，找到下载好的游戏安装包安装即可，就能正常进服玩了。</p></div><div class="gcard"><h4>2. 两大免费福利，上线直接领</h4><p>公测新手大礼包（网页新手福利处领取）</p><p>上线直接拿 1000 万元宝 + 1000 万铜钱，还有吕布碎片 185，直接合成 3 星吕布开局！高级招募令 1000、普通招募令 * 1000 直接实现抽卡自由，武将经验、爵位经验拉满，上线直接贵族 7！额外再送莲花币 66666，开局就有一笔启动资金，零氪也能玩得很舒服。</p><p>老友归来 CDK（网页 CDK 兑换领取）</p><p>输入兑换码<span class="cc"><b>huiguei2026</b><button class="cp" data-code="huiguei2026">复制</button></span>，直接领 1 小时建造 / 研究 / 练兵 / 通用加速各 2000，还有传说装备自选宝箱 x25！前期建筑升级、科技研究、练兵不用等时间，直接秒升，装备也能快速成型，不用慢慢攒。</p></div><h3 class="section-head">二、分档位充值攻略：预算多少，就怎么玩</h3><p>（一）零氪 / 微氪（0-100 元）：佛系玩也能跟上进度</p><p>零氪玩法：把上面的免费福利全领完，贵族 7、3 星吕布、加速和莲花币直接到手。现在每日任务调整后，每天保底能拿 1800 莲花币，后续团体活动还会新增莲花币奖励，慢慢攒资源、抽武将，跟大部队进度完全没问题，适合不想花钱、慢慢体验游戏的玩家。</p><p>微氪（50-100 元）：小投入，大提升</p><p>推荐直接充 68 元开服小礼包（限购 10 次），拿莲花币 3680 + 通用加速 300 小时，或者充 100 元拿 5000 莲花币，同时解锁每日充值 100 元的 1000 莲花币奖励 + 累计充值 100 元的 2000 莲花币奖励，莲花币直接翻倍。</p><p>这个档位，前期主城升级、科技研究、武将等级都能跟上大部队，加速足够不用熬夜等建筑，莲花币够抽武将、买基础资源，打城、演武场都能跟上节奏，不用被大部队落下，是平民里的 “隐形大佬”。</p><p>（二）小氪（100-500 元）：轻松进第一梯队，打架打城不落后</p><p>这个预算的玩家，目标是跟上服务器第一梯队，打城、州府战能进主力队，不用被氪佬碾压。</p><p>充值优先项</p><p>先拿充值返利：充 500 元直接拿 25000 莲花币，加上每日充值 500 元的 5000 莲花币、累计充值 500 元的 5000 莲花币，莲花币直接拉到 3 万 +，比官服多几倍。</p><p>开服礼包优先选：198 元开服中礼包、398 元开服大礼包，拿海量莲花币 + 通用加速 + 资源宝箱，直接把主城秒升、科技点满、练兵拉满，前期战力快速成型。</p><p>性价比周卡必入：68 元超值小周卡（莲花币 5880 + 通用加速 80 小时）、288 元超值中周卡（莲花币 28800 + 通用加速 300 小时），每天领莲花币和加速，长期玩不亏，资源越攒越多。</p><p>体验提升：这个档位的玩家，主城等级、科技、武将等级都能稳进服务器前 20%，打城不用看别人脸色，州府战能进同盟主力队，莲花币够抽武将、买资源，不用为了加速熬夜等升级，每天轻松玩，战力稳步提升，打架也不虚同档玩家。</p><p>（三）中氪（500-2000 元）：全服第一梯队，属性拉满，打架横着走</p><p>这个预算的玩家，目标是当服务器中流砥柱，属性直接拉开和普通玩家的差距，打城、打架降维打击。</p><p>充值优先项</p><p>冲累充奖励：充到 1000 元拿累计 1000 的 10000 莲花币，充到 2000 元拿累计 2000 的 15000 莲花币，同时解锁后续累充称号和头像框 —— 比如累计 5000 元的「金牌吃货」称号、「浪花之约」头像框，直接加士兵生命 + 100%，别人的兵打半天，你的兵根本不掉血！</p><p>核心礼包必入：888 元开服王炸礼包（莲花币 60000 + 通用加速 4500 小时 + 10000 资源宝箱），直接把主城、科技、练兵全拉满，前期直接无敌；398 元资源加速礼包，拿海量资源和加速，解决所有资源缺口。</p><p>永久属性礼包：398 元头像框 / 称号 / 城市礼包，比如「执宿星河」城市礼包，直接加士兵攻击 + 100%，永久生效！打城的时候，别人打 10 分钟，你 5 分钟就能打完，伤害直接翻倍，性价比拉满。</p><p>体验提升：你就是服务器里的中流砥柱，同盟抢着要你，州府战你就是主力。武将装备、主城等级、科技全拉满，兵的攻击、防御、生命全加 100% 以上，别人打不动你，你打别人跟切菜一样，莲花币多到用不完，抽卡直接满星，全服排名稳稳前 10，走到哪都有人喊大佬。</p><p>（四）大氪（2000-5000 元）：服务器顶级战力，专属排面拉满</p><p>这个预算的玩家，目标是冲服务器顶流，拿专属称号和头像框，全服都认识你！</p><p>充值优先项</p><p>冲顶级累充奖励：充到 5000 元拿累计 5000 的 20000 莲花币 +「金牌吃货」称号 +「浪花之约」头像框；充到 10000 元拿 50000 莲花币 +「富甲天下」称号 +「龙争虎斗」头像框，士兵生命 + 100%，直接肉到离谱！</p><p>毕业装备礼包：1758 元传奇装备锻造礼包，直接拿 220 个传奇装备自选箱 + 锻造石，武将装备直接毕业，战力直接起飞。</p><p>专属高级礼包：648 元「富甲一方」称号礼包、「布道神使」头像框礼包、「攻略大师」称号礼包，这些都是顶级大佬的象征，属性直接拉满，别人一看就知道你是全服顶尖玩家！</p><p>体验提升：你就是服务器的顶流战力，同盟盟主都要捧着你，州府战、跨服战你就是定海神针，全服排名前 3，属性全服第一梯队，别人根本打不过你，莲花币多到随便造，加速、资源、装备全满，玩的就是 “毫无压力的爽感”！</p><p>（五）神豪专属（5000 元以上）：永久冠名全服，拿「傲视无双大帝」专属称号</p><p>预算冲 50000 元，直接解锁全服唯一的排面！</p><p>核心福利：首个累充达到 50000 元的玩家，直接永久冠名服务器，找客服申请即可！同时拿累充 50001 的专属奖励：称号「傲视无双大帝」，士兵破坏力 + 300%！额外还有莲花币 10 万、城市「震海龙阙」、称号「龙战于野」「富国强兵」，士兵攻击 + 100%、生命 + 100%、破坏 + 300%，直接全服无敌！</p><p>体验提升：你就是服务器的 “神”，全服玩家都认识你，跨服战里你就是全服的牌面，别人根本打不动你，全服唯一的冠名大佬，走到哪都有排面，玩的就是专属和无敌！</p><h3 class="section-head">三、转区福利说明：老区玩家直接继承累充，新区开局就是大佬</h3><p>老区有号的玩家，最低累充 500 元就能转区，规则如下：</p><p>老区充值多少，新区就冲多少，直接继承累充额度。比如老区充了 5000 元，新区冲 5000 元，直接拿 10000 元的累充奖励，相当于拿双份福利！</p><p>老区充值大于 5000 元的玩家，允许分 3 次转完（比如老区充 5000 元，新区第 1 天冲 2000、第 2 天冲 1500、第 3 天冲 1500，3 次内转完即可，剩余额度作废）。</p><p>转区要重新注册和创建角色，新账号必须和老账号注册链接一致，每个老区角色只有 1 次转区机会，转区后不能再转回老区或其他新区。</p><h3 class="section-head">四、充值避坑指南：把钱花在刀刃上</h3><p>优先冲累充奖励：累充给的称号、头像框、城市都是永久属性，比一次性礼包划算 10 倍，属性是永久生效的，打城、打架一直都有用！</p><p>加速和资源优先买：前期主城升级、科技研究、练兵都需要大量加速，先把这些拉满，进度快了，战力涨得才快，后面打架才有优势。</p><p>永久属性礼包必入：398 元的头像框 / 称号 / 城市礼包，直接加士兵攻击、防御、生命 + 100%，打城伤害翻倍，别人打 10 分钟，你 5 分钟就打完，性价比极高。</p><p>每日充值不要断：每天充一点，拿每日的莲花币奖励，积少成多，莲花币直接翻倍，完全不亏！</p><p>0.5 折的福利服，花别人一半的钱，拿双倍的资源、双倍的属性，开局就送贵族 7+3 星吕布，免费福利拿到手软！不管你是佛系玩，还是想当服务器大佬，都能在这里找到适合自己的玩法，赶紧上线领福利，冲新区当大佬！</p>
+    </div>
+  </section>
+
+  <div class="divider">—·— 活 动 福 利 图 —·—</div>
+  <section>
+    <h2>充值活动福利图</h2>
+    
+    
+    <div class="welfare">
+      <img src="assets/welfare/g25_1.jpg" alt="充值活动福利图" loading="lazy">
+      <img src="assets/welfare/g25_2.jpg" alt="充值活动福利图" loading="lazy">
+    </div>
+  </section>
+
+
+
+  <div class="divider">—·— 充 值 说 明 —·—</div>
+  <section>
+    <h2>充值说明（本服在游戏内直接充值）</h2>
+    <div class="tip">💳 本服<strong>没有外部充值链接</strong>，充值在游戏内直接进行：进游戏 → 打开「充值 / 商城」→ 选好档位按提示支付即可。首充、月卡、基金、冠名活动都在游戏内活动页。<br><br>❗ 再次提醒：任何 QQ 群里的「折扣充值」「便宜充值」都是骗子，一律不要信！</div>
+  </section>
+
+  <div class="divider">—·— 注 意 —·—</div>
+  <section>
+    <h2>防骗提醒</h2>
+    <div class="alarm">❗<strong>任何 QQ 群里的「折扣充值」「便宜充值」都是骗子，一律不要信！</strong>本服充值请在游戏内或官方渠道进行。</div>
+  </section>
+
+  <section>
+    <h2>玩腻了？主站还有几十款</h2>
+    <p>本站收录 <strong>35+ 款精品手游</strong>，全部免费领码、直接下载，随时回来换着玩。</p>
+    <a class="btn blue" href="../index.html">🏠 返回主站，看看还有什么好玩的</a>
+  </section>
+
+  <p class="footer">
+     三国冰河时代 · 精品版本 · 丝滑畅玩<br>
+    我们只想给各位玩家一个长久的家<br>
+    建议收藏主站，游戏随便换着玩
+  </p>
+</div>
+
+<div class="bar">
+  <a class="b1" href="https://newbhsd.qeig8.com/?p=10778" target="_blank" rel="noopener">注册账号</a>
+  <a class="b2" href="https://tt.ppba.top/lZzu" target="_blank" rel="noopener">下载游戏</a>
+  <a class="b4" href="../index.html">🏠 主站</a>
+</div>
+
+<div class="toast" id="toast">已复制</div>
+<script>
+(function(){
+  var toastEl=document.getElementById('toast');
+  function toast(m){toastEl.textContent=m;toastEl.classList.add('show');clearTimeout(window.__t);
+    window.__t=setTimeout(function(){toastEl.classList.remove('show');},1500);}
+  function copy(text,btn){
+    var done=function(){if(btn){var o=btn.textContent;btn.textContent='已复制 ✓';btn.classList.add('ok');
+      setTimeout(function(){btn.textContent=o;btn.classList.remove('ok');},1500);}toast('已复制：'+text);};
+    if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(text).then(done,function(){fb(text,done);});}else{fb(text,done);}
+  }
+  function fb(text,done){
+    var ta=document.createElement('textarea');ta.value=text;ta.style.position='fixed';ta.style.opacity='0';
+    document.body.appendChild(ta);ta.select();
+    try{document.execCommand('copy');done();}catch(e){toast('复制失败，请长按手动选择');}
+    document.body.removeChild(ta);
+  }
+  var btns=document.querySelectorAll('.cp');
+  for(var i=0;i<btns.length;i++){btns[i].addEventListener('click',function(){copy(this.getAttribute('data-code'),this);});}
+})();
+</script>
+</body>
+</html>
