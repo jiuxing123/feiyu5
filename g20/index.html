@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<base href="/">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>时尚百货城 —— 精品版本 · 丝滑畅玩</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{
+    font-family:"PingFang SC","Microsoft YaHei","Helvetica Neue",sans-serif;
+    background:#f2f5f9;color:#1f2937;line-height:1.85;font-size:16px;
+    -webkit-text-size-adjust:100%;padding-bottom:96px;
+  }
+  a{text-decoration:none;}
+  .wrap{max-width:720px;margin:0 auto;background:#ffffff;min-height:100vh;box-shadow:0 0 20px rgba(15,23,42,.06);}
+
+  .topbar{
+    background:#ffffff;border-bottom:1px solid #e5e9f0;
+    padding:12px 18px;display:flex;align-items:center;justify-content:space-between;
+    position:sticky;top:0;z-index:50;
+  }
+  .topbar .logo{font-size:15px;font-weight:bold;color:#0f172a;letter-spacing:.5px;}
+  .topbar a{color:#2563eb;font-size:13px;border:1px solid #dbe3ee;padding:5px 12px;border-radius:16px;}
+
+  .hero{
+    background:linear-gradient(165deg,#eef4ff 0%,#dbeafe 100%);
+    padding:38px 22px 34px;text-align:center;position:relative;overflow:hidden;
+    display:flex;flex-direction:column;align-items:center;
+  }
+  .hero .badge{
+    display:inline-block;background:#2563eb;color:#fff;font-size:12px;font-weight:bold;
+    padding:6px 18px;border-radius:20px;letter-spacing:1px;margin:0 auto 14px;position:relative;z-index:2;
+    box-shadow:0 3px 10px rgba(37,99,235,.35);
+  }
+  .hero h1{font-size:24px;color:#0f172a;line-height:1.45;position:relative;z-index:2;font-weight:800;max-width:100%;}
+  .hero .sub{color:#334155;font-size:14px;margin-top:12px;position:relative;z-index:2;}
+  .points{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:18px;position:relative;z-index:2;}
+  .points span{
+    background:#fff;border:1px solid #cddcf5;font-size:12px;padding:5px 12px;
+    border-radius:16px;color:#1e40af;box-shadow:0 1px 3px rgba(15,23,42,.06);
+  }
+
+  .btn{
+    display:block;text-align:center;color:#fff;font-size:17px;font-weight:bold;letter-spacing:.5px;
+    padding:16px 0;border-radius:14px;margin:12px 0;box-shadow:0 3px 10px rgba(37,99,235,.22);
+    transition:transform .12s;
+  }
+  .btn:active{transform:scale(.98);}
+  .btn.blue{background:linear-gradient(135deg,#2563eb,#1d4ed8);}
+  .btn.orange{background:linear-gradient(135deg,#f59e0b,#ea580c);box-shadow:0 3px 10px rgba(234,88,12,.25);}
+  .btn.purple{background:linear-gradient(135deg,#7c3aed,#5b21b6);box-shadow:0 3px 10px rgba(124,58,237,.22);}
+  .btn.green{background:linear-gradient(135deg,#059669,#047857);box-shadow:0 3px 10px rgba(5,150,105,.22);}
+  .btn.pending{background:linear-gradient(135deg,#94a3b8,#64748b)!important;box-shadow:none;}
+  .btn.info{background:linear-gradient(135deg,#0891b2,#0e7490)!important;box-shadow:0 3px 10px rgba(8,145,178,.25);}
+  .heropic{width:88px;height:88px;border-radius:50%;border:3px solid #fff;box-shadow:0 4px 12px rgba(15,23,42,.18);margin-bottom:12px;object-fit:cover;}
+  .btn .small{display:block;font-size:12px;font-weight:normal;opacity:.92;margin-top:3px;letter-spacing:0;}
+
+  section{padding:28px 20px 6px;}
+  h2{font-size:20px;color:#0f172a;margin-bottom:14px;padding-left:12px;border-left:5px solid #2563eb;line-height:1.4;font-weight:800;}
+  h3{font-size:16px;color:#2563eb;margin:18px 0 8px;font-weight:700;}
+  p{margin-bottom:12px;color:#374151;}
+  strong{color:#b45309;}
+  em{color:#dc2626;font-style:normal;font-weight:bold;}
+
+  .card{background:#f8fafc;border:1px solid #e5e9f0;border-radius:14px;padding:18px;margin:14px 0;}
+  .card h4{color:#1e40af;font-size:16px;margin-bottom:8px;}
+  .card.gold{background:#fffbeb;border-color:#fde68a;}
+  .card.gold h4{color:#b45309;}
+  .card.warn{background:#fef2f2;border-color:#fecaca;}
+  .card.warn h4{color:#dc2626;}
+  .divider{text-align:center;color:#94a3b8;font-size:12px;margin:30px 0 0;letter-spacing:4px;}
+
+  .step{display:flex;gap:12px;margin-bottom:18px;}
+  .step .no{flex:0 0 30px;height:30px;border-radius:50%;background:#2563eb;color:#fff;font-weight:bold;text-align:center;line-height:30px;font-size:15px;}
+  .step .body{flex:1;}
+  .step .body h4{color:#0f172a;font-size:16px;margin-bottom:6px;}
+
+  ul.codes{list-style:none;}
+  ul.codes li{
+    background:#f8fafc;border:1px dashed #cbd5e1;border-radius:12px;padding:12px;margin-bottom:8px;
+    display:flex;align-items:center;gap:10px;
+  }
+  ul.codes li .code{flex:0 0 auto;font-size:16px;font-weight:800;color:#1e40af;letter-spacing:1px;font-family:Consolas,Monaco,monospace;}
+  ul.codes li .desc{flex:1;font-size:13px;color:#475569;line-height:1.65;}
+  ul.codes li .cp{flex:0 0 auto;background:#2563eb;color:#fff;border:0;border-radius:8px;font-size:12px;padding:7px 12px;cursor:pointer;}
+  ul.codes li .cp.ok{background:#059669;}
+
+  .tip{background:#fffbeb;border-left:4px solid #f59e0b;padding:13px 15px;border-radius:0 12px 12px 0;margin:14px 0;font-size:15px;color:#78350f;}
+  .alarm{background:#fef2f2;border-left:4px solid #dc2626;padding:13px 15px;border-radius:0 12px 12px 0;margin:14px 0;font-size:15px;color:#7f1d1d;}
+  .alarm strong{color:#dc2626;}
+  .tag{display:inline-block;background:#2563eb;color:#fff;font-weight:bold;border-radius:6px;padding:2px 10px;font-size:13px;margin-right:6px;}
+
+  .welfare img{width:100%;border-radius:14px;display:block;margin:10px 0;}
+  .welfare .ph{background:#f1f5f9;border:1px dashed #cbd5e1;border-radius:14px;padding:26px;text-align:center;color:#94a3b8;font-size:14px;}
+
+  .bar{
+    position:fixed;left:0;right:0;bottom:0;z-index:60;background:rgba(255,255,255,.97);
+    border-top:1px solid #e5e9f0;display:flex;gap:8px;padding:10px 12px;max-width:720px;margin:0 auto;
+    box-shadow:0 -2px 12px rgba(15,23,42,.06);
+  }
+  .bar a{flex:1;text-align:center;font-size:15px;font-weight:bold;padding:12px 0;border-radius:12px;color:#fff;}
+  .bar .b1{background:linear-gradient(135deg,#2563eb,#1d4ed8);padding:12px 0;border-radius:var(--radius);color:#fff;}
+  .bar .b2{background:linear-gradient(135deg,#f59e0b,#ea580c);padding:12px 0;border-radius:var(--radius);color:#fff;}
+  .bar .b3{background:linear-gradient(135deg,#7c3aed,#5b21b6);padding:12px 0;border-radius:var(--radius);color:#fff;}
+  .bar .off{opacity:.55;filter:grayscale(.4);}
+  .footer{text-align:center;color:#94a3b8;font-size:12px;padding:30px 20px 0;line-height:2;}
+  /* 返回主站按钮 */
+  .topbar .back{background:#2563eb;color:#fff;border:0;font-size:13px;font-weight:bold;padding:6px 14px;border-radius:16px;box-shadow:0 2px 6px rgba(37,99,235,.25);}
+  /* 邀请码 */
+  .invite{background:#fffbeb;border:1px solid #fde68a;border-radius:14px;padding:16px;margin:14px 0;text-align:center;}
+  .invite-t{font-size:14px;color:#92400e;font-weight:bold;}
+  .invite-row{display:flex;align-items:center;justify-content:center;gap:10px;margin:10px 0 6px;}
+  .invite-code{font-family:Consolas,Monaco,monospace;font-size:24px;font-weight:800;color:#b45309;letter-spacing:3px;}
+  .cp-big{background:#f59e0b;color:#fff;border:0;border-radius:10px;padding:10px 18px;font-size:14px;font-weight:bold;cursor:pointer;}
+  .cp-big.ok{background:#059669;}
+  .invite-tip{font-size:12px;color:#a16207;}
+  /* 攻略正文 */
+  .guide{margin-top:4px;}
+  .guide-title{font-size:20px;color:#0f172a;margin-bottom:14px;padding-left:12px;border-left:5px solid #2563eb;line-height:1.4;font-weight:800;}
+  .guide .gsec-divider{text-align:center;color:#94a3b8;font-size:12px;margin:26px 0 10px;letter-spacing:3px;}
+  .guide h3.section-head{font-size:17px;color:#0f172a;margin:22px 0 14px;padding:10px 14px;background:#f1f5f9;border-radius:10px;border-left:4px solid #2563eb;font-weight:800;}
+  .guide .gcard{background:#f8fafc;border:1px solid #e5e9f0;border-radius:14px;padding:16px;margin:14px 0;}
+  .guide .gcard h4{color:#1e40af;font-size:15px;margin-bottom:10px;font-weight:800;}
+  .guide .gcard>:last-child{margin-bottom:0;}
+  .guide p{margin-bottom:14px;color:#374151;line-height:1.85;}
+  .guide p:last-child{margin-bottom:0;}
+  .guide ul.glist{list-style:none;margin:10px 0 14px;}
+  .guide ul.glist li{position:relative;padding-left:22px;margin-bottom:8px;color:#374151;line-height:1.7;}
+  .guide ul.glist li::before{content:"";position:absolute;left:6px;top:10px;width:6px;height:6px;border-radius:50%;background:#2563eb;}
+  .guide .gtip{background:#fffbeb;border-left:4px solid #f59e0b;padding:12px 14px;border-radius:0 12px 12px 0;margin:14px 0;font-size:14px;color:#78350f;}
+  .guide .galarm{background:#fef2f2;border-left:4px solid #dc2626;padding:12px 14px;border-radius:0 12px 12px 0;margin:14px 0;font-size:14px;color:#7f1d1d;}
+  .guide .gday{display:flex;gap:12px;margin-bottom:16px;}
+  .guide .gday .no{flex:0 0 46px;height:46px;border-radius:12px;background:#2563eb;color:#fff;font-weight:bold;text-align:center;font-size:12px;display:flex;align-items:center;justify-content:center;line-height:1.2;padding:4px;}
+  .guide .gday .body{flex:1;background:#f8fafc;border:1px solid #e5e9f0;border-radius:14px;padding:14px 16px;}
+  .guide .gday .body h4{color:#1e40af;font-size:15px;margin-bottom:6px;font-weight:800;}
+  .guide .gday .body p{margin-bottom:0;}
+  /* 福利图 */
+  .welfare img{width:100%;border-radius:14px;display:block;margin:10px 0;box-shadow:0 4px 14px rgba(15,23,42,.12);}
+  .muted{font-size:13px;color:#94a3b8;}
+  /* 正文里内联的兑换码 + 复制键 */
+  .cc{display:inline-flex;align-items:center;gap:6px;vertical-align:middle;margin:0 2px;}
+  .cc b{font-family:Consolas,Monaco,monospace;font-size:14px;color:#b45309;background:#fffbeb;
+    border:1px solid #fde68a;border-radius:6px;padding:1px 6px;letter-spacing:.5px;font-weight:800;}
+  .cc .cp{background:#f59e0b;color:#fff;border:0;border-radius:6px;padding:2px 8px;font-size:11px;
+    font-weight:bold;cursor:pointer;line-height:1.6;}
+  .cc .cp.ok{background:#059669;}
+  .bar .b4{background:linear-gradient(135deg,#0f172a,#334155);padding:12px 0;border-radius:var(--radius);color:#fff;flex:0 0 84px;font-size:14px;}
+  .toast{position:fixed;left:50%;bottom:96px;transform:translateX(-50%);background:rgba(15,23,42,.9);color:#fff;
+    font-size:14px;padding:10px 18px;border-radius:20px;opacity:0;transition:opacity .25s;pointer-events:none;z-index:99;}
+  .toast.show{opacity:1;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="topbar">
+    <div class="logo">🎮  时尚百货城</div>
+    <a class="back" href="../index.html">🏠 返回主站</a>
+  </div>
+
+  <div class="hero">
+    <img class="heropic" src="assets/icons/g20.jpg" alt="">
+    <div class="badge">精品版本 · 丝滑畅玩</div>
+    <h1>时尚百货城</h1>
+    <p class="sub">不卡不掉 · 持续更新<br>我们只想给各位玩家一个长久的家</p>
+    <div class="points"><span>✅ 不卡不掉</span><span>✅ 持续更新</span><span>✅ 安卓苹果双端</span></div>
+  </div>
+
+  <section>
+    <a class="btn blue" href="https://ssbh.q1zx.com/?p=10452" target="_blank" rel="noopener">📝 点击注册账号（1 分钟搞定）<span class="small">必须走这个链接注册，否则无售后</span></a>
+    <a class="btn orange" href="https://dh.cnmcdn.uk/SSB" target="_blank" rel="noopener">⬇ 点击下载游戏（安卓 / 苹果通用）<span class="small">安装后选「账号密码登录」</span></a>
+    
+  </section>
+
+  <div class="divider">—·— 三 步 开 玩 —·—</div>
+
+  <section>
+    <h2>一、三步开玩（点一下就走，两分钟进游戏）</h2>
+    <div class="step">
+      <div class="no">1</div>
+      <div class="body">
+        <h4>注册账号</h4>
+        <p>点下面的按钮直接进注册页。这是<strong>唯一有效注册地址</strong>——不是从这个链接注册的<em>没有售后</em>。</p><a class="btn blue" href="https://ssbh.q1zx.com/?p=10452" target="_blank" rel="noopener">📝 点击注册账号</a>
+      </div>
+    </div>
+    <div class="step">
+      <div class="no">2</div>
+      <div class="body">
+        <h4>下载游戏</h4>
+        <p>点按钮直接下载，安卓苹果都能装。</p><a class="btn orange" href="https://dh.cnmcdn.uk/SSB" target="_blank" rel="noopener">⬇ 点击下载（主线路）</a>
+      </div>
+    </div>
+    <div class="step">
+      <div class="no">3</div>
+      <div class="body">
+        <h4>登录游戏</h4>
+        <p>打开游戏后，<strong>选择「账号密码登录」，不要用手机号登录</strong>，账号就是第 1 步注册的那个。</p>
+      </div>
+    </div>
+    <div class="card warn">
+      <h4>⚠️ 登录提示网络异常怎么办？</h4>
+      <p>装个「爱加速」，把本地网络切到<strong>上海</strong>再登录，基本一次解决。</p>
+      <a class="btn green" href="https://m.91ajs.com" target="_blank" rel="noopener">🔧 点击下载爱加速</a>
+    </div>
+  </section>
+
+  <div class="divider">—·— 进 服 先 领 —·—</div>
+  <section>
+    <h2>二、进服先白嫖：兑换码全部领满</h2>
+    <p class="muted">兑换路径：游戏内 设置 → 礼包兑换码（点右侧按钮可直接复制）</p>
+    <ul class="codes">
+      <li><span class="code">shishang2026527</span><span class="desc">进服直接兑，先领先爽</span><button class="cp" data-code="shishang2026527">复制</button></li>
+    </ul>
+    <a class="btn orange" href="https://dh.cnmcdn.uk/SSB" target="_blank" rel="noopener">还没下载？点击下载，马上领码 ⬇</a>
+  </section>
+
+  <div class="divider">—·— 新 手 起 号 攻 略 —·—</div>
+  <section>
+    <h2>新手起号全攻略（起号 + 充值 + 冠名）</h2>
+    <div class="guide">
+<h2 class="guide-title">新手起号全攻略！（起号 + 充值 + 冠名）</h2><p>开局即巅峰，轻松领先 90% 玩家！ 🚀</p><h3 class="section-head">一、福利速领：免费资源先到手（必做！）</h3><p>兑换码：立即输入 <span class="cc"><b>shishang2026527</b><button class="cp" data-code="shishang2026527">复制</button></span>，秒领 2888 乐淘币 + 38888 钻石 + 50 小时卡 + 500 分钟卡，这是开局最强助力！</p><p>公测福利：新账号自动发放，与兑换码奖励相同，双重福利拿到手软！</p><p>每日福利：完成日常任务达到 100 活跃度，每日稳定领取 188 乐淘币，积少成多，长期收益超可观！</p><p>充值比例：1 元 = 10 乐淘币，所有充值都按此比例计算，额外奖励另算！</p><h3 class="section-head">二、新手入门：10 元解锁黄金开局（永久限购 1 次）</h3><p>必买！必买！必买！ 重要的事情说三遍！</p><p>仅需 10 元，即可获得 888 乐淘币（远超普通充值的 100 乐淘币），性价比高达 8.88 倍！</p><p>这是游戏给新手的唯一 “永久特惠”，错过再无，直接拉开与零氪玩家的差距！</p><p>购买后立即激活累计充值进度，为后续领取高额返利打下基础！</p><h3 class="section-head">三、小氪玩家（预算 100-500 元）：花小钱办大事，性价比之王</h3><p>目标：快速成型，轻松碾压零氪，活动不掉队，体验完整游戏内容核心充值方案</p><p>第一步：先买 10 元新手礼包（必买，888 乐淘币）</p><p>第二步：充值至 100 元（累计），额外获得 200 乐淘币返利</p><p>总收益：1000 乐淘币（基础）+888 乐淘币（新手）+200 乐淘币（返利）=2088 乐淘币，价值 208.8 元，回本率超 200%！</p><p>进阶：预算充足可冲至 500 元（累计），额外再获 800 乐淘币返利</p><p>总收益：5000 乐淘币 + 888+200+800=6888 乐淘币，价值 688.8 元，回本率近 140%！</p><div class="gtip">消费优先级（划重点）</div><p>首选：购买小时卡 / 分钟卡，解放双手，离线也能自动升级刷装备，效率提升 10 倍！</p><p>次选：购买成长基金 / 等级礼包，通常可获得 5-10 倍返还，长期收益最高！</p><p>最后：适量购买稀缺资源，快速提升战力，确保能参与所有活动并拿到奖励！</p><p>小氪优势</p><p>轻松解锁 VIP 特权，每日额外奖励、副本次数增加，升级速度提升 30%</p><p>前期资源充足，避免卡关，游戏体验丝滑，告别 “肝帝” 模式</p><p>活动中竞争力强，能拿到更多稀有奖励，形成良性循环</p><h3 class="section-head">四、中氪玩家（预算 1000-5000 元）：全面领先，制霸服务器</h3><p>目标：成为服务器第一梯队，活动排名靠前，稀有道具拿到手软，游戏体验拉满核心充值方案</p><p>基础：先完成 500 元累计充值（获得 800 乐淘币返利）</p><p>冲刺：充值至 1000 元（累计），额外再获 1000 乐淘币返利</p><p>总收益：10000+888+200+800+1000=12888 乐淘币，价值 1288.8 元</p><p>进阶：冲击 2000 元（累计），再获 2000 乐淘币返利（总返利 3000+）</p><p>顶配：直接拉满 5000 元（累计），额外获得 6000 乐淘币超级返利</p><p>总收益：50000+888+200+800+1000+2000+6000=60888 乐淘币，价值 6088.8 元，净赚 1088 元！</p><p>消费策略（核心竞争力打造）</p><p>必买：终身卡 + 高级月卡，每日稳定获取大量资源，长期收益超 10 倍</p><p>重点：参与限定活动，购买稀有道具 / 限定外观，这些是拉开差距的关键</p><p>投资：强化核心战力（装备、宠物、技能），确保在 PVP 和 PVE 中都有统治力</p><p>囤货：适量囤积稀缺材料，应对版本更新，抢占先机中氪特权</p><p>VIP 等级大幅提升，解锁专属功能（自动战斗、快速扫荡、专属商店等）</p><p>活动中可获得额外奖励，稀有道具获取概率提升</p><p>解锁专属客服，问题快速解决，游戏体验无阻碍</p><p>成为公会核心成员，社交地位提升，组队优先被选</p><h3 class="section-head">五、大氪玩家（预算 10000 元以上）：全服仰望，掌控游戏节奏</h3><p>目标：服务器霸主，版本先行者，所有稀有道具 / 外观全收集，游戏体验无上限核心充值方案</p><p>基础：先完成 5000 元累计充值（获得 6000 乐淘币返利）</p><p>冲刺：充值至 10000 元（累计），额外再获 10000 乐淘币返利</p><p>总收益：100000+888+200+800+1000+2000+6000+10000=120888 乐淘币，价值 12088.8 元</p><p>顶配：直接冲击 20000 元（累计），额外获得 20000 乐淘币终极返利</p><p>总收益：200000 + 所有返利 = 230888 乐淘币，价值 23088.8 元，净赚 3088 元！</p><p>终极消费指南</p><p>全解锁：所有付费内容（礼包、基金、特权）全部拿下，不错过任何资源</p><p>定制化：针对版本强势玩法进行专项投资，确保战力领先 30% 以上</p><p>收藏控：收集所有限定外观、稀有道具，成为游戏中的 “传说”</p><p>社交王：赞助公会活动，提升影响力，成为服务器的 “精神领袖”大氪专属福利</p><p>顶级 VIP 特权：专属称号、专属坐骑、专属技能，彰显与众不同</p><p>版本前瞻：提前了解更新内容，制定最优策略，抢占市场先机</p><p>专属活动：参与官方举办的高端玩家活动，获得独家奖励</p><p>游戏建议权：你的意见将被官方重视，甚至影响游戏后续发展</p><h3 class="section-head">六、充值返利规则（错过血亏）</h3><p>累计充值达到对应金额，即可额外获得乐淘币奖励，可叠加领取！</p><ul class="glist"><li>100 元：200 乐淘币（额外 20%）</li><li>500 元：800 乐淘币（额外 16%）</li><li>1000 元：1000 乐淘币（额外 10%）</li><li>2000 元：2000 乐淘币（额外 10%）</li><li>5000 元：6000 乐淘币（额外 12%）</li><li>10000 元：10000 乐淘币（额外 10%）</li><li>20000 元：20000 乐淘币（额外 10%）</li></ul><p>举个例子：充值 5000 元，可获得 50000 基础乐淘币 + 200+800+1000+2000+6000=10000 返利乐淘币，总计 60000 乐淘币，相当于白嫖 1000 元！</p>
+    </div>
+  </section>
+
+
+  <div class="divider">—·— 官 方 充 值 —·—</div>
+  <section>
+    <h2>官方充值入口</h2>
+    <a class="btn purple" href="https://ssbh.q1zx.com/player/login" target="_blank" rel="noopener">💎 点击进入官方充值页<span class="small">首充 / 月卡 / 基金 / 冠名活动都在这里</span></a>
+  </section>
+
+  <section>
+    <h2>更多官方入口（按需使用）</h2>
+    <a class="btn green" href="https://ssbh.q1zx.com/index/cdk" target="_blank" rel="noopener">🔗 cdk 地址</a>
+    <a class="btn green" href="https://ssbh.q1zx.com/index/reward" target="_blank" rel="noopener">🔗 充值福利</a>
+    <a class="btn green" href="https://ssbh.q1zx.com/index/card" target="_blank" rel="noopener">🔗 卡类兑换</a>
+  </section>
+
+
+  <div class="divider">—·— 注 意 —·—</div>
+  <section>
+    <h2>防骗提醒</h2>
+    <div class="alarm">❗<strong>任何 QQ 群里的「折扣充值」「便宜充值」都是骗子，一律不要信！</strong>充值只走本页官方入口。</div>
+  </section>
+
+  <section>
+    <h2>玩腻了？主站还有几十款</h2>
+    <p>本站收录 <strong>35+ 款精品手游</strong>，全部免费领码、直接下载，随时回来换着玩。</p>
+    <a class="btn blue" href="../index.html">🏠 返回主站，看看还有什么好玩的</a>
+  </section>
+
+  <p class="footer">
+     时尚百货城 · 精品版本 · 丝滑畅玩<br>
+    我们只想给各位玩家一个长久的家<br>
+    建议收藏主站，游戏随便换着玩
+  </p>
+</div>
+
+<div class="bar">
+  <a class="b1" href="https://ssbh.q1zx.com/?p=10452" target="_blank" rel="noopener">注册账号</a>
+  <a class="b2" href="https://dh.cnmcdn.uk/SSB" target="_blank" rel="noopener">下载游戏</a>
+  <a class="b3" href="https://ssbh.q1zx.com/player/login" target="_blank" rel="noopener">立即充值</a>
+  <a class="b4" href="../index.html">🏠 主站</a>
+</div>
+
+<div class="toast" id="toast">已复制</div>
+<script>
+(function(){
+  var toastEl=document.getElementById('toast');
+  function toast(m){toastEl.textContent=m;toastEl.classList.add('show');clearTimeout(window.__t);
+    window.__t=setTimeout(function(){toastEl.classList.remove('show');},1500);}
+  function copy(text,btn){
+    var done=function(){if(btn){var o=btn.textContent;btn.textContent='已复制 ✓';btn.classList.add('ok');
+      setTimeout(function(){btn.textContent=o;btn.classList.remove('ok');},1500);}toast('已复制：'+text);};
+    if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(text).then(done,function(){fb(text,done);});}else{fb(text,done);}
+  }
+  function fb(text,done){
+    var ta=document.createElement('textarea');ta.value=text;ta.style.position='fixed';ta.style.opacity='0';
+    document.body.appendChild(ta);ta.select();
+    try{document.execCommand('copy');done();}catch(e){toast('复制失败，请长按手动选择');}
+    document.body.removeChild(ta);
+  }
+  var btns=document.querySelectorAll('.cp');
+  for(var i=0;i<btns.length;i++){btns[i].addEventListener('click',function(){copy(this.getAttribute('data-code'),this);});}
+})();
+</script>
+</body>
+</html>
