@@ -407,9 +407,9 @@
       <div class="qqnum" id="qqnum">2954935687</div>
       <div class="qqbtns">
         <button class="qqbtn copy" onclick="copyQQ(this)">复制 QQ 号</button>
-        <a class="qqbtn open" href="https://wpa.qq.com/msgrd?v=3&uin=2954935687&site=qq&menu=yes" target="_blank" rel="noopener">打开 QQ 咨询</a>
+        <a class="qqbtn open qqjump" href="https://wpa.qq.com/msgrd?v=3&uin=2954935687&site=qq&menu=yes" target="_blank" rel="noopener">添加 QQ 好友</a>
       </div>
-      <p class="qqtip">点【打开 QQ 咨询】直接唤起 QQ；如果没反应，复制上面的号去 QQ 搜索添加。<br>加好友<strong>必须备注「代理」，不备注一律不通过</strong>。</p>
+      <p class="qqtip">点【添加 QQ 好友】直接拉起 QQ 资料卡，点「加好友」即可；如果没反应，复制上面的号去 QQ 搜索添加。<br>加好友<strong>必须备注「代理」，不备注一律不通过</strong>。</p>
     </div>
   </section>
 
@@ -419,8 +419,19 @@
 
 <div class="bar">
   <a class="b1" href="/">返回主站</a>
-  <a class="b2" href="https://wpa.qq.com/msgrd?v=3&uin=2954935687&site=qq&menu=yes" target="_blank" rel="noopener">咨询合作</a>
+  <a class="b2 qqjump" href="https://wpa.qq.com/msgrd?v=3&uin=2954935687&site=qq&menu=yes" target="_blank" rel="noopener">咨询合作</a>
 </div>
+<script>
+/* QQ 加好友兜底：手机端用 mqqapi 拉起个人资料卡（不受临时会话权限限制），桌面保留 wpa */
+(function(){
+  if (/Mobile|Android|iPhone|iPad/i.test(navigator.userAgent)) {
+    document.querySelectorAll('a.qqjump').forEach(function(a){
+      a.href = 'mqqapi://card/show_pslcard?src_type=web&version=1&uin=2954935687&card_type=person&source=qrcode';
+      a.removeAttribute('target');
+    });
+  }
+})();
+</script>
 <script>
 function copyQQ(btn){
   var done=function(){btn.textContent='已复制 ✓';setTimeout(function(){btn.textContent='复制 QQ 号';},1600);};
@@ -430,4 +441,4 @@ function copyQQ(btn){
 </script>
 
 </body></html>
-<!-- build:mtymrzmc -->
+<!-- build:mtz0ute3 -->
