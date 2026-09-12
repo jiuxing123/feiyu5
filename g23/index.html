@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<base href="/">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>三国杀名将传最新版 —— 精品版本 · 丝滑畅玩</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{
+    font-family:"PingFang SC","Microsoft YaHei","Helvetica Neue",sans-serif;
+    background:#f2f5f9;color:#1f2937;line-height:1.85;font-size:16px;
+    -webkit-text-size-adjust:100%;padding-bottom:96px;
+  }
+  a{text-decoration:none;}
+  .wrap{max-width:720px;margin:0 auto;background:#ffffff;min-height:100vh;box-shadow:0 0 20px rgba(15,23,42,.06);}
+
+  .topbar{
+    background:#ffffff;border-bottom:1px solid #e5e9f0;
+    padding:12px 18px;display:flex;align-items:center;justify-content:space-between;
+    position:sticky;top:0;z-index:50;
+  }
+  .topbar .logo{font-size:15px;font-weight:bold;color:#0f172a;letter-spacing:.5px;}
+  .topbar a{color:#2563eb;font-size:13px;border:1px solid #dbe3ee;padding:5px 12px;border-radius:16px;}
+
+  .hero{
+    background:linear-gradient(165deg,#eef4ff 0%,#dbeafe 100%);
+    padding:38px 22px 34px;text-align:center;position:relative;overflow:hidden;
+    display:flex;flex-direction:column;align-items:center;
+  }
+  .hero .badge{
+    display:inline-block;background:#2563eb;color:#fff;font-size:12px;font-weight:bold;
+    padding:6px 18px;border-radius:20px;letter-spacing:1px;margin:0 auto 14px;position:relative;z-index:2;
+    box-shadow:0 3px 10px rgba(37,99,235,.35);
+  }
+  .hero h1{font-size:24px;color:#0f172a;line-height:1.45;position:relative;z-index:2;font-weight:800;max-width:100%;}
+  .hero .sub{color:#334155;font-size:14px;margin-top:12px;position:relative;z-index:2;}
+  .points{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:18px;position:relative;z-index:2;}
+  .points span{
+    background:#fff;border:1px solid #cddcf5;font-size:12px;padding:5px 12px;
+    border-radius:16px;color:#1e40af;box-shadow:0 1px 3px rgba(15,23,42,.06);
+  }
+
+  .btn{
+    display:block;text-align:center;color:#fff;font-size:17px;font-weight:bold;letter-spacing:.5px;
+    padding:16px 0;border-radius:14px;margin:12px 0;box-shadow:0 3px 10px rgba(37,99,235,.22);
+    transition:transform .12s;
+  }
+  .btn:active{transform:scale(.98);}
+  .btn.blue{background:linear-gradient(135deg,#2563eb,#1d4ed8);}
+  .btn.orange{background:linear-gradient(135deg,#f59e0b,#ea580c);box-shadow:0 3px 10px rgba(234,88,12,.25);}
+  .btn.purple{background:linear-gradient(135deg,#7c3aed,#5b21b6);box-shadow:0 3px 10px rgba(124,58,237,.22);}
+  .btn.green{background:linear-gradient(135deg,#059669,#047857);box-shadow:0 3px 10px rgba(5,150,105,.22);}
+  .btn.pending{background:linear-gradient(135deg,#94a3b8,#64748b)!important;box-shadow:none;}
+  .btn.info{background:linear-gradient(135deg,#0891b2,#0e7490)!important;box-shadow:0 3px 10px rgba(8,145,178,.25);}
+  .heropic{width:88px;height:88px;border-radius:50%;border:3px solid #fff;box-shadow:0 4px 12px rgba(15,23,42,.18);margin-bottom:12px;object-fit:cover;}
+  .btn .small{display:block;font-size:12px;font-weight:normal;opacity:.92;margin-top:3px;letter-spacing:0;}
+
+  section{padding:28px 20px 6px;}
+  h2{font-size:20px;color:#0f172a;margin-bottom:14px;padding-left:12px;border-left:5px solid #2563eb;line-height:1.4;font-weight:800;}
+  h3{font-size:16px;color:#2563eb;margin:18px 0 8px;font-weight:700;}
+  p{margin-bottom:12px;color:#374151;}
+  strong{color:#b45309;}
+  em{color:#dc2626;font-style:normal;font-weight:bold;}
+
+  .card{background:#f8fafc;border:1px solid #e5e9f0;border-radius:14px;padding:18px;margin:14px 0;}
+  .card h4{color:#1e40af;font-size:16px;margin-bottom:8px;}
+  .card.gold{background:#fffbeb;border-color:#fde68a;}
+  .card.gold h4{color:#b45309;}
+  .card.warn{background:#fef2f2;border-color:#fecaca;}
+  .card.warn h4{color:#dc2626;}
+  .divider{text-align:center;color:#94a3b8;font-size:12px;margin:30px 0 0;letter-spacing:4px;}
+
+  .step{display:flex;gap:12px;margin-bottom:18px;}
+  .step .no{flex:0 0 30px;height:30px;border-radius:50%;background:#2563eb;color:#fff;font-weight:bold;text-align:center;line-height:30px;font-size:15px;}
+  .step .body{flex:1;}
+  .step .body h4{color:#0f172a;font-size:16px;margin-bottom:6px;}
+
+  ul.codes{list-style:none;}
+  ul.codes li{
+    background:#f8fafc;border:1px dashed #cbd5e1;border-radius:12px;padding:12px;margin-bottom:8px;
+    display:flex;align-items:center;gap:10px;
+  }
+  ul.codes li .code{flex:0 0 auto;font-size:16px;font-weight:800;color:#1e40af;letter-spacing:1px;font-family:Consolas,Monaco,monospace;}
+  ul.codes li .desc{flex:1;font-size:13px;color:#475569;line-height:1.65;}
+  ul.codes li .cp{flex:0 0 auto;background:#2563eb;color:#fff;border:0;border-radius:8px;font-size:12px;padding:7px 12px;cursor:pointer;}
+  ul.codes li .cp.ok{background:#059669;}
+
+  .tip{background:#fffbeb;border-left:4px solid #f59e0b;padding:13px 15px;border-radius:0 12px 12px 0;margin:14px 0;font-size:15px;color:#78350f;}
+  .alarm{background:#fef2f2;border-left:4px solid #dc2626;padding:13px 15px;border-radius:0 12px 12px 0;margin:14px 0;font-size:15px;color:#7f1d1d;}
+  .alarm strong{color:#dc2626;}
+  .tag{display:inline-block;background:#2563eb;color:#fff;font-weight:bold;border-radius:6px;padding:2px 10px;font-size:13px;margin-right:6px;}
+
+  .welfare img{width:100%;border-radius:14px;display:block;margin:10px 0;}
+  .welfare .ph{background:#f1f5f9;border:1px dashed #cbd5e1;border-radius:14px;padding:26px;text-align:center;color:#94a3b8;font-size:14px;}
+
+  .bar{
+    position:fixed;left:0;right:0;bottom:0;z-index:60;background:rgba(255,255,255,.97);
+    border-top:1px solid #e5e9f0;display:flex;gap:8px;padding:10px 12px;max-width:720px;margin:0 auto;
+    box-shadow:0 -2px 12px rgba(15,23,42,.06);
+  }
+  .bar a{flex:1;text-align:center;font-size:15px;font-weight:bold;padding:12px 0;border-radius:12px;color:#fff;}
+  .bar .b1{background:linear-gradient(135deg,#2563eb,#1d4ed8);padding:12px 0;border-radius:var(--radius);color:#fff;}
+  .bar .b2{background:linear-gradient(135deg,#f59e0b,#ea580c);padding:12px 0;border-radius:var(--radius);color:#fff;}
+  .bar .b3{background:linear-gradient(135deg,#7c3aed,#5b21b6);padding:12px 0;border-radius:var(--radius);color:#fff;}
+  .bar .off{opacity:.55;filter:grayscale(.4);}
+  .footer{text-align:center;color:#94a3b8;font-size:12px;padding:30px 20px 0;line-height:2;}
+  /* 返回主站按钮 */
+  .topbar .back{background:#2563eb;color:#fff;border:0;font-size:13px;font-weight:bold;padding:6px 14px;border-radius:16px;box-shadow:0 2px 6px rgba(37,99,235,.25);}
+  /* 邀请码 */
+  .invite{background:#fffbeb;border:1px solid #fde68a;border-radius:14px;padding:16px;margin:14px 0;text-align:center;}
+  .invite-t{font-size:14px;color:#92400e;font-weight:bold;}
+  .invite-row{display:flex;align-items:center;justify-content:center;gap:10px;margin:10px 0 6px;}
+  .invite-code{font-family:Consolas,Monaco,monospace;font-size:24px;font-weight:800;color:#b45309;letter-spacing:3px;}
+  .cp-big{background:#f59e0b;color:#fff;border:0;border-radius:10px;padding:10px 18px;font-size:14px;font-weight:bold;cursor:pointer;}
+  .cp-big.ok{background:#059669;}
+  .invite-tip{font-size:12px;color:#a16207;}
+  /* 攻略正文 */
+  .guide{margin-top:4px;}
+  .guide-title{font-size:20px;color:#0f172a;margin-bottom:14px;padding-left:12px;border-left:5px solid #2563eb;line-height:1.4;font-weight:800;}
+  .guide .gsec-divider{text-align:center;color:#94a3b8;font-size:12px;margin:26px 0 10px;letter-spacing:3px;}
+  .guide h3.section-head{font-size:17px;color:#0f172a;margin:22px 0 14px;padding:10px 14px;background:#f1f5f9;border-radius:10px;border-left:4px solid #2563eb;font-weight:800;}
+  .guide .gcard{background:#f8fafc;border:1px solid #e5e9f0;border-radius:14px;padding:16px;margin:14px 0;}
+  .guide .gcard h4{color:#1e40af;font-size:15px;margin-bottom:10px;font-weight:800;}
+  .guide .gcard>:last-child{margin-bottom:0;}
+  .guide p{margin-bottom:14px;color:#374151;line-height:1.85;}
+  .guide p:last-child{margin-bottom:0;}
+  .guide ul.glist{list-style:none;margin:10px 0 14px;}
+  .guide ul.glist li{position:relative;padding-left:22px;margin-bottom:8px;color:#374151;line-height:1.7;}
+  .guide ul.glist li::before{content:"";position:absolute;left:6px;top:10px;width:6px;height:6px;border-radius:50%;background:#2563eb;}
+  .guide .gtip{background:#fffbeb;border-left:4px solid #f59e0b;padding:12px 14px;border-radius:0 12px 12px 0;margin:14px 0;font-size:14px;color:#78350f;}
+  .guide .galarm{background:#fef2f2;border-left:4px solid #dc2626;padding:12px 14px;border-radius:0 12px 12px 0;margin:14px 0;font-size:14px;color:#7f1d1d;}
+  .guide .gday{display:flex;gap:12px;margin-bottom:16px;}
+  .guide .gday .no{flex:0 0 46px;height:46px;border-radius:12px;background:#2563eb;color:#fff;font-weight:bold;text-align:center;font-size:12px;display:flex;align-items:center;justify-content:center;line-height:1.2;padding:4px;}
+  .guide .gday .body{flex:1;background:#f8fafc;border:1px solid #e5e9f0;border-radius:14px;padding:14px 16px;}
+  .guide .gday .body h4{color:#1e40af;font-size:15px;margin-bottom:6px;font-weight:800;}
+  .guide .gday .body p{margin-bottom:0;}
+  /* 福利图 */
+  .welfare img{width:100%;border-radius:14px;display:block;margin:10px 0;box-shadow:0 4px 14px rgba(15,23,42,.12);}
+  .muted{font-size:13px;color:#94a3b8;}
+  /* 正文里内联的兑换码 + 复制键 */
+  .cc{display:inline-flex;align-items:center;gap:6px;vertical-align:middle;margin:0 2px;}
+  .cc b{font-family:Consolas,Monaco,monospace;font-size:14px;color:#b45309;background:#fffbeb;
+    border:1px solid #fde68a;border-radius:6px;padding:1px 6px;letter-spacing:.5px;font-weight:800;}
+  .cc .cp{background:#f59e0b;color:#fff;border:0;border-radius:6px;padding:2px 8px;font-size:11px;
+    font-weight:bold;cursor:pointer;line-height:1.6;}
+  .cc .cp.ok{background:#059669;}
+  .bar .b4{background:linear-gradient(135deg,#0f172a,#334155);padding:12px 0;border-radius:var(--radius);color:#fff;flex:0 0 84px;font-size:14px;}
+  .toast{position:fixed;left:50%;bottom:96px;transform:translateX(-50%);background:rgba(15,23,42,.9);color:#fff;
+    font-size:14px;padding:10px 18px;border-radius:20px;opacity:0;transition:opacity .25s;pointer-events:none;z-index:99;}
+  .toast.show{opacity:1;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="topbar">
+    <div class="logo">🎮  三国杀名将传最新版</div>
+    <a class="back" href="../index.html">🏠 返回主站</a>
+  </div>
+
+  <div class="hero">
+    <img class="heropic" src="assets/icons/g23.jpg" alt="">
+    <div class="badge">精品版本 · 丝滑畅玩</div>
+    <h1>三国杀名将传最新版</h1>
+    <p class="sub">不卡不掉 · 持续更新<br>我们只想给各位玩家一个长久的家</p>
+    <div class="points"><span>✅ 不卡不掉</span><span>✅ 持续更新</span><span>✅ 安卓苹果双端</span></div>
+  </div>
+
+  <section>
+    <a class="btn blue" href="https://newsgs.zce8.com/?p=10763" target="_blank" rel="noopener">📝 点击注册账号（1 分钟搞定）<span class="small">必须走这个链接注册，否则无售后</span></a>
+    <a class="btn orange" href="https://tt.ppba.top/N7WE" target="_blank" rel="noopener">⬇ 点击下载游戏（安卓 / 苹果通用）<span class="small">安装后选「账号密码登录」</span></a>
+    
+  </section>
+
+  <div class="divider">—·— 三 步 开 玩 —·—</div>
+
+  <section>
+    <h2>一、三步开玩（点一下就走，两分钟进游戏）</h2>
+    <div class="step">
+      <div class="no">1</div>
+      <div class="body">
+        <h4>注册账号</h4>
+        <p>点下面的按钮直接进注册页。这是<strong>唯一有效注册地址</strong>——不是从这个链接注册的<em>没有售后</em>。</p><a class="btn blue" href="https://newsgs.zce8.com/?p=10763" target="_blank" rel="noopener">📝 点击注册账号</a>
+      </div>
+    </div>
+    <div class="step">
+      <div class="no">2</div>
+      <div class="body">
+        <h4>下载游戏</h4>
+        <p>点按钮直接下载，安卓苹果都能装。</p><a class="btn orange" href="https://tt.ppba.top/N7WE" target="_blank" rel="noopener">⬇ 点击下载（主线路）</a>
+      </div>
+    </div>
+    <div class="step">
+      <div class="no">3</div>
+      <div class="body">
+        <h4>登录游戏</h4>
+        <p>打开游戏后，<strong>选择「账号密码登录」，不要用手机号登录</strong>，账号就是第 1 步注册的那个。</p>
+      </div>
+    </div>
+    <div class="card warn">
+      <h4>⚠️ 登录提示网络异常怎么办？</h4>
+      <p>装个「爱加速」，把本地网络切到<strong>上海</strong>再登录，基本一次解决。</p>
+      <a class="btn green" href="https://m.91ajs.com" target="_blank" rel="noopener">🔧 点击下载爱加速</a>
+    </div>
+  </section>
+
+  <div class="divider">—·— 进 服 先 领 —·—</div>
+  <section>
+    <h2>二、进服先白嫖：兑换码全部领满</h2>
+    <p class="muted">兑换路径：游戏内 设置 → 礼包兑换码（点右侧按钮可直接复制）</p>
+    <ul class="codes">
+      <li><span class="code">sgs2026</span><span class="desc">进服直接兑，先领先爽</span><button class="cp" data-code="sgs2026">复制</button></li>
+    </ul>
+    <a class="btn orange" href="https://tt.ppba.top/N7WE" target="_blank" rel="noopener">还没下载？点击下载，马上领码 ⬇</a>
+  </section>
+
+  <div class="divider">—·— 新 手 起 号 攻 略 —·—</div>
+  <section>
+    <h2>新手起号全攻略（起号 + 充值 + 冠名）</h2>
+    <div class="guide">
+<h2 class="guide-title">新手起号全攻略！（起号 + 充值 + 冠名）</h2><ul class="glist"><li>🎁 新手开局必领福利，零成本拉满初始优势</li></ul><p>上线第一件事，先把免费福利全部薅满，直接开局领先全服 99% 的玩家！</p><ul class="glist"><li>✅ 上线新手礼包（线下 - 主页领取）：直接解锁贵族 17（全特权拉满，所有 VIP 福利直接享），还有 666666 元宝、588888 玉璧、188888W 银币、金将任选箱 ×16、招贤榜 ×300、玄黄套装任选箱 ×4、九霄装备任选箱 ×4！别人还在慢慢抽卡攒资源，你开局就有 16 个金将任选，直接凑满 6 人毕业阵容，还有顶级玄黄 / 九霄装备，穿满就有海量战力，推图、竞技场直接横着走！</li><li>✅ 每日永久 CDK：<span class="cc"><b>sgs2026</b><button class="cp" data-code="sgs2026">复制</button></span> 每天都能领！奖励包含：九霄碎片任选箱 ×30、元宝 ×100000、玉璧 ×1w、宝物铭刻石任选箱 ×500！哪怕是零氪玩家，每天领这些资源，积少成多也能慢慢拉满养成，白嫖也能玩得爽，完全不用肝！</li></ul><p>新手起号核心步骤，一步到位不踩坑</p><p>领完福利，跟着这几步走，直接快速成型，冲排行榜：</p><p>阵容瞬间毕业：用送的 16 个金将任选箱，直接选版本 T0 强势金将，凑满 6 人完整主力队，不用抽卡、不用等，开局就有完全体阵容，推图无压力！</p><p>装备直接拉满：用玄黄、九霄装备任选箱，给主力角色穿满毕业级装备，瞬间提升几十万战力，开局就有顶级装备，碾压同阶段玩家！</p><p>养成一键拉满：用海量元宝、玉璧、银币，直接拉满角色等级、技能、装备强化、宝物、命格等所有养成项，战力瞬间暴涨，直接冲竞技场、推图排行榜！</p><p>充值规划落地：根据自己的预算，选择对应档位的充值，吃满首充双倍、每日返利、累计返利，花最少的钱，拿最多的资源，越充越强！</p><p>滚雪球变强：冲排行榜拿额外奖励，用奖励继续养成，战力越来越高，全程碾压，越玩越爽！</p><ul class="glist"><li>💰 分档充值攻略：精准预算，花一分钱拿十分收益</li><li>💸 小氪玩家（预算 0-300 元：零氪 / 微氪，轻松躺平玩）</li></ul><p>适合不想花太多钱，又想玩得舒服、不肝不氪的玩家！✅ 零氪玩法：只靠上线福利 + 每日 CDK，就有贵族 17、海量资源、满配金将、毕业装备，开局就能玩，慢慢攒资源养成，所有玩法都能体验，完全不用花钱，白嫖党福音！</p><ul class="glist"><li>✅ 微氪（30-100 元，性价比天花板）：必入至尊月卡（30 元）：购买立刻拿 60000 玉璧，之后 30 天每天领 1500 玉璧 + 1000 精卫铭刻石！30 元直接拿 105000 玉璧 + 海量铭刻石，长期收益拉满，每天白嫖资源，养成无压力，月卡党必入！预算够的话，补豪华月卡（18 元）：立刻拿 36000 玉璧，7 天每天领 2000 玉璧 + 1000 烛龙铭刻石，短期爆发拉满，开局直接多拿 5w 玉璧，战力瞬间提升！再补 100 元首充档位：首充双倍，100 元直接拿 400000 玉璧！还能吃每日充值奖励，拿金将任选箱、红将箱、海量元宝玉璧，还有累计充值 100 元的奖励，晋将变身卡、礼计周易任选箱等，直接拉开和零氪的差距，轻松上榜！</li><li>💡 小氪优势：花几十块，直接月卡拉满，每天白嫖资源，开局就比零氪多几十万玉璧，战力碾压，推图、竞技场轻松上榜，拿更多奖励，越玩越爽，不用肝，躺着拿资源！</li><li>🎯 中氪玩家（预算 300-2000 元：全面成型，霸服种子选手）</li></ul><p>适合想成为区服第一梯队，冲排行榜、拿区服荣誉的玩家！✅ 必买核心项（性价比拉满）：</p><p>全月卡 + 特权拉满：至尊月卡 30 + 豪华月卡 18 + 矿战特权 198 + 至尊绘卷 98，全部拿下！</p><p>矿战特权 198 元：立刻拿 198000 玉璧 + 198000 元宝，还激活 7 天矿战特权，矿战是核心资源玩法，特权直接拉满收益，7 天下来资源爆炸，直接拉开和小氪的差距！</p><p>至尊绘卷 98 元：开启山河绘卷 2 阶奖励，拿海量养成资源，长期收益拉满，绘卷玩法直接领先！</p><p>首充档位拉满到 1000 元：首充双倍，1000 元直接拿 4000000 玉璧！海量玉璧直接拉满所有养成，阵容、装备、宝物全毕业！</p><p>永久限购礼包必入：新手助力礼包 288 元、新手超值礼包 588 元，角色永久限购一次，错过就没！</p><p>288 元拿 288000 玉璧 + 汉将变身卡 + 顶级命格 + 海量礼盒，直接拉满开局资源！</p><p>588 元拿 588000 玉璧 + 晋变身卡 + 神赵云 + 海量资源，瞬间提升顶级战力！</p><p>高性价比礼包补全：豪恬礼包 200、淬魂命魂礼包 250 等，拿顶级名将、专属武器、淬魂丹，进一步拉满战力！</p><p>每日 / 累计返利吃满：每日充值拉到 500-1000，拿每日充值的顶级奖励（金将箱、装备箱、海量元宝玉璧），累计充值到 1000-2000，拿累计充值的金色神兽、金色宝物、顶级变身卡等，直接完全体！</p><ul class="glist"><li>💡 中氪优势：花几千块，直接成为区服第一梯队，开局满配金将、毕业装备、海量资源，冲排行榜拿区服冠名，全服玩家仰望，所有玩法横着走，推图、竞技场、矿战、跨服战全程碾压，而且所有充值都吃返利，等于充的钱都变双倍资源，越充越强，滚雪球霸服！</li><li>👑 大氪玩家（预算 2000 元以上：区服霸主，全服天花板）</li></ul><p>适合想直接拉满所有内容，成为区服唯一霸主、全服无敌的玩家！✅ 核心操作：全拉满，直接毕业：</p><p>首充档位拉满到 5000 元：首充双倍，5000 元直接拿 20000000 玉璧！瞬间拉满所有养成，所有资源直接拉满，不用等、不用肝，开局就是毕业！</p><p>所有特权 / 月卡 / 绘卷全买：矿战特权 198、至尊绘卷 98、至尊月卡 30、豪华月卡 18，全部拿下，所有特权全开，所有资源收益拉满，每天拿海量资源，战力持续暴涨！</p><p>所有礼包套餐全清空：新手助力、新手超值、豪恬、淬魂命魂、天降鸿福礼盒、神赵云、魔夏侯惇、红色神机、附魔丹、超级特惠等所有礼包，全部拿下！直接拿满所有名将、专属武器、顶级资源、贵族经验，瞬间全角色满配！</p><p>每日充值拉满到 20000 元：每日充 2w，拿每日充值的顶级奖励，海量玄黄装备、金色宝物、特性玉石、红色神武、海量元宝玉璧，每天都拿顶级资源，战力每天暴涨，永远领先全服！</p><p>累计充值拉满 20000+：拿累计充值的顶级奖励，宏图限定汉将、耀耀大地汉将、金色神兽、金色宝物、八荒・饕餮戟、伏羲琴等顶级毕业道具，直接全养成拉满，成为全服天花板！</p><p>区服冠名专属荣誉：该区首位累计充值达到 2w 的玩家，可联系客服申请区服冠名！全服唯一冠名，所有玩家都能看到你的名字，排面拉满，专属荣誉，成为区服真正的主人！</p><ul class="glist"><li>💡 大氪优势：直接拉满所有内容，开局就是全服无敌，区服冠名，专属荣誉，所有玩法制霸，跨服战碾压一切，享受顶级游戏体验！所有充值都吃海量返利，充的越多，送的越多，资源爆炸，永远领先全服，永远第一！</li><li>🎁 充值核心福利：越充越赚，福利拿到手软</li></ul><p>所有充值都能吃满三重福利，等于充钱还送钱，越充越赚！</p><p>首充双倍：所有充值档位首充都有双倍！等于直接白嫖一半玉璧，充 100 拿 200 的玉璧，充 1000 拿 2000 的玉璧，首充一定要拉满对应档位，不充就是亏！</p><p>每日充值返利：所有线上充值、礼包都参与每日充值奖励！每日充的越多，拿的奖励越顶级，海量金将、装备、元宝、玉璧，每天都拿，越充越赚！</p><p>累计充值返利：历史所有充值都算累计！充的越多，累计奖励越顶级，拿金色神兽、金色宝物、顶级名将、专属装备等，直接毕业，越充越强！</p><p>区服冠名特权：累计充值 2w，直接申请区服冠名，全服唯一，排面拉满，专属荣誉，成为区服的象征！</p><ul class="glist"><li>💥 最后提醒：错过就是亏，现在冲直接领先</li></ul><p>所有永久限购礼包、首充双倍，都是只有一次机会，错过就再也没有！现在充值，直接拉满开局，领先别人一大截，别人还在慢慢攒资源，你已经满配毕业，全程碾压！</p><p>不管你是零氪、小氪、中氪还是大氪，都能找到适合自己的玩法，花最少的钱，拿最多的收益，玩得最爽！现在就上线，领福利、冲战力、霸全服，开启你的三国传奇！</p>
+    </div>
+  </section>
+
+  <div class="divider">—·— 活 动 福 利 图 —·—</div>
+  <section>
+    <h2>充值活动福利图</h2>
+    
+    
+    <div class="welfare">
+      <img src="assets/welfare/g23_1.jpg" alt="充值活动福利图" loading="lazy">
+    </div>
+  </section>
+
+  <div class="divider">—·— 官 方 充 值 —·—</div>
+  <section>
+    <h2>官方充值入口</h2>
+    <a class="btn purple" href="https://newsgs.zce8.com/player/login" target="_blank" rel="noopener">💎 点击进入官方充值页<span class="small">首充 / 月卡 / 基金 / 冠名活动都在这里</span></a>
+  </section>
+
+
+
+  <div class="divider">—·— 注 意 —·—</div>
+  <section>
+    <h2>防骗提醒</h2>
+    <div class="alarm">❗<strong>任何 QQ 群里的「折扣充值」「便宜充值」都是骗子，一律不要信！</strong>充值只走本页官方入口。</div>
+  </section>
+
+  <section>
+    <h2>玩腻了？主站还有几十款</h2>
+    <p>本站收录 <strong>35+ 款精品手游</strong>，全部免费领码、直接下载，随时回来换着玩。</p>
+    <a class="btn blue" href="../index.html">🏠 返回主站，看看还有什么好玩的</a>
+  </section>
+
+  <p class="footer">
+     三国杀名将传最新版 · 精品版本 · 丝滑畅玩<br>
+    我们只想给各位玩家一个长久的家<br>
+    建议收藏主站，游戏随便换着玩
+  </p>
+</div>
+
+<div class="bar">
+  <a class="b1" href="https://newsgs.zce8.com/?p=10763" target="_blank" rel="noopener">注册账号</a>
+  <a class="b2" href="https://tt.ppba.top/N7WE" target="_blank" rel="noopener">下载游戏</a>
+  <a class="b3" href="https://newsgs.zce8.com/player/login" target="_blank" rel="noopener">立即充值</a>
+  <a class="b4" href="../index.html">🏠 主站</a>
+</div>
+
+<div class="toast" id="toast">已复制</div>
+<script>
+(function(){
+  var toastEl=document.getElementById('toast');
+  function toast(m){toastEl.textContent=m;toastEl.classList.add('show');clearTimeout(window.__t);
+    window.__t=setTimeout(function(){toastEl.classList.remove('show');},1500);}
+  function copy(text,btn){
+    var done=function(){if(btn){var o=btn.textContent;btn.textContent='已复制 ✓';btn.classList.add('ok');
+      setTimeout(function(){btn.textContent=o;btn.classList.remove('ok');},1500);}toast('已复制：'+text);};
+    if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(text).then(done,function(){fb(text,done);});}else{fb(text,done);}
+  }
+  function fb(text,done){
+    var ta=document.createElement('textarea');ta.value=text;ta.style.position='fixed';ta.style.opacity='0';
+    document.body.appendChild(ta);ta.select();
+    try{document.execCommand('copy');done();}catch(e){toast('复制失败，请长按手动选择');}
+    document.body.removeChild(ta);
+  }
+  var btns=document.querySelectorAll('.cp');
+  for(var i=0;i<btns.length;i++){btns[i].addEventListener('click',function(){copy(this.getAttribute('data-code'),this);});}
+})();
+</script>
+</body>
+</html>

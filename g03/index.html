@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<base href="/">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>无尽冬日17代新端完美版 —— 精品版本 · 丝滑畅玩</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{
+    font-family:"PingFang SC","Microsoft YaHei","Helvetica Neue",sans-serif;
+    background:#f2f5f9;color:#1f2937;line-height:1.85;font-size:16px;
+    -webkit-text-size-adjust:100%;padding-bottom:96px;
+  }
+  a{text-decoration:none;}
+  .wrap{max-width:720px;margin:0 auto;background:#ffffff;min-height:100vh;box-shadow:0 0 20px rgba(15,23,42,.06);}
+
+  .topbar{
+    background:#ffffff;border-bottom:1px solid #e5e9f0;
+    padding:12px 18px;display:flex;align-items:center;justify-content:space-between;
+    position:sticky;top:0;z-index:50;
+  }
+  .topbar .logo{font-size:15px;font-weight:bold;color:#0f172a;letter-spacing:.5px;}
+  .topbar a{color:#2563eb;font-size:13px;border:1px solid #dbe3ee;padding:5px 12px;border-radius:16px;}
+
+  .hero{
+    background:linear-gradient(165deg,#eef4ff 0%,#dbeafe 100%);
+    padding:38px 22px 34px;text-align:center;position:relative;overflow:hidden;
+    display:flex;flex-direction:column;align-items:center;
+  }
+  .hero .badge{
+    display:inline-block;background:#2563eb;color:#fff;font-size:12px;font-weight:bold;
+    padding:6px 18px;border-radius:20px;letter-spacing:1px;margin:0 auto 14px;position:relative;z-index:2;
+    box-shadow:0 3px 10px rgba(37,99,235,.35);
+  }
+  .hero h1{font-size:24px;color:#0f172a;line-height:1.45;position:relative;z-index:2;font-weight:800;max-width:100%;}
+  .hero .sub{color:#334155;font-size:14px;margin-top:12px;position:relative;z-index:2;}
+  .points{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:18px;position:relative;z-index:2;}
+  .points span{
+    background:#fff;border:1px solid #cddcf5;font-size:12px;padding:5px 12px;
+    border-radius:16px;color:#1e40af;box-shadow:0 1px 3px rgba(15,23,42,.06);
+  }
+
+  .btn{
+    display:block;text-align:center;color:#fff;font-size:17px;font-weight:bold;letter-spacing:.5px;
+    padding:16px 0;border-radius:14px;margin:12px 0;box-shadow:0 3px 10px rgba(37,99,235,.22);
+    transition:transform .12s;
+  }
+  .btn:active{transform:scale(.98);}
+  .btn.blue{background:linear-gradient(135deg,#2563eb,#1d4ed8);}
+  .btn.orange{background:linear-gradient(135deg,#f59e0b,#ea580c);box-shadow:0 3px 10px rgba(234,88,12,.25);}
+  .btn.purple{background:linear-gradient(135deg,#7c3aed,#5b21b6);box-shadow:0 3px 10px rgba(124,58,237,.22);}
+  .btn.green{background:linear-gradient(135deg,#059669,#047857);box-shadow:0 3px 10px rgba(5,150,105,.22);}
+  .btn.pending{background:linear-gradient(135deg,#94a3b8,#64748b)!important;box-shadow:none;}
+  .btn.info{background:linear-gradient(135deg,#0891b2,#0e7490)!important;box-shadow:0 3px 10px rgba(8,145,178,.25);}
+  .heropic{width:88px;height:88px;border-radius:50%;border:3px solid #fff;box-shadow:0 4px 12px rgba(15,23,42,.18);margin-bottom:12px;object-fit:cover;}
+  .btn .small{display:block;font-size:12px;font-weight:normal;opacity:.92;margin-top:3px;letter-spacing:0;}
+
+  section{padding:28px 20px 6px;}
+  h2{font-size:20px;color:#0f172a;margin-bottom:14px;padding-left:12px;border-left:5px solid #2563eb;line-height:1.4;font-weight:800;}
+  h3{font-size:16px;color:#2563eb;margin:18px 0 8px;font-weight:700;}
+  p{margin-bottom:12px;color:#374151;}
+  strong{color:#b45309;}
+  em{color:#dc2626;font-style:normal;font-weight:bold;}
+
+  .card{background:#f8fafc;border:1px solid #e5e9f0;border-radius:14px;padding:18px;margin:14px 0;}
+  .card h4{color:#1e40af;font-size:16px;margin-bottom:8px;}
+  .card.gold{background:#fffbeb;border-color:#fde68a;}
+  .card.gold h4{color:#b45309;}
+  .card.warn{background:#fef2f2;border-color:#fecaca;}
+  .card.warn h4{color:#dc2626;}
+  .divider{text-align:center;color:#94a3b8;font-size:12px;margin:30px 0 0;letter-spacing:4px;}
+
+  .step{display:flex;gap:12px;margin-bottom:18px;}
+  .step .no{flex:0 0 30px;height:30px;border-radius:50%;background:#2563eb;color:#fff;font-weight:bold;text-align:center;line-height:30px;font-size:15px;}
+  .step .body{flex:1;}
+  .step .body h4{color:#0f172a;font-size:16px;margin-bottom:6px;}
+
+  ul.codes{list-style:none;}
+  ul.codes li{
+    background:#f8fafc;border:1px dashed #cbd5e1;border-radius:12px;padding:12px;margin-bottom:8px;
+    display:flex;align-items:center;gap:10px;
+  }
+  ul.codes li .code{flex:0 0 auto;font-size:16px;font-weight:800;color:#1e40af;letter-spacing:1px;font-family:Consolas,Monaco,monospace;}
+  ul.codes li .desc{flex:1;font-size:13px;color:#475569;line-height:1.65;}
+  ul.codes li .cp{flex:0 0 auto;background:#2563eb;color:#fff;border:0;border-radius:8px;font-size:12px;padding:7px 12px;cursor:pointer;}
+  ul.codes li .cp.ok{background:#059669;}
+
+  .tip{background:#fffbeb;border-left:4px solid #f59e0b;padding:13px 15px;border-radius:0 12px 12px 0;margin:14px 0;font-size:15px;color:#78350f;}
+  .alarm{background:#fef2f2;border-left:4px solid #dc2626;padding:13px 15px;border-radius:0 12px 12px 0;margin:14px 0;font-size:15px;color:#7f1d1d;}
+  .alarm strong{color:#dc2626;}
+  .tag{display:inline-block;background:#2563eb;color:#fff;font-weight:bold;border-radius:6px;padding:2px 10px;font-size:13px;margin-right:6px;}
+
+  .welfare img{width:100%;border-radius:14px;display:block;margin:10px 0;}
+  .welfare .ph{background:#f1f5f9;border:1px dashed #cbd5e1;border-radius:14px;padding:26px;text-align:center;color:#94a3b8;font-size:14px;}
+
+  .bar{
+    position:fixed;left:0;right:0;bottom:0;z-index:60;background:rgba(255,255,255,.97);
+    border-top:1px solid #e5e9f0;display:flex;gap:8px;padding:10px 12px;max-width:720px;margin:0 auto;
+    box-shadow:0 -2px 12px rgba(15,23,42,.06);
+  }
+  .bar a{flex:1;text-align:center;font-size:15px;font-weight:bold;padding:12px 0;border-radius:12px;color:#fff;}
+  .bar .b1{background:linear-gradient(135deg,#2563eb,#1d4ed8);padding:12px 0;border-radius:var(--radius);color:#fff;}
+  .bar .b2{background:linear-gradient(135deg,#f59e0b,#ea580c);padding:12px 0;border-radius:var(--radius);color:#fff;}
+  .bar .b3{background:linear-gradient(135deg,#7c3aed,#5b21b6);padding:12px 0;border-radius:var(--radius);color:#fff;}
+  .bar .off{opacity:.55;filter:grayscale(.4);}
+  .footer{text-align:center;color:#94a3b8;font-size:12px;padding:30px 20px 0;line-height:2;}
+  /* 返回主站按钮 */
+  .topbar .back{background:#2563eb;color:#fff;border:0;font-size:13px;font-weight:bold;padding:6px 14px;border-radius:16px;box-shadow:0 2px 6px rgba(37,99,235,.25);}
+  /* 邀请码 */
+  .invite{background:#fffbeb;border:1px solid #fde68a;border-radius:14px;padding:16px;margin:14px 0;text-align:center;}
+  .invite-t{font-size:14px;color:#92400e;font-weight:bold;}
+  .invite-row{display:flex;align-items:center;justify-content:center;gap:10px;margin:10px 0 6px;}
+  .invite-code{font-family:Consolas,Monaco,monospace;font-size:24px;font-weight:800;color:#b45309;letter-spacing:3px;}
+  .cp-big{background:#f59e0b;color:#fff;border:0;border-radius:10px;padding:10px 18px;font-size:14px;font-weight:bold;cursor:pointer;}
+  .cp-big.ok{background:#059669;}
+  .invite-tip{font-size:12px;color:#a16207;}
+  /* 攻略正文 */
+  .guide{margin-top:4px;}
+  .guide-title{font-size:20px;color:#0f172a;margin-bottom:14px;padding-left:12px;border-left:5px solid #2563eb;line-height:1.4;font-weight:800;}
+  .guide .gsec-divider{text-align:center;color:#94a3b8;font-size:12px;margin:26px 0 10px;letter-spacing:3px;}
+  .guide h3.section-head{font-size:17px;color:#0f172a;margin:22px 0 14px;padding:10px 14px;background:#f1f5f9;border-radius:10px;border-left:4px solid #2563eb;font-weight:800;}
+  .guide .gcard{background:#f8fafc;border:1px solid #e5e9f0;border-radius:14px;padding:16px;margin:14px 0;}
+  .guide .gcard h4{color:#1e40af;font-size:15px;margin-bottom:10px;font-weight:800;}
+  .guide .gcard>:last-child{margin-bottom:0;}
+  .guide p{margin-bottom:14px;color:#374151;line-height:1.85;}
+  .guide p:last-child{margin-bottom:0;}
+  .guide ul.glist{list-style:none;margin:10px 0 14px;}
+  .guide ul.glist li{position:relative;padding-left:22px;margin-bottom:8px;color:#374151;line-height:1.7;}
+  .guide ul.glist li::before{content:"";position:absolute;left:6px;top:10px;width:6px;height:6px;border-radius:50%;background:#2563eb;}
+  .guide .gtip{background:#fffbeb;border-left:4px solid #f59e0b;padding:12px 14px;border-radius:0 12px 12px 0;margin:14px 0;font-size:14px;color:#78350f;}
+  .guide .galarm{background:#fef2f2;border-left:4px solid #dc2626;padding:12px 14px;border-radius:0 12px 12px 0;margin:14px 0;font-size:14px;color:#7f1d1d;}
+  .guide .gday{display:flex;gap:12px;margin-bottom:16px;}
+  .guide .gday .no{flex:0 0 46px;height:46px;border-radius:12px;background:#2563eb;color:#fff;font-weight:bold;text-align:center;font-size:12px;display:flex;align-items:center;justify-content:center;line-height:1.2;padding:4px;}
+  .guide .gday .body{flex:1;background:#f8fafc;border:1px solid #e5e9f0;border-radius:14px;padding:14px 16px;}
+  .guide .gday .body h4{color:#1e40af;font-size:15px;margin-bottom:6px;font-weight:800;}
+  .guide .gday .body p{margin-bottom:0;}
+  /* 福利图 */
+  .welfare img{width:100%;border-radius:14px;display:block;margin:10px 0;box-shadow:0 4px 14px rgba(15,23,42,.12);}
+  .muted{font-size:13px;color:#94a3b8;}
+  /* 正文里内联的兑换码 + 复制键 */
+  .cc{display:inline-flex;align-items:center;gap:6px;vertical-align:middle;margin:0 2px;}
+  .cc b{font-family:Consolas,Monaco,monospace;font-size:14px;color:#b45309;background:#fffbeb;
+    border:1px solid #fde68a;border-radius:6px;padding:1px 6px;letter-spacing:.5px;font-weight:800;}
+  .cc .cp{background:#f59e0b;color:#fff;border:0;border-radius:6px;padding:2px 8px;font-size:11px;
+    font-weight:bold;cursor:pointer;line-height:1.6;}
+  .cc .cp.ok{background:#059669;}
+  .bar .b4{background:linear-gradient(135deg,#0f172a,#334155);padding:12px 0;border-radius:var(--radius);color:#fff;flex:0 0 84px;font-size:14px;}
+  .toast{position:fixed;left:50%;bottom:96px;transform:translateX(-50%);background:rgba(15,23,42,.9);color:#fff;
+    font-size:14px;padding:10px 18px;border-radius:20px;opacity:0;transition:opacity .25s;pointer-events:none;z-index:99;}
+  .toast.show{opacity:1;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="topbar">
+    <div class="logo">🎮  无尽冬日17代新端完美版</div>
+    <a class="back" href="../index.html">🏠 返回主站</a>
+  </div>
+
+  <div class="hero">
+    <img class="heropic" src="assets/icons/g03.jpg" alt="">
+    <div class="badge">精品版本 · 丝滑畅玩</div>
+    <h1>无尽冬日17代新端完美版</h1>
+    <p class="sub">不卡不掉 · 持续更新<br>我们只想给各位玩家一个长久的家</p>
+    <div class="points"><span>✅ 不卡不掉</span><span>✅ 持续更新</span><span>✅ 安卓苹果双端</span></div>
+  </div>
+
+  <section>
+    <a class="btn blue" href="https://landing.jkqwio.com/?invite=931aeUTepE50SE4sywg" target="_blank" rel="noopener">📝 点击注册账号（1 分钟搞定）<span class="small">必须走这个链接注册，否则无售后</span></a>
+    <a class="btn orange" href="https://landing.jkqwio.com/?invite=931aeUTepE50SE4sywg" target="_blank" rel="noopener">⬇ 点击下载游戏（安卓 / 苹果通用）<span class="small">安装后选「账号密码登录」</span></a>
+    
+  </section>
+
+  <div class="divider">—·— 三 步 开 玩 —·—</div>
+
+  <section>
+    <h2>一、三步开玩（点一下就走，两分钟进游戏）</h2>
+    <div class="step">
+      <div class="no">1</div>
+      <div class="body">
+        <h4>注册账号</h4>
+        <p>点下面的按钮直接进注册页。这是<strong>唯一有效注册地址</strong>——不是从这个链接注册的<em>没有售后</em>。</p><a class="btn blue" href="https://landing.jkqwio.com/?invite=931aeUTepE50SE4sywg" target="_blank" rel="noopener">📝 点击注册账号</a>
+      </div>
+    </div>
+    <div class="step">
+      <div class="no">2</div>
+      <div class="body">
+        <h4>下载游戏</h4>
+        <p>点按钮直接下载，安卓苹果都能装。</p><a class="btn orange" href="https://landing.jkqwio.com/?invite=931aeUTepE50SE4sywg" target="_blank" rel="noopener">⬇ 点击下载（主线路）</a>
+      </div>
+    </div>
+    <div class="step">
+      <div class="no">3</div>
+      <div class="body">
+        <h4>登录游戏</h4>
+        <p>打开游戏后，<strong>选择「账号密码登录」，不要用手机号登录</strong>，账号就是第 1 步注册的那个；<strong>本服充值在游戏内直接进行</strong>，无需外部充值链接。</p>
+      </div>
+    </div>
+    <div class="card warn">
+      <h4>⚠️ 登录提示网络异常怎么办？</h4>
+      <p>装个「爱加速」，把本地网络切到<strong>上海</strong>再登录，基本一次解决。</p>
+      <a class="btn green" href="https://m.91ajs.com" target="_blank" rel="noopener">🔧 点击下载爱加速</a>
+    </div>
+  </section>
+
+
+  <div class="divider">—·— 新 手 起 号 攻 略 —·—</div>
+  <section>
+    <h2>新手起号全攻略（起号 + 充值 + 冠名）</h2>
+    <div class="guide">
+<h2 class="guide-title">新手起号全攻略！（起号 + 充值 + 冠名）</h2><p>欢迎来到畅玩版专属福利服！这版直接把新手门槛砸穿，上线就送海量资源，公测累充福利更是拉满，零氪也能玩爽，氪了更是直接体验 “别人熬半年，你 3 天毕业” 的快乐！这份攻略把起号、氪金玩法讲得明明白白，不管你预算多少，都能找到最爽的打开方式！</p><ul class="glist"><li>🎁 第一步：进服先领满所有白嫖福利，直接赢在起跑线</li></ul><p>刚进游戏别瞎点，先把所有免费福利领干净，不用做任务、不用肝，到手就是满资源！</p><p>上线就送的版本福利，直接领！</p><p>统帅 8、18w 钻石、1-3 代英雄、100w 英雄经验、1800 分钟通用加速、传说通用英雄 * 100，进服直接领，前期开荒、升级、抽卡的基础资源直接拉满，零氪也能轻松起步！</p><p>公测专属 CDK 兑换码，限时福利别错过！</p><p>直接复制下面的兑换码，在游戏【设置 - 兑换码】里输入，领限定福利，过了公测就再也拿不到了！</p><p>一共7个兑换码CDK---长按复制使用⬇️：</p><p>1000keys</p><p>368gearboxdragoncastlecloudbeastdragonframe</p><p>fireworksplate</p><p>6480stars</p><p>奖励内容：1000 金钥匙、368 个英雄装备幸运宝箱、限定城堡「蟠龙献瑞」、祥云瑞兽、祥龙贺岁头像框、新年焰火铭牌、寒霜之星 6480！这些限定外观和资源，直接让你开局就比别人多一大截优势！</p><ul class="glist"><li>📈 新手起号核心节奏：跟着解锁节点走，爽玩不踩坑</li></ul><p>这版的核心爽点就是 “不用熬，到点直接解锁”，所有高代内容、毕业装备都有明确的解锁天数，不用肝任务、不用卡进度，跟着节奏走就行：</p><p>前期（0-22 天）：开荒爽玩期，红装 + 9 代英雄直接解锁</p><p>上线送的资源足够你把 1-8 代英雄抽爽，红色装备 22 天直接解锁，不用熬几个月攒材料，前期就能穿毕业级红装，9 代英雄也同步解锁，用送的传说通用英雄直接拉满，开荒、打资源、打架都快人一步，别人还在攒基础资源，你已经横着走了！</p><p>中期（22-64 天）：战力起飞期，10 代英雄 + 11 级宝石解锁</p><p>64 天直接解锁 10 代英雄和 11 级以上宝石，中期就能把宝石拉满，不用慢慢攒低级宝石升级，战力直接再上一个台阶，解锁后直接跟上进度，不用被大部队落下！</p><p>后期（64 天以后）：毕业体验期，全内容逐步解锁</p><p>11-16 代英雄、宠物、专家、火晶、战争学院、炽炎科技这些玩法，都会按天数逐步解锁，到点直接开，越玩越强，还有隐藏的 17 代英雄，进度到了直接解锁，后期内容全拉满，爽感直接拉满！</p><ul class="glist"><li>💰 公测累充攻略：分档玩明白，每一分钱都花在爽点上</li></ul><div class="gtip">先划重点：1 元 = 200 寒霜之星，游戏内直充、代币充值都算累充，公测专属累充福利只有这一次，过了活动就再也没有这么多额外奖励了！下面按预算给你讲清楚，花多少钱，能拿到什么，爽点在哪里：</div><ul class="glist"><li>✨ 小氪党（预算 30-200 元）：花小钱，爽感翻倍，零氪直接被甩在后面</li></ul><p>适合想体验快节奏开荒、不想被资源卡进度的玩家，花最少的钱，直接把前期体验拉满：</p><p>30 元档（入门体验）</p><p>拿累充 30 档的 6w 寒霜之星，加上直充的 30*200=6000 寒霜之星，再加上 CDK 送的 6480，前期直接有 7w + 寒霜之星！足够你把 1-8 代主力英雄抽满，买齐红装材料，开荒速度直接快一倍，别人还在攒资源升级，你已经穿红装打本了，零氪玩家要熬半个月的进度，你 3 天就能搞定！</p><p>100 元档（进阶爽玩）</p><p>累充 100 再拿一个 6w 寒霜之星，加上直充的 2w 寒霜之星，加上前面的奖励，直接能拿到 14w + 寒霜之星！前期直接把 1-8 代英雄抽毕业，9 代解锁直接拉满，再用金钥匙和装备宝箱把主力英雄的装备拉齐，抢资源、打架都横着走，中期解锁 10 代英雄也能轻松跟上，完全不用愁资源！</p><p>200 元档（前期毕业）</p><p>累充 200 再拿一个 6w 寒霜之星，加上直充的 4w 寒霜之星，总共能拿到 22w + 寒霜之星！前期直接把红装、主力英雄、基础宝石全部拉满，中期解锁 10 代英雄直接跟上，不用等解锁天数慢慢攒，别人要熬到中期的进度，你前期就搞定，全程领先大部队！</p><ul class="glist"><li>✨ 中氪党（预算 400-600 元）：性价比之王，公测最爽档位，直接解锁半毕业体验</li></ul><p>这档是公测福利的黄金档，尤其是 600 元，直接把公测累充的核心福利吃满，体验直接拉到天花板：</p><p>400 元档</p><p>累充 400 直接拿 10w 寒霜之星，加上前面 30、100、200 的三个 6w 累充奖励，再加上直充的 400*200=8w 寒霜之星，总共能拿到 6+6+6+10+8=36w 寒霜之星！中期就能把 1-10 代英雄抽满，11 级宝石直接拉齐，战争学院、火晶这些玩法解锁了直接拉满，不用肝不用熬，中期就能横着走！</p><p>600 元档（公测福利拉满）</p><p>直接拿满公测累充的核心奖励：累充 30/100/200 的三个 6w，加上 400 的 10w、600 的 20w，累充奖励总共 6+6+6+10+20=48w 寒霜之星！再加上直充的 600*200=12w 寒霜之星，还有 CDK 送的 6480，直接拿到 60w + 寒霜之星！</p><p>这是什么概念？直接把前期到中期的所有资源拉满，1-10 代英雄直接毕业，9 代、10 代解锁直接拉满，红装、11 级宝石、战争学院、火晶全部拉满，别人要熬半年的进度，你 600 块直接全部搞定，不用肝不用氪，爽玩到后期！而且公测累充只有这一次，600 块拿 60w 寒霜之星，后面再想拿这么多福利，根本不可能！</p><ul class="glist"><li>✨ 大氪党（预算 2000 元以上）：直接拉满全内容，畅玩版天花板体验</li></ul><p>适合想直接冲榜、体验全服第一的玩家，直接拉满累充，把所有内容一次性解锁，不用等天数、不用攒资源：累充 2000、5000、1w、2w、3w、4w，每档都送 20w 寒霜之星，直接拿满所有累充奖励，加上直充的寒霜之星，直接上百万寒霜之星！直接把 1-16 代英雄全部拉满，隐藏 17 代英雄直接解锁，宠物、专家、火晶、炽炎科技全部拉满，限定城堡皮肤、头像框、铭牌全部拿齐，全服战力榜直接冲榜，打架、打本、抢资源全服第一，所有玩法直接毕业，不用等解锁天数，直接提前拉满，体验畅玩版的终极爽感！现在拉满，后面不用再氪一分钱，直接爽玩到底！</p><ul class="glist"><li>⚠️ 氪金 & 起号避坑指南，别浪费一分钱</li></ul><p>寒霜之星优先抽主力英雄和买红装、宝石材料，别乱买加速，送的加速足够你用到中期了！</p><p>前期钻石别乱花，留着中期买 11 级宝石材料，解锁后直接拉满，不用慢慢攒低级宝石升级！</p><p>累充一定要冲公测的档，过了这次活动，就没有这么多额外的寒霜之星送了，现在冲最划算！</p><p>CDK 兑换码一定要先领，限定外观和资源过了公测就没了，别错过！</p><p>这次《无尽冬日畅玩版》就是给玩家送福利的，上线就送满，累充福利直接拉满，零氪也能玩，氪了直接起飞，预算多少都能找到自己的爽点！现在进服，领完 CDK，冲个对应档位，直接赢在起跑线，别人熬几个月的进度，你几天就搞定，爽玩冬日，就这次机会！</p>
+    </div>
+  </section>
+
+  <div class="divider">—·— 活 动 福 利 图 —·—</div>
+  <section>
+    <h2>充值活动福利图</h2>
+    
+    
+    <div class="welfare">
+      <img src="assets/welfare/g03_1.jpg" alt="充值活动福利图" loading="lazy">
+    </div>
+  </section>
+
+
+
+  <div class="divider">—·— 充 值 说 明 —·—</div>
+  <section>
+    <h2>充值说明（本服在游戏内直接充值）</h2>
+    <div class="tip">💳 本服<strong>没有外部充值链接</strong>，充值在游戏内直接进行：进游戏 → 打开「充值 / 商城」→ 选好档位按提示支付即可。首充、月卡、基金、冠名活动都在游戏内活动页。<br><br>❗ 再次提醒：任何 QQ 群里的「折扣充值」「便宜充值」都是骗子，一律不要信！</div>
+  </section>
+
+  <div class="divider">—·— 注 意 —·—</div>
+  <section>
+    <h2>防骗提醒</h2>
+    <div class="alarm">❗<strong>任何 QQ 群里的「折扣充值」「便宜充值」都是骗子，一律不要信！</strong>本服充值请在游戏内或官方渠道进行。</div>
+  </section>
+
+  <section>
+    <h2>玩腻了？主站还有几十款</h2>
+    <p>本站收录 <strong>35+ 款精品手游</strong>，全部免费领码、直接下载，随时回来换着玩。</p>
+    <a class="btn blue" href="../index.html">🏠 返回主站，看看还有什么好玩的</a>
+  </section>
+
+  <p class="footer">
+     无尽冬日17代新端完美版 · 精品版本 · 丝滑畅玩<br>
+    我们只想给各位玩家一个长久的家<br>
+    建议收藏主站，游戏随便换着玩
+  </p>
+</div>
+
+<div class="bar">
+  <a class="b1" href="https://landing.jkqwio.com/?invite=931aeUTepE50SE4sywg" target="_blank" rel="noopener">注册账号</a>
+  <a class="b2" href="https://landing.jkqwio.com/?invite=931aeUTepE50SE4sywg" target="_blank" rel="noopener">下载游戏</a>
+  <a class="b4" href="../index.html">🏠 主站</a>
+</div>
+
+<div class="toast" id="toast">已复制</div>
+<script>
+(function(){
+  var toastEl=document.getElementById('toast');
+  function toast(m){toastEl.textContent=m;toastEl.classList.add('show');clearTimeout(window.__t);
+    window.__t=setTimeout(function(){toastEl.classList.remove('show');},1500);}
+  function copy(text,btn){
+    var done=function(){if(btn){var o=btn.textContent;btn.textContent='已复制 ✓';btn.classList.add('ok');
+      setTimeout(function(){btn.textContent=o;btn.classList.remove('ok');},1500);}toast('已复制：'+text);};
+    if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(text).then(done,function(){fb(text,done);});}else{fb(text,done);}
+  }
+  function fb(text,done){
+    var ta=document.createElement('textarea');ta.value=text;ta.style.position='fixed';ta.style.opacity='0';
+    document.body.appendChild(ta);ta.select();
+    try{document.execCommand('copy');done();}catch(e){toast('复制失败，请长按手动选择');}
+    document.body.removeChild(ta);
+  }
+  var btns=document.querySelectorAll('.cp');
+  for(var i=0;i<btns.length;i++){btns[i].addEventListener('click',function(){copy(this.getAttribute('data-code'),this);});}
+})();
+</script>
+</body>
+</html>

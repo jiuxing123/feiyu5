@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<base href="/">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>寻道大千纵横0.1折端 —— 精品版本 · 丝滑畅玩</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{
+    font-family:"PingFang SC","Microsoft YaHei","Helvetica Neue",sans-serif;
+    background:#f2f5f9;color:#1f2937;line-height:1.85;font-size:16px;
+    -webkit-text-size-adjust:100%;padding-bottom:96px;
+  }
+  a{text-decoration:none;}
+  .wrap{max-width:720px;margin:0 auto;background:#ffffff;min-height:100vh;box-shadow:0 0 20px rgba(15,23,42,.06);}
+
+  .topbar{
+    background:#ffffff;border-bottom:1px solid #e5e9f0;
+    padding:12px 18px;display:flex;align-items:center;justify-content:space-between;
+    position:sticky;top:0;z-index:50;
+  }
+  .topbar .logo{font-size:15px;font-weight:bold;color:#0f172a;letter-spacing:.5px;}
+  .topbar a{color:#2563eb;font-size:13px;border:1px solid #dbe3ee;padding:5px 12px;border-radius:16px;}
+
+  .hero{
+    background:linear-gradient(165deg,#eef4ff 0%,#dbeafe 100%);
+    padding:38px 22px 34px;text-align:center;position:relative;overflow:hidden;
+    display:flex;flex-direction:column;align-items:center;
+  }
+  .hero .badge{
+    display:inline-block;background:#2563eb;color:#fff;font-size:12px;font-weight:bold;
+    padding:6px 18px;border-radius:20px;letter-spacing:1px;margin:0 auto 14px;position:relative;z-index:2;
+    box-shadow:0 3px 10px rgba(37,99,235,.35);
+  }
+  .hero h1{font-size:24px;color:#0f172a;line-height:1.45;position:relative;z-index:2;font-weight:800;max-width:100%;}
+  .hero .sub{color:#334155;font-size:14px;margin-top:12px;position:relative;z-index:2;}
+  .points{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:18px;position:relative;z-index:2;}
+  .points span{
+    background:#fff;border:1px solid #cddcf5;font-size:12px;padding:5px 12px;
+    border-radius:16px;color:#1e40af;box-shadow:0 1px 3px rgba(15,23,42,.06);
+  }
+
+  .btn{
+    display:block;text-align:center;color:#fff;font-size:17px;font-weight:bold;letter-spacing:.5px;
+    padding:16px 0;border-radius:14px;margin:12px 0;box-shadow:0 3px 10px rgba(37,99,235,.22);
+    transition:transform .12s;
+  }
+  .btn:active{transform:scale(.98);}
+  .btn.blue{background:linear-gradient(135deg,#2563eb,#1d4ed8);}
+  .btn.orange{background:linear-gradient(135deg,#f59e0b,#ea580c);box-shadow:0 3px 10px rgba(234,88,12,.25);}
+  .btn.purple{background:linear-gradient(135deg,#7c3aed,#5b21b6);box-shadow:0 3px 10px rgba(124,58,237,.22);}
+  .btn.green{background:linear-gradient(135deg,#059669,#047857);box-shadow:0 3px 10px rgba(5,150,105,.22);}
+  .btn.pending{background:linear-gradient(135deg,#94a3b8,#64748b)!important;box-shadow:none;}
+  .btn.info{background:linear-gradient(135deg,#0891b2,#0e7490)!important;box-shadow:0 3px 10px rgba(8,145,178,.25);}
+  .heropic{width:88px;height:88px;border-radius:50%;border:3px solid #fff;box-shadow:0 4px 12px rgba(15,23,42,.18);margin-bottom:12px;object-fit:cover;}
+  .btn .small{display:block;font-size:12px;font-weight:normal;opacity:.92;margin-top:3px;letter-spacing:0;}
+
+  section{padding:28px 20px 6px;}
+  h2{font-size:20px;color:#0f172a;margin-bottom:14px;padding-left:12px;border-left:5px solid #2563eb;line-height:1.4;font-weight:800;}
+  h3{font-size:16px;color:#2563eb;margin:18px 0 8px;font-weight:700;}
+  p{margin-bottom:12px;color:#374151;}
+  strong{color:#b45309;}
+  em{color:#dc2626;font-style:normal;font-weight:bold;}
+
+  .card{background:#f8fafc;border:1px solid #e5e9f0;border-radius:14px;padding:18px;margin:14px 0;}
+  .card h4{color:#1e40af;font-size:16px;margin-bottom:8px;}
+  .card.gold{background:#fffbeb;border-color:#fde68a;}
+  .card.gold h4{color:#b45309;}
+  .card.warn{background:#fef2f2;border-color:#fecaca;}
+  .card.warn h4{color:#dc2626;}
+  .divider{text-align:center;color:#94a3b8;font-size:12px;margin:30px 0 0;letter-spacing:4px;}
+
+  .step{display:flex;gap:12px;margin-bottom:18px;}
+  .step .no{flex:0 0 30px;height:30px;border-radius:50%;background:#2563eb;color:#fff;font-weight:bold;text-align:center;line-height:30px;font-size:15px;}
+  .step .body{flex:1;}
+  .step .body h4{color:#0f172a;font-size:16px;margin-bottom:6px;}
+
+  ul.codes{list-style:none;}
+  ul.codes li{
+    background:#f8fafc;border:1px dashed #cbd5e1;border-radius:12px;padding:12px;margin-bottom:8px;
+    display:flex;align-items:center;gap:10px;
+  }
+  ul.codes li .code{flex:0 0 auto;font-size:16px;font-weight:800;color:#1e40af;letter-spacing:1px;font-family:Consolas,Monaco,monospace;}
+  ul.codes li .desc{flex:1;font-size:13px;color:#475569;line-height:1.65;}
+  ul.codes li .cp{flex:0 0 auto;background:#2563eb;color:#fff;border:0;border-radius:8px;font-size:12px;padding:7px 12px;cursor:pointer;}
+  ul.codes li .cp.ok{background:#059669;}
+
+  .tip{background:#fffbeb;border-left:4px solid #f59e0b;padding:13px 15px;border-radius:0 12px 12px 0;margin:14px 0;font-size:15px;color:#78350f;}
+  .alarm{background:#fef2f2;border-left:4px solid #dc2626;padding:13px 15px;border-radius:0 12px 12px 0;margin:14px 0;font-size:15px;color:#7f1d1d;}
+  .alarm strong{color:#dc2626;}
+  .tag{display:inline-block;background:#2563eb;color:#fff;font-weight:bold;border-radius:6px;padding:2px 10px;font-size:13px;margin-right:6px;}
+
+  .welfare img{width:100%;border-radius:14px;display:block;margin:10px 0;}
+  .welfare .ph{background:#f1f5f9;border:1px dashed #cbd5e1;border-radius:14px;padding:26px;text-align:center;color:#94a3b8;font-size:14px;}
+
+  .bar{
+    position:fixed;left:0;right:0;bottom:0;z-index:60;background:rgba(255,255,255,.97);
+    border-top:1px solid #e5e9f0;display:flex;gap:8px;padding:10px 12px;max-width:720px;margin:0 auto;
+    box-shadow:0 -2px 12px rgba(15,23,42,.06);
+  }
+  .bar a{flex:1;text-align:center;font-size:15px;font-weight:bold;padding:12px 0;border-radius:12px;color:#fff;}
+  .bar .b1{background:linear-gradient(135deg,#2563eb,#1d4ed8);padding:12px 0;border-radius:var(--radius);color:#fff;}
+  .bar .b2{background:linear-gradient(135deg,#f59e0b,#ea580c);padding:12px 0;border-radius:var(--radius);color:#fff;}
+  .bar .b3{background:linear-gradient(135deg,#7c3aed,#5b21b6);padding:12px 0;border-radius:var(--radius);color:#fff;}
+  .bar .off{opacity:.55;filter:grayscale(.4);}
+  .footer{text-align:center;color:#94a3b8;font-size:12px;padding:30px 20px 0;line-height:2;}
+  /* 返回主站按钮 */
+  .topbar .back{background:#2563eb;color:#fff;border:0;font-size:13px;font-weight:bold;padding:6px 14px;border-radius:16px;box-shadow:0 2px 6px rgba(37,99,235,.25);}
+  /* 邀请码 */
+  .invite{background:#fffbeb;border:1px solid #fde68a;border-radius:14px;padding:16px;margin:14px 0;text-align:center;}
+  .invite-t{font-size:14px;color:#92400e;font-weight:bold;}
+  .invite-row{display:flex;align-items:center;justify-content:center;gap:10px;margin:10px 0 6px;}
+  .invite-code{font-family:Consolas,Monaco,monospace;font-size:24px;font-weight:800;color:#b45309;letter-spacing:3px;}
+  .cp-big{background:#f59e0b;color:#fff;border:0;border-radius:10px;padding:10px 18px;font-size:14px;font-weight:bold;cursor:pointer;}
+  .cp-big.ok{background:#059669;}
+  .invite-tip{font-size:12px;color:#a16207;}
+  /* 攻略正文 */
+  .guide{margin-top:4px;}
+  .guide-title{font-size:20px;color:#0f172a;margin-bottom:14px;padding-left:12px;border-left:5px solid #2563eb;line-height:1.4;font-weight:800;}
+  .guide .gsec-divider{text-align:center;color:#94a3b8;font-size:12px;margin:26px 0 10px;letter-spacing:3px;}
+  .guide h3.section-head{font-size:17px;color:#0f172a;margin:22px 0 14px;padding:10px 14px;background:#f1f5f9;border-radius:10px;border-left:4px solid #2563eb;font-weight:800;}
+  .guide .gcard{background:#f8fafc;border:1px solid #e5e9f0;border-radius:14px;padding:16px;margin:14px 0;}
+  .guide .gcard h4{color:#1e40af;font-size:15px;margin-bottom:10px;font-weight:800;}
+  .guide .gcard>:last-child{margin-bottom:0;}
+  .guide p{margin-bottom:14px;color:#374151;line-height:1.85;}
+  .guide p:last-child{margin-bottom:0;}
+  .guide ul.glist{list-style:none;margin:10px 0 14px;}
+  .guide ul.glist li{position:relative;padding-left:22px;margin-bottom:8px;color:#374151;line-height:1.7;}
+  .guide ul.glist li::before{content:"";position:absolute;left:6px;top:10px;width:6px;height:6px;border-radius:50%;background:#2563eb;}
+  .guide .gtip{background:#fffbeb;border-left:4px solid #f59e0b;padding:12px 14px;border-radius:0 12px 12px 0;margin:14px 0;font-size:14px;color:#78350f;}
+  .guide .galarm{background:#fef2f2;border-left:4px solid #dc2626;padding:12px 14px;border-radius:0 12px 12px 0;margin:14px 0;font-size:14px;color:#7f1d1d;}
+  .guide .gday{display:flex;gap:12px;margin-bottom:16px;}
+  .guide .gday .no{flex:0 0 46px;height:46px;border-radius:12px;background:#2563eb;color:#fff;font-weight:bold;text-align:center;font-size:12px;display:flex;align-items:center;justify-content:center;line-height:1.2;padding:4px;}
+  .guide .gday .body{flex:1;background:#f8fafc;border:1px solid #e5e9f0;border-radius:14px;padding:14px 16px;}
+  .guide .gday .body h4{color:#1e40af;font-size:15px;margin-bottom:6px;font-weight:800;}
+  .guide .gday .body p{margin-bottom:0;}
+  /* 福利图 */
+  .welfare img{width:100%;border-radius:14px;display:block;margin:10px 0;box-shadow:0 4px 14px rgba(15,23,42,.12);}
+  .muted{font-size:13px;color:#94a3b8;}
+  /* 正文里内联的兑换码 + 复制键 */
+  .cc{display:inline-flex;align-items:center;gap:6px;vertical-align:middle;margin:0 2px;}
+  .cc b{font-family:Consolas,Monaco,monospace;font-size:14px;color:#b45309;background:#fffbeb;
+    border:1px solid #fde68a;border-radius:6px;padding:1px 6px;letter-spacing:.5px;font-weight:800;}
+  .cc .cp{background:#f59e0b;color:#fff;border:0;border-radius:6px;padding:2px 8px;font-size:11px;
+    font-weight:bold;cursor:pointer;line-height:1.6;}
+  .cc .cp.ok{background:#059669;}
+  .bar .b4{background:linear-gradient(135deg,#0f172a,#334155);padding:12px 0;border-radius:var(--radius);color:#fff;flex:0 0 84px;font-size:14px;}
+  .toast{position:fixed;left:50%;bottom:96px;transform:translateX(-50%);background:rgba(15,23,42,.9);color:#fff;
+    font-size:14px;padding:10px 18px;border-radius:20px;opacity:0;transition:opacity .25s;pointer-events:none;z-index:99;}
+  .toast.show{opacity:1;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="topbar">
+    <div class="logo">🎮  寻道大千纵横0.1折端</div>
+    <a class="back" href="../index.html">🏠 返回主站</a>
+  </div>
+
+  <div class="hero">
+    <img class="heropic" src="assets/icons/g31.jpg" alt="">
+    <div class="badge">精品版本 · 丝滑畅玩</div>
+    <h1>寻道大千纵横0.1折端</h1>
+    <p class="sub">不卡不掉 · 持续更新<br>我们只想给各位玩家一个长久的家</p>
+    <div class="points"><span>✅ 不卡不掉</span><span>✅ 持续更新</span><span>✅ 安卓苹果双端</span></div>
+  </div>
+
+  <section>
+    <a class="btn orange" href="https://s.a8l.uk/GPcr" target="_blank" rel="noopener">⬇ 点击下载游戏（安卓 / 苹果通用）<span class="small">安装后选「账号密码登录」</span></a>
+    
+  </section>
+
+  <div class="divider">—·— 三 步 开 玩 —·—</div>
+
+  <section>
+    <h2>一、三步开玩（点一下就走，两分钟进游戏）</h2>
+    <div class="step">
+      <div class="no">1</div>
+      <div class="body">
+        <h4>注册账号</h4>
+        <p>注册地址整理中，稍后开放。</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="no">2</div>
+      <div class="body">
+        <h4>下载游戏</h4>
+        <p>点按钮直接下载，安卓苹果都能装。</p><a class="btn orange" href="https://s.a8l.uk/GPcr" target="_blank" rel="noopener">⬇ 点击下载（主线路）</a>
+      </div>
+    </div>
+    <div class="step">
+      <div class="no">3</div>
+      <div class="body">
+        <h4>登录游戏</h4>
+        <p>打开游戏后，<strong>选择「账号密码登录」，不要用手机号登录</strong>，账号就是第 1 步注册的那个。</p>
+      </div>
+    </div>
+    <div class="card warn">
+      <h4>⚠️ 登录提示网络异常怎么办？</h4>
+      <p>装个「爱加速」，把本地网络切到<strong>上海</strong>再登录，基本一次解决。</p>
+      <a class="btn green" href="https://m.91ajs.com" target="_blank" rel="noopener">🔧 点击下载爱加速</a>
+    </div>
+  </section>
+
+  <div class="divider">—·— 进 服 先 领 —·—</div>
+  <section>
+    <h2>二、进服先白嫖：兑换码全部领满</h2>
+    <p class="muted">兑换路径：游戏内 设置 → 礼包兑换码（点右侧按钮可直接复制）</p>
+    <ul class="codes">
+      <li><span class="code">ZHDQ2026</span><span class="desc">天地机缘 x1888、净瓶水 x18888、仙桃 x18888、灵兽果 x18888、灵石 x18888888、随机人物</span><button class="cp" data-code="ZHDQ2026">复制</button></li>
+      <li><span class="code">ZHDQ777</span><span class="desc">涤仙露 x1888、不化岩 x1888、灵石 x300000000、注灵晶石 x5000、随机神话内丹 x6、随机玄阶法</span><button class="cp" data-code="ZHDQ777">复制</button></li>
+      <li><span class="code">ZHDQ888</span><span class="desc">召唤令 x888、本源丹 x188、太虚元石 x188、引灵灯 x188、净瓶水 x251888</span><button class="cp" data-code="ZHDQ888">复制</button></li>
+      <li><span class="code">ZHDQ999</span><span class="desc">仙桃 x88888、天地机缘 x1888、净瓶水 x21888、神话自选灵兽 x18、传说自选灵兽 x28、御灵石 x8</span><button class="cp" data-code="ZHDQ999">复制</button></li>
+      <li><span class="code">bc0720</span><span class="desc">进服直接兑，先领先爽</span><button class="cp" data-code="bc0720">复制</button></li>
+    </ul>
+    <a class="btn orange" href="https://s.a8l.uk/GPcr" target="_blank" rel="noopener">还没下载？点击下载，马上领码 ⬇</a>
+  </section>
+
+  <div class="divider">—·— 新 手 起 号 攻 略 —·—</div>
+  <section>
+    <h2>新手起号全攻略（起号 + 充值 + 冠名）</h2>
+    <div class="guide">
+<h2 class="guide-title">新手起号全攻略！0 氪 / 小氪 / 中氪 / 大氪一站式冲榜指南</h2><p>全服通用兑换码 上线第一时间兑换</p><p>所有兑换码全大区通用，进入游戏后在设置 - 礼包兑换界面输入即可直接到账，零氪也能拿满起步资源，快人一步解锁核心玩法。</p><p>补偿 CDK：<span class="cc"><b>bc0720</b><button class="cp" data-code="bc0720">复制</button></span></p><p><span class="cc"><b>ZHDQ2026</b><button class="cp" data-code="ZHDQ2026">复制</button></span>：天地机缘 x1888、净瓶水 x18888、仙桃 x18888、灵兽果 x18888、灵石 x18888888、随机人物皮肤礼包 x1、自选座驾宝箱 x1</p><p><span class="cc"><b>ZHDQ777</b><button class="cp" data-code="ZHDQ777">复制</button></span>：涤仙露 x1888、不化岩 x1888、灵石 x300000000、注灵晶石 x5000、随机神话内丹 x6、随机玄阶法象 x5、昆仑铁 x8888、紫灵金 x888、天命龙马皮肤 x1</p><p><span class="cc"><b>ZHDQ888</b><button class="cp" data-code="ZHDQ888">复制</button></span>：召唤令 x888、本源丹 x188、太虚元石 x188、引灵灯 x188、净瓶水 x251888</p><p><span class="cc"><b>ZHDQ999</b><button class="cp" data-code="ZHDQ999">复制</button></span>：仙桃 x88888、天地机缘 x1888、净瓶水 x21888、神话自选灵兽 x18、传说自选灵兽 x28、御灵石 x8888、灵兽果 x888888</p><h3 class="section-head">一、零氪入门必做 上线先领完所有免费福利</h3><p>哪怕不充值，只要跟着步骤领完所有免费福利，也能顺畅体验全部核心玩法，稳步发育不脱节。</p><div class="gcard"><h4>1. 上线即领专属起步福利</h4><p>进入游戏第一时间领取上线福利，直接拿到 3888 点天地机缘、近百万仙玉与仙桃、18.88 亿灵石，同时附赠 888 个神话精怪碎片、1288 个传说精怪碎片、3888 个卓越精怪碎片。更直接送出北渊女帝、司空绝、炎帝神农、李火旺・炽热之心等 8 个顶级角色与法宝，还有 18 套随机坐骑皮肤。这一套奖励拿完直接跳过新手开荒期，所有核心玩法直接解锁，开局就拥有成型的基础阵容，不用再为前期缺资源卡关发愁。</p></div><div class="gcard"><h4>2. 每日登录 + 在线挂机 白嫖满配资源</h4><p>每天上线第一件事先领取每日登录福利：188 点天地机缘、9999 仙桃、1000 万灵石，还有神话 / 传说精怪碎片、传说塑魂花、各级印记礼包、灵兽果等几十种养成材料。每天仅需上线点一下，日积月累就是一笔巨额资源，完全能支撑日常养成需求。</p><p>领完每日福利后，挂机就能持续拿在线奖励，从 5 分钟到 240 分钟档位逐步解锁，在线越久奖励越丰厚。挂够 4 小时，不仅能拿到 8000 仙桃、3000 仙玉、55 个造化石，还能直接获得真武神祇和 1 级印记礼包。零氪玩家每天挂够时长，核心稀有道具慢慢都能白嫖到手，不用为基础材料焦虑。</p></div><div class="gcard"><h4>3. 新手资源使用优先级</h4><p>刚开局拿到的所有资源，优先集中投入到 1-2 个核心输出精怪和主力灵兽的升级上，先把主 C 战力拉满，快速推图解锁更多玩法和资源副本；其次升级法宝阶位，激活整体属性加成。碎片类道具优先兑换版本强势的神话级精怪 / 灵兽，不要分散投入到多个角色上。集中资源先养出一个毕业主力，发育效率会比平均培养高 2 倍以上，后续再逐步扩充阵容。</p></div><h3 class="section-head">二、分层充值起号攻略 对应预算精准拉满收益</h3><p>游戏充值福利采用多重叠加机制：每日累充奖励 + 永久累充奖励 + 礼包本身收益 + 充值排名奖励，选对充值方式和档位，同样的预算能拿到 2-3 倍的资源。下面按不同预算拆解最优充值方案，让每一分钱都花在刀刃上。</p><p>小氪档：预算 300-1000 元 休闲畅玩 性价比拉满</p><p>适合日常休闲、不想多花钱但想玩得舒服省心的玩家，这套方案用最少的投入拿下最核心的长期收益，体验远超零氪，全程无卡点。</p><p>必买核心项首先拿下平民终身卡（58 元），这是全游戏性价比最高的道具，没有之一。一次购买永久生效，每天都能领取天地机缘、仙桃、仙玉、金币等十几种基础材料，玩得越久收益越高，仅需几十块就能解决全程的基础资源缺口，是所有玩家的入门首选。</p><p>在此基础上，叠加至尊周卡（68 元）+ 至尊月卡（298 元），双卡齐开之后，每天能领取近 3000 天地机缘、上万仙桃、上亿灵石，还有神话精怪碎片、传说灵魂等稀有道具。日常升级、刷副本、做活动的材料完全够用，不用再为缺资源卡进度发愁，一个月内的发育速度能甩开零氪玩家一大截。</p><p>最后补全终生限购 38 元、68 元、98 元三档，这三个低档位礼包都是终生只能购买一次的绝版福利，价格低但资源量拉满，能拿到数千天地机缘、上百自选灵兽 / 精怪、海量养成材料。三档加起来不到两百块，拿到的资源够你用大半个月，开局直接把基础资源池堆满。</p><p>收益与体验这套搭配总花费在 600 元左右，刚好能触发永久累充 500 元档位的额外奖励：150 个卓越精怪碎片、100 个传说精怪碎片、10 只传说随机灵兽、5 套随机皮肤，还有 100 个不化岩和海量金币材料。日常有双卡 + 终身卡源源不断供给资源，一次性礼包解决了开局的资源缺口，再加上永久累充的额外奖励，推图、打日常、参与活动完全无压力，所有玩法都能顺畅体验。不用肝不用硬氪，休闲玩也能跟上服务器大部队。</p><p>如果预算能到 1000 元，可以再加购 128 元和 188 元档的终生限购礼包，再补一单每日特惠，刚好触发每日累充 1000 元档位，额外拿下 3 个自选传说皮肤和传说精怪碎片宝箱，外观和战力双重提升，游戏体验再上一个台阶。</p><p>中氪档：预算 3000-10000 元 冲榜一线 开局跻身头部梯队</p><p>适合想冲服务器排名、追求战力和玩法体验的玩家，这套方案直接拉满所有核心性价比项目，开局就站在大部分玩家前面，稳稳占据榜单前列，享受排名带来的额外资源滚雪球。</p><p>必买核心项首先把全档位终生限购礼包全部拉满，从 38 元到 888 元六档一次性清空，所有绝版资源全部收入囊中。不仅能拿到数万天地机缘、上百个自选神话 / 传说精怪灵兽，还有全套印记礼包、稀有皮肤、顶级法宝，相当于直接把开局的资源上限拉满 —— 别人还在攒碎片凑阵容的时候，你已经凑齐了全套毕业主力。</p><p>然后必入至尊终身卡（688 元），这是中氪以上玩家的标配。永久每天领取近 7000 天地机缘、8 万多仙玉，还有不化岩、神话精怪碎片、传说灵魂等顶级材料，终身返还的资源总量远超所有一次性礼包，玩得越久优势越大，是长期冲榜的基础。</p><p>再叠加至尊周卡 + 至尊月卡，三重福利叠加，每天领取的资源量是普通玩家的数倍，日常养成完全不用愁材料，甚至资源多到用不完，可以预留着应对限时冲榜活动。日常每天拉满 28 元、58 元、118 元三档每日特惠礼包，每天补充核心养成材料，稳步提升战力，持续巩固自己的排名优势。</p><p>收益与体验这套基础配置总花费在 3000 元左右，刚好触发永久累充 3000 元档位的重磅奖励：10 只以上神话随机灵兽、16 套随机皮肤、3 级印记礼包、50 个自选传说法宝，还有上千个神话精怪碎片。这一套奖励下来，你的主力阵容直接能拉到接近毕业的水准，战力飙升至服务器一线水平。</p><p>集中在一天充值的话，还能触发每日累充 3000 元档位奖励，额外拿到凡阶自选神话法宝、3 个自选传说皮肤，再冲一下每日累充排名，保底能进前 20 名拿全材料大礼包，运气好进前 5 还能拿真武大帝等稀有角色。</p><p>如果预算能到 10000 元，直接冲击永久累充 10000 元档位，解锁 50 + 神话灵兽、30 + 坐骑皮肤、全套 5 级印记礼包，还有自选传说皮肤和菩提悟道等顶级道具。同时每日累充冲 5000-10000 档，拿满灵界神话套装法宝，再争一下每日充值榜前列，直接和普通玩家拉开断层差距，稳稳占据服务器前十甚至前五的位置。</p><p>大氪档：预算 30000 元以上 霸服定制 全资源断层领先</p><p>适合追求极致体验、想坐稳全服第一的玩家，全资源拉满，所有奖励全部拿完，从开局就奠定霸服基础，享受断层领先的绝对快感。</p><p>必买核心项所有能买的礼包全部拉满：终生限购、每日特惠、纵横至尊礼包、神兽礼包、精怪内丹礼包、其他杂项礼包，一个不落全部清空。不管是天地机缘、精怪碎片、灵兽、皮肤还是养成材料，全部拉到上限，开局就拥有别人玩半年都凑不齐的资源储备。</p><p>全档位 VIP 拉满，平民终身卡 + 至尊周卡 + 至尊月卡 + 至尊终身卡全部拿下，四重福利叠加，每天领取的资源量比普通玩家一周还多，日常养成完全不用操心，资源多到可以随意挥霍，随时能拉满任意新角色。</p><p>每日充值直接拉满 10000 元档，拿满每日累充最高级的所有奖励：10 万 + 仙桃、数十亿灵石、全套灵界神话套装法宝、十几个自选神话法宝、数十套自选传说皮肤，所有顶级奖励全部收入囊中。同时冲击每日累充排行榜第一名，拿下 1998 至尊礼包 + 3 个烛龙，绝版稀有道具别人拿一个都难，你直接拿满。</p><p>持续充值冲击永久累充高位，3 万、5 万、10 万档位逐个解锁，每一档都是质的飞跃。到 3 万档位能解锁 800 个神话自选碎片、全套 6 级印记、上百个自选神话法宝；到 10 万档位直接解锁所有顶级资源，神话灵兽、精怪、法宝、皮肤全部自选，想要什么阵容就配什么阵容，没有任何养成限制。</p><p>收益与体验这套方案下来，你从开局就拥有全服最顶级的资源配置，战力直接断层领先，所有活动榜单、战力榜、竞技榜全部稳稳第一，所有排名奖励拿到手软，形成滚雪球式的优势，越玩越强，彻底拉开和其他玩家的差距。</p><p>如果你是其他服转来的老玩家，还能参与 1:1 转端活动，老端累充多少就补多少平台币，相当于充值直接翻倍，同样的预算能拿到两倍的资源，霸服成本直接减半，性价比拉到极致。</p><h3 class="section-head">三、充值与资源技巧 让收益再翻一倍</h3><div class="gcard"><h4>1. 集中充值 触发多重奖励</h4><p>尽量把充值集中在同一天完成，这样既能拿每日累充的档位奖励，又能累计进永久累充，同时还能参与每日累充排名，一份钱触发三重奖励，比分开每天充一点收益高得多。尤其是开服第一天，排名竞争最划算，奖励也最丰厚，集中充值收益最大化。</p></div><div class="gcard"><h4>2. 优先买长期收益道具</h4><p>性价比优先级永远是：终身卡 > 月卡 > 周卡 > 终生限购礼包 > 每日特惠。越长期的道具，折算下来单天成本越低、收益越高，尤其是两张终身卡，只要你玩超过一个月，收益就远超所有一次性礼包。</p></div><div class="gcard"><h4>3. 资源跟着活动走</h4><p>拿到的养成材料不要一股脑全用完，留一部分对应限时冲榜活动，比如灵兽冲榜、精怪冲榜的时候再集中升级，既能拿榜单的额外奖励，又能最大化资源价值，比平时乱花收益高很多。</p><p>顶推·寻道大千纵横0.1折端----抖音最火IP畅享修仙🔥</p></div>
+    </div>
+  </section>
+
+  <div class="divider">—·— 活 动 福 利 图 —·—</div>
+  <section>
+    <h2>充值活动福利图</h2>
+    
+    
+    <div class="welfare">
+      <img src="assets/welfare/g31_1.jpg" alt="充值活动福利图" loading="lazy">
+    </div>
+  </section>
+
+
+
+
+  <div class="divider">—·— 注 意 —·—</div>
+  <section>
+    <h2>防骗提醒</h2>
+    <div class="alarm">❗<strong>任何 QQ 群里的「折扣充值」「便宜充值」都是骗子，一律不要信！</strong>本服充值请在游戏内或官方渠道进行。</div>
+  </section>
+
+  <section>
+    <h2>玩腻了？主站还有几十款</h2>
+    <p>本站收录 <strong>35+ 款精品手游</strong>，全部免费领码、直接下载，随时回来换着玩。</p>
+    <a class="btn blue" href="../index.html">🏠 返回主站，看看还有什么好玩的</a>
+  </section>
+
+  <p class="footer">
+     寻道大千纵横0.1折端 · 精品版本 · 丝滑畅玩<br>
+    我们只想给各位玩家一个长久的家<br>
+    建议收藏主站，游戏随便换着玩
+  </p>
+</div>
+
+<div class="bar">
+  <span class="b1 off">注册账号</span>
+  <a class="b2" href="https://s.a8l.uk/GPcr" target="_blank" rel="noopener">下载游戏</a>
+  <a class="b4" href="../index.html">🏠 主站</a>
+</div>
+
+<div class="toast" id="toast">已复制</div>
+<script>
+(function(){
+  var toastEl=document.getElementById('toast');
+  function toast(m){toastEl.textContent=m;toastEl.classList.add('show');clearTimeout(window.__t);
+    window.__t=setTimeout(function(){toastEl.classList.remove('show');},1500);}
+  function copy(text,btn){
+    var done=function(){if(btn){var o=btn.textContent;btn.textContent='已复制 ✓';btn.classList.add('ok');
+      setTimeout(function(){btn.textContent=o;btn.classList.remove('ok');},1500);}toast('已复制：'+text);};
+    if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(text).then(done,function(){fb(text,done);});}else{fb(text,done);}
+  }
+  function fb(text,done){
+    var ta=document.createElement('textarea');ta.value=text;ta.style.position='fixed';ta.style.opacity='0';
+    document.body.appendChild(ta);ta.select();
+    try{document.execCommand('copy');done();}catch(e){toast('复制失败，请长按手动选择');}
+    document.body.removeChild(ta);
+  }
+  var btns=document.querySelectorAll('.cp');
+  for(var i=0;i<btns.length;i++){btns[i].addEventListener('click',function(){copy(this.getAttribute('data-code'),this);});}
+})();
+</script>
+</body>
+</html>

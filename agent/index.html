@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><base href="/"><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>代理合作计划 · 飞鱼手游</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{
+    font-family:"PingFang SC","Microsoft YaHei","Helvetica Neue",sans-serif;
+    background:#f2f5f9;color:#1f2937;line-height:1.85;font-size:16px;
+    -webkit-text-size-adjust:100%;padding-bottom:96px;
+  }
+  a{text-decoration:none;}
+  .wrap{max-width:720px;margin:0 auto;background:#ffffff;min-height:100vh;box-shadow:0 0 20px rgba(15,23,42,.06);}
+
+  .topbar{
+    background:#ffffff;border-bottom:1px solid #e5e9f0;
+    padding:12px 18px;display:flex;align-items:center;justify-content:space-between;
+    position:sticky;top:0;z-index:50;
+  }
+  .topbar .logo{font-size:15px;font-weight:bold;color:#0f172a;letter-spacing:.5px;}
+  .topbar a{color:#2563eb;font-size:13px;border:1px solid #dbe3ee;padding:5px 12px;border-radius:16px;}
+
+  .hero{
+    background:linear-gradient(165deg,#eef4ff 0%,#dbeafe 100%);
+    padding:38px 22px 34px;text-align:center;position:relative;overflow:hidden;
+    display:flex;flex-direction:column;align-items:center;
+  }
+  .hero .badge{
+    display:inline-block;background:#2563eb;color:#fff;font-size:12px;font-weight:bold;
+    padding:6px 18px;border-radius:20px;letter-spacing:1px;margin:0 auto 14px;position:relative;z-index:2;
+    box-shadow:0 3px 10px rgba(37,99,235,.35);
+  }
+  .hero h1{font-size:24px;color:#0f172a;line-height:1.45;position:relative;z-index:2;font-weight:800;max-width:100%;}
+  .hero .sub{color:#334155;font-size:14px;margin-top:12px;position:relative;z-index:2;}
+  .points{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:18px;position:relative;z-index:2;}
+  .points span{
+    background:#fff;border:1px solid #cddcf5;font-size:12px;padding:5px 12px;
+    border-radius:16px;color:#1e40af;box-shadow:0 1px 3px rgba(15,23,42,.06);
+  }
+
+  .update-tag{margin:16px 20px 0;padding:8px 14px;border:1px dashed #f59e0b;border-radius:12px;
+    background:#fffbeb;color:#b45309;font-size:12.5px;font-weight:700;text-align:center;}
+
+  section{padding:28px 20px 6px;scroll-margin-top:64px;}
+  h2{font-size:20px;color:#0f172a;margin-bottom:14px;padding-left:12px;border-left:5px solid #2563eb;line-height:1.4;font-weight:800;}
+  h3{font-size:16px;color:#2563eb;margin:18px 0 8px;font-weight:700;}
+  p{margin-bottom:12px;color:#374151;}
+  strong{color:#b45309;}
+  em{color:#dc2626;font-style:normal;font-weight:bold;}
+  .muted{font-size:13px;color:#94a3b8;}
+
+  .card{background:#f8fafc;border:1px solid #e5e9f0;border-radius:14px;padding:18px;margin:14px 0;}
+  .card h4{color:#1e40af;font-size:16px;margin-bottom:8px;}
+  .card.gold{background:#fffbeb;border-color:#fde68a;}
+  .card.gold h4{color:#b45309;}
+  .card.warn{background:#fef2f2;border-color:#fecaca;}
+  .card.warn h4{color:#dc2626;}
+  .card.blue{background:#eff6ff;border-color:#cddcf5;}
+
+  .tip{background:#fffbeb;border-left:4px solid #f59e0b;padding:13px 15px;border-radius:0 12px 12px 0;margin:14px 0;font-size:15px;color:#78350f;}
+  .alarm{background:#fef2f2;border-left:4px solid #dc2626;padding:13px 15px;border-radius:0 12px 12px 0;margin:14px 0;font-size:15px;color:#7f1d1d;}
+  .alarm strong{color:#dc2626;}
+
+  .step{display:flex;gap:12px;margin-bottom:18px;}
+  .step .no{flex:0 0 30px;height:30px;border-radius:50%;background:#2563eb;color:#fff;font-weight:bold;text-align:center;line-height:30px;font-size:15px;}
+  .step .body{flex:1;}
+  .step .body h4{color:#0f172a;font-size:16px;margin-bottom:6px;}
+
+  .price{display:flex;align-items:baseline;gap:6px;margin:10px 0 4px;}
+  .price .num{font-size:34px;font-weight:800;color:#1d4ed8;line-height:1;}
+  .price .unit{font-size:13px;color:#64748b;}
+  .plist{list-style:none;margin:12px 0 4px;}
+  .plist li{position:relative;padding-left:24px;margin-bottom:9px;color:#374151;line-height:1.7;font-size:14.5px;}
+  .plist li::before{content:"✓";position:absolute;left:2px;top:0;color:#059669;font-weight:bold;}
+  .plist li.no::before{content:"✕";color:#dc2626;}
+  .plan-tag{display:inline-block;font-size:12px;font-weight:bold;color:#fff;border-radius:6px;padding:3px 10px;letter-spacing:1px;}
+  .quota{display:inline-block;background:#fef2f2;color:#dc2626;border:1px solid #fecaca;font-size:12.5px;font-weight:bold;border-radius:14px;padding:4px 12px;margin:6px 0;}
+
+  .faq{border:1px solid #e5e9f0;border-radius:12px;margin:12px 0;overflow:hidden;background:#fff;}
+  .faq summary{cursor:pointer;padding:14px 16px;font-weight:bold;color:#0f172a;font-size:15px;list-style:none;position:relative;}
+  .faq summary::-webkit-details-marker{display:none;}
+  .faq summary::after{content:"+";position:absolute;right:16px;top:50%;transform:translateY(-50%);color:#2563eb;font-size:20px;font-weight:bold;}
+  .faq[open] summary::after{content:"−";}
+  .faq .a{padding:0 16px 15px;color:#374151;font-size:14.5px;border-top:1px dashed #e5e9f0;padding-top:12px;margin-top:2px;}
+  .faq .a p{margin-bottom:8px;}
+  .faq .a p:last-child{margin-bottom:0;}
+
+  .ph{background:#f1f5f9;border:1px dashed #cbd5e1;border-radius:14px;padding:26px;text-align:center;color:#94a3b8;font-size:14px;}
+  .qqcard{background:#fff;border:2px solid #2563eb;border-radius:16px;padding:22px 18px;margin:14px 0;text-align:center;box-shadow:0 6px 18px rgba(37,99,235,.12);}
+  .qqlabel{font-size:13px;color:#475569;font-weight:700;margin-bottom:6px;}
+  .qqarrow{font-size:11.5px;color:#94a3b8;font-weight:400;}
+  .qqnum{font-size:30px;font-weight:800;color:#1d4ed8;letter-spacing:1.5px;font-variant-numeric:tabular-nums;margin-bottom:14px;user-select:all;}
+  .qqbtns{display:flex;gap:10px;}
+  .qqbtn{flex:1;border:0;border-radius:12px;padding:13px 0;font-size:15px;font-weight:800;cursor:pointer;
+    display:flex;align-items:center;justify-content:center;text-decoration:none;-webkit-tap-highlight-color:transparent;}
+  .qqbtn.copy{background:#eff6ff;color:#1d4ed8;border:1.5px solid #bfdbfe;}
+  .qqbtn.copy:active{transform:scale(.96);}
+  .qqbtn.open{background:#2563eb;color:#fff;box-shadow:0 4px 12px rgba(37,99,235,.35);}
+  .qqbtn.open:active{transform:scale(.96);}
+  .qqtip{font-size:11.5px;color:#94a3b8;line-height:1.9;margin:12px 0 0;}
+  .qqtip strong{color:#b45309;}
+
+  .pwall{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:10px 0 4px;}
+  .pwall img{width:100%;border-radius:12px;border:1px solid #e5e9f0;box-shadow:0 3px 10px rgba(15,23,42,.08);display:block;}
+  .pwall .slot{aspect-ratio:4/3;background:repeating-linear-gradient(45deg,#f1f5f9,#f1f5f9 10px,#e9eef5 10px,#e9eef5 20px);border:1px dashed #cbd5e1;border-radius:12px;display:flex;align-items:center;justify-content:center;color:#b6c2d4;font-size:22px;}
+  .pcap{font-size:12.5px;color:#94a3b8;text-align:center;margin:2px 0 18px;}
+  .rrow{display:grid;gap:10px;margin:10px 0;}
+  .rrow img{width:100%;border-radius:12px;border:1px solid #e5e9f0;box-shadow:0 3px 10px rgba(15,23,42,.08);display:block;}
+  .rrow.one{grid-template-columns:1fr;}
+  .rrow.two{grid-template-columns:1fr 1fr;}
+  .rrow.three{grid-template-columns:repeat(3,1fr);}
+  .update-tag{margin:12px 20px 0;padding:8px 14px;border:1px dashed #f59e0b;border-radius:12px;
+    background:#fffbeb;color:#b45309;font-size:12.5px;font-weight:700;text-align:center;}
+
+  .divider{text-align:center;color:#94a3b8;font-size:12px;margin:30px 0 0;letter-spacing:4px;}
+  .footer{text-align:center;color:#94a3b8;font-size:12px;padding:30px 20px 0;line-height:2;}
+
+  .bar{
+    position:fixed;left:0;right:0;bottom:0;z-index:60;background:rgba(255,255,255,.97);
+    border-top:1px solid #e5e9f0;display:flex;gap:8px;padding:10px 12px;max-width:720px;margin:0 auto;
+    box-shadow:0 -2px 12px rgba(15,23,42,.06);
+  }
+  .bar a{flex:1;text-align:center;font-size:15px;font-weight:bold;padding:12px 0;border-radius:12px;color:#fff;}
+  .bar .b1{background:linear-gradient(135deg,#2563eb,#1d4ed8);}
+  .bar .b2{background:linear-gradient(135deg,#f59e0b,#ea580c);}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="topbar">
+    <div class="logo">飞鱼手游 · 代理合作</div>
+    <a href="/">返回主站</a>
+  </div>
+
+  <div class="hero">
+    <span class="badge">站长闭门合作</span>
+    <h1>飞鱼手游 · 代理合作计划</h1>
+    <div class="sub">一手游戏货源 · 同款整站 + 自助后台 · 全套私域打法。<br>先说清楚：<strong>我们不承诺你赚多少钱</strong>——页面里每一个字都是机制和事实，看完再决定。</div>
+    <div class="points">
+      <span>返利台子直结 · 站长不经手</span>
+      <span>几十上百款游戏一手货源</span>
+      <span>每天新游上新 · 永远旺季</span>
+      <span>同款站 · 改名换装随便改</span>
+      <span>一律不议价</span>
+    </div>
+  </div>
+
+  <div class="update-tag">9 月 14 号更新</div>
+
+  <!-- ============ 一、为什么开放 ============ -->
+  <section>
+    <h2>一、先说我们为什么要开放这个合作</h2>
+    <p>很简单：<strong>我们的玩家太多了</strong>。每天都有玩家在问——"能不能做你们的代理？""我也想干这行，能不能带带我。"问的人多了，我们索性把这件事正式放出来，把门槛和规则全部摆到明面上。</p>
+    <p>因为确实有一部分人，是真心想进这个行业。游戏本身就是你们热爱的东西——<strong>在自己热爱的游戏行业里，做一份跟游戏绑定的事业</strong>，这种机会本来就不多。我们把它做成了两档明码标价的合作，规则全部写在下面，看完你就知道适不适合自己。</p>
+    <div class="tip"><strong>之前找过站长、说想做代理的朋友</strong>：现在可以直接通过本页<strong>右下角【咨询合作】</strong>来找我们，名额有限，速到速得。</div>
+  </section>
+
+  <!-- ============ 二、底层逻辑 ============ -->
+  <section>
+    <h2>二、先把这门生意的底层逻辑讲透</h2>
+    <p>不看懂这一节，后面都别看。<strong>所有让你"交钱躺赚"的都别信，懂机制的人不需要被哄。</strong></p>
+
+    <h3>1. 钱从哪里来？</h3>
+    <p>游戏公司要玩家 → 「台子」（游戏渠道平台）把玩家聚起来，并把<strong>推广任务外包给推广者</strong>：你带来一个真实玩家，玩家在游戏里充值，台子从流水中拿出一部分作为<strong>推广返利</strong>结算给你。</p>
+    <div class="card blue">
+      <h4>三笔账，一笔一笔对清</h4>
+      <p><strong>玩家账</strong>：玩家充值用的是游戏正常价格，一分不多花，还通过你的站多拿到攻略、福利和直达入口——<em>你赚的不是玩家的钱，是台子的推广预算</em>。</p>
+      <p><strong>代理账</strong>：你注册的是<strong>你自己的台子代理账号</strong>，玩家数据、充值流水、返利金额全部在你自己的后台实时可查，台子直接结算给你。</p>
+      <p><strong>站长账</strong>：站长赚的是<strong>工具和经验的钱</strong>（渠道资源、站、教学），从收你费用那一刻起，你和站长之间<strong>没有任何一笔钱需要互相结算</strong>。</p>
+    </div>
+
+    <h3>2. 为什么需要站长？</h3>
+    <p>因为台子坑多：有结算拖着不给的，有收了玩家钱跑路的，有链接三天两头死的，有的台子干脆就不开放代理注册。站长手上<strong>几十上百款游戏，每一款都踩过</strong>——哪些台子结算准、哪些口碑差、哪些能开代理，这份名单是用真金白银的亏损换出来的。</p>
+
+    <h3>3. 货源：跟我们干，你拿到的是一手渠道</h3>
+    <p>市面上<strong>上千款游戏，我们这边全都有货源</strong>——市面在跑的都能拿到，个别拿不到的，我们也有办法去对接开发。跟着我们，你就相当于<strong>站上了一手游戏资源渠道</strong>：新游戏、新服、新福利，<em>你永远比别人早一步</em>。做这行，早一步就是钱。</p>
+
+    <h3>4. 这门生意的天花板取决于什么？</h3>
+    <p>取决于<strong>你能触达多少真实玩家</strong>。同样的返利比例，触达的人不同，收入天差地别。所以下面两档班子里，<em>引流教学是整个体系里最值钱的部分</em>，也是最不该便宜卖的部分。</p>
+  </section>
+
+  <!-- ============ 三、这行有多赚钱 ============ -->
+  <section id="money">
+    <h2>三、这行到底有多赚钱？（你最关心的，提前讲）</h2>
+    <p>不画饼，只摆事实——两面都摆，你自己判断。</p>
+
+    <h3>事实一：玩家比你想象的能花钱</h3>
+    <p>玩家会私聊询问<strong>充值入口、平台币和充值返利</strong>，也会提交带有累计充值信息的转区申请。第五节列出了真实案例，并注明咨询、自述与支付流水的区别。</p>
+
+    <h3>事实二：圈子里的人混得怎么样</h3>
+    <p>不指名道姓，只说现象：<strong>这个行业里，不少人一年买车、买房、买别墅。</strong>他们没有三头六臂，只是比你早进场、跟对了渠道、把玩家养熟了。第五节你会看到玩家群的实拍截图。</p>
+
+    <h3>事实三：这行永远都是旺季</h3>
+    <p>很多人以为游戏推广吃"一款游戏的生命周期"——错。市面<strong>每天都有新游戏上线，每个月都有好几款新品</strong>：一款退潮了，下一款马上顶上，玩家永远有新东西可玩。我们从来不指望靠某一款游戏吃一年——<em>这行没有淡季，只有懒季</em>。</p>
+    <p>而且这是一套<strong>已经跑通很久很久的成熟挣钱方案</strong>——你也可以叫它野路子：不用租店面、不用压货、不用养员工，一部手机加一个站就能开工。<strong>比上班舒服太多——没有老板、没有打卡，时间自己安排；比自己创业稳太多——模式早就被人一遍遍验证过了。</strong></p>
+
+    <h3>事实四：丑话还是要说两句</h3>
+    <p>① <strong>这行偏灰色，规则是暗的</strong>：很多细节没把控好，会把自己玩死。小白千万别自己瞎摸——要么别入，要么跟紧带跑。<br>
+    ② <strong>上手期是打地基</strong>：第一个月重心在搭站和养群，见钱没那么快——但地基打完就是细水长流。群要天天养，站要跟着上新，指望部署完就躺平的，这钱白花。</p>
+    <div class="tip">一句话总结：上限真的高，门槛是真的有。<em>学费贵有道理——天下没有免费的午餐，一分钱一分货。</em></div>
+  </section>
+
+  <!-- ============ 四、两档合作 ============ -->
+  <section id="plans">
+    <h2>四、两档合作（没有第三档，不拆卖）</h2>
+    <p>站长的<strong>全部开台渠道资源、全部优质台子，两档都直接给</strong>——能开代理注册的全部交付，不单卖、没有"先买个便宜清单试试"这回事。清单是全部交付里最值钱的东西，看过就等于买完了。</p>
+
+    <div class="card">
+      <span class="plan-tag" style="background:#2563eb;">站长班</span>
+      <div class="price"><span class="num">¥19,800</span><span class="unit">一次性 · 无后续费用</span></div>
+      <ul class="plist">
+        <li><strong>站长的全部渠道资源</strong>：手上几十上百款游戏的货源渠道直接给你——能开代理注册的台子全部交付，每款标注注册入口 / 返利评级 / 结算口碑</li>
+        <li><strong>逐款注册教程</strong>：每款台子怎么注册代理账号、怎么拿推广链接、后台在哪看数据</li>
+        <li><strong>避坑手册</strong>：跑路台子的前兆特征、死链识别、封号高危动作清单</li>
+        <li><strong>同款站整站交付</strong>：跟本站一模一样的攻略站，填你自己的代理链接，你自己的域名，独立运营</li>
+        <li><strong>自助后台</strong>：改站名 / 换背景 / 上架新游戏，你自己就能操作（见下方说明卡）</li>
+        <li><strong>上架 / 换链教学</strong>：新游戏上架流程、死链替换，全部标准化操作</li>
+        <li><strong>7 天答疑</strong>：交付后 7 天内答疑不限次</li>
+        <li class="no"><strong>不含引流教学</strong>——站长班给的是渠道资源和工具，玩家从哪来，你自己解决</li>
+      </ul>
+      <p class="muted">适合：自己会折腾、手里已有玩家资源、不需要人带的圈内人。7 天答疑结束后不含持续服务，自理能力请提前评估。</p>
+    </div>
+
+    <div class="card gold">
+      <span class="plan-tag" style="background:#b45309;">师徒班 · 主推</span>
+      <div class="price"><span class="num">¥39,800</span><span class="unit">一次性 · 含第一年全部服务</span></div>
+      <span class="quota">一年 12 个名额 · 一个月只带一个人</span>
+      <ul class="plist">
+        <li><strong>涵盖站长班全部内容</strong>：全部渠道资源 / 逐款教程 / 避坑手册 / 同款站整站交付 / 自助后台 / 上架换链教学，一样不少</li>
+        <li><strong>全部引流方法共享</strong>：站长自己跑通的全套私域安全打法，模块清单见下节，学完照做</li>
+        <li><strong>一年带跑</strong>：每月 1 次远程复盘——选哪个台子主推、玩家群怎么养、数据哪里不对，手把手改</li>
+        <li><strong>台子情报共享</strong>：哪家调返利、哪家有跑路迹象、哪家开新服——圈子里花多少钱都买不到的实时情报</li>
+        <li><strong>新游优先接入</strong>：站长渠道的新游戏，徒弟优先上架吃头一波</li>
+      </ul>
+      <p class="muted">适合：想把这行当正经副业长期做、想学引流打法的人。</p>
+    </div>
+
+    <div class="card blue">
+      <h4>关于"同款站"：不只是复制品，是一套你自己就能管的系统</h4>
+      <p><strong>一模一样</strong>：玩家看到的，跟你现在刷的这个站完全同款——每款游戏独立攻略页、福利图、兑换码、充值直达入口，一个不少。</p>
+      <p><strong>你能自己改</strong>：站名、LOGO、背景、配色全部配置化——改一处、一条命令整站生效，不用求人，不用懂代码。</p>
+      <p><strong>游戏随便上</strong>：拿到新游戏资源，按五步流程填资料 → 一键构建 → 新页面自动生成。<em>几十上百款都装得下</em>，货源给多少，你就能上多少。</p>
+      <p><strong>为什么值钱</strong>：玩家自己来查攻略、领福利、找充值入口——<em>省下的是你天天当人工客服的时间</em>。你的时间应该花在养玩家上，不是挨个回答"在哪下载"。</p>
+      <p class="muted">域名与空间自理（一年几十元起，教程附现成方案）；不会弄的，师徒班带跑期间手把手教到会。</p>
+    </div>
+
+    <div class="tip">说明：两档均<strong>无年费、无抽成、无隐藏收费</strong>。师徒班第一年服务到期后是否续期，届时再议，不存在"不续费就把站收走"——站和台子账号从头到尾都是你的。</div>
+  </section>
+
+  <!-- ============ 五、实力展示（QQ实读数据） ============ -->
+  <section id="proof">
+    <h2>五、实力说话（玩家群规模与消费实况）</h2>
+    
+    
+    <h3>群人数实拍 · 真实截图（在群里的老客户都知道这些群）</h3>
+    <div class="pwall">
+      <img src="assets/agent/scale_01.jpg" loading="lazy" alt="实力截图">
+      <img src="assets/agent/scale_02.jpg" loading="lazy" alt="实力截图">
+      <img src="assets/agent/scale_03.jpg" loading="lazy" alt="实力截图">
+      <img src="assets/agent/scale_04.jpg" loading="lazy" alt="实力截图">
+      <img src="assets/agent/scale_05.jpg" loading="lazy" alt="实力截图">
+      <img src="assets/agent/scale_06.jpg" loading="lazy" alt="实力截图">
+      <img src="assets/agent/scale_07.jpg" loading="lazy" alt="实力截图">
+      <img src="assets/agent/scale_08.jpg" loading="lazy" alt="实力截图">
+      <img src="assets/agent/scale_09.jpg" loading="lazy" alt="实力截图">
+      <img src="assets/agent/scale_10.jpg" loading="lazy" alt="实力截图">
+      <img src="assets/agent/scale_11.jpg" loading="lazy" alt="实力截图">
+      <img src="assets/agent/scale_12.jpg" loading="lazy" alt="实力截图">
+      <img src="assets/agent/scale_13.jpg" loading="lazy" alt="实力截图">
+      <img src="assets/agent/scale_14.jpg" loading="lazy" alt="实力截图">
+      <img src="assets/agent/scale_15.jpg" loading="lazy" alt="实力截图">
+      <img src="assets/agent/scale_16.jpg" loading="lazy" alt="实力截图">
+      <img src="assets/agent/scale_17.jpg" loading="lazy" alt="实力截图">
+      <img src="assets/agent/scale_18.jpg" loading="lazy" alt="实力截图">
+      <img src="assets/agent/scale_19.jpg" loading="lazy" alt="实力截图">
+      <img src="assets/agent/scale_20.jpg" loading="lazy" alt="实力截图">
+      <img src="assets/agent/scale_21.jpg" loading="lazy" alt="实力截图">
+      <img src="assets/agent/scale_22.jpg" loading="lazy" alt="实力截图">
+      <img src="assets/agent/scale_23.jpg" loading="lazy" alt="实力截图">
+      <img src="assets/agent/scale_24.jpg" loading="lazy" alt="实力截图">
+      <img src="assets/agent/scale_25.jpg" loading="lazy" alt="实力截图">
+      <img src="assets/agent/scale_26.jpg" loading="lazy" alt="实力截图">
+    </div>
+    <p class="pcap">还有很多群，就不一一列举了。</p>
+    
+    <h3>当月流水实拍 · 几款游戏后台随手截的</h3>
+    <div class="rrow one"><img src="assets/agent/recharge_01.png" alt="流水截图"></div>
+    <div class="rrow two"><img src="assets/agent/recharge_02.png" loading="lazy" alt="流水截图"><img src="assets/agent/recharge_03.png" loading="lazy" alt="流水截图"></div>
+    <div class="rrow one"><img src="assets/agent/recharge_04.png" loading="lazy" alt="流水截图"></div>
+    <div class="rrow two"><img src="assets/agent/recharge_05.png" loading="lazy" alt="流水截图"><img src="assets/agent/recharge_07.png" loading="lazy" alt="流水截图"></div>
+    <p class="pcap">后台真实流水，金额都是玩家实际充到账的。每个月基本都这个量，很稳——<strong>引流拉得越多，挣得越多，成正比</strong>。</p>
+  </section>
+
+  <!-- ============ 六、引流打法 ============ -->
+  <section>
+    <h2>六、引流打法全景（师徒班教学内容大纲）</h2>
+    <p>先把结论放前面：<strong>这行引流最大的坑不是"不会引流"，而是"乱引流"</strong>。同行渠道禁引、抖音 / QQ 群等公域平台禁投——乱拉一波，号先没了，什么都没剩下。师徒班教的全部是<strong>私域安全打法</strong>：</p>
+    <div class="card gold">
+      <h4>被封过 10 多个 2000 人的大群——这行的水，比你想的深</h4>
+      <p>先说个实话：我们的群被官方封过 10 多个，好几个都是 2000 人级别的大群。能养出这么大的群，说明拉流量我们是真有一套；连我们都被封过这么多，说明官方的风控一直都在。</p>
+      <p>所以这行拉流量，拼的不是“会不会拉”，是会不会规避：怎么发推广不被踢、怎么养群不被盯上、群真被封了怎么把玩家一批批迁出来不流失——全是细节技巧。这些没人带你自己摸，摸明白之前拉来的流量基本都白拉。</p>
+      <p>跟别人学是听课，跟我们学是抄作业。</p>
+    </div>
+
+    <div class="step"><div class="no">1</div><div class="body"><h4>玩家沉淀：游戏内社交</h4><p>公屏、结拜、师徒、公会——同服玩家变好友的自然路径和开场话术，不唐突、不违规、被加率高。</p></div></div>
+    <div class="step"><div class="no">2</div><div class="body"><h4>玩家群运营</h4><p>建群定位、每日聊天节奏、福利日设计、冷群复活、防流失节点。群是这门生意的核心资产，怎么养群是第一课。</p></div></div>
+    <div class="step"><div class="no">3</div><div class="body"><h4>私域人设</h4><p>朋友圈发什么、怎么发、多久发一次、哪些内容一发就掉信任。玩家认人不认广告，人设是转化的前提。</p></div></div>
+    <div class="step"><div class="no">4</div><div class="body"><h4>老带新裂变</h4><p>让老玩家主动拉朋友进来的安全设计——不是裂变工具，是利益加面子的双重设计，裂变速度慢但极度稳固。</p></div></div>
+    <div class="step"><div class="no">5</div><div class="body"><h4>变现节奏</h4><p>什么时候推台子、怎么报充值福利不像卖货、怎么让玩家主动问"在哪下"。硬推必死，节奏对了水到渠成。</p></div></div>
+    <div class="step"><div class="no">6</div><div class="body"><h4>高危红线清单</h4><p>逐条列出绝对不能碰的动作和原因——<em>站长比你还怕你出事</em>，这一条没有商量余地。</p></div></div>
+
+    <p class="muted">以上是教学大纲。每个模块的完整打法（含话术模板、节奏表、案例复盘）在师徒班交付，按月跟进落地。</p>
+    <div class="alarm"><strong>最后说句掏心窝的：这一行必须要有人带。</strong>自己瞎琢磨，风险很大——套路很多，一个动作不对，是<em>真的容易进去喝茶的</em>。但反过来说，挣钱也是真的挣钱。里面的门道我们摸了很多年，哪些路走得通、哪些路会死，都替你踩过了。<strong>跟着我们的节奏来，肯定没有问题。</strong></div>
+  </section>
+
+  <!-- ============ 七、交付流程 ============ -->
+  <section id="flow">
+    <h2>七、交付流程（四步，全程可查）</h2>
+    <div class="step"><div class="no">1</div><div class="body"><h4>私信确认名额与资格</h4><p>说明你的玩家资源和经历。<strong>站长会筛选</strong>：手里没有玩家资源、或抱着"保证赚钱"预期来的，直接拒绝——收你的钱是害你。</p></div></div>
+    <div class="step"><div class="no">2</div><div class="body"><h4>确认后收款</h4><p><strong>仅收 U</strong>，其他方式一律不支持。收款前<strong>不发任何资料</strong>——没有"先看清单"这回事。</p></div></div>
+    <div class="step"><div class="no">3</div><div class="body"><h4>48 小时内交付</h4><p>全部渠道资源清单、逐款教程、避坑手册、同款站整站部署、自助后台使用教学——按交付清单逐项给到你。</p></div></div>
+    <div class="step"><div class="no">4</div><div class="body"><h4>按清单逐项验收</h4><p>逐项核对确认，确认即验收。站长班 7 天答疑开始；师徒班第一个月复盘当场排期。</p></div></div>
+    <div class="alarm"><strong>退款规则</strong>：清单与站交付前，可全额退款；<strong>清单一旦交付，概不退款</strong>——清单的价值看过即消耗，这是行规，也是底线。</div>
+  </section>
+
+  <!-- ============ 八、规则与态度 ============ -->
+  <section>
+    <h2>八、规则与态度（先小人后君子）</h2>
+    <div class="card warn">
+      <h4>三条铁律</h4>
+      <p><strong>1. 一律不还价。</strong>全网统一价，砍价免谈，价格永远不会降，也永远不会搞"限时特价"。<em>天下没有免费的午餐，一分钱一分货</em>——学费贵，是有道理的。</p>
+      <p><strong>2. 不白嫖资料。</strong>渠道清单、手册、话术模板，一律不在收款前展示。想先免费看点什么再决定的，本页所有公开内容就是全部，看完能决定就聊，不能决定就到此为止。</p>
+      <p><strong>3. 不承诺收益。</strong>任何"保证月入多少"的话本页一个字都不会有——<em>有这种承诺的才是骗局</em>。我们交付工具、经验和带跑，赚钱这件事只能你自己干。</p>
+    </div>
+  </section>
+
+  <!-- ============ 九、疑虑拆解 ============ -->
+  <section id="faq">
+    <h2>九、疑虑逐条拆解（想到的没想到的都在这）</h2>
+    <p class="muted">以下问题来自真实咨询。点开看答案，看完还有疑虑的，直接私信问站长本人。</p>
+
+    <details class="faq"><summary>1. 这不会是那种交钱加盟的骗局吧？</summary><div class="a"><p>骗局有三个标志：承诺收益、没有实物交付、主站查无此人。本页<strong>零收益承诺</strong>（明确写"能不能赚钱看你"）；交付的是实物工具（渠道资源 + 整站 + 教学文档，逐项验收）；站长自己的站就在线上跑着，进来点的每一页都是实证。</p><p>再补一刀：骗局希望你冲动作决策，我们希望你<strong>把本页从头读到尾再决定</strong>——读完还想骂骗局的，欢迎私信对质。</p></div></details>
+
+    <details class="faq"><summary>2. 我交了钱，返利会不会被站长截留？</summary><div class="a"><p>不可能，这是结构决定的：你注册的是<strong>你自己的台子代理账号</strong>，推广链接是你的，玩家数据是你的，返利由台子<strong>直接结算到你的账户</strong>。站长从始至终不经手你和你玩家之间的任何一笔钱——你和站长之间唯一的资金往来，就是那笔费用。</p></div></details>
+
+    <details class="faq"><summary>3. 这是拉人头 / 传销吗？</summary><div class="a"><p>不是，而且这条是红线：本计划<strong>没有下级发展机制，不从你的收入里抽一分钱</strong>，也不存在"拉更多人进来你能分钱"的设计。我们赚工具和教学的钱，你赚台子返利，两本账完全分开。你以后发展自己的合作者，是你和你合作者之间的事，与站长无关。</p></div></details>
+
+    <details class="faq"><summary>4. 凭什么卖这么贵？</summary><div class="a"><p>贵在三样东西上：<strong>①渠道资源</strong>——每一条"能开代理、结算准、不跑路"的结论背后都是真金白银的试错，加上上千款游戏的一手货源渠道；<strong>②同款站+自助后台</strong>——你自己从零做要几周，我们是跑了很久的流水线一小时部署，改名字换背景上架游戏你自己就能弄；<strong>③师徒班的带跑和情报</strong>——哪台子要出事、哪新服能吃肉，这是圈子里花钱都打听不到的。</p><p>便宜的那类你也见过：几千块卖你一套模板源码，然后所有坑你自己踩。贵和便宜的区别不是价格数字，是你<strong>不用再交一遍学费</strong>。</p></div></details>
+
+    <details class="faq"><summary>5. 引流会不会封号？</summary><div class="a"><p>乱来一定封。同行游戏渠道禁引、抖音 / QQ 群等公域平台禁投——这是这行的铁幕，谁撞谁死。师徒班教的全部是<strong>游戏内社交沉淀 + 私域运营</strong>的安全打法，并把高危红线动作逐条列清。<em>你出事连累的不只是你，还有站长在台子那边的信誉</em>——所以这一课我们教得比谁都认真。</p></div></details>
+
+    <details class="faq"><summary>6. 玩家为什么偏偏通过我的链接充值？</summary><div class="a"><p>玩家充值去哪都是充，他选择你的原因只有一个：<strong>你的站对他有用</strong>——攻略写得明白、福利整理得齐全、入口直达不绕路。信任建立之后，他就沉淀在你这。这也是为什么交付里有一模一样的整站：它不是摆设，它是你承接玩家的容器。</p></div></details>
+
+    <details class="faq"><summary>7. 台子会不会跑路？</summary><div class="a"><p>会，这行确实有跑路的，这也是渠道清单值钱的原因。清单里每款台子都标注<strong>结算口碑与评级</strong>，避坑手册第一章就是"跑路台子的 N 个前兆"。记住一条铁律：<em>尽量分散，别把玩家全押一个台子</em>——这也是带跑期间每月复盘要盯的事。</p></div></details>
+
+    <details class="faq"><summary>8. 师徒班为什么一年只有 12 个名额？</summary><div class="a"><p>因为带跑服务消耗的是站长本人的时间：<strong>一个月只带一个人</strong>——从选台子到养群到第一次复盘，一个月刚好带出一个能自己站稳的。一年 12 个，多一个都没有，多收一个就是对前面人的不负责。这不是"限量逼单"——名额随到随开，凑不满十二个也是这个数。</p></div></details>
+
+    <details class="faq"><summary>9. 可以先看清单再决定买吗？</summary><div class="a"><p>不可以。渠道清单是全部交付里最值钱的部分，看过就等于买完了。你可以确认的事实有：站长的全部开台渠道资源都在清单里、每款都标注评级和口碑、评级规则公开——<strong>具体名单收款后交付</strong>。嫌这个规矩麻烦的，说明还不是我们的客户。</p></div></details>
+
+    <details class="faq"><summary>10. 你把打法都教了，不怕我抢你生意？</summary><div class="a"><p>手游玩家盘子极大，你的私域和站长的私域并不重叠；并且我们<strong>只教长期安全打法、只带少量人</strong>——从机制上就不制造恶性竞争。说到底：站长主业在自己的站上，带徒弟是把重复踩过的坑标出来，你跑得稳，圈子里自然有下一个想入行的人来找你，而不是来抢你。</p></div></details>
+
+    <details class="faq"><summary>11. 能优惠吗？能分期吗？</summary><div class="a"><p>不能，不能。统一价，不议价，不分期。一次性付清的动作本身就是第一道筛选——连这一步都犹豫的人，后面每个需要耐心的环节都熬不过去。</p></div></details>
+
+    <details class="faq"><summary>12. 我完全没玩过这行，纯小白能买吗？</summary><div class="a"><p>站长班：不建议，它默认你会自己折腾。师徒班：可以，而且<strong>小白比谁都更需要带</strong>——这行偏灰色，细节没把控好会把自己玩死。但要把实话放在这：名额有限时，优先给手里已有玩家资源的人。这个偏好写在这，不藏着。</p></div></details>
+
+    <details class="faq"><summary>13. 还有什么没写到的坑，现在告诉我</summary><div class="a"><p>两个：<strong>①上手期是打地基</strong>，第一个月重心在搭站和养群，见钱没那么快——但地基打完就是细水长流，<strong>每天都有新游戏上新，这行没有淡季</strong>；<strong>②需要持续投入时间</strong>，群要天天养，站要跟着上新，指望部署完就躺着的，这钱白花。把丑话全说完还愿意来的，才带得动。</p></div></details>
+  </section>
+
+  <!-- ============ 十、劝退区 ============ -->
+  <section>
+    <h2>十、以下情况，请不要购买</h2>
+    <div class="card warn">
+      <h4>对号入座，一条命中就请关掉本页</h4>
+      <p>① 手里没有玩家资源，也<strong>不想花时间积累</strong>的——买了也是浪费；<br>
+      ② 想听"保证赚钱""月入多少"承诺的——本计划给不了，给得起这话的人都是骗子；<br>
+      ③ 预算紧张、这笔钱会影响生活的——先把自己的日子过稳；<br>
+      ④ 想去抖音 / QQ 群 / 贴吧大批量投广告爆拉的——我们教你为什么死，但不陪你死；<br>
+      ⑤ 想砍价、想先白嫖资料、想"先看看再说"的——规则第八节写得明明白白。</p>
+    </div>
+    <p class="muted">把这节放在这么显眼的位置，是本页最真诚的部分：<strong>我们筛客户，比客户挑我们更狠。</strong></p>
+  </section>
+
+  <!-- ============ 十一、合作规则红线 ============ -->
+  <section>
+    <h2>十一、合作规则 · 四条红线（入班即生效）</h2>
+    <div class="alarm">
+      <strong>四条红线，入班即生效，违反即终止售后 / 带跑资格，后果自负：</strong><br><br>
+      1. <strong>只做私域</strong>：禁止进入同行游戏社区引流，禁止抖音 / 快手 / QQ 群 / 贴吧等公域平台投放，禁止群发陌生人。<br>
+      2. <strong>禁止代收充值</strong>：玩家充值一律走台子官方入口，你手里永远不出现收款码。<br>
+      3. <strong>禁止冒充官方</strong>：以"玩家 / 代理"身份说话，禁止冒充游戏官方或客服，禁止替游戏做任何承诺。<br>
+      4. <strong>禁止二次转卖</strong>：渠道清单、教学文档仅供本人使用，禁止转卖、公开传播。
+    </div>
+    <p>为什么这么严？因为<strong>你乱来，砸的是你在台子那边的账号，和站长圈子里的信誉</strong>。这四条不是限制你赚钱，是保护你赚钱的资格。</p>
+  </section>
+
+  <!-- ============ 咨询入口 ============ -->
+  <section id="contact">
+    <h2>十二、咨询与名额确认</h2>
+    <div class="card blue">
+      <h4>合作流程提醒</h4>
+      <p>本页不设在线下单。所有合作均<strong>由站长本人一对一确认资格</strong>：私信说明你的玩家资源与经历 → 站长确认（或拒绝）→ 确认后收 U → 48 小时交付。</p>
+      <p><strong>之前找过站长、说想做代理的朋友</strong>：不用再等了，点本页<strong>右下角【咨询合作】</strong>直接来——名额有限，速到速得。</p>
+    </div>
+    <div class="qqcard">
+      <p class="qqlabel">站长 QQ <span class="qqarrow">← 一键复制 / 直接打开</span></p>
+      <div class="qqnum" id="qqnum">2954935687</div>
+      <div class="qqbtns">
+        <button class="qqbtn copy" onclick="copyQQ(this)">复制 QQ 号</button>
+        <a class="qqbtn open" href="https://wpa.qq.com/msgrd?v=3&uin=2954935687&site=qq&menu=yes" target="_blank" rel="noopener">打开 QQ 咨询</a>
+      </div>
+      <p class="qqtip">点【打开 QQ 咨询】直接唤起 QQ；如果没反应，复制上面的号去 QQ 搜索添加。<br>加好友<strong>必须备注「代理」，不备注一律不通过</strong>。</p>
+    </div>
+  </section>
+
+  <p class="divider">· · ·</p>
+  <p class="footer">飞鱼手游 · 代理合作计划 · 站长本人发布<br>台子信息以站长当日确认为准 · 本页内容最终解释权归站长所有</p>
+</div>
+
+<div class="bar">
+  <a class="b1" href="/">返回主站</a>
+  <a class="b2" href="https://wpa.qq.com/msgrd?v=3&uin=2954935687&site=qq&menu=yes" target="_blank" rel="noopener">咨询合作</a>
+</div>
+<script>
+function copyQQ(btn){
+  var done=function(){btn.textContent='已复制 ✓';setTimeout(function(){btn.textContent='复制 QQ 号';},1600);};
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText('2954935687').then(done).catch(function(){fallback();});}else{fallback();}
+  function fallback(){var t=document.getElementById('qqnum');var r=document.createRange();r.selectNodeContents(t);var s=window.getSelection();s.removeAllRanges();s.addRange(r);try{document.execCommand('copy');done();}catch(e){}s.removeAllRanges();}
+}
+</script>
+
+</body></html>
+<!-- build:mtymrzmc -->
