@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<base href="/">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#f2f5f9">
+<title>咸鱼之王 —— 精品版本 · 丝滑畅玩</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{
+    font-family:"PingFang SC","Microsoft YaHei","Helvetica Neue",sans-serif;
+    background:#f2f5f9;color:#1f2937;line-height:1.85;font-size:16px;
+    -webkit-text-size-adjust:100%;padding-bottom:96px;
+  }
+  a{text-decoration:none;}
+  .wrap{max-width:580px;margin:0 auto;background:#ffffff;min-height:100vh;box-shadow:0 0 20px rgba(15,23,42,.06);}
+
+  .topbar{
+    background:#ffffff;border-bottom:1px solid #e5e9f0;
+    padding:12px 18px;display:flex;align-items:center;justify-content:space-between;
+    position:sticky;top:0;z-index:50;
+  }
+  .topbar .logo{font-size:15px;font-weight:bold;color:#0f172a;letter-spacing:.5px;}
+  .topbar a{color:#2563eb;font-size:13px;border:1px solid #dbe3ee;padding:5px 12px;border-radius:16px;}
+
+  .hero{
+    background:linear-gradient(165deg,#eef4ff 0%,#dbeafe 100%);
+    padding:38px 22px 34px;text-align:center;position:relative;overflow:hidden;
+    display:flex;flex-direction:column;align-items:center;
+  }
+  .hero .badge{
+    display:inline-block;background:#2563eb;color:#fff;font-size:12px;font-weight:bold;
+    padding:6px 18px;border-radius:20px;letter-spacing:1px;margin:0 auto 14px;position:relative;z-index:2;
+    box-shadow:0 3px 10px rgba(37,99,235,.35);
+  }
+  .hero h1{font-size:24px;color:#0f172a;line-height:1.45;position:relative;z-index:2;font-weight:800;max-width:100%;}
+  .hero .sub{color:#334155;font-size:14px;margin-top:12px;position:relative;z-index:2;}
+  .points{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:18px;position:relative;z-index:2;}
+  .points span{
+    background:#fff;border:1px solid #cddcf5;font-size:12px;padding:5px 12px;
+    border-radius:16px;color:#1e40af;box-shadow:0 1px 3px rgba(15,23,42,.06);
+  }
+
+  .btn{
+    display:block;text-align:center;color:#fff;font-size:17px;font-weight:bold;letter-spacing:.5px;
+    padding:16px 0;border-radius:14px;margin:12px 0;box-shadow:0 3px 10px rgba(37,99,235,.22);
+    transition:transform .12s;
+  }
+  .btn:active{transform:scale(.98);}
+  .btn.blue{background:linear-gradient(135deg,#2563eb,#1d4ed8);}
+  .btn.orange{background:linear-gradient(135deg,#f59e0b,#ea580c);box-shadow:0 3px 10px rgba(234,88,12,.25);}
+  .btn.purple{background:linear-gradient(135deg,#7c3aed,#5b21b6);box-shadow:0 3px 10px rgba(124,58,237,.22);}
+  .btn.green{background:linear-gradient(135deg,#059669,#047857);box-shadow:0 3px 10px rgba(5,150,105,.22);}
+  .btn.pending{background:linear-gradient(135deg,#94a3b8,#64748b)!important;box-shadow:none;}
+  .btn.info{background:linear-gradient(135deg,#0891b2,#0e7490)!important;box-shadow:0 3px 10px rgba(8,145,178,.25);}
+  .heropic{width:88px;height:88px;border-radius:50%;border:3px solid #fff;box-shadow:0 4px 12px rgba(15,23,42,.18);margin-bottom:12px;object-fit:cover;}
+  .btn .small{display:block;font-size:12px;font-weight:normal;opacity:.92;margin-top:3px;letter-spacing:0;}
+
+  section{padding:28px 20px 6px;}
+  h2{font-size:20px;color:#0f172a;margin-bottom:14px;padding-left:12px;border-left:5px solid #2563eb;line-height:1.4;font-weight:800;}
+  h3{font-size:16px;color:#2563eb;margin:18px 0 8px;font-weight:700;}
+  p{margin-bottom:12px;color:#374151;}
+  strong{color:#b45309;}
+  em{color:#dc2626;font-style:normal;font-weight:bold;}
+
+  .card{background:#f8fafc;border:1px solid #e5e9f0;border-radius:14px;padding:18px;margin:14px 0;}
+  .card h4{color:#1e40af;font-size:16px;margin-bottom:8px;}
+  .card.gold{background:#fffbeb;border-color:#fde68a;}
+  .card.gold h4{color:#b45309;}
+  .card.warn{background:#fef2f2;border-color:#fecaca;}
+  .card.warn h4{color:#dc2626;}
+  .divider{text-align:center;color:#94a3b8;font-size:12px;margin:30px 0 0;letter-spacing:4px;}
+
+  .step{display:flex;gap:12px;margin-bottom:18px;}
+  .step .no{flex:0 0 30px;height:30px;border-radius:50%;background:#2563eb;color:#fff;font-weight:bold;text-align:center;line-height:30px;font-size:15px;}
+  .step .body{flex:1;}
+  .step .body h4{color:#0f172a;font-size:16px;margin-bottom:6px;}
+
+  ul.codes{list-style:none;}
+  ul.codes li{
+    background:#f8fafc;border:1px dashed #cbd5e1;border-radius:12px;padding:12px;margin-bottom:8px;
+    display:flex;align-items:center;gap:10px;
+  }
+  ul.codes li .code{flex:0 0 auto;font-size:16px;font-weight:800;color:#1e40af;letter-spacing:1px;font-family:Consolas,Monaco,monospace;}
+  ul.codes li .desc{flex:1;font-size:13px;color:#475569;line-height:1.65;}
+  ul.codes li .cp{flex:0 0 auto;background:#2563eb;color:#fff;border:0;border-radius:8px;font-size:12px;padding:7px 12px;cursor:pointer;}
+  ul.codes li .cp.ok{background:#059669;}
+
+  .tip{background:#fffbeb;border-left:4px solid #f59e0b;padding:13px 15px;border-radius:0 12px 12px 0;margin:14px 0;font-size:15px;color:#78350f;}
+  .alarm{background:#fef2f2;border-left:4px solid #dc2626;padding:13px 15px;border-radius:0 12px 12px 0;margin:14px 0;font-size:15px;color:#7f1d1d;}
+  .alarm strong{color:#dc2626;}
+  .tag{display:inline-block;background:#2563eb;color:#fff;font-weight:bold;border-radius:6px;padding:2px 10px;font-size:13px;margin-right:6px;}
+
+  .welfare img{width:100%;border-radius:14px;display:block;margin:10px 0;}
+  .welfare .ph{background:#f1f5f9;border:1px dashed #cbd5e1;border-radius:14px;padding:26px;text-align:center;color:#94a3b8;font-size:14px;}
+
+  .bar{
+    position:fixed;left:0;right:0;bottom:0;z-index:60;background:rgba(255,255,255,.97);
+    border-top:1px solid #e5e9f0;display:flex;gap:8px;padding:10px 12px;max-width:580px;margin:0 auto;
+    box-shadow:0 -2px 12px rgba(15,23,42,.06);
+  }
+  .bar a{flex:1;text-align:center;font-size:15px;font-weight:bold;padding:12px 0;border-radius:12px;color:#fff;}
+  .bar .b1{background:linear-gradient(135deg,#2563eb,#1d4ed8);padding:12px 0;border-radius:var(--radius);color:#fff;}
+  .bar .b2{background:linear-gradient(135deg,#f59e0b,#ea580c);padding:12px 0;border-radius:var(--radius);color:#fff;}
+  .bar .b3{background:linear-gradient(135deg,#7c3aed,#5b21b6);padding:12px 0;border-radius:var(--radius);color:#fff;}
+  .bar .off{opacity:.55;filter:grayscale(.4);}
+  .footer{text-align:center;color:#94a3b8;font-size:12px;padding:30px 20px 0;line-height:2;}
+  /* 返回主站按钮 */
+  .topbar .back{background:#2563eb;color:#fff;border:0;font-size:13px;font-weight:bold;padding:6px 14px;border-radius:16px;box-shadow:0 2px 6px rgba(37,99,235,.25);}
+  /* 邀请码 */
+  .invite{background:#fffbeb;border:1px solid #fde68a;border-radius:14px;padding:16px;margin:14px 0;text-align:center;}
+  .invite-t{font-size:14px;color:#92400e;font-weight:bold;}
+  .invite-row{display:flex;align-items:center;justify-content:center;gap:10px;margin:10px 0 6px;}
+  .invite-code{font-family:Consolas,Monaco,monospace;font-size:24px;font-weight:800;color:#b45309;letter-spacing:3px;}
+  .cp-big{background:#f59e0b;color:#fff;border:0;border-radius:10px;padding:10px 18px;font-size:14px;font-weight:bold;cursor:pointer;}
+  .cp-big.ok{background:#059669;}
+  .invite-tip{font-size:12px;color:#a16207;}
+  /* 攻略正文 */
+  .guide{margin-top:4px;}
+  .guide-title{font-size:20px;color:#0f172a;margin-bottom:14px;padding-left:12px;border-left:5px solid #2563eb;line-height:1.4;font-weight:800;}
+  .guide .gsec-divider{text-align:center;color:#94a3b8;font-size:12px;margin:26px 0 10px;letter-spacing:3px;}
+  .guide h3.section-head{font-size:17px;color:#0f172a;margin:22px 0 14px;padding:10px 14px;background:#f1f5f9;border-radius:10px;border-left:4px solid #2563eb;font-weight:800;}
+  .guide .gcard{background:#f8fafc;border:1px solid #e5e9f0;border-radius:14px;padding:16px;margin:14px 0;}
+  .guide .gcard h4{color:#1e40af;font-size:15px;margin-bottom:10px;font-weight:800;}
+  .guide .gcard>:last-child{margin-bottom:0;}
+  .guide p{margin-bottom:14px;color:#374151;line-height:1.85;}
+  .guide p:last-child{margin-bottom:0;}
+  .guide ul.glist{list-style:none;margin:10px 0 14px;}
+  .guide ul.glist li{position:relative;padding-left:22px;margin-bottom:8px;color:#374151;line-height:1.7;}
+  .guide ul.glist li::before{content:"";position:absolute;left:6px;top:10px;width:6px;height:6px;border-radius:50%;background:#2563eb;}
+  .guide .gtip{background:#fffbeb;border-left:4px solid #f59e0b;padding:12px 14px;border-radius:0 12px 12px 0;margin:14px 0;font-size:14px;color:#78350f;}
+  .guide .galarm{background:#fef2f2;border-left:4px solid #dc2626;padding:12px 14px;border-radius:0 12px 12px 0;margin:14px 0;font-size:14px;color:#7f1d1d;}
+  .guide .gday{display:flex;gap:12px;margin-bottom:16px;}
+  .guide .gday .no{flex:0 0 46px;height:46px;border-radius:12px;background:#2563eb;color:#fff;font-weight:bold;text-align:center;font-size:12px;display:flex;align-items:center;justify-content:center;line-height:1.2;padding:4px;}
+  .guide .gday .body{flex:1;background:#f8fafc;border:1px solid #e5e9f0;border-radius:14px;padding:14px 16px;}
+  .guide .gday .body h4{color:#1e40af;font-size:15px;margin-bottom:6px;font-weight:800;}
+  .guide .gday .body p{margin-bottom:0;}
+  /* 福利图 */
+  .welfare img{width:100%;border-radius:14px;display:block;margin:10px 0;box-shadow:0 4px 14px rgba(15,23,42,.12);}
+  .muted{font-size:13px;color:#94a3b8;}
+  /* 正文里内联的兑换码 + 复制键 */
+  .cc{display:inline-flex;align-items:center;gap:6px;vertical-align:middle;margin:0 2px;}
+  .cc b{font-family:Consolas,Monaco,monospace;font-size:14px;color:#b45309;background:#fffbeb;
+    border:1px solid #fde68a;border-radius:6px;padding:1px 6px;letter-spacing:.5px;font-weight:800;}
+  .cc .cp{background:#f59e0b;color:#fff;border:0;border-radius:6px;padding:2px 8px;font-size:11px;
+    font-weight:bold;cursor:pointer;line-height:1.6;}
+  .cc .cp.ok{background:#059669;}
+  .bar .b4{background:linear-gradient(135deg,#0f172a,#334155);padding:12px 0;border-radius:var(--radius);color:#fff;flex:0 0 84px;font-size:14px;}
+  .toast{position:fixed;left:50%;bottom:96px;transform:translateX(-50%);background:rgba(15,23,42,.9);color:#fff;
+    font-size:14px;padding:10px 18px;border-radius:20px;opacity:0;transition:opacity .25s;pointer-events:none;z-index:99;}
+  .toast.show{opacity:1;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="topbar">
+    <div class="logo">🎮  咸鱼之王</div>
+    <a class="back" href="../index.html">🏠 返回主站</a>
+  </div>
+
+  <div class="hero">
+    <img class="heropic" src="assets/icons/g32.jpg" alt="">
+    <div class="badge">精品版本 · 丝滑畅玩</div>
+    <h1>咸鱼之王</h1>
+    <p class="sub">不卡不掉 · 持续更新<br>我们只想给各位玩家一个长久的家</p>
+    <div class="points"><span>✅ 不卡不掉</span><span>✅ 持续更新</span><span>✅ 安卓苹果双端</span></div>
+  </div>
+
+  <section>
+    <div class="btn blue info">📝 游戏内注册（邀请码 EI4SF4TX）<span class="small">下载游戏后，在游戏内注册并填对邀请码</span></div>
+    <a class="btn orange" href="https://ff.cvvd.uk/1BlX" target="_blank" rel="noopener">⬇ 点击下载游戏（安卓 / 苹果通用）<span class="small">安装后选「账号密码登录」</span></a>
+    <div class="invite">
+      <div class="invite-t">🎁 本服专属邀请码（注册必填）</div>
+      <div class="invite-row"><span class="invite-code" id="inviteCode">EI4SF4TX</span><button class="cp cp-big" data-code="EI4SF4TX">复制</button></div>
+      <div class="invite-tip">填错邀请码没有售后，请复制后粘贴使用</div>
+    </div>
+  </section>
+
+  <div class="divider">—·— 三 步 开 玩 —·—</div>
+
+  <section>
+    <h2>一、三步开玩（点一下就走，两分钟进游戏）</h2>
+    <div class="step">
+      <div class="no">1</div>
+      <div class="body">
+        <h4>注册账号</h4>
+        <p>本服在<strong>游戏内注册</strong>，下载安装后打开游戏注册即可，邀请码记得填：<strong>EI4SF4TX</strong></p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="no">2</div>
+      <div class="body">
+        <h4>下载游戏</h4>
+        <p>点按钮直接下载，安卓苹果都能装。</p><a class="btn orange" href="https://ff.cvvd.uk/1BlX" target="_blank" rel="noopener">⬇ 点击下载（主线路）</a>
+      </div>
+    </div>
+    <div class="step">
+      <div class="no">3</div>
+      <div class="body">
+        <h4>登录游戏</h4>
+        <p>打开游戏后，<strong>选择「账号密码登录」，不要用手机号登录</strong>，账号就是第 1 步注册的那个；<strong>本服充值在游戏内直接进行</strong>，无需外部充值链接。</p>
+      </div>
+    </div>
+    <div class="card warn">
+      <h4>⚠️ 登录提示网络异常怎么办？</h4>
+      <p>装个「爱加速」，把本地网络切到<strong>上海</strong>再登录，基本一次解决。</p>
+      <a class="btn green" href="https://m.91ajs.com" target="_blank" rel="noopener">🔧 点击下载爱加速</a>
+    </div>
+  </section>
+
+  <div class="divider">—·— 进 服 先 领 —·—</div>
+  <section>
+    <h2>二、进服先白嫖：兑换码全部领满</h2>
+    <p class="muted">兑换路径：游戏内 设置 → 礼包兑换码（点右侧按钮可直接复制）</p>
+    <ul class="codes">
+      <li><span class="code">KQ001</span><span class="desc">金币 20 亿、金砖 100 万、万能碎片 1000、彩玉 26666、精铁 88 万、进阶石 88 万、梦魇晶石 10</span><button class="cp" data-code="KQ001">复制</button></li>
+      <li><span class="code">KQ002</span><span class="desc">金币 100 亿、四圣蓝玉 2 万、四圣红玉 800、彩玉 9999、白玉 150 万、幻彩灵果 2 万、进阶石 66</span><button class="cp" data-code="KQ002">复制</button></li>
+      <li><span class="code">KQ003</span><span class="desc">黄金章鱼碎片 50，赤兔马碎片 50，玄翎鹤碎片 50，食梦貘碎片 50，四圣宝珠 1，复活丹 20</span><button class="cp" data-code="KQ003">复制</button></li>
+      <li><span class="code">KQ004</span><span class="desc">进服直接兑，先领先爽</span><button class="cp" data-code="KQ004">复制</button></li>
+      <li><span class="code">KQ005</span><span class="desc">进服直接兑，先领先爽</span><button class="cp" data-code="KQ005">复制</button></li>
+      <li><span class="code">KQ006</span><span class="desc">进服直接兑，先领先爽</span><button class="cp" data-code="KQ006">复制</button></li>
+      <li><span class="code">KQ007</span><span class="desc">进服直接兑，先领先爽</span><button class="cp" data-code="KQ007">复制</button></li>
+    </ul>
+    <a class="btn orange" href="https://ff.cvvd.uk/1BlX" target="_blank" rel="noopener">还没下载？点击下载，马上领码 ⬇</a>
+  </section>
+
+  <div class="divider">—·— 新 手 起 号 攻 略 —·—</div>
+  <section>
+    <h2>新手起号全攻略（起号 + 充值 + 冠名）</h2>
+    <div class="guide">
+<h2 class="guide-title">新手起号全攻略！0 氪 / 小氪 / 中氪 / 大氪一站式冲榜指南</h2><h3 class="section-head">一、进服第一步：先领满 120 亿启动资源</h3><p>进新区第一件事，先把两个专属开区礼包码全部兑换，直接拿到别人玩一周都攒不出来的海量资源，零门槛起步直接快人一步。兑换方式：点击左上角头像→找到设置 / 礼包码入口→输入对应码即可一键领取，资源直接到账背包。</p><p><span class="cc"><b>KQ001</b><button class="cp" data-code="KQ001">复制</button></span>：金币 20 亿、金砖 100 万、万能碎片 1000、彩玉 26666、精铁 88 万、进阶石 88 万、梦魇晶石 10 万、招募令 500、珍珠 3000、白玉 500 万、金鱼竿 500、灵贝 500、灵珠 2 颗、四圣宝珠 1 个、扳手 5 万、军币 88 万、皮币 100、四圣蓝玉 2 万、四圣红玉 83、赤兔坐骑 1 个、幻彩灵果 3000、宠物饼干 5 万、基因药剂、基因本源液、5 星专属鱼 2 条、金鱼自选包 2 个、暑期金鱼包 2 个、金鱼盲盒 1 个</p><p>新增 <span class="cc"><b>KQ002</b><button class="cp" data-code="KQ002">复制</button></span>：金币 100 亿、四圣蓝玉 2 万、四圣红玉 800、彩玉 9999、白玉 150 万、幻彩灵果 2 万、进阶石 66 万、精铁 66 万、耀皮肤币 1 个、暑期足球礼包 2 个、灵珠 1 颗</p><p><span class="cc"><b>KQ003</b><button class="cp" data-code="KQ003">复制</button></span>：黄金章鱼碎片 50，赤兔马碎片 50，玄翎鹤碎片 50，食梦貘碎片 50，四圣宝珠 1，复活丹 20</p><p>两个礼包加起来，仅金币就有 120 亿，彩玉超 3.6 万，四圣红玉直接拉到近 900，还有白玉、进阶石、精铁这些前期刚需材料全部管够，哪怕是零氪玩家，进服也能直接拉满主力武将的等级和装备，顺畅推完前期所有关卡。</p><p><span class="cc"><b>KQ004</b><button class="cp" data-code="KQ004">复制</button></span>   <span class="cc"><b>KQ005</b><button class="cp" data-code="KQ005">复制</button></span>    <span class="cc"><b>KQ006</b><button class="cp" data-code="KQ006">复制</button></span>   <span class="cc"><b>KQ007</b><button class="cp" data-code="KQ007">复制</button></span></p><h3 class="section-head">二、新手零门槛起号流程：第一天就能顺畅推图</h3><p>优先拉满主 C，资源绝不分散新手最容易踩的坑就是五个武将平均升级，正确玩法是把 90% 的资源全部砸给一个核心主 C（推荐吕布，泛用性最强，推图 PK 都能用）。万能碎片优先给主 C 升星，进阶石、精铁、金币全部用来拉主 C 的等级和装备，其他四个武将只做挂件，凑阵营光环就行。主 C 星级和装备起来了，才能推更多关卡、解锁更多玩法，拿到更多资源，形成正向滚雪球。</p><p>基础资源用途扫盲，新手一眼看懂</p><p>金币：升级武将、强化装备的基础消耗，前期用量极大，120 亿启动金足够你拉满整队基础等级。</p><p>彩玉：游戏核心硬通货，可以抽限定武将、买稀有材料、参与高阶活动，是拉开差距的关键货币。</p><p>四圣蓝玉 / 红玉：四圣系统的专属材料，用来抽取圣物、提升共鸣境界，是后期战力暴涨的核心，<span class="cc"><b>KQ002</b><button class="cp" data-code="KQ002">复制</button></span> 直接补了 800 红玉，开局就能拉高四圣等级。</p><p>白玉：升级高级装备、淬炼属性的核心材料，前期攒着等淬炼活动用收益最高。</p><p>灵珠 / 灵贝：用来解锁和升级宠物，宠物带来的全局属性加成非常可观，前期开一个强力宠物，战力能涨一大截。</p><p>金鱼竿 / 金鱼包：用来钓鱼获取专属鱼灵，给武将绑定后能加巨额属性，是中高阶玩家必拉的系统。</p><p>第一天目标</p><p>用礼包送的资源把主 C 升到当前最高星级，装备拉满，推完主线能推的所有关卡，解锁竞技场、爬塔、钓鱼等全部基础玩法，把日常任务、活跃度全部清完，拿满首日奖励。</p><h3 class="section-head">三、核心系统必懂：战力暴涨的关键密码</h3><p>想要玩明白这个版本，这两个系统必须吃透，是所有玩家拉开战力差距的核心，也是充值收益的核心载体。</p><div class="gcard"><h4>1. 聚宝徽章・晋级之路</h4><p>这是全服通用的充值成长系统，累计充值达到对应金额，自动解锁更高等级的徽章，每一档都附带全局百分比血量 + 攻击加成，属性永久生效，推图、PK、爬塔全场景生效。</p><p>2 万金鳞：血攻 + 1%，入门级加成，小氪就能摸到</p><p>6 万金鳞：血攻 + 1.4%，中氪入门档，属性碾压低氪</p><p>10 万金鳞：血攻 + 1.8%，第一梯队门槛，榜单常客标配</p><p>20 万金鳞：解锁「冠名・威名天下」，血攻 + 3%，全服顶级加成，同时解锁服务器冠名资格</p><p>徽章等级越高，属性加成越夸张，而且是跟着账号永久走的，越早充值升级，享受加成的时间就越长，前期优势会越滚越大。</p></div><div class="gcard"><h4>2. 四圣晋级・共鸣系统</h4><p>收集四圣圣物，解锁共鸣境界，解锁后直接给全队加百分比属性，是后期战力断层的关键。</p><p>8 圣解锁「初境」：血量 + 2%、攻击 + 2%</p><p>12 圣解锁「化境」：血量 + 3%、攻击 + 3%</p><p>17 圣解锁「极境」：血量 + 5%、攻击 + 5%</p><p>开区礼包直接送了大量四圣红蓝玉，零氪也能快速凑到初境，中氪玩家可以直接冲高化境，大氪玩家拉满 17 圣极境，配合聚宝徽章的属性加成，打同战力玩家就是纯纯的属性碾压。</p></div><div class="gcard"><h4>3. 顶级身份特权</h4><p>VIP8 专属定制头像：VIP8 及以上玩家，可以免费定制专属个人头像，全服独一无二的形象，进房间、上榜单一眼就能认出你是大佬，身份感直接拉满。</p><p>服务器冠名权：全服第一个累计充值达标 20 万的玩家，直接获得服务器冠名权，名字永久刻在服务器上，所有进入这个区的玩家第一眼就能看到你的 ID，终身有效，是全服最顶级的荣耀象征。</p></div><h3 class="section-head">四、分档位充值全攻略：每一分钱都花在刀刃上</h3><p>小氪档（预算 300-1000 元：入门爽玩档）</p><p>适合想花小钱获得极致体验、不想肝也能玩得舒服的玩家，性价比最高，花零头的钱就能比零氪玩家体验好十倍。必买内容按优先级排序：</p><p>终身卡：优先级最高，一次购买终身有效，每天稳定领取彩玉、金币、万能碎片，是所有道具里返利倍率最高的，玩得越久赚得越多，属于买了永不亏的道具。</p><p>月卡 + 周卡：日常资源补给核心，每天上线就能领彩玉、招募令、金砖这些刚需材料，不用费劲攒资源，日常奖励轻松拿满。</p><p>128 进阶基金 + 128 精英基金：跟着等级和进度返还奖励，整体返还倍率超过十倍，前期冲级必买，买完之后升级路上的资源完全不用愁，快速拉开和零氪玩家的差距。</p><p>普通通行证：解锁进阶奖励线，大量稀有材料、灵贝、宠物道具，做完日常任务就能白嫖，稳赚不亏。</p><p>这个档位充完，日常推图、打基础活动完全无压力，聚宝徽章能摸到入门档位，属性加成碾压零氪，所有日常玩法都能轻松拿满奖励，属于花最少的钱，获得最舒服的游戏体验。</p><p>中氪档（预算 5000-50000 元：榜单冲击档）</p><p>适合想冲进服务器第一梯队、在全区有排名、享受大佬待遇的玩家，充完基本就是服里前 10 的水平，PK、爬塔、活动都能拿高档奖励。充值规划：</p><p>先把上面小氪的所有内容全部拉满，把基础福利盘打扎实。</p><p>跟着单日充值 + 累计充值活动冲档位，优先选带四圣红玉、彩玉、顶级鱼灵的档位入手，比如 648、1288、2000 档，拿的奖励刚好用来拉四圣境界和武将强度，比平时凭空充值多拿海量额外奖励。</p><p>重点冲聚宝徽章的 6 万 - 10 万档位，解锁 1.4%-1.8% 的血攻加成，全局生效之后，不管是竞技场还是推图，打低氪玩家都是属性压制，榜单排名稳稳靠前。</p><p>拉到四圣共鸣化境（12 圣），解锁 3% 全属性加成，配合聚宝徽章的属性，战力直接暴涨一大截，同价位玩家里几乎没有对手。</p><p>充值额度凑到 VIP8，解锁专属定制头像特权，做全服第一批有专属形象的玩家，进任何对战房间都有排面。</p><p>这个档位下来，你就是服务器公认的第一梯队玩家，所有活动都能拿满高阶奖励，全区榜单有名，社交、PK 都有十足话语权，如果开区冲得够快，甚至有机会争夺服务器冠名资格，一步到位留名全服。</p><p>大氪档（预算 10 万以上：霸服冠名档）</p><p>适合追求极致体验、想当全服老大、拿顶级荣耀的玩家，充完直接霸服，所有榜单第一，享受最顶级的游戏待遇。充值规划：</p><p>所有礼包、基金、月卡周卡、通行证全部拉满，基础资源直接顶格，全程不用考虑缺任何材料。</p><p>累计充值拉满对应高档位，把所有累计奖励全部拿完，顶级圣物、限定鱼灵、稀有坐骑全部收入囊中，武将、宠物、四圣三大系统直接拉满。</p><p>直冲聚宝徽章 20 万满档，解锁「威名天下」专属冠名徽章，拿到 3% 的顶级血攻加成，全服独一份的标识，走到哪里都是焦点。</p><p>拉满四圣共鸣极境（17 圣），解锁 5% 全属性加成，配合聚宝徽章的属性，打低氪玩家就是降维打击，竞技场、跨服战、爬塔全部乱杀，所有榜单第一直接全包。</p><p>拿下服务器冠名权：成为全服第一个累充达标 20 万的玩家，直接给服务器命名，ID 永久刻在服务器入口，所有进这个区的玩家第一眼就能看到你的名字，彰显无上荣耀，是真正的全服第一人。</p><p>定制专属个人头像，搭配冠名身份，全服仅此一份，实力和排面双双拉满。</p><p>这个档位就是服务器的天花板，所有玩法、所有奖励全部拉满，享受最顶级的游戏体验，真正的一人镇一服。</p><h3 class="section-head">五、十大开区活动玩法指南：奖励拿满不遗漏</h3><p>荒野寻宝活动：深入秘境掉落宝藏，有体力就刷，零氪也能白嫖大量稀有材料，充值玩家可以购买额外次数，快速拿满全部奖励。</p><p>端午悬赏活动：完成指定任务拿端午奖励，日常推图 PK 顺便就能完成，奖励丰厚，冲榜玩家可以买次数加速完成。</p><p>周淬炼达标活动：每周淬炼装备达到对应次数，领取专属好礼，是提升装备属性的核心活动，中氪以上玩家必冲满档，淬炼属性起来之后，PK 强度会有质的飞跃。</p><p>金枣兑换活动：收集金枣兑换珍稀道具，活动期间尽量攒满，优先兑换四圣材料、专属鱼灵这类硬通货，性价比最高。</p><p>十殿 9 星级活动：挑战十殿阎罗冲星级，战力越高打的层数越高，奖励越好，大氪玩家可以直接冲满层，拿顶级限定奖励。</p><p>周疯狂赛车活动：参与赛车挑战拿限定奖励，休闲玩法福利拉满，每周必做。</p><p>对战房间全开：所有对战、跨服房间限时开放，PK 爱好者的狂欢，冲榜大佬可以在这里冲全服排名，打响自己的名气。</p><p>彩玉狂欢活动：活动期间彩玉掉落翻倍，战力提升效率翻倍，手里的彩玉留到这个活动再用，收益直接翻倍；充值拿到的彩玉也建议趁着活动消耗，性价比拉满。</p><p>灵贝达标活动：灵贝累计数量达标就领奖励，灵贝用来升级宠物，是前期拉开战力差距的关键，尽量拿满档位。</p><p>扭蛋工坊活动：限定道具专属产出池，奖励丰富，运气好能出顶级稀有道具，大佬可以直接拉满次数，搬空整个奖池。</p><h3 class="section-head">六、新手避坑 & 冲榜秘诀</h3><p>资源永远优先主 C：不要平均培养五个武将，主 C 的星级、装备、鱼灵、宠物全部拉满之后，再考虑补挂件，分散资源只会让你样样都弱，推图 PK 都不行。</p><p>充值跟着活动走：不要盲目直充，单日充值、累计充值活动期间再充，能额外拿档位奖励，相当于同样的钱，多拿几十上百份材料，收益直接翻倍。</p><p>越早充优势越大：新区滚雪球效应极强，前期买的终身卡、基金，每天都在产出资源，早买一天就多领一天奖励，前期拉开的战力差距，后期零氪和慢充玩家永远追不上。</p><p>珍惜开区福利：<span class="cc"><b>KQ001</b><button class="cp" data-code="KQ001">复制</button></span> 和 <span class="cc"><b>KQ002</b><button class="cp" data-code="KQ002">复制</button></span> 是只有新区才有的专属福利，错过就没有，进服第一时间兑换，趁着资源多快速起号，才能抢占先机。</p><p>新区刚开，正是福利最全、冲榜最容易的时候，小氪就能舒服玩遍所有内容，中氪直接登顶第一梯队，大氪直接冠名服务器名留全服。上线领完两个礼包码，直接开启你的霸服之路，一步领先，步步领先。</p><p>顶推·咸鱼之王----创世咸鱼双曜临世17圣内冲版🔥</p>
+    </div>
+  </section>
+
+  <div class="divider">—·— 活 动 福 利 图 —·—</div>
+  <section>
+    <h2>充值活动福利图</h2>
+    
+    
+    <div class="welfare">
+      <img src="assets/welfare/g32_1.jpg" alt="充值活动福利图" loading="lazy">
+    </div>
+  </section>
+
+
+
+  <div class="divider">—·— 充 值 说 明 —·—</div>
+  <section>
+    <h2>充值说明（本服在游戏内直接充值）</h2>
+    <div class="tip">💳 本服<strong>没有外部充值链接</strong>，充值在游戏内直接进行：进游戏 → 打开「充值 / 商城」→ 选好档位按提示支付即可。首充、月卡、基金、冠名活动都在游戏内活动页。<br><br>❗ 再次提醒：任何 QQ 群里的「折扣充值」「便宜充值」都是骗子，一律不要信！</div>
+  </section>
+
+  <div class="divider">—·— 注 意 —·—</div>
+  <section>
+    <h2>防骗提醒</h2>
+    <div class="alarm">❗<strong>任何 QQ 群里的「折扣充值」「便宜充值」都是骗子，一律不要信！</strong>本服充值请在游戏内或官方渠道进行。</div>
+  </section>
+
+  <section>
+    <h2>玩腻了？主站还有几十款</h2>
+    <p>本站收录 <strong>35+ 款精品手游</strong>，全部免费领码、直接下载，随时回来换着玩。</p>
+    <a class="btn blue" href="../index.html">🏠 返回主站，看看还有什么好玩的</a>
+  </section>
+
+  <p class="footer">
+     咸鱼之王 · 精品版本 · 丝滑畅玩<br>
+    我们只想给各位玩家一个长久的家<br>
+    建议收藏主站，游戏随便换着玩
+  </p>
+</div>
+
+<div class="bar">
+  <span class="b1">游戏内注册</span>
+  <a class="b2" href="https://ff.cvvd.uk/1BlX" target="_blank" rel="noopener">下载游戏</a>
+  <a class="b4" href="../index.html">🏠 主站</a>
+</div>
+
+<div class="toast" id="toast">已复制</div>
+<script>
+(function(){
+  var toastEl=document.getElementById('toast');
+  function toast(m){toastEl.textContent=m;toastEl.classList.add('show');clearTimeout(window.__t);
+    window.__t=setTimeout(function(){toastEl.classList.remove('show');},1500);}
+  function copy(text,btn){
+    var done=function(){if(btn){var o=btn.textContent;btn.textContent='已复制 ✓';btn.classList.add('ok');
+      setTimeout(function(){btn.textContent=o;btn.classList.remove('ok');},1500);}toast('已复制：'+text);};
+    if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(text).then(done,function(){fb(text,done);});}else{fb(text,done);}
+  }
+  function fb(text,done){
+    var ta=document.createElement('textarea');ta.value=text;ta.style.position='fixed';ta.style.opacity='0';
+    document.body.appendChild(ta);ta.select();
+    try{document.execCommand('copy');done();}catch(e){toast('复制失败，请长按手动选择');}
+    document.body.removeChild(ta);
+  }
+  var btns=document.querySelectorAll('.cp');
+  for(var i=0;i<btns.length;i++){btns[i].addEventListener('click',function(){copy(this.getAttribute('data-code'),this);});}
+})();
+</script>
+</body>
+</html>
