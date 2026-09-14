@@ -425,8 +425,37 @@
   <a class="b2 qqjump" href="https://wpa.qq.com/msgrd?v=3&amp;uin=2954935687&amp;site=qq&amp;menu=yes" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">咨询合作</a>
 </div>
 <script>
-/* QQ 加好友兜底：手机端用 mqqapi 拉起个人资料卡（不受临时会话权限限制），桌面保留 wpa */
+/* 咨询合作三重兜底：点击先复制QQ号+弹提示（任何环境点了都有反应），再尝试拉起QQ（桌面wpa/手机mqqapi） */
 (function(){
+  var QQ='2954935687';
+  var toast=document.createElement('div');
+  toast.style.cssText='position:fixed;left:50%;bottom:92px;transform:translateX(-50%);background:rgba(15,23,42,.94);color:#fff;font-size:14px;font-weight:600;padding:12px 18px;border-radius:22px;box-shadow:0 8px 24px rgba(0,0,0,.35);opacity:0;transition:opacity .25s;pointer-events:none;z-index:99;max-width:82vw;text-align:center;line-height:1.6;';
+  document.body.appendChild(toast);
+  var timer=null;
+  function showToast(msg){
+    toast.textContent=msg;toast.style.opacity='1';
+    clearTimeout(timer);timer=setTimeout(function(){toast.style.opacity='0';},3600);
+  }
+  function copyQQNow(){
+    var copied=false;
+    try{ if(navigator.clipboard&&navigator.clipboard.writeText){ navigator.clipboard.writeText(QQ); copied=true; } }catch(e){}
+    if(!copied){
+      try{
+        var t=document.createElement('textarea');t.value=QQ;t.setAttribute('readonly','');
+        t.style.cssText='position:fixed;left:-999px;top:0;';
+        document.body.appendChild(t);t.select();
+        document.execCommand('copy');document.body.removeChild(t);copied=true;
+      }catch(e){}
+    }
+    return copied;
+  }
+  document.querySelectorAll('a.qqjump').forEach(function(a){
+    a.addEventListener('click',function(){
+      var ok=copyQQNow();
+      showToast(ok ? ('QQ号 '+QQ+' 已复制：打开QQ粘贴搜索，备注「代理」') : ('请手动复制QQ号：'+QQ+'（备注「代理」）'));
+    });
+  });
+  /* 手机端 scheme 兜底：腾讯若放行则直接拉起资料卡；拉不起也有上面的复制+提示保底 */
   if (/Mobile|Android|iPhone|iPad/i.test(navigator.userAgent)) {
     document.querySelectorAll('a.qqjump').forEach(function(a){
       a.href = 'mqqapi://card/show_pslcard?src_type=web&version=1&uin=2954935687&card_type=person&source=qrcode';
@@ -444,4 +473,4 @@ function copyQQ(btn){
 </script>
 
 </body></html>
-<!-- build:mtztgl5i -->
+<!-- build:mu0jbdpn -->
