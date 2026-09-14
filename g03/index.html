@@ -291,7 +291,17 @@
   var page=gm?('g/'+gm[1].toLowerCase()):(path.indexOf('agent')>=0?'agent':'home');
   send({type:'visit',page:page});
   document.addEventListener('click',function(e){
-    var a=e.target&&e.target.closest?e.target.closest('a'):null;
+    var el=e.target; if(!el||!el.closest) return;
+    /* v6.0 功能入口卡片全部进统计 */
+    var q=el.closest('.quick .ql');
+    if(q){ var qs=document.querySelectorAll('.quick .ql'); var i=Array.prototype.indexOf.call(qs,q);
+      send({type:'click',gid:'entry:q:'+(i<0?'x':i),act:'entry'}); return; }
+    var g=el.closest('.ghead');
+    if(g){ var gs=document.querySelectorAll('.group'); var gi=Array.prototype.indexOf.call(gs,g.closest('.group'));
+      send({type:'click',gid:'entry:grp:'+(gi<0?'x':gi),act:'entry'}); return; }
+    if(el.closest('.cp')){ send({type:'click',gid:'entry:qq',act:'entry'}); return; }
+    /* 原有游戏三链接统计 */
+    var a=el.closest('a');
     if(!a)return;
     var cls=String(a.className||'');
     var href=a.getAttribute('href')||'';
