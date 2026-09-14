@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#f2f5f9">
 <meta name="referrer" content="no-referrer">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; connect-src 'self'; base-uri 'self'; object-src 'none'; frame-src 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; connect-src 'self' https://4b9f07c581d04356960c9a77f59226a5.app.workbuddy.host; base-uri 'self'; object-src 'none'; frame-src 'none'">
 <link rel="canonical" href="https://feiyu5.com/g33/">
 <title>咸鱼之王巅峰版8.0版本 —— 精品版本 · 丝滑畅玩</title>
 <style>
@@ -301,6 +301,40 @@
   }
   var btns=document.querySelectorAll('.cp');
   for(var i=0;i<btns.length;i++){btns[i].addEventListener('click',function(){copy(this.getAttribute('data-code'),this);});}
+})();
+</script>
+<script>
+(function(){
+  var EP='https://4b9f07c581d04356960c9a77f59226a5.app.workbuddy.host/api/track';
+  function send(o){ try{ o.tid='c1002'; navigator.sendBeacon && navigator.sendBeacon(EP, JSON.stringify(o)); }catch(e){} }
+  var path=location.pathname;
+  var gm=path.match(/\/(g[a-z0-9_-]+)\//i);
+  var page=gm?('g/'+gm[1].toLowerCase()):(path.indexOf('agent')>=0?'agent':'home');
+  send({type:'visit',page:page});
+  document.addEventListener('click',function(e){
+    var a=e.target&&e.target.closest?e.target.closest('a'):null;
+    if(!a)return;
+    var cls=String(a.className||'');
+    var href=a.getAttribute('href')||'';
+    var gid=gm?gm[1].toLowerCase():'';
+    if(!gid){
+      var cm=href.match(/\/?[./]*?(g[a-z0-9_-]+)\/(?:index\.html)?$/i);
+      if(cm && !/^https?:/i.test(href)){ send({type:'click',gid:cm[1].toLowerCase(),act:'open'}); }
+      return;
+    }
+    var act=null;
+    if(/\bb1\b/.test(cls))act='register';
+    else if(/\bb2\b/.test(cls))act='download';
+    else if(/\bb3\b/.test(cls))act='recharge';
+    else if(/\bbtn\b/.test(cls)){
+      if(/\bblue\b/.test(cls))act='register';
+      else if(/\borange\b/.test(cls))act='download';
+      else if(/\bgreen\b/.test(cls))act='download';
+    }
+    if(act && /^https?:/i.test(href) && href.indexOf(location.hostname)<0){
+      send({type:'click',gid:gid,act:act});
+    }
+  },true);
 })();
 </script>
 </body>
