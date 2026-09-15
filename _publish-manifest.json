@@ -73,6 +73,7 @@
     "assets/icons/paopao-s8.jpg",
     "assets/published/03719b4068f7732e1fda.jpg",
     "assets/published/08c531e5482aed41cc41.jpg",
+    "assets/published/0bb70c24ebd98a8f0431.jpg",
     "assets/published/0bf6b8c1341eb50d4e7c.jpg",
     "assets/published/0ebcb3e60a834c6e685e.jpg",
     "assets/published/14584b9ff2b625f6afbc.jpg",
@@ -82,6 +83,7 @@
     "assets/published/1842c44a06c09e92049b.jpg",
     "assets/published/1d0f887016f0355686cc.jpg",
     "assets/published/1d3e0666a8b4cec81a20.jpg",
+    "assets/published/1d7c48dcc9ab5bd9a848.jpg",
     "assets/published/1d8e79dbea6b5ad5ae77.jpg",
     "assets/published/24216eec09a791b55d8d.jpg",
     "assets/published/2456f2c642da211927f0.jpg",
@@ -90,12 +92,14 @@
     "assets/published/305fd17eb57b4f404ef9.jpg",
     "assets/published/3440503ac12f3677345c.jpg",
     "assets/published/3596890078e210a5647e.jpg",
+    "assets/published/38b9c6d70a57770fccfa.jpg",
     "assets/published/3c50b72bef662e8f8d98.jpg",
     "assets/published/441e43aaeb59c3039202.jpg",
     "assets/published/49d82b883d494b0aaf70.jpg",
     "assets/published/49ec10786b16842a199e.jpg",
     "assets/published/4bb778c2ce68024d376d.jpg",
     "assets/published/5002dc4929327a3b9c9b.jpg",
+    "assets/published/5305765934251c1f588a.jpg",
     "assets/published/562a29f11a7be1704b40.jpg",
     "assets/published/5a5a1b6c61f29e0fff5a.jpg",
     "assets/published/65f3566c788a3a6df1da.jpg",
@@ -236,6 +240,7 @@
     "g34/index.html",
     "g35/index.html",
     "index.html",
-    "paopao-s8/index.html"
+    "paopao-s8/index.html",
+    "x44/index.html"
   ]
 }
