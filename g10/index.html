@@ -7,7 +7,7 @@
 <meta name="theme-color" content="#f2f5f9">
 <meta name="referrer" content="no-referrer">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; connect-src 'self' https://9c69f4640a41403f94f584653b806a7b.app.workbuddy.host; base-uri 'self'; object-src 'none'; frame-src 'none'">
-<link rel="canonical" href="https://feiyu5.com/g10/"><!--guard:ok(主站自身 canonical，自指身份非配置)-->
+<link rel="canonical" href="https://feiyu5.com/g10/"><meta name="site-version" content="5756e9b547f4461f"><meta name="feiyu-release" content="5756e9b547f4461f">
 <title>一拳超人：最强之男全新篇章国际服·3D卡牌RPG回合制手游 —— 精品版本 · 丝滑畅玩</title>
 <style>
   *{margin:0;padding:0;box-sizing:border-box;}
@@ -161,11 +161,11 @@
 
   <div class="topbar">
     <div class="logo">🎮  一拳超人：最强之男全新篇章国际服·3D卡牌RPG回合制手游</div>
-    <a class="back" href="../index.html">🏠 返回主站</a>
+    <a class="back" href="/">🏠 返回主站</a>
   </div>
 
   <div class="hero">
-    <img class="heropic" src="assets/icons/g10.jpg?v=7fc3458c8c" alt="" width="180" height="180" decoding="async">
+    <img class="heropic" src="/assets/published/9e2b617a71a4ba05e1d6.jpg?v=5756e9b547f4461f" alt="" width="180" height="180" decoding="async">
     <div class="badge">精品版本 · 丝滑畅玩</div>
     <h1>一拳超人：最强之男全新篇章国际服·3D卡牌RPG回合制手游</h1>
     <p class="sub">不卡不掉 · 持续更新<br>我们只想给各位玩家一个长久的家</p>
@@ -224,9 +224,9 @@
     
     
     <div class="welfare">
-      <img src="assets/welfare/g10_1.jpg?v=7fc3458c8c" alt="充值活动福利图" width="720" height="1396" loading="lazy" decoding="async" fetchpriority="low">
-      <img src="assets/welfare/g10_2.jpg?v=7fc3458c8c" alt="充值活动福利图" width="544" height="2059" loading="lazy" decoding="async" fetchpriority="low">
-      <img src="assets/welfare/g10_3.jpg?v=7fc3458c8c" alt="充值活动福利图" width="544" height="1817" loading="lazy" decoding="async" fetchpriority="low">
+      <img src="/assets/published/f72ec267e6e8d1a0cb9b.jpg?v=5756e9b547f4461f" alt="充值活动福利图" width="720" height="1396" loading="lazy" decoding="async" fetchpriority="low">
+      <img src="/assets/published/1d3e0666a8b4cec81a20.jpg?v=5756e9b547f4461f" alt="充值活动福利图" width="544" height="2059" loading="lazy" decoding="async" fetchpriority="low">
+      <img src="/assets/published/03719b4068f7732e1fda.jpg?v=5756e9b547f4461f" alt="充值活动福利图" width="544" height="1817" loading="lazy" decoding="async" fetchpriority="low">
     </div>
   </section>
 
@@ -251,7 +251,7 @@
   <section>
     <h2>玩腻了？主站还有几十款</h2>
     <p>本站收录 <strong>35+ 款精品手游</strong>，全部免费领码、直接下载，随时回来换着玩。</p>
-    <a class="btn blue" href="../index.html">🏠 返回主站，看看还有什么好玩的</a>
+    <a class="btn blue" href="/">🏠 返回主站，看看还有什么好玩的</a>
   </section>
 
   <p class="footer">
@@ -265,7 +265,7 @@
   <a class="b1" href="https://www.178yqcrsy.com/100237" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">注册账号</a>
   <a class="b2" href="https://pop.hy-votes.work/iosD" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">下载游戏</a>
   <a class="b3" href="https://www.178yqcrsy.com/player/login?redirect=/player/recharge" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">立即充值</a>
-  <a class="b4" href="../index.html">返回主站</a>
+  <a class="b4" href="/">返回主站</a>
 </div>
 
 <div class="toast" id="toast">已复制</div>
@@ -289,6 +289,19 @@
   for(var i=0;i<btns.length;i++){btns[i].addEventListener('click',function(){copy(this.getAttribute('data-code'),this);});}
 })();
 </script>
+<script>(function(){
+    var current="5756e9b547f4461f", endpoint="/build-ver.json";
+    function check(){
+      var url=endpoint+(endpoint.indexOf('?')<0?'?':'&')+'_t='+Date.now();
+      fetch(url,{cache:'no-store'}).then(function(r){return r.ok?r.json():null}).then(function(j){
+        if(!j||!j.v||String(j.v)===current)return;
+        var next=new URL(location.href); if(next.searchParams.get('_v')===String(j.v))return;
+        next.searchParams.set('_v',String(j.v)); location.replace(next.href);
+      }).catch(function(){});
+    }
+    check(); setInterval(check,3000);
+    document.addEventListener('visibilitychange',function(){if(!document.hidden)check();});
+  })();</script>
 <script>
 (function(){
   var EP='https://9c69f4640a41403f94f584653b806a7b.app.workbuddy.host/api/track';
