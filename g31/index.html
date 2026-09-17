@@ -7,7 +7,7 @@
 <meta name="theme-color" content="#f2f5f9">
 <meta name="referrer" content="no-referrer">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; connect-src 'self' https://9c69f4640a41403f94f584653b806a7b.app.workbuddy.host; base-uri 'self'; object-src 'none'; frame-src 'none'">
-<link rel="canonical" href="https://feiyu5.com/g31/"><meta name="site-version" content="758d9abe872c72ce"><meta name="feiyu-release" content="758d9abe872c72ce">
+<link rel="canonical" href="https://feiyu5.com/g31/"><meta name="site-version" content="0ffa664c8703e4a4"><meta name="feiyu-release" content="0ffa664c8703e4a4">
 <title>寻道大千纵横0.1折端 —— 精品版本 · 丝滑畅玩</title>
 <style>
   *{margin:0;padding:0;box-sizing:border-box;}
@@ -165,7 +165,7 @@
   </div>
 
   <div class="hero">
-    <img class="heropic" src="/assets/published/dc0ebb1b941e567b4dc4.jpg?v=758d9abe872c72ce" alt="" width="180" height="180" decoding="async">
+    <img class="heropic" src="/assets/published/dc0ebb1b941e567b4dc4.jpg?v=0ffa664c8703e4a4" alt="" width="180" height="180" decoding="async">
     <div class="badge">精品版本 · 丝滑畅玩</div>
     <h1>寻道大千纵横0.1折端</h1>
     <p class="sub">不卡不掉 · 持续更新<br>我们只想给各位玩家一个长久的家</p>
@@ -237,8 +237,8 @@
     
     
     <div class="welfare">
-      <img src="/assets/published/aab79a51411dbfdc2fbb.jpg?v=758d9abe872c72ce" alt="充值活动福利图" width="544" height="2545" loading="lazy" decoding="async" fetchpriority="low">
-      <img src="/assets/published/66d46b28e84db39f73e6.jpg?v=758d9abe872c72ce" alt="充值活动福利图" width="1280" height="2276" loading="lazy" decoding="async" fetchpriority="low">
+      <img src="/assets/published/aab79a51411dbfdc2fbb.jpg?v=0ffa664c8703e4a4" alt="充值活动福利图" width="544" height="2545" loading="lazy" decoding="async" fetchpriority="low">
+      <img src="/assets/published/66d46b28e84db39f73e6.jpg?v=0ffa664c8703e4a4" alt="充值活动福利图" width="1280" height="2276" loading="lazy" decoding="async" fetchpriority="low">
     </div>
   </section>
 
@@ -297,7 +297,7 @@
 })();
 </script>
 <script>(function(){
-    var current="758d9abe872c72ce", endpoint="/build-ver.json";
+    var current="0ffa664c8703e4a4", endpoint="/build-ver.json";
     function check(){
       var url=endpoint+(endpoint.indexOf('?')<0?'?':'&')+'_t='+Date.now();
       fetch(url,{cache:'no-store'}).then(function(r){return r.ok?r.json():null}).then(function(j){
@@ -311,11 +311,17 @@
   })();</script>
 <script>
 (function(){
-  var EP='https://9c69f4640a41403f94f584653b806a7b.app.workbuddy.host/api/track';
-  function send(o){ try{ o.tid='c1002'; navigator.sendBeacon && navigator.sendBeacon(EP, JSON.stringify(o)); }catch(e){} }
+  var EPS=['https://9c69f4640a41403f94f584653b806a7b.app.workbuddy.host/api/track','https://128508632dbe49c988577e14647ae081.app.workbuddy.host/api/track'];
+  function send(o){ try{ o.tid='c1002'; var s=JSON.stringify(o); for(var i=0;i<EPS.length;i++){ try{ navigator.sendBeacon&&navigator.sendBeacon(EPS[i],s); }catch(e){} } }catch(e){} }
   var path=location.pathname;
-  var gm=path.match(/\/(g[a-z0-9_-]+)\//i);
-  var page=gm?('g/'+gm[1].toLowerCase()):(path.indexOf('agent')>=0?'agent':'home');
+  /* v6.6 根治（新游戏不更新统计的事故）：旧正则只认 g 开头目录，自定义游戏（x*、paopao-s8 等任意 gid）
+     的访问/点击全被当 home 丢数据。新逻辑=取路径第一段目录当 gid（agent 页除外），
+     以后不管什么格式的新游戏都自动进统计。 */
+  var mFile=path.match(/\/[^\/]+\.[a-z0-9]{2,5}$/i);
+  var seg=((mFile?path.slice(0,mFile.index):path).split('/').filter(function(s){return !!s;})[0]||'').toLowerCase();
+  var isAgent=path.indexOf('agent')>=0;
+  var gm=(seg&&!isAgent)?['',seg]:null;
+  var page=isAgent?'agent':(seg?('g/'+seg):'home');
   send({type:'visit',page:page});
   document.addEventListener('click',function(e){
     var el=e.target; if(!el||!el.closest) return;
@@ -334,7 +340,9 @@
     var href=a.getAttribute('href')||'';
     var gid=gm?gm[1].toLowerCase():'';
     if(!gid){
-      var cm=href.match(/\/?[./]*?(g[a-z0-9_-]+)\/(?:index\.html)?$/i);
+      /* v6.6 根治：首页卡片点击对任意游戏目录（g*、x* 自定义、字符串 gid）都计数；非游戏目录排除 */
+      var cm=href.match(/\/?[./]*?([a-z][a-z0-9_-]{0,39})\/(?:index\.html)?$/i);
+      if(cm && /^(agent|assets|static|scripts|tpassets)$/.test(cm[1].toLowerCase())) cm=null;
       if(cm && !/^https?:/i.test(href)){ send({type:'click',gid:cm[1].toLowerCase(),act:'open'}); }
       return;
     }
