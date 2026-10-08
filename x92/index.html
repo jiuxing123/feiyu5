@@ -7,7 +7,7 @@
 <meta name="theme-color" content="#f2f5f9">
 <meta name="referrer" content="no-referrer">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; connect-src 'self' https://9c69f4640a41403f94f584653b806a7b.app.workbuddy.host https://71ab064eb4464de488335811670a6949.app.workbuddy.host; base-uri 'self'; object-src 'none'; frame-src 'none'">
-<link rel="canonical" href="https://feiyu5.com/x92/"><meta name="site-version" content="3380a75ff3585c2b"><meta name="feiyu-release" content="3380a75ff3585c2b">
+<link rel="canonical" href="https://feiyu5.com/x92/"><meta name="site-version" content="388be7062f4896ec"><meta name="feiyu-release" content="388be7062f4896ec">
 <title>顶推·无尽冬日----0.1折末日躺赢·上线狂送海量资源·公测充值再返20%</title>
 <style>
   *{margin:0;padding:0;box-sizing:border-box;}
@@ -193,6 +193,54 @@
   .qqfloat:active{transform:scale(.95);}
   @keyframes qqfloatIn{from{opacity:0;transform:translateX(26px)}to{opacity:1;transform:translateX(0)}}
   @media (prefers-reduced-motion:reduce){.qqfloat{animation:none;}}
+
+  /* ===== v8.4 详情页升级（星哥 2026-10-08）：彩色游戏名 + 任务流进度 + 领码打卡 + 下一步胶囊
+     配色走暖米金/薄荷绿，不用深色底——浅底在手机上更舒服，也不与首页深色抢风格 ===== */
+  .hero .hn{color:var(--pcd,#1e40af);}
+  .hero .hn.flow{background-image:linear-gradient(96deg,var(--pcd) 0%,#0f172a 42%,var(--pcd) 72%);
+    background-size:230% auto;-webkit-background-clip:text;background-clip:text;color:transparent;
+    -webkit-text-fill-color:transparent;animation:pcFlow 4.4s linear infinite;}
+  .heropic{box-shadow:0 0 0 1px var(--pc34),0 0 0 5px var(--pc15),0 10px 26px rgba(15,23,42,.16) !important;}
+  .metachips{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px;position:relative;z-index:2;}
+  .metachips i{font-style:normal;font-size:11.5px;font-weight:700;color:#475569;background:#f1f5f9;
+    border:1px solid #e2e8f0;border-radius:999px;padding:4px 10px;}
+  .metachips i.live{color:#047857;background:#ecfdf5;border-color:#a7f3d0;}
+  .metachips i.in{color:#b45309;background:#fffbeb;border-color:#fde68a;}
+  .tfbar{display:flex;align-items:center;gap:10px;margin:2px 0 14px;padding:9px 12px;border-radius:12px;
+    background:linear-gradient(100deg,#fffaf0,#fef7e6);border:1px solid #f7e6bd;font-size:12.5px;font-weight:800;color:#92400e;}
+  .tfbar .prog{flex:1;height:6px;border-radius:99px;background:#f1e2bd;overflow:hidden;}
+  .tfbar .prog i{display:block;height:100%;width:0;border-radius:99px;
+    background:linear-gradient(90deg,#f7dc9a,#d9a13c 55%,#10b981);transition:width .35s ease;}
+  .step{position:relative;padding:12px 14px;margin-bottom:10px;border-radius:14px;background:#f8fafc;
+    border:1px solid #e5e9f0;transition:background .2s ease,border-color .2s ease;}
+  .step .no{background:linear-gradient(135deg,#3b82f6,#1d4ed8);line-height:30px;}
+  .step.done{background:#f3fbf7;border-color:#c7ecd9;}
+  .step.done .no{background:linear-gradient(135deg,#34d399,#059669);color:#fff;}
+  .step .btn{margin-left:0;}
+  ul.codes li{display:flex;align-items:center;gap:10px;transition:opacity .2s ease;}
+  ul.codes li .cmain{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px;}
+  ul.codes li .cbtns{flex:0 0 auto;display:flex;gap:6px;}
+  ul.codes li .mk{background:#fff;color:#475569;border:1px solid #cbd5e1;border-radius:8px;
+    font-size:12px;padding:7px 10px;cursor:pointer;font-weight:700;}
+  ul.codes li.got{opacity:.52;background:#f6fbf8;border-color:#cdeeda;border-style:solid;
+    box-shadow:none;}
+  ul.codes li.got .code{text-decoration:line-through;color:#64748b;}
+  ul.codes li.got .mk{background:#ecfdf5;color:#047857;border-color:#a7f3d0;}
+  .nextstep{position:fixed;z-index:58;left:12px;right:12px;bottom:104px;display:none;align-items:center;gap:10px;
+    max-width:556px;margin:0 auto;padding:10px 12px;border-radius:16px;
+    background:rgba(255,255,255,.95);border:1px solid #f0d9a4;box-shadow:0 10px 30px rgba(15,23,42,.16);
+    -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);}
+  .nextstep.on{display:flex;}
+  .nextstep .nd{flex:0 0 8px;width:8px;height:8px;border-radius:50%;background:var(--pc,#d9a13c);
+    box-shadow:0 0 0 4px var(--pc24);animation:pcBeat 2s ease-in-out infinite;}
+  .nextstep .ntx{flex:1;min-width:0;line-height:1.35;}
+  .nextstep .ntx b{display:block;font-size:13.5px;color:#0f172a;}
+  .nextstep .ntx span{display:block;font-size:11.5px;color:#64748b;margin-top:1px;}
+  .nextstep .nbt{flex:0 0 auto;padding:9px 15px;border-radius:12px;font-size:13px;font-weight:900;color:#fff;
+    background:linear-gradient(135deg,var(--pcd,#b45309),#7c3aed);}
+  @keyframes pcFlow{to{background-position:230% center}}
+  @keyframes pcBeat{0%,100%{transform:scale(1)}50%{transform:scale(1.16)}}
+  @media (prefers-reduced-motion:reduce){.hero .hn.flow,.nextstep .nd{animation:none;}}
 </style>
 </head>
 <body>
@@ -203,12 +251,13 @@
     <a class="back" href="/">🏠 返回主站</a>
   </div>
 
-  <div class="hero">
-    <img class="heropic" src="/assets/published/da7ffe5d7548c5480750.jpg?v=3380a75ff3585c2b" alt="" width="96" height="96" decoding="async" fetchpriority="high">
+  <div class="hero" style="--pc:#76b2ee;--pcd:#416283;--pc15:rgba(118,178,238,0.15);--pc24:rgba(118,178,238,0.24);--pc34:rgba(118,178,238,0.34);--pc46:rgba(118,178,238,0.46)">
+    <img class="heropic" src="/assets/published/da7ffe5d7548c5480750.jpg?v=388be7062f4896ec" alt="" width="96" height="96" decoding="async" fetchpriority="high">
     
-    <h1>顶推·无尽冬日----0.1折末日躺赢·上线狂送海量资源·公测充值再返20%</h1>
+    <h1 class="hn flow">顶推·无尽冬日----0.1折末日躺赢·上线狂送海量资源·公测充值再返20%</h1>
     <p class="sub">不卡不掉 · 持续更新<br>我们只想给各位玩家一个长久的家</p>
     <div class="points"><span>✅ 安卓苹果双端</span><span>✅ 不卡不掉</span><span>✅ 持续更新</span></div>
+    <div class="metachips"><i class="live">● 运营中</i><i>安卓 · 苹果双端</i><i>持续更新</i></div>
   </div>
 
   <section>
@@ -226,21 +275,22 @@
 
   <section>
     <h2>一、三步开玩（点一下就走，两分钟进游戏）</h2>
-    <div class="step">
+    <div class="tfbar"><span id="tfL">已完成 0 / 3</span><span class="prog"><i id="tfP"></i></span></div>
+    <div class="step" data-step="r">
       <div class="no">1</div>
       <div class="body">
         <h4>注册账号</h4>
         <p>点下面的按钮直接进注册页。这是<strong>唯一有效注册地址</strong>——不是从这个链接注册的<em>没有售后</em>。</p><a class="btn blue" href="https://passport.wjdr2.top/ops-register?promo=c666" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">📝 点击注册账号</a>
       </div>
     </div>
-    <div class="step">
+    <div class="step" data-step="d">
       <div class="no">2</div>
       <div class="body">
         <h4>下载游戏</h4>
         <p>点按钮直接下载，安卓苹果都能装。</p><a class="btn orange" href="https://wzw.qingen.fun/apps/i2o1.html" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">⬇ 点击下载（主线路）</a>
       </div>
     </div>
-    <div class="step">
+    <div class="step" data-step="l">
       <div class="no">3</div>
       <div class="body">
         <h4>登录游戏</h4>
@@ -257,11 +307,12 @@
   <div class="divider">—·— 进 服 先 领 —·—</div>
   <section>
     <h2>二、进服先白嫖：兑换码全部领满</h2>
-    <p class="muted">兑换路径：游戏内 设置 → 礼包兑换码（点右侧按钮可直接复制）</p>
+    <p class="muted">兑换路径：游戏内 设置 → 礼包兑换码（点右侧按钮可直接复制，领完记得标记）</p>
+    <div class="tfbar"><span id="cdkL">已领 0 / 3</span><span class="prog"><i id="cdkP"></i></span></div>
     <ul class="codes">
-      <li><span class="code">EBN4GW</span><span class="desc">全服通用福利码</span><button class="cp" data-code="EBN4GW">复制</button></li>
-      <li><span class="code">UOY2GS</span><span class="desc">0924福利码 城镇1·行军1·头像框典藏1·典藏装饰自选1·寒星188888</span><button class="cp" data-code="UOY2GS">复制</button></li>
-      <li><span class="code">CXMQ8K</span><span class="desc">4区专属码(已开放4区)</span><button class="cp" data-code="CXMQ8K">复制</button></li>
+      <li class="crow" data-c="EBN4GW"><span class="cmain"><span class="code">EBN4GW</span><span class="desc">全服通用福利码</span></span><span class="cbtns"><button class="cp" data-code="EBN4GW">复制</button><button class="mk" data-mk="EBN4GW">标记已领</button></span></li>
+      <li class="crow" data-c="UOY2GS"><span class="cmain"><span class="code">UOY2GS</span><span class="desc">0924福利码 城镇1·行军1·头像框典藏1·典藏装饰自选1·寒星188888</span></span><span class="cbtns"><button class="cp" data-code="UOY2GS">复制</button><button class="mk" data-mk="UOY2GS">标记已领</button></span></li>
+      <li class="crow" data-c="CXMQ8K"><span class="cmain"><span class="code">CXMQ8K</span><span class="desc">4区专属码(已开放4区)</span></span><span class="cbtns"><button class="cp" data-code="CXMQ8K">复制</button><button class="mk" data-mk="CXMQ8K">标记已领</button></span></li>
     </ul>
     <a class="btn orange" href="https://wzw.qingen.fun/apps/i2o1.html" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">还没下载？点击下载，马上领码 ⬇</a>
   </section>
@@ -279,12 +330,12 @@
     
     
     <div class="welfare">
-      <img src="/assets/published/d09123302caf312a1fad.png?v=3380a75ff3585c2b" alt="充值活动福利图" width="853" height="1280" loading="lazy" decoding="async" fetchpriority="low">
-      <img src="/assets/published/d1a51944f7e3138ea73c.png?v=3380a75ff3585c2b" alt="充值活动福利图" width="1024" height="1536" loading="lazy" decoding="async" fetchpriority="low">
-      <img src="/assets/published/39761a4f221439d11fbe.png?v=3380a75ff3585c2b" alt="充值活动福利图" width="1024" height="1536" loading="lazy" decoding="async" fetchpriority="low">
-      <img src="/assets/published/82f4f947bcee13042551.png?v=3380a75ff3585c2b" alt="充值活动福利图" width="1024" height="1536" loading="lazy" decoding="async" fetchpriority="low">
-      <img src="/assets/published/64f4566ea5763914a79c.png?v=3380a75ff3585c2b" alt="充值活动福利图" width="1024" height="1536" loading="lazy" decoding="async" fetchpriority="low">
-      <img src="/assets/published/06e1a0ab1b3cfa1ae181.png?v=3380a75ff3585c2b" alt="充值活动福利图" width="1024" height="1536" loading="lazy" decoding="async" fetchpriority="low">
+      <img src="/assets/published/d09123302caf312a1fad.png?v=388be7062f4896ec" alt="充值活动福利图" width="853" height="1280" loading="lazy" decoding="async" fetchpriority="low">
+      <img src="/assets/published/d1a51944f7e3138ea73c.png?v=388be7062f4896ec" alt="充值活动福利图" width="1024" height="1536" loading="lazy" decoding="async" fetchpriority="low">
+      <img src="/assets/published/39761a4f221439d11fbe.png?v=388be7062f4896ec" alt="充值活动福利图" width="1024" height="1536" loading="lazy" decoding="async" fetchpriority="low">
+      <img src="/assets/published/82f4f947bcee13042551.png?v=388be7062f4896ec" alt="充值活动福利图" width="1024" height="1536" loading="lazy" decoding="async" fetchpriority="low">
+      <img src="/assets/published/64f4566ea5763914a79c.png?v=388be7062f4896ec" alt="充值活动福利图" width="1024" height="1536" loading="lazy" decoding="async" fetchpriority="low">
+      <img src="/assets/published/06e1a0ab1b3cfa1ae181.png?v=388be7062f4896ec" alt="充值活动福利图" width="1024" height="1536" loading="lazy" decoding="async" fetchpriority="low">
     </div>
   </section>
 
@@ -326,6 +377,7 @@
 </div>
 <div class="qqfloat-wrap"><a class="qqfloat qqg" href="https://qm.qq.com/q/Rns2qI2HWq" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer"><span class="ic">💬</span><span class="tx">售后群</span></a></div>
 <div class="toast" id="toast">已复制</div>
+<div class="nextstep" id="nextStep" style="--pc:#76b2ee;--pcd:#416283;--pc15:rgba(118,178,238,0.15);--pc24:rgba(118,178,238,0.24);--pc34:rgba(118,178,238,0.34);--pc46:rgba(118,178,238,0.46)"><span class="nd"></span><span class="ntx"><b id="nxT">先看下面三步</b><span id="nxS">注册 → 下载 → 领码</span></span><a class="nbt" id="nxB" href="#">开始</a></div>
 <script>
 (function(){
   var toastEl=document.getElementById('toast');
@@ -344,10 +396,62 @@
   }
   var btns=document.querySelectorAll('.cp');
   for(var i=0;i<btns.length;i++){btns[i].addEventListener('click',function(){copy(this.getAttribute('data-code'),this);});}
+
+  /* ===== v8.4 任务流与领码进度（状态只存玩家自己手机，不上传） ===== */
+  var GID="x92";
+  var NCODES=3;
+  function read(k,d){try{var v=JSON.parse(localStorage.getItem(k));return v&&typeof v==='object'?v:d;}catch(e){return d;}}
+  function write(k,v){try{localStorage.setItem(k,JSON.stringify(v));}catch(e){}}
+  var TK='fy_tf_'+GID, CK='fy_cdk_'+GID;
+  var tf=read(TK,{}), got=read(CK,{});
+  function stepDone(s){var n=document.querySelector('[data-step="'+s+'"]');if(!n)return;
+    n.classList.add('done');var no=n.querySelector('.no');if(no)no.textContent='✓';}
+  function tfCount(){var c=0;['r','d','l'].forEach(function(s){if(tf[s])c++;});return c;}
+  function paintTf(){var c=tfCount();var L=document.getElementById('tfL'),P=document.getElementById('tfP');
+    if(L)L.textContent='已完成 '+c+' / 3';if(P)P.style.width=Math.round(c/3*100)+'%';
+    ['r','d','l'].forEach(function(s){if(tf[s])stepDone(s);});}
+  document.querySelectorAll('[data-step]').forEach(function(st){
+    var s=st.getAttribute('data-step');
+    st.addEventListener('click',function(e){var a=e.target.closest('a[href],button.cp');if(!a)return;
+      if(!tf[s]){tf[s]=1;write(TK,tf);setTimeout(paintTf,120);}});
+  });
+  var rows=[].slice.call(document.querySelectorAll('.codes .crow'));
+  function paintCdk(){var n=0;rows.forEach(function(r){var c=r.getAttribute('data-c');
+    if(got[c]){n++;r.classList.add('got');var b=r.querySelector('.mk');if(b)b.textContent='已领 ✓';}});
+    rows.sort(function(a,b){return (got[a.getAttribute('data-c')]?1:0)-(got[b.getAttribute('data-c')]?1:0);});
+    var ul=document.querySelector('.codes');if(ul)rows.forEach(function(r){ul.appendChild(r);});
+    var L=document.getElementById('cdkL'),P=document.getElementById('cdkP');
+    if(L)L.textContent='已领 '+n+' / '+rows.length+(rows.length-n?(' · 还剩 '+(rows.length-n)+' 个没领'):' · 全部领完 👍');
+    if(P&&rows.length)P.style.width=Math.round(n/rows.length*100)+'%';
+    return n;}
+  document.querySelectorAll('.mk').forEach(function(b){
+    b.addEventListener('click',function(){var c=b.getAttribute('data-mk');
+      if(got[c])delete got[c];else got[c]=1;write(CK,got);
+      document.querySelectorAll('.codes .crow').forEach(function(r){r.classList.toggle('got',!!got[r.getAttribute('data-c')]);
+        var m=r.querySelector('.mk');if(m)m.textContent=got[r.getAttribute('data-c')]?'已领 ✓':'标记已领';});
+      paintCdk();paintNext();});
+  });
+  function paintNext(){
+    var box=document.getElementById('nextStep');if(!box)return;
+    var t=document.getElementById('nxT'),s=document.getElementById('nxS'),b=document.getElementById('nxB');
+    var n=paintCdk();
+    var st;
+    if(!tf.r)st=['① 先注册账号','推广码已带在链接里，不用手填','去注册',(document.querySelector('[data-step="r"] a')||{}).href||'#'];
+    else if(!tf.d)st=['② 下载游戏','安卓苹果都能装','去下载',(document.querySelector('[data-step="d"] a')||{}).href||'#'];
+    else if(NCODES&&n<NCODES)st=['③ 还有 '+(NCODES-n)+' 个码没领','点复制，领完标一下','去领码','#'];
+    else st=['都齐了，进群防失联','链接失效秒找回','进群',(document.querySelector('.qqg')||{}).href||'#'];
+    t.textContent=st[0];s.textContent=st[1];b.textContent=st[2];
+    if(st[3]==='#'){b.onclick=function(e){e.preventDefault();var c=document.getElementById('cdkL');if(c)c.scrollIntoView({behavior:'smooth',block:'center'});};b.setAttribute('href','#');}
+    else{b.onclick=null;b.setAttribute('href',st[3]);}
+    box.classList.add('on');
+  }
+  function $(x){return document.querySelectorAll(x);}
+  paintTf();paintNext();
+  document.querySelectorAll('.cp').forEach(function(b){b.addEventListener('click',function(){setTimeout(paintNext,300);});});
 })();
 </script>
 <script>(function(){
-    var current="3380a75ff3585c2b", endpoint="/build-ver.json";
+    var current="388be7062f4896ec", endpoint="/build-ver.json";
     function check(){
       var url=endpoint+(endpoint.indexOf('?')<0?'?':'&')+'_t='+Date.now();
       fetch(url,{cache:'no-store'}).then(function(r){return r.ok?r.json():null}).then(function(j){
