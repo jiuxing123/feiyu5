@@ -1,360 +1,405 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<base href="/">
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#f2f5f9">
-<meta name="referrer" content="no-referrer">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; connect-src 'self' https://9c69f4640a41403f94f584653b806a7b.app.workbuddy.host https://71ab064eb4464de488335811670a6949.app.workbuddy.host; base-uri 'self'; object-src 'none'; frame-src 'none'">
-<link rel="canonical" href="https://feiyu5.com/x52/"><meta name="site-version" content="3380a75ff3585c2b"><meta name="feiyu-release" content="3380a75ff3585c2b">
-<title>顶推・寻道大千完美养老服 ---- 无 bug 稳更增减伤皮肤全送开局拿绝🔥</title>
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#070b14">
+<title>寻道大千3.0伏魔版 · 飞鱼手游</title>
+<meta name="build-version" content="6d1d38559580ff89"><meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: ; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; connect-src 'self' https://9c69f4640a41403f94f584653b806a7b.app.workbuddy.host https://71ab064eb4464de488335811670a6949.app.workbuddy.host; base-uri 'self'; object-src 'none'; frame-src 'none'">
 <style>
-  *{margin:0;padding:0;box-sizing:border-box;}
-  body{
-    font-family:"PingFang SC","Microsoft YaHei","Helvetica Neue",sans-serif;
-    background:#f2f5f9;color:#1f2937;line-height:1.85;font-size:16px;
-    -webkit-text-size-adjust:100%;padding-bottom:96px;
-  }
-  a{text-decoration:none;}
-  .wrap{max-width:580px;margin:0 auto;background:#ffffff;min-height:100vh;box-shadow:0 0 20px rgba(15,23,42,.06);}
+/* ================= 飞鱼自有设计语言 V2：暗夜霓虹 + 品类发光 ================= */
+:root{
+  --bg:#070b14; --pnl:#0d1526; --pnl2:#121d33; --line:rgba(120,160,255,.14); --line2:rgba(120,160,255,.26);
+  --ink:#eaf1fb; --dim:#8ea3c2; --dim2:#61748f;
+  --cy:#2ee6d6; --gd:#ffc44d; --rs:#ff5d73; --blu:#4d9bff;
+  --glow:var(--cy);
+  --r:16px; --sb:env(safe-area-inset-bottom,0px); --st:env(safe-area-inset-top,0px);
+  --bg:#13120c;--pnl:#222116;--pnl2:#312f1c;--ink:#f3ede7;--dim:#cec5bf;--dim2:#ada29b;--cy:#ece36a;--g:#ece36a;--glow:#ece36a;--blu:#e8e4b0;--gd:#ceec9c;--rs:#ef9ba4;--line:rgba(236,227,106,0.17);--line2:rgba(236,227,106,0.33);--accent-soft:rgba(236,227,106,0.11);--accent-mid:rgba(236,227,106,0.21);--accent-line:rgba(236,227,106,0.35);--button-ink:#2b2912;--button-gradient:linear-gradient(120deg,#ece36a,#e8e4b0);--panel-gradient:linear-gradient(145deg,#312f1c,#222116);--hero-wash:rgba(236,227,106,0.18);--page-header:rgba(19,18,12,.94);--amount-wash:rgba(236,227,106,0.13);
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","HarmonyOS Sans SC","Microsoft YaHei",sans-serif;
+  -webkit-font-smoothing:antialiased}
+body{padding-bottom:calc(76px + var(--sb))}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+input,select{font:inherit}
+.wrap{max-width:1180px;margin:0 auto;padding:0 12px}
+/* ---------- 顶栏：品牌 + 防失联（不做大 hero，把首屏让给游戏）---------- */
+.top{position:sticky;top:0;z-index:40;background:rgba(7,11,20,.86);backdrop-filter:blur(14px) saturate(1.5);
+  -webkit-backdrop-filter:blur(14px) saturate(1.5);border-bottom:1px solid var(--line);padding-top:var(--st)}
+.topbar{display:flex;align-items:center;gap:10px;height:46px}
+.brand{font-size:19px;font-weight:900;letter-spacing:-.02em}
+.brand .b1{background:linear-gradient(96deg,var(--cy),var(--gd) 55%,var(--cy));background-size:220% auto;
+  -webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;
+  animation:flow 4.6s linear infinite}
+.tag{font-size:10px;font-weight:800;color:#062028;background:linear-gradient(120deg,var(--cy),#7be8dd);
+  padding:3px 7px;border-radius:6px;white-space:nowrap}
+.top .sp{flex:1}
+.top .save{font-size:11px;color:var(--dim);border:1px solid var(--line2);border-radius:999px;padding:5px 10px;white-space:nowrap}
+/* ---------- 搜索 + 密度 + 分类 ---------- */
+.tools{padding:10px 0 8px}
+.bar{display:flex;gap:8px;align-items:center}
+.sbox{flex:1;min-width:0;display:flex;align-items:center;gap:8px;background:var(--pnl);
+  border:1px solid var(--line);border-radius:13px;padding:0 12px;min-height:44px}
+.sbox input{flex:1;min-width:0;background:none;border:0;outline:0;color:var(--ink);font-size:16px}
+.sbox input::placeholder{color:var(--dim2);font-size:14px}
+.sbox .k{font-size:12px;color:var(--dim2);white-space:nowrap}
+.seg{display:flex;background:var(--pnl);border:1px solid var(--line);border-radius:13px;overflow:hidden}
+.seg button{width:42px;min-height:44px;color:var(--dim2);font-size:15px;display:grid;place-items:center}
+.seg button.on{background:linear-gradient(160deg,#1a2b47,#142037);color:var(--cy);box-shadow:inset 0 0 0 1px var(--line2)}
+.chips{display:flex;gap:7px;overflow-x:auto;padding:10px 0 2px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.chips::-webkit-scrollbar{display:none}
+.chip{flex:0 0 auto;display:flex;align-items:center;gap:5px;border:1px solid var(--line);background:var(--pnl);
+  color:var(--dim);font-size:13px;font-weight:700;padding:7px 13px;border-radius:999px;min-height:34px;transition:.16s}
+.chip .d{width:6px;height:6px;border-radius:2px;background:var(--g,var(--cy));opacity:.85}
+.chip.on{color:#04121a;background:linear-gradient(120deg,var(--cy),#8ff0e6);border-color:transparent;box-shadow:0 6px 18px rgba(46,230,214,.22)}
+.chip.on .d{background:#04121a}
+.count{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:6px 2px 0;font-size:12px;color:var(--dim2)}
+.count b{color:var(--cy);font-weight:900}
+.count select{background:var(--pnl);color:var(--dim);border:1px solid var(--line);border-radius:9px;font-size:12px;min-height:30px;padding:0 6px}
+/* ---------- 焦点位（时间驱动，他们完全没有）---------- */
+.focus{position:relative;overflow:hidden;margin:12px 0 4px;border:1px solid var(--line2);border-radius:18px;
+  background:radial-gradient(120% 130% at 88% -20%,rgba(255,196,77,.20),transparent 60%),
+             radial-gradient(100% 120% at 0% 100%,rgba(46,230,214,.16),transparent 55%),var(--pnl2)}
+.focus a{display:grid;grid-template-columns:64px minmax(0,1fr) auto;gap:14px;align-items:center;padding:14px 16px}
+.focus img{width:64px;height:64px;border-radius:14px;object-fit:cover;box-shadow:0 0 0 1px var(--line2),0 8px 22px rgba(0,0,0,.5)}
+.focus .lab{font-size:10px;font-weight:900;letter-spacing:.14em;color:var(--gd)}
+.focus .nm{font-size:17px;font-weight:900;margin-top:3px;letter-spacing:-.01em}
+.focus .sell{font-size:11.5px;color:var(--dim);margin-top:4px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.cd{text-align:right;font-variant-numeric:tabular-nums}
+.cd .t{font-size:20px;font-weight:900;color:var(--cy);letter-spacing:-.02em}
+.cd .u{font-size:10px;color:var(--dim2);margin-top:2px}
+/* ---------- 三种密度 ---------- */
+.grid{display:grid;gap:11px;margin-top:12px}
+.grid.wall{grid-template-columns:repeat(5,minmax(0,1fr));gap:9px}
+.grid.tiles{grid-template-columns:repeat(2,minmax(0,1fr))}
+.grid.rows{grid-template-columns:1fr}
+@media (min-width:760px){.grid.wall{grid-template-columns:repeat(8,minmax(0,1fr))}.grid.tiles{grid-template-columns:repeat(3,minmax(0,1fr))}.grid.rows{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (min-width:1040px){.grid.wall{grid-template-columns:repeat(10,minmax(0,1fr))}.grid.tiles{grid-template-columns:repeat(4,minmax(0,1fr))}.grid.rows{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.card{position:relative;overflow:hidden;border:1px solid var(--line);border-radius:var(--r);background:var(--pnl);
+  transition:transform .16s,border-color .16s,background .16s;animation:rise .3s cubic-bezier(.2,.7,.3,1) both}
+.card:before{content:"";position:absolute;inset:0 0 auto 0;height:2px;background:linear-gradient(90deg,transparent,var(--g),transparent);opacity:.75}
+.card:active{transform:scale(.975);border-color:var(--line2);background:var(--pnl2)}
+.card .glow{position:absolute;inset:auto -30% -60% -30%;height:70%;background:radial-gradient(50% 60% at 50% 100%,var(--g),transparent 70%);opacity:.16;pointer-events:none}
+/* 墙：只有图标+名字，一屏 30 款 */
+.wall .card a{display:block;padding:9px 5px 10px;text-align:center}
+.wall img{width:100%;aspect-ratio:1;border-radius:13px;object-fit:cover}
+.wall .nm{margin-top:6px;font-size:11.5px;font-weight:800;line-height:1.25;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+/* 格：图标+名字+卖点，一屏 12 款 */
+.tiles .card a{display:grid;grid-template-columns:52px minmax(0,1fr);gap:10px;align-items:center;padding:11px 12px;min-height:74px}
+.tiles img{width:52px;height:52px;border-radius:12px;object-fit:cover}
+.tiles .nm,.rows .nm{font-size:14.5px;font-weight:900;line-height:1.25;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.tiles .sell,.rows .sell{font-size:11px;color:var(--dim2);margin-top:4px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+/* 行：完整信息 + 进入 */
+.rows .card a{display:grid;grid-template-columns:60px minmax(0,1fr) auto;gap:13px;align-items:center;padding:13px 15px;min-height:92px}
+.rows img{width:60px;height:60px;border-radius:13px;object-fit:cover}
+.enter{padding:8px 13px;border-radius:999px;font-size:12px;font-weight:900;white-space:nowrap;
+  color:var(--g);background:color-mix(in srgb,var(--g) 14%,transparent);border:1px solid color-mix(in srgb,var(--g) 34%,transparent)}
+/* 徽章：切角六边形 + 跳动 + 光泽扫过（保留你喜欢的动效，造型是我们的） */
+.badge{position:absolute;top:6px;right:6px;z-index:3;overflow:hidden;padding:3px 8px 3px 10px;font-size:9.5px;font-weight:900;
+  color:#08101c;background:linear-gradient(120deg,var(--gd),#ffe08a);letter-spacing:.02em;
+  clip-path:polygon(6px 0,100% 0,100% 100%,0 100%,0 6px);animation:beat 2.2s ease-in-out infinite}
+.badge.hot{background:linear-gradient(120deg,var(--rs),#ffa8b4)}
+.badge.pub{background:linear-gradient(120deg,var(--cy),#a5f5ec)}
+.badge:after{content:"";position:absolute;top:0;bottom:0;left:-60%;width:40%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.9),transparent);animation:shine 2.6s ease-in-out infinite}
+.wall .badge{top:3px;right:3px;padding:2px 6px 2px 8px;font-size:8.5px}
+/* 流光只给 HOT/公测——动效承载信息，不是纯装饰 */
+.flow{background-image:linear-gradient(96deg,var(--g),#fff 42%,var(--gd) 62%,var(--g));background-size:240% auto;
+  -webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;animation:flow 3.6s linear infinite}
+/* ---------- 游戏专属资料页 ---------- */
+.dtop{position:sticky;top:0;top:var(--st);z-index:35;display:flex;align-items:center;gap:10px;min-height:52px;max-width:760px;margin:0 auto;padding:8px 12px;background:var(--page-header,var(--bg));border-bottom:1px solid var(--line);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.dtop .bk{flex:0 0 34px;width:34px;height:34px;border-radius:10px;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:19px;color:var(--dim)}
+.dtop .t{flex:1;min-width:0;font-size:14px;font-weight:750;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.detail-page .wrap{max-width:760px;padding:0 16px}.detail-page{padding-bottom:calc(100px + var(--sb));background:var(--bg)}
+.dhero{position:relative;margin-top:18px;padding:21px 18px;border:1px solid var(--line);border-radius:18px;background:radial-gradient(ellipse at 95% 0,var(--hero-wash),transparent 67%),var(--panel-gradient)}
+.dhero .row{display:grid;grid-template-columns:76px minmax(0,1fr);gap:15px;align-items:center}.dhero img{width:76px;height:76px;border-radius:16px;object-fit:cover;box-shadow:0 0 0 1px var(--accent-line),0 9px 25px #0004}.dhero .hero-initial{width:76px;height:76px;border-radius:16px;display:flex;align-items:center;justify-content:center;background:var(--accent-soft);color:var(--cy);font-size:28px;font-weight:750}
+.dhero h1{margin:0;font-size:23px;font-weight:750;letter-spacing:.2px;line-height:1.4;overflow-wrap:anywhere;color:var(--ink)}.dhero .sl{font-size:13px;color:var(--dim);margin-top:7px;line-height:1.8;overflow-wrap:anywhere}.doc-category{font-size:11px;letter-spacing:.6px;color:var(--cy);margin-bottom:13px;line-height:1.6}
+.meta{display:flex;flex-wrap:wrap;gap:7px;margin-top:17px}.meta i{font-style:normal;font-size:11px;font-weight:600;color:var(--dim);background:rgba(255,255,255,.035);border:1px solid var(--line);border-radius:6px;padding:4px 8px}.meta i.live,.meta i.pub{color:var(--cy);border-color:var(--accent-line);background:var(--accent-soft)}
+.sub{margin-top:15px;padding-top:14px;border-top:1px solid var(--line);color:var(--dim);font-size:12px;line-height:1.9}.points{display:flex;flex-wrap:wrap;gap:6px 12px;margin-top:9px}.points span{font-size:11px;color:var(--dim);line-height:1.7}
+.launch{margin:18px 0 0}.section-heading{display:flex;align-items:center;gap:10px;margin:25px 0 13px;font-size:16px;line-height:1.5;font-weight:750;color:var(--ink)}.section-heading::before{content:'';width:3px;height:18px;border-radius:2px;background:var(--cy)}.section-heading small{margin-left:auto;color:var(--dim2);font-size:11px;font-weight:500}
+.launch-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.launch-button{display:flex;flex-direction:column;justify-content:center;gap:4px;min-width:0;min-height:70px;padding:12px 14px;border:1px solid var(--accent-line);border-radius:12px;background:var(--button-gradient);color:var(--button-ink);text-align:left}.launch-button .btn-title{display:block;font-size:15px;font-weight:750;line-height:1.4}.launch-button .btn-sub{display:block;font-size:11px;line-height:1.65;opacity:.83;overflow-wrap:anywhere}.launch-button.muted{background:var(--accent-soft);color:var(--cy)}.launch-button.internal{background:var(--pnl);border-color:var(--line);color:var(--dim)}.launch-button.off{background:var(--pnl);border-color:var(--line);color:var(--dim2)}
+.invite-note{margin-top:13px;padding:11px 13px;border-left:3px solid var(--cy);background:var(--accent-soft);border-radius:0 9px 9px 0;font-size:12px;color:var(--dim);line-height:1.85;overflow-wrap:anywhere}.invite-note b{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;color:var(--cy);letter-spacing:1px}.registration-note{font-size:12px;color:var(--dim);line-height:1.9;margin:11px 2px 0}.registration-note strong{color:var(--cy)}
+.entrances{margin:24px 0 0;border-top:1px solid var(--line)}.entry-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:14px;align-items:center;padding:13px 1px;border-bottom:1px solid var(--line)}.entry-row .ti,.entry-row .de{display:block}.entry-row .ti{font-size:13px;line-height:1.6;font-weight:650}.entry-row .de{font-size:11px;color:var(--dim2);line-height:1.7;margin-top:3px}.entry-row .go{font-size:12px;font-weight:650;color:var(--cy);padding:8px 12px;background:var(--accent-soft);border:1px solid var(--accent-line);border-radius:8px;white-space:nowrap}
+.cdk{margin-top:25px}.cdk .hd{display:flex;align-items:baseline;gap:10px;margin:0 0 12px}.cdk .hd b{font-size:17px;font-weight:750;color:var(--ink)}
+.crow{padding:15px 0 14px;border-bottom:1px solid var(--line)}.crow .cmain{display:block}.crow .c{display:block;line-height:1.55;font-size:17px;font-weight:750;letter-spacing:.6px;color:var(--cy);font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;overflow-wrap:anywhere}.crow .d{display:block;font-size:12px;color:var(--dim);line-height:1.9;margin-top:5px;white-space:pre-wrap;overflow-wrap:anywhere}.crow .cbtns{display:flex;justify-content:flex-end;gap:8px;margin-top:10px}.crow .cp{min-height:36px;padding:7px 13px;border-radius:8px;font-size:12px;line-height:1.5;font-weight:650}.crow .cp{color:var(--button-ink);background:var(--button-gradient);border:1px solid var(--accent-line)}
+.wf{margin-top:26px}.wf .hd{font-size:15px;font-weight:750;color:var(--ink);margin:0 0 12px;line-height:1.6}.wfrow{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.wfrow button{position:relative;border:1px solid var(--line);border-radius:11px;overflow:hidden;background:var(--pnl)}.wfrow img{width:100%;height:116px;object-fit:cover;object-position:top;display:block}.wfrow em{position:absolute;left:0;right:0;bottom:0;font-style:normal;font-size:10px;color:var(--ink);background:linear-gradient(transparent,#000c);padding:15px 6px 6px;line-height:1.5}
+.gd{margin-top:29px;padding:0;border:0;background:transparent}.gd .sec{font-size:17px;font-weight:750;line-height:1.65;color:var(--cy);margin:26px 0 12px;padding:0 0 10px;border-bottom:1px solid var(--line)}.gd .gold{margin:18px 0 10px;padding:10px 13px;border-left:3px solid var(--cy);border-radius:0 9px 9px 0;background:var(--amount-wash);font-size:15px;font-weight:700;line-height:1.7;color:var(--cy)}.gd p{font-size:14px;line-height:2.05;color:var(--dim);margin:11px 0;white-space:pre-wrap;overflow-wrap:anywhere}.gd strong,.gd b{color:var(--ink);font-weight:700}.gd em{color:var(--cy);font-style:normal;font-weight:650}.gd .amt{color:var(--gd);font-weight:700}.gd .big{color:var(--cy);font-weight:750}.gday{margin:24px 0}.gday .day{font-size:12px;color:var(--cy);font-weight:650;line-height:1.7}.gday h3.sec{margin-top:7px}
+.trust{margin-top:23px;padding:15px 0;border-top:1px dashed var(--line2);border-bottom:1px dashed var(--line2);font-size:12px;color:var(--dim);line-height:1.95}.trust b{color:var(--rs)}.feedback{font-size:12px;color:var(--dim);line-height:1.9;margin:20px 0}.feedback a{color:var(--cy);text-decoration:underline;text-underline-offset:3px}
+.qqcard{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:7px 10px;align-items:center;margin:19px 0;padding:12px 14px;border:1px solid var(--line);border-radius:11px;background:var(--accent-soft)}.qqcard .qq-label{font-size:13px;font-weight:650;line-height:1.5}.qqcard .qq-sub{grid-column:1;font-size:11px;line-height:1.7;color:var(--dim2)}.qqcard .qq-action{grid-row:1/3;grid-column:2;color:var(--cy);font-size:12px;font-weight:650;white-space:nowrap}.pending{opacity:.58;cursor:default}
+/* 常驻底部导航仅呈现可操作入口，所有颜色来自当前游戏主题。 */
+.detail-page .bar{position:fixed;left:0;right:0;bottom:0;z-index:60;display:flex;gap:8px;padding:10px 12px;max-width:580px;margin:0 auto;background:var(--page-header,var(--pnl));border-top:1px solid var(--line2);box-shadow:0 -3px 18px rgba(0,0,0,.18);padding-bottom:calc(10px + var(--sb));backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.detail-page .bar a{flex:1;min-width:0;min-height:44px;display:flex;align-items:center;justify-content:center;text-align:center;font-size:15px;font-weight:700;line-height:1.35;padding:12px 0;border-radius:10px;color:var(--button-ink);background:var(--button-gradient);border:1px solid var(--accent-line)}
+.detail-page .bar .b4{background:var(--accent-soft);color:var(--cy);border-color:var(--line2)}
+/* 原站右侧中部常驻售后群：原格式、位置和尺寸。 */
+.qqfloat-wrap{position:fixed;right:0;top:50%;transform:translateY(-50%);z-index:70;pointer-events:none;}
+.qqfloat{pointer-events:auto;display:flex;flex-direction:column;align-items:center;gap:5px;background:linear-gradient(160deg,#16c47a,#059669);color:#fff;padding:12px 9px;border-radius:13px 0 0 13px;box-shadow:-3px 4px 16px rgba(5,150,105,.34);animation:qqfloatIn .5s cubic-bezier(.22,1,.36,1);}
+.qqfloat .ic{font-size:18px;line-height:1;}.qqfloat .tx{font-size:12.5px;font-weight:800;letter-spacing:2px;writing-mode:vertical-rl;text-orientation:upright;line-height:1.15;}.qqfloat:active{transform:scale(.95);}@keyframes qqfloatIn{from{opacity:0;transform:translateX(26px)}to{opacity:1;transform:translateX(0)}}
+.launch-button:nth-child(3){grid-column:1/-1;min-height:58px;flex-direction:row;align-items:center;justify-content:space-between;gap:15px}.launch-button:nth-child(3) .btn-title{flex:0 0 auto}.launch-button:nth-child(3) .btn-sub{text-align:right;max-width:64%}
+@supports ((-webkit-background-clip:text) or (background-clip:text)){.dhero h1{background-image:linear-gradient(105deg,var(--cy),var(--ink) 40%,var(--cy) 70%);background-size:220% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:docTitleGlow 3.6s linear infinite}}@keyframes docTitleGlow{to{background-position:220% center}}
+@media(max-width:800px){.gd,.feedback,.trust{padding-right:34px}.crow .cmain,.crow .cbtns{padding-right:34px}.launch-button:nth-child(2) .btn-sub{padding-right:20px}}
+@media(min-width:640px){.detail-page .wrap{padding:0 24px}.dhero{padding:25px}.dhero .row{grid-template-columns:88px minmax(0,1fr);gap:19px}.dhero img,.dhero .hero-initial{width:88px;height:88px}.dhero h1{font-size:28px}.launch-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.launch-button:nth-child(3){grid-column:auto;min-height:70px;flex-direction:column;align-items:stretch;justify-content:center;gap:4px}.launch-button:nth-child(3) .btn-sub{text-align:left;max-width:none}.gd p{font-size:15px}.wfrow img{height:150px}}
+@media(max-width:359px){.detail-page .wrap{padding:0 12px}.gd,.feedback,.trust{padding-right:38px}.crow .cmain,.crow .cbtns{padding-right:38px}.dhero{padding:17px 14px}.dhero .row{grid-template-columns:66px minmax(0,1fr);gap:12px}.dhero img,.dhero .hero-initial{width:66px;height:66px}.dhero h1{font-size:20px}.detail-page .bar a{font-size:13px}.cdk .hd{gap:7px}.cdk .hd b{font-size:15px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+/* 灯箱 */
+.lb{position:fixed;inset:0;z-index:100;background:rgba(3,6,12,.96);display:none;flex-direction:column}
+.lb.on{display:flex}
+.lb .h{display:flex;align-items:center;gap:10px;padding:calc(10px + var(--st)) 14px 10px;color:var(--dim);font-size:12.5px}
+.lb .h .x{margin-left:auto;width:34px;height:34px;border-radius:11px;border:1px solid var(--line);display:grid;place-items:center}
+.lb .bd{flex:1;overflow:auto;-webkit-overflow-scrolling:touch;padding:0 10px calc(14px + var(--sb))}
+.lb .bd img{width:100%;max-width:760px;display:block;margin:0 auto;border-radius:12px}
+.lb .tip{text-align:center;font-size:11px;color:var(--dim2);padding:10px 0 16px}
+.demo{margin:10px 0 0;padding:8px 11px;border-radius:11px;border:1px dashed rgba(255,196,77,.4);
+  background:rgba(255,196,77,.07);color:#ffd68a;font-size:11px;font-weight:800;display:flex;gap:8px;align-items:center}
+.demo b{color:var(--gd)}
+.empty{display:none;margin:18px 0;padding:34px 14px;text-align:center;color:var(--dim2);font-size:13px;
+  border:1px dashed var(--line2);border-radius:16px}
+@keyframes flow{to{background-position:240% center}}
+@keyframes beat{0%,100%{transform:scale(1)}50%{transform:scale(1.06)}}
+@keyframes shine{0%,30%{left:-60%;opacity:0}55%{opacity:1}100%{left:115%;opacity:0}}
+@keyframes rise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 
-  .topbar{
-    background:#ffffff;border-bottom:1px solid #e5e9f0;
-    padding:12px 18px;display:flex;align-items:center;justify-content:space-between;
-    position:sticky;top:0;z-index:50;
-  }
-  .topbar .logo{font-size:15px;font-weight:bold;color:#0f172a;letter-spacing:.5px;}
-  .topbar a{color:#2563eb;font-size:13px;border:1px solid #dbe3ee;padding:5px 12px;border-radius:16px;}
-
-  .hero{
-    background:linear-gradient(165deg,#eef4ff 0%,#dbeafe 100%);
-    padding:38px 22px 34px;text-align:center;position:relative;overflow:hidden;
-    display:flex;flex-direction:column;align-items:center;
-  }
-  .hero .badge{
-    display:inline-block;background:#2563eb;color:#fff;font-size:12px;font-weight:bold;
-    padding:6px 18px;border-radius:20px;letter-spacing:1px;margin:0 auto 14px;position:relative;z-index:2;
-    box-shadow:0 3px 10px rgba(37,99,235,.35);
-  }
-  .hero h1{font-size:24px;color:#0f172a;line-height:1.45;position:relative;z-index:2;font-weight:800;max-width:100%;}
-  .hero .sub{color:#334155;font-size:14px;margin-top:12px;position:relative;z-index:2;}
-  .points{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:18px;position:relative;z-index:2;}
-  .points span{
-    background:#fff;border:1px solid #cddcf5;font-size:12px;padding:5px 12px;
-    border-radius:16px;color:#1e40af;box-shadow:0 1px 3px rgba(15,23,42,.06);
-  }
-
-  .btn{
-    display:block;text-align:center;color:#fff;font-size:17px;font-weight:bold;letter-spacing:.5px;
-    padding:16px 0;border-radius:14px;margin:12px 0;box-shadow:0 3px 10px rgba(37,99,235,.22);
-    transition:transform .12s;
-  }
-  .btn:active{transform:scale(.98);}
-  .btn.blue{background:linear-gradient(135deg,#2563eb,#1d4ed8);}
-  .btn.orange{background:linear-gradient(135deg,#f59e0b,#ea580c);box-shadow:0 3px 10px rgba(234,88,12,.25);}
-  .btn.purple{background:linear-gradient(135deg,#7c3aed,#5b21b6);box-shadow:0 3px 10px rgba(124,58,237,.22);}
-  .btn.green{background:linear-gradient(135deg,#059669,#047857);box-shadow:0 3px 10px rgba(5,150,105,.22);}
-  .btn.pending{background:linear-gradient(135deg,#94a3b8,#64748b)!important;box-shadow:none;}
-  .btn.info{background:linear-gradient(135deg,#0891b2,#0e7490)!important;box-shadow:0 3px 10px rgba(8,145,178,.25);}
-  .heropic{width:88px;height:88px;border-radius:50%;border:3px solid #fff;box-shadow:0 4px 12px rgba(15,23,42,.18);margin-bottom:12px;object-fit:cover;}
-  .btn .small{display:block;font-size:12px;font-weight:normal;opacity:.92;margin-top:3px;letter-spacing:0;}
-
-  section{padding:28px 20px 6px;}
-  h2{font-size:20px;color:#0f172a;margin-bottom:14px;padding-left:12px;border-left:5px solid #2563eb;line-height:1.4;font-weight:800;}
-  h3{font-size:16px;color:#2563eb;margin:18px 0 8px;font-weight:700;}
-  p{margin-bottom:12px;color:#374151;}
-  strong{color:#b45309;}
-  em{color:#dc2626;font-style:normal;font-weight:bold;}
-
-  .card{background:#f8fafc;border:1px solid #e5e9f0;border-radius:14px;padding:18px;margin:14px 0;}
-  .card h4{color:#1e40af;font-size:16px;margin-bottom:8px;}
-  .card.gold{background:#fffbeb;border-color:#fde68a;}
-  .card.gold h4{color:#b45309;}
-  .card.warn{background:#fef2f2;border-color:#fecaca;}
-  .card.warn h4{color:#dc2626;}
-  .divider{text-align:center;color:#94a3b8;font-size:12px;margin:30px 0 0;letter-spacing:4px;}
-
-  .step{display:flex;gap:12px;margin-bottom:18px;}
-  .step .no{flex:0 0 30px;height:30px;border-radius:50%;background:#2563eb;color:#fff;font-weight:bold;text-align:center;line-height:30px;font-size:15px;}
-  .step .body{flex:1;}
-  .step .btn{margin-left:-42px;} /* 抵消数字圆圈+gap 缩进，按钮与页面主体卡片左右对齐（星哥 21:29 指令） */
-  .step .body h4{color:#0f172a;font-size:16px;margin-bottom:6px;}
-
-  ul.codes{list-style:none;}
-  ul.codes li{
-    background:#f8fafc;border:1px dashed #cbd5e1;border-radius:12px;padding:12px;margin-bottom:8px;
-    display:flex;align-items:center;gap:10px;
-  }
-  ul.codes li .code{flex:0 0 auto;font-size:16px;font-weight:800;color:#1e40af;letter-spacing:1px;font-family:Consolas,Monaco,monospace;}
-  ul.codes li .desc{flex:1;font-size:13px;color:#475569;line-height:1.65;}
-  ul.codes li .cp{flex:0 0 auto;background:#2563eb;color:#fff;border:0;border-radius:8px;font-size:12px;padding:7px 12px;cursor:pointer;}
-  ul.codes li .cp.ok{background:#059669;}
-
-  .tip{background:#fffbeb;border-left:4px solid #f59e0b;padding:13px 15px;border-radius:0 12px 12px 0;margin:14px 0;font-size:15px;color:#78350f;}
-  .alarm{background:#fef2f2;border-left:4px solid #dc2626;padding:13px 15px;border-radius:0 12px 12px 0;margin:14px 0;font-size:15px;color:#7f1d1d;}
-  .alarm strong{color:#dc2626;}
-  .tag{display:inline-block;background:#2563eb;color:#fff;font-weight:bold;border-radius:6px;padding:2px 10px;font-size:13px;margin-right:6px;}
-
-  .welfare img{width:100%;height:auto;border-radius:14px;display:block;margin:10px 0;}
-  .welfare .ph{background:#f1f5f9;border:1px dashed #cbd5e1;border-radius:14px;padding:26px;text-align:center;color:#94a3b8;font-size:14px;}
-
-  .bar{
-    position:fixed;left:0;right:0;bottom:0;z-index:60;background:rgba(255,255,255,.97);
-    border-top:1px solid #e5e9f0;display:flex;gap:8px;padding:10px 12px;max-width:580px;margin:0 auto;
-    box-shadow:0 -2px 12px rgba(15,23,42,.06);
-  }
-  .bar a{flex:1;text-align:center;font-size:15px;font-weight:bold;padding:12px 0;border-radius:12px;color:#fff;}
-  .bar .b1{background:linear-gradient(135deg,#2563eb,#1d4ed8);padding:12px 0;border-radius:12px;color:#fff;}
-  .bar .b2{background:linear-gradient(135deg,#f59e0b,#ea580c);padding:12px 0;border-radius:12px;color:#fff;}
-  .bar .b3{background:linear-gradient(135deg,#7c3aed,#5b21b6);padding:12px 0;border-radius:12px;color:#fff;}
-  .bar .off{opacity:.55;filter:grayscale(.4);}
-  .footer{text-align:center;color:#94a3b8;font-size:12px;padding:30px 20px 0;line-height:2;}
-  /* 返回主站按钮 */
-  .topbar .back{background:#2563eb;color:#fff;border:0;font-size:13px;font-weight:bold;padding:6px 14px;border-radius:16px;box-shadow:0 2px 6px rgba(37,99,235,.25);}
-  /* 邀请码 */
-  .invite{background:#fffbeb;border:1px solid #fde68a;border-radius:14px;padding:16px;margin:14px 0;text-align:center;}
-  .invite-t{font-size:14px;color:#92400e;font-weight:bold;}
-  .invite-row{display:flex;align-items:center;justify-content:center;gap:10px;margin:10px 0 6px;}
-  .invite-code{font-family:Consolas,Monaco,monospace;font-size:24px;font-weight:800;color:#b45309;letter-spacing:3px;}
-  .cp-big{background:#f59e0b;color:#fff;border:0;border-radius:10px;padding:10px 18px;font-size:14px;font-weight:bold;cursor:pointer;}
-  .cp-big.ok{background:#059669;}
-  .invite-tip{font-size:12px;color:#a16207;}
-  /* 攻略正文 */
-  .guide{margin-top:4px;}
-  .guide-title{font-size:20px;color:#0f172a;margin-bottom:14px;padding-left:12px;border-left:5px solid #2563eb;line-height:1.4;font-weight:800;}
-  .guide .gsec-divider{text-align:center;color:#94a3b8;font-size:12px;margin:26px 0 10px;letter-spacing:3px;}
-  .guide h3.section-head{font-size:17px;color:#0f172a;margin:22px 0 14px;padding:10px 14px;background:#f1f5f9;border-radius:10px;border-left:4px solid #2563eb;font-weight:800;}
-  /* v6.9 星哥口谕（2026-09-26）：金额/充值档位标题必须醒目——金色高亮块 + 正文金额数字自动描色，全量游戏 + 新增自动生效 */
-  .guide .money-head{font-size:15.5px;font-weight:800;color:#7c2d12;margin:14px 0 8px;padding:9px 13px;background:linear-gradient(90deg,#fff3cd,#ffe9a8);border:1px solid #f5c451;border-left:5px solid #f59e0b;border-radius:10px;box-shadow:0 2px 6px rgba(245,158,11,.18);}
-  /* v6.9 所有小标题都高亮：非金额的短标题行→靛蓝块，和金色金额块、灰色大标题形成层级 */
-  .guide .sub-head{font-size:15px;font-weight:800;color:#1e3a8a;margin:14px 0 8px;padding:8px 13px;background:#eef2ff;border:1px solid #c7d2fe;border-left:5px solid #4f46e5;border-radius:10px;}
-  .guide .amt{color:#b45309;font-weight:800;}
-  .guide .amt-big{color:#dc2626;font-weight:800;}
-  .guide .gcard{background:#f8fafc;border:1px solid #e5e9f0;border-radius:14px;padding:16px;margin:14px 0;}
-  .guide .gcard h4{color:#1e40af;font-size:15px;margin-bottom:10px;font-weight:800;}
-  .guide .gcard>:last-child{margin-bottom:0;}
-  .guide p{margin-bottom:14px;color:#374151;line-height:1.85;}
-  .guide p:last-child{margin-bottom:0;}
-  .guide ul.glist{list-style:none;margin:10px 0 14px;}
-  .guide ul.glist li{position:relative;padding-left:22px;margin-bottom:8px;color:#374151;line-height:1.7;}
-  .guide ul.glist li::before{content:"";position:absolute;left:6px;top:10px;width:6px;height:6px;border-radius:50%;background:#2563eb;}
-  .guide .gtip{background:#fffbeb;border-left:4px solid #f59e0b;padding:12px 14px;border-radius:0 12px 12px 0;margin:14px 0;font-size:14px;color:#78350f;}
-  .guide .galarm{background:#fef2f2;border-left:4px solid #dc2626;padding:12px 14px;border-radius:0 12px 12px 0;margin:14px 0;font-size:14px;color:#7f1d1d;}
-  .guide .gday{display:flex;gap:12px;margin-bottom:16px;}
-  .guide .gday .no{flex:0 0 46px;height:46px;border-radius:12px;background:#2563eb;color:#fff;font-weight:bold;text-align:center;font-size:12px;display:flex;align-items:center;justify-content:center;line-height:1.2;padding:4px;}
-  .guide .gday .body{flex:1;background:#f8fafc;border:1px solid #e5e9f0;border-radius:14px;padding:14px 16px;}
-  .guide .gday .body h4{color:#1e40af;font-size:15px;margin-bottom:6px;font-weight:800;}
-  .guide .gday .body p{margin-bottom:0;}
-  /* 福利图 */
-  .welfare img{width:100%;height:auto;border-radius:14px;display:block;margin:10px 0;box-shadow:0 4px 14px rgba(15,23,42,.12);}
-  .muted{font-size:13px;color:#94a3b8;}
-  /* 正文里内联的兑换码 + 复制键 */
-  .cc{display:inline-flex;align-items:center;gap:6px;vertical-align:middle;margin:0 2px;}
-  .cc b{font-family:Consolas,Monaco,monospace;font-size:14px;color:#b45309;background:#fffbeb;
-    border:1px solid #fde68a;border-radius:6px;padding:1px 6px;letter-spacing:.5px;font-weight:800;}
-  .cc .cp{background:#f59e0b;color:#fff;border:0;border-radius:6px;padding:2px 8px;font-size:11px;
-    font-weight:bold;cursor:pointer;line-height:1.6;}
-  .cc .cp.ok{background:#059669;}
-  .bar .b4{background:linear-gradient(135deg,#059669,#047857);padding:12px 0;border-radius:12px;color:#fff;flex:1;font-size:15px;}
-  .toast{position:fixed;left:50%;bottom:96px;transform:translateX(-50%);background:rgba(15,23,42,.9);color:#fff;
-    font-size:14px;padding:10px 18px;border-radius:20px;opacity:0;transition:opacity .25s;pointer-events:none;z-index:99;}
-  .toast.show{opacity:1;}
-  /* v6.8 QQ 售后群引导（方案二+三，2026-09-23 星哥拍板）：金卡 + 绿按钮，全站统一 */
-  .qqcard{display:flex;align-items:center;gap:10px;margin:12px 0;padding:10px 12px;border-radius:12px;
-    background:linear-gradient(135deg,#fffbeb,#fef3c7);border:1.5px solid #f59e0b;transition:transform .12s;}
-  .qqcard:active{transform:scale(.985);}
-  .qqcard .qq-ic{flex:0 0 26px;width:26px;height:26px;border-radius:8px;background:linear-gradient(135deg,#059669,#047857);
-    color:#fff;font-weight:800;font-size:13px;display:flex;align-items:center;justify-content:center;}
-  .qqcard .tx{flex:1;min-width:0;}
-  .qqcard .tx b{display:block;font-size:14.5px;color:#92400e;font-weight:800;}
-  .qqcard .tx span{display:block;font-size:12px;color:#a16207;margin-top:2px;}
-  .qqcard .go{flex:0 0 auto;background:linear-gradient(135deg,#059669,#047857);color:#fff;font-size:13px;font-weight:800;
-    padding:8px 14px;border-radius:8px;box-shadow:0 2px 6px rgba(5,150,105,.3);}
-  .qq-inline{display:inline-block;background:linear-gradient(135deg,#059669,#047857);color:#fff;font-size:12.5px;font-weight:800;
-    padding:3px 10px;border-radius:6px;margin-left:6px;white-space:nowrap;}
-  .qq-pending{display:block;text-align:center;font-size:13.5px;font-weight:700;color:#047857;padding:8px 0 2px;}
-  .qq-final{display:block;margin:14px 0;padding:18px 16px;text-align:center;border-radius:14px;
-    background:linear-gradient(135deg,#fffbeb,#fde68a);border:2px solid #f59e0b;transition:transform .12s;}
-  .qq-final:active{transform:scale(.985);}
-  .qq-final b{display:block;font-size:17px;color:#92400e;font-weight:800;}
-  .qq-final .sub{display:block;font-size:13px;color:#a16207;margin:6px 0 12px;line-height:1.7;}
-  .qq-final .go{display:inline-block;background:linear-gradient(135deg,#059669,#047857);color:#fff;font-size:15px;font-weight:800;
-    padding:12px 34px;border-radius:10px;box-shadow:0 3px 10px rgba(5,150,105,.3);}
-  /* 方案一：右侧中部常驻售后群入口（竖向小标签贴右缘，避开底栏与主按钮，视觉克制） */
-  .qqfloat-wrap{position:fixed;right:0;top:50%;transform:translateY(-50%);z-index:70;pointer-events:none;}
-  .qqfloat{pointer-events:auto;display:flex;flex-direction:column;align-items:center;gap:5px;
-    background:linear-gradient(160deg,#16c47a,#059669);color:#fff;
-    padding:12px 9px;border-radius:13px 0 0 13px;
-    box-shadow:-3px 4px 16px rgba(5,150,105,.34);
-    animation:qqfloatIn .5s cubic-bezier(.22,1,.36,1);}
-  .qqfloat .ic{font-size:18px;line-height:1;}
-  .qqfloat .tx{font-size:12.5px;font-weight:800;letter-spacing:2px;writing-mode:vertical-rl;text-orientation:upright;line-height:1.15;}
-  .qqfloat:active{transform:scale(.95);}
-  @keyframes qqfloatIn{from{opacity:0;transform:translateX(26px)}to{opacity:1;transform:translateX(0)}}
-  @media (prefers-reduced-motion:reduce){.qqfloat{animation:none;}}
+.invite-row{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}.invite-row b{font-size:17px;overflow-wrap:anywhere}.copy-value{display:inline-flex;align-items:center;justify-content:center;min-height:44px;max-width:100%;padding:8px 12px;border:1px solid var(--accent-line);background:var(--accent-soft);color:var(--cy);border-radius:9px;font-size:12px;font-weight:650;overflow-wrap:anywhere;white-space:normal;text-align:left;cursor:pointer}.copy-value:focus-visible{outline:2px solid var(--cy);outline-offset:3px}.inline-copies{display:flex;flex-wrap:wrap;gap:7px;margin:6px 0 14px}.copy-status{font-size:12px;color:var(--cy);min-height:22px}.invite-note .source-note{display:block;margin-top:8px;color:var(--dim);font-size:11px}.guide-nav{margin:22px 0 10px;border:1px solid var(--line2);border-radius:13px;background:var(--panel-gradient);padding:14px 16px}.guide-nav summary{font-size:14px;color:var(--ink);font-weight:700;cursor:pointer;min-height:30px}.guide-nav .toc-links{display:flex;flex-direction:column;margin-top:10px;gap:4px}.guide-nav .toc-links a{min-height:44px;display:flex;align-items:center;color:var(--cy);font-size:13px;line-height:1.6;padding:7px 0;overflow-wrap:anywhere}.gd [id],#guide,#cdk,#welfare,#growth-plan{scroll-margin-top:70px}.purchase-plan{margin:22px 0;padding:18px 18px 18px 20px;border:1px solid var(--accent-line);border-left:3px solid var(--cy);border-radius:13px;background:var(--panel-gradient)}.purchase-plan .eyebrow{font-size:10px;color:var(--cy);letter-spacing:1.4px;margin-bottom:7px}.purchase-plan h3{color:var(--ink);font-size:16px;line-height:1.65;margin:0}.purchase-plan p{font-size:13px;line-height:1.9;color:var(--dim);margin:10px 0}.purchase-plan .plan-action{margin:13px 0 0;padding-top:10px;border-top:1px solid var(--line);font-size:12px;color:var(--cy);font-weight:600}.purchase-plan .plan-note{font-size:11px;color:var(--dim2);margin-bottom:0}.section-shortcuts{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px}.section-shortcuts a{min-height:44px;padding:9px 12px;border:1px solid var(--line2);border-radius:8px;color:var(--cy);font-size:12px;display:flex;align-items:center}.support-copy{border:1px solid var(--line);padding:13px;border-radius:11px;margin:16px 0;font-size:12px;color:var(--dim);line-height:1.8}.support-copy button{margin-top:8px}.lb.on{overscroll-behavior:contain}.lb .h{padding-right:8px}.lb .x{min-height:44px;min-width:44px}
+.first-spend{margin:16px 0;padding:17px;border:1px solid var(--accent-line);border-radius:14px;background:linear-gradient(135deg,var(--hero-wash),var(--pnl));box-shadow:inset 0 1px 0 rgba(255,255,255,.07)}.spend-kicker{font-size:11px;color:var(--cy);font-weight:650;letter-spacing:.7px}.first-spend h2{font-size:18px;line-height:1.6;color:var(--ink);margin:7px 0 12px}.spend-option{padding:11px 12px;border-left:3px solid var(--cy);background:var(--accent-soft);border-radius:0 9px 9px 0;display:flex;flex-direction:column;gap:4px;overflow-wrap:anywhere}.spend-label{font-size:10px;color:var(--dim2)}.spend-option b{font-size:16px;color:var(--cy);line-height:1.65}.spend-option>span:last-child{font-size:12px;color:var(--ink);line-height:1.8}.first-spend p{font-size:12px;line-height:1.95;color:var(--dim);margin:12px 0}.spend-actions a{min-height:44px;padding:10px 13px;display:inline-flex;align-items:center;justify-content:center;background:var(--button-gradient);color:var(--button-ink);border-radius:9px;font-size:12px;font-weight:700}.first-spend small{display:block;font-size:10px;line-height:1.8;color:var(--dim2);margin-top:10px}
+@media(max-width:800px){.first-spend{padding-right:34px}}
+.detail-page .cp{min-height:44px;min-width:52px}
+@media(max-width:800px){.purchase-plan,.invite-note,.guide-nav,.support-copy{padding-right:34px}}
 </style>
 </head>
 <body>
-<div class="wrap">
+<div id="top"></div>
+<div id="app"></div>
+<div id="persistent-actions"></div>
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-labelledby="lbt" tabindex="-1"><div class="h"><span id="lbt">福利长图</span><button class="x" id="lbx">✕</button></div>
+  <div class="bd"><div id="lbi"></div><div class="tip">长按图片可保存到手机 · 左右滑动查看其他图</div></div></div>
 
-  <div class="topbar">
-    <div class="logo">🎮  顶推・寻道大千完美养老服 ---- 无 bug 稳更增减伤皮肤全送开局拿绝🔥</div>
-    <a class="back" href="/">🏠 返回主站</a>
-  </div>
-
-  <div class="hero">
-    <img class="heropic" src="/assets/published/9a28e244e77ac2b9fea6.jpg?v=3380a75ff3585c2b" alt="" width="96" height="96" decoding="async" fetchpriority="high">
-    
-    <h1>顶推・寻道大千完美养老服 ---- 无 bug 稳更增减伤皮肤全送开局拿绝🔥</h1>
-    <p class="sub">不卡不掉 · 持续更新<br>我们只想给各位玩家一个长久的家</p>
-    <div class="points"><span>✅ 安卓苹果双端</span><span>✅ 不卡不掉</span><span>✅ 持续更新</span></div>
-  </div>
-
-  <section>
-    <a class="btn blue" href="https://agent.xbwpkp.cn/reg?code=HQJZZKE4" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">📝 点击注册账号（1 分钟搞定）<span class="small">必须走这个链接注册，否则无售后</span></a>
-    <a class="btn orange" href="https://fmdq.ququ.im/FMDQ.html" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">⬇ 点击下载游戏（安卓 / 苹果通用）<span class="small">安装后选「账号密码登录」</span></a>
-    <a class="qqcard qqg" href="https://qm.qq.com/q/Rns2qI2HWq" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer"><span class="qq-ic">Q</span><span class="tx"><b>官方售后群</b><span>链接失效 · 防失联 · 找客服</span></span><span class="go">进群 ➜</span></a>
-    <div class="invite">
-      <div class="invite-t">🎁 本服专属邀请码（注册必填）</div>
-      <div class="invite-row"><span class="invite-code" id="inviteCode">HQJZZKE4</span><button class="cp cp-big" data-code="HQJZZKE4">复制</button></div>
-      <div class="invite-tip">填错邀请码没有售后，请复制后粘贴使用</div>
-    </div>
-  </section>
-
-  <div class="divider">—·— 三 步 开 玩 —·—</div>
-
-  <section>
-    <h2>一、三步开玩（点一下就走，两分钟进游戏）</h2>
-    <div class="step">
-      <div class="no">1</div>
-      <div class="body">
-        <h4>注册账号</h4>
-        <p>点下面的按钮直接进注册页。这是<strong>唯一有效注册地址</strong>——不是从这个链接注册的<em>没有售后</em>。</p><a class="btn blue" href="https://agent.xbwpkp.cn/reg?code=HQJZZKE4" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">📝 点击注册账号</a>
-      </div>
-    </div>
-    <div class="step">
-      <div class="no">2</div>
-      <div class="body">
-        <h4>下载游戏</h4>
-        <p>点按钮直接下载，安卓苹果都能装。主线路走不通就用备用线路。</p><a class="btn orange" href="https://fmdq.ququ.im/FMDQ.html" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">⬇ 点击下载（主线路）</a><a class="btn green" href="https://fmdq.yidi.im/FMDQ.html" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">📦 备用下载通道</a>
-      </div>
-    </div>
-    <div class="step">
-      <div class="no">3</div>
-      <div class="body">
-        <h4>登录游戏</h4>
-        <p>打开游戏后，<strong>选择「账号密码登录」，不要用手机号登录</strong>，账号就是第 1 步注册的那个。</p>
-      </div>
-    </div>
-    <div class="card warn">
-      <h4>⚠️ 登录提示网络异常怎么办？</h4>
-      <p>装个「爱加速」，把本地网络切到<strong>上海</strong>再登录，基本一次解决。</p>
-      <a class="btn green" href="https://m.91ajs.com" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">🔧 点击下载爱加速</a>
-    </div>
-  </section>
-
-  <div class="divider">—·— 进 服 先 领 —·—</div>
-  <section>
-    <h2>二、进服先白嫖：兑换码全部领满</h2>
-    <p class="muted">兑换路径：游戏内 设置 → 礼包兑换码（点右侧按钮可直接复制）</p>
-    <ul class="codes">
-      <li><span class="code">FMDQ555</span><span class="desc">进服直接兑，先领先爽</span><button class="cp" data-code="FMDQ555">复制</button></li>
-      <li><span class="code">FMDQ666</span><span class="desc">进服直接兑，先领先爽</span><button class="cp" data-code="FMDQ666">复制</button></li>
-      <li><span class="code">FMDQ888</span><span class="desc">进服直接兑，先领先爽</span><button class="cp" data-code="FMDQ888">复制</button></li>
-    </ul>
-    <a class="btn orange" href="https://fmdq.ququ.im/FMDQ.html" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">还没下载？点击下载，马上领码 ⬇</a>
-  </section>
-
-  <div class="divider">—·— 新 手 起 号 攻 略 —·—</div>
-  <section>
-    <div class="guide">
-<h2 class="guide-title">新手起号全攻略！（起号 + 充值 + 冠名）</h2><p>30秒速读：先领上线直邮和、、三个兑换码，第一单买<span class="amt">88元</span>新传说限定法宝礼包吃首日双倍，平台币首充双倍三档和每日充值榜把福利开满，开服充一块顶以后两块，要充的钱一天凑一档。</p><p>防骗提醒：只走本攻略和官方入口，群里或私聊给你折扣代充、送码还让你转账加好友的都是骗子。</p><h3 class="section-head">一、先领空：上线直邮＋三个兑换码＋每日在线</h3><p>进游戏第一件事，先把所有白给的福利全领完，不用肝不用氪，上线就有收获。</p><p>上线直邮福利直接发到背包：海量天地机缘、仙玉、金币、各类法宝碎片、皮肤宝箱，还有传说级法宝、坐骑和强化材料，领完直接推图升级，前期不愁资源。</p><p>三个专属兑换码必须兑：</p><p>＋大量天地机缘 ＋仙玉 ＋皮肤宝箱 ＋珍稀材料</p><p>＋大量天地机缘 ＋仙玉 ＋皮肤宝箱 ＋珍稀材料</p><p>＋大量天地机缘 ＋仙玉 ＋皮肤宝箱 ＋珍稀材料</p><p>三个码等于白送一大笔启动资金，不兑就亏在起跑线，零氪靠这些也能平稳度过新手期。</p><p>每日在线奖励：每天挂够5分钟、10分钟、30分钟、1小时、2小时、3小时，都能领天地机缘、净水、仙玉、天灵草，还有印花礼包和玄神匣，挂着就能拿资源。</p><p>日常玩法：斗法、群英榜、问道盛会、征战诸天，参与就有基础奖励，排名越高奖励越丰厚。</p><p>但要明白：白嫖只能拿保底资源，想快速成型、冲榜拿高阶奖励、不肝也能爽玩，就必须踩中开服的充值福利节点，用最少的钱拿最多的资源。</p><h3 class="section-head">二、为什么值得充：开服五大红利，错过就没了</h3><div class="money-head">首充双倍：200、800、1500</div><p>＋平台币首次购买直接翻倍到账，充200到手400平台币，全游戏通用可买礼包，每个账号只有一次</p><p>首充双倍不吃，同样的钱到手平台币直接少一半，错过永久没有。</p><div class="money-head">首日双倍：88至<span class="amt">5999元</span>礼包</div><p>＋从<span class="amt">88元</span>到<span class="amt">5999元</span>的所有新手专属礼包，开服第一天购买全部双倍资源</p><p>过了当天立刻恢复原价，晚买一天亏一半。</p><p>每日充值榜全是绝版奖励：称号、皮肤、名帖都是限定道具，不仅加实战战力还是身份象征，全服只有对应名次能拿，以后不会返场，有钱都买不到。</p><div class="money-head">山头冠名：单日充值<span class="amt">8000元</span></div><p>＋自定义本区山头名字，全服玩家进游戏第一眼就能看到，还额外送4000平台币</p><p>马上就要合区，合区后按充值最高者冠名整个合区山头，现在不抢，晚了被别人抢先，再想冠名只能等合区，还得花更多钱才能超过别人。</p><p>合区先手：合区后正式上线蓬莱仙岛，后续还会开九幽争霸全新玩法，现在充钱提战力，新榜单新玩法的首杀首奖直接抢；等合区了再充，别人早就把差距拉开，追都追不上。</p><h3 class="section-head">三、小氪入门档：预算200到<span class="amt">1000元</span>，轻松爽玩甩开零氪</h3><div class="money-head">首充双倍：200平台币档</div><p>＋充200到手400平台币，直接翻倍</p><p>这是全游戏性价比最高的一笔充值，这一笔不先冲，后面每一单都等于多花冤枉钱。</p><div class="money-head"><span class="amt">88元</span>新传说限定法宝</div><p>＋首日双倍直接到手10888天地机缘 ＋十几套法宝碎片 ＋8000传说粉尘</p><p>开局就能凑齐一身毕业法宝，不买就得慢慢攒碎片熬半个月，推图速度慢一倍，斗法也打动不了大部分玩家。</p><div class="money-head"><span class="amt">188元</span>神话法宝套装</div><p>＋首日双倍18888天地机缘 ＋全套神级法宝碎片 ＋5000神话粉尘</p><p>预算稍高不加这个，法宝系统拉不满，新手区斗法稳不住前20，每日斗法的高阶奖励天天流给对手。</p><div class="money-head">实充<span class="amt">200元</span>日榜16至20名</div><p>＋100平台币 ＋<span class="amt">99元</span>特惠人气礼包 ＋临睨万网名帖 ＋真武大帝碎片自选箱 ＋万妖之巅称号</p><p>充200还返100平台币，里外里等于半价，还白拿限定称号和礼包，这个返点不去拿等于送的钱不要。</p><p>这个档位下来，开局资源和战力甩开80%的零氪玩家，日常刷图无压力，所有玩法轻松参与。首充双倍和首日礼包都是过了就没的福利，现在入手最划算。</p><h3 class="section-head">四、中氪进阶档：预算3000到<span class="amt">8000元</span>，区服大佬种子选手</h3><div class="money-head">平台币三档：200、800、1500</div><p>＋总共充2500到手5000平台币，直接翻倍，平台币后面买任何礼包都能用</p><p>这是所有充值里最赚的部分，不拉满等于2500块钱打水漂。</p><div class="money-head">新手礼包：88、188、688</div><p>＋三个档位全入手，首日双倍福利拉满，法宝、仙缘、材料全部直接毕业</p><p>这三档不全拿，开服首日双倍就浪费了，后面再补只能按原价。</p><div class="money-head"><span class="amt">688元</span>神话仙缘豪礼</div><p>＋双倍之后88888天地机缘 ＋泛舟、萤火之夜等上百个外观道具 ＋全套8种仙缘自选箱各8个 ＋海量仙酿、道书、仙品聚灵瓶</p><p>仙缘系统直接拉满，战力暴涨一大截。这个礼包只有开服第一天有，错过再也没有这个价格。</p><div class="money-head">实充<span class="amt">3000元</span>日榜4至5名</div><p>＋1000平台币 ＋<span class="amt">998元</span>特惠至尊礼包2个 ＋临睨万网名帖 ＋烛龙魔君称号 ＋万象主宰称号</p><p>这些称号都加实战属性，不冲榜就被别人占位，绝版称号和返币全是对方的。</p><div class="money-head">实充<span class="amt">5000元</span>日榜2至3名</div><p>＋2000平台币直接返 ＋<span class="amt">1999元</span>增减伤皮肤礼包 ＋998特惠至尊礼包 ＋天马腾霄名帖 ＋烛龙魔君、真武大帝、不朽主宰三个绝版称号</p><p>增减伤皮肤是实打实的PK神器，减伤加攻还是限定不再出，不拿就等于打架永远矮人一头。</p><div class="money-head">单日充值<span class="amt">8000元</span>山头冠名</div><p>＋自定义山头名字，全服邮件恭贺，还返4000平台币，等于充8000返4000，五折拿冠名加所有排行奖励</p><p>合区后按充值最高者冠名整个合区山头，现在不拿，整个大区的永久排面就是别人的名字。</p><p>战力提上来后，斗法每周稳拿前五奖励，五色石、仙玉和皮肤宝箱比普通玩家多好几倍，等于一次充值持续拿收益，后续蓬莱仙岛、九幽争霸你也能第一时间冲榜拿首奖。</p><h3 class="section-head">五、大氪霸服档：预算<span class="amt">10000元</span>以上，登顶全服</h3><p>基础先拉满：平台币200、800、1500三档首次双倍全拿下，5000平台币先到手，打底的五折福利必须吃满。</p><div class="money-head">新手五档：88至<span class="amt">5999元</span></div><p>＋88＋188＋688＋1999＋5999五个档位全部入手，吃满首日双倍</p><p>这些全是新手专属，过了就没，不拉满就是在给同区对手留位置。</p><div class="money-head"><span class="amt">1999元</span>增减伤皮肤礼包</div><p>＋双倍之后199999天地机缘 ＋68个随机增减皮肤宝箱 ＋200个许愿随机皮肤宝箱 ＋80个随机座驾皮肤宝箱</p><p>皮肤库直接拉满，不拿这档，稀有皮肤以后有钱也补不回来。</p><div class="money-head"><span class="amt">5999元</span>增减伤皮肤礼包</div><p>＋归邪、飞雪、燎天、岚羽、奉先五大顶级皮肤各25个 ＋100个随机增减皮肤宝箱 ＋80个菩提悟道皮肤</p><p>增减伤属性拉到天花板，别人打你如同刮痧，你出手秒伤翻倍；不拿，PK就只能挨别人的压制。</p><div class="money-head">实充<span class="amt">6000元</span>日榜第1名</div><p>＋2000平台币 ＋<span class="amt">5999元</span>增减伤皮肤礼包 ＋天马腾霄、临睨万网名帖 ＋九天玄女、烛龙魔君、真武大帝、瑶光神驹、酆都大帝、玉京天尊等九大绝版称号</p><p>全服只有1个人能拿全套称号，叠加战力夸张还是绝版身份，不抢，这个焦点位置就是别人的，以后充多少钱都买不到。</p><p>单日充<span class="amt">8000元</span>照样能冠名山头，全服公告庆贺还返4000平台币，合区后充值最高者冠名整个合区山头，现在多充一点，整个大区永久挂你的名字。</p><p>登顶之后，斗法、群英榜、问道盛会、征战诸天所有榜单的头名奖励都归你，每周拿满最高档的五色石、仙玉、注灵晶石、皮肤宝箱，别人一周攒的资源还没你一天拿的多，合区后的蓬莱仙岛、九幽争霸你也冲在首杀首奖最前面。</p><h3 class="section-head">六、现在就做</h3><p>开服期是整个游戏最值得充值的窗口期，首次双倍、首日礼包、绝版排行奖励、冠名权，全是过了这村没这店的福利。越晚充，福利越少，差距越大，想追上来就要花更多的钱。趁着合区前的最后窗口期，把该拿的福利都拿了，开局快人一步，后面步步领先。</p><div class="galarm">防骗再说一遍：只走本攻略和官方入口，群里、私聊里主动送码、折扣代充、要你转账加好友的全部是骗子。</div><p>所有福利、价格与奖励以游戏内实际为准，最终解释权归游戏方所有。</p><div style="margin-top:14px;padding:12px 14px;border-radius:10px;background:#fffbeb;border:1px solid #fde68a;color:#92400e;font-size:14px;line-height:1.7">📢 温馨提示：如遇任何链接打不开、按钮点击没反应或页面报错，请联系群管理员反馈，管理员会第一时间安排技术修复！<a class="qq-inline qqg" href="https://qm.qq.com/q/Rns2qI2HWq" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">点击进群反馈 ➜</a></div>
-    </div>
-  </section>
-
-  <div class="divider">—·— 活 动 福 利 图 —·—</div>
-  <section>
-    <h2>充值活动福利图</h2>
-    
-    
-    <div class="welfare">
-      <img src="/assets/published/851c5d9ee05c4a84b329.jpg?v=3380a75ff3585c2b" alt="充值活动福利图" width="1080" height="16486" loading="lazy" decoding="async" fetchpriority="low">
-      <img src="/assets/published/e183a0b74542f14fae4a.jpg?v=3380a75ff3585c2b" alt="充值活动福利图" width="1248" height="4588" loading="lazy" decoding="async" fetchpriority="low">
-    </div>
-  </section>
-
-  <div class="divider">—·— 官 方 充 值 —·—</div>
-  <section>
-    <h2>官方充值入口</h2>
-    <a class="btn purple" href="https://pay.xbwpkp.cn/pay/" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">💎 点击进入官方充值页<span class="small">首充 / 月卡 / 基金 / 冠名活动都在这里</span></a>
-  </section>
-
-
-
-  <div class="divider">—·— 注 意 —·—</div>
-  <section>
-    <h2>防骗提醒</h2>
-    <div class="alarm">❗<strong>任何 QQ 群里的「折扣充值」「便宜充值」都是骗子，一律不要信！</strong>充值只走本页官方入口。<br>官方售后群只处理售后，群内不产生任何充值；私聊你收费的都是骗子。</div>
-  </section>
-
-
-  <section><a class="qq-final qqg" href="https://qm.qq.com/q/Rns2qI2HWq" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer"><b>🎮 别走丢 · 进官方售后群</b><span class="sub">新游上架通知 · 链接失效秒找回 · 客服在线答疑</span><span class="go">一键进群 ➜</span></a></section>
-
-  <section>
-    <h2>玩腻了？主站还有上百款</h2>
-    <p>本站收录 <strong>上百款精品手游</strong>，全部免费领码、直接下载，随时回来换着玩。</p>
-    <a class="btn blue" href="/">🏠 返回主站，看看还有什么好玩的</a>
-  </section>
-
-  <p class="footer">
-     顶推・寻道大千完美养老服 ---- 无 bug 稳更增减伤皮肤全送开局拿绝🔥 · <br>
-    <br>
-    建议收藏主站，游戏随便换着玩
-  </p>
-</div>
-
-<div class="bar">
-  <a class="b1" href="https://agent.xbwpkp.cn/reg?code=HQJZZKE4" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">注册账号</a>
-  <a class="b2" href="https://fmdq.ququ.im/FMDQ.html" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">下载游戏</a>
-  <a class="b3" href="https://pay.xbwpkp.cn/pay/" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">立即充值</a>
-  <a class="b4" href="/">返回主站</a>
-</div>
-<div class="qqfloat-wrap"><a class="qqfloat qqg" href="https://qm.qq.com/q/Rns2qI2HWq" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer"><span class="ic">💬</span><span class="tx">售后群</span></a></div>
-<div class="toast" id="toast">已复制</div>
+<script>var GAMES=[{"id":"x52","name":"寻道大千3.0伏魔版","sell":"完美养老服无bug稳更增减伤皮肤全送开局拿绝版皮🔥","tagline":"","family":"寻道大千","genres":["仙侠修仙"],"glow":"#ece36a","icon":"/assets/published/9a28e244e77ac2b9fea6.jpg?v=6d1d38559580ff89","clicks":3697,"badge":"HOT","theme":{"color":"#ece36a","background":"#13120c","panelTint":"#312f1c","buttonGradient":"linear-gradient(120deg,#ece36a,#e8e4b0)","vars":{"--bg":"#13120c","--pnl":"#222116","--pnl2":"#312f1c","--ink":"#f3ede7","--dim":"#cec5bf","--dim2":"#ada29b","--cy":"#ece36a","--g":"#ece36a","--glow":"#ece36a","--blu":"#e8e4b0","--gd":"#ceec9c","--rs":"#ef9ba4","--line":"rgba(236,227,106,0.17)","--line2":"rgba(236,227,106,0.33)","--accent-soft":"rgba(236,227,106,0.11)","--accent-mid":"rgba(236,227,106,0.21)","--accent-line":"rgba(236,227,106,0.35)","--button-ink":"#2b2912","--button-gradient":"linear-gradient(120deg,#ece36a,#e8e4b0)","--panel-gradient":"linear-gradient(145deg,#312f1c,#222116)","--hero-wash":"rgba(236,227,106,0.18)","--page-header":"rgba(19,18,12,.94)","--amount-wash":"rgba(236,227,106,0.13)"},"style":"--bg:#13120c;--pnl:#222116;--pnl2:#312f1c;--ink:#f3ede7;--dim:#cec5bf;--dim2:#ada29b;--cy:#ece36a;--g:#ece36a;--glow:#ece36a;--blu:#e8e4b0;--gd:#ceec9c;--rs:#ef9ba4;--line:rgba(236,227,106,0.17);--line2:rgba(236,227,106,0.33);--accent-soft:rgba(236,227,106,0.11);--accent-mid:rgba(236,227,106,0.21);--accent-line:rgba(236,227,106,0.35);--button-ink:#2b2912;--button-gradient:linear-gradient(120deg,#ece36a,#e8e4b0);--panel-gradient:linear-gradient(145deg,#312f1c,#222116);--hero-wash:rgba(236,227,106,0.18);--page-header:rgba(19,18,12,.94);--amount-wash:rgba(236,227,106,0.13);"},"py":"xddq30fmb","invite":"HQJZZKE4","links":{"register":"https://agent.xbwpkp.cn/reg?code=HQJZZKE4","download":"https://fmdq.ququ.im/FMDQ.html","downloadBackup":"https://fmdq.yidi.im/FMDQ.html","recharge":"https://pay.xbwpkp.cn/pay/","vpn":""},"extras":[],"codes":[{"code":"FMDQ555","desc":""},{"code":"FMDQ666","desc":""},{"code":"FMDQ888","desc":""}],"welfare":[{"src":"/assets/published/851c5d9ee05c4a84b329.jpg?v=6d1d38559580ff89","caption":""},{"src":"/assets/published/e183a0b74542f14fae4a.jpg?v=6d1d38559580ff89","caption":""}],"copyItems":[{"value":"HQJZZKE4","label":"本服邀请码","source":"后台"},{"value":"FMDQ555","label":"兑换码","source":"码表"},{"value":"FMDQ666","label":"兑换码","source":"码表"},{"value":"FMDQ888","label":"兑换码","source":"码表"}],"plan":{"title":"法宝先定方向，资源才花得值","body":"上线直邮与三个兑换码领完，先确定自己要培养的法宝。想更快成型，回游戏对比新传说限定法宝礼包，重点看法宝是否适合现有搭配，以及双倍规则是否仍对本角色有效。","nextTitle":"长期养成，优先补关键碎片","nextBody":"接下来只围绕主力法宝、强化材料或坐骑补缺。平台币首充与礼包奖励是否能叠加，先看游戏当前说明；同预算比较到手资源，再选择能实际推进下一次成长的组合。","insertAt":17},"readingGuide":[{"text":"新手起号全攻略！（起号 + 充值 + 冠名）","_index":0},{"text":"30秒速读：先领上线直邮和上方对应礼包码，第一单买88元新传说限定法宝礼包吃首日双倍，平台币首充双倍三档和每日充值榜把福利开满，开服充一块顶以后两块，要充的钱一天凑一档。","_index":1},{"text":"防骗提醒：只走本攻略和官方入口，群里或私聊给你折扣代充、送码还让你转账加好友的都是骗子。","_index":2},{"text":"一、先领空：上线直邮＋三个兑换码＋每日在线","_index":3},{"text":"进游戏第一件事，先把所有白给的福利全领完，不用肝不用氪，上线就有收获。","_index":4},{"text":"上线直邮福利直接发到背包：海量天地机缘、仙玉、金币、各类法宝碎片、皮肤宝箱，还有传说级法宝、坐骑和强化材料，领完直接推图升级，前期不愁资源。","_index":5},{"text":"三个专属兑换码必须兑：","_index":6},{"text":"＋大量天地机缘 ＋仙玉 ＋皮肤宝箱 ＋珍稀材料","_index":8},{"text":"＋大量天地机缘 ＋仙玉 ＋皮肤宝箱 ＋珍稀材料","_index":10},{"text":"＋大量天地机缘 ＋仙玉 ＋皮肤宝箱 ＋珍稀材料","_index":12},{"text":"三个码等于白送一大笔启动资金，不兑就亏在起跑线，零氪靠这些也能平稳度过新手期。","_index":13},{"text":"每日在线奖励：每天挂够5分钟、10分钟、30分钟、1小时、2小时、3小时，都能领天地机缘、净水、仙玉、天灵草，还有印花礼包和玄神匣，挂着就能拿资源。","_index":14},{"text":"日常玩法：斗法、群英榜、问道盛会、征战诸天，参与就有基础奖励，排名越高奖励越丰厚。","_index":15},{"text":"但要明白：白嫖只能拿保底资源，想快速成型、冲榜拿高阶奖励、不肝也能爽玩，就必须踩中开服的充值福利节点，用最少的钱拿最多的资源。","_index":16},{"text":"二、为什么值得充：开服五大红利，错过就没了","_index":17},{"text":"首充双倍：200、800、1500","_index":18},{"text":"＋平台币首次购买直接翻倍到账，充200到手400平台币，全游戏通用可买礼包，每个账号只有一次","_index":19},{"text":"首充双倍不吃，同样的钱到手平台币直接少一半，错过永久没有。","_index":20},{"text":"首日双倍：88至5999元礼包","_index":21},{"text":"＋从88元到5999元的所有新手专属礼包，开服第一天购买全部双倍资源","_index":22},{"text":"过了当天立刻恢复原价，晚买一天亏一半。","_index":23},{"text":"每日充值榜全是绝版奖励：称号、皮肤、名帖都是限定道具，不仅加实战战力还是身份象征，全服只有对应名次能拿，以后不会返场，有钱都买不到。","_index":24},{"text":"山头冠名：单日充值8000元","_index":25},{"text":"＋自定义本区山头名字，全服玩家进游戏第一眼就能看到，还额外送4000平台币","_index":26},{"text":"马上就要合区，合区后按充值最高者冠名整个合区山头，现在不抢，晚了被别人抢先，再想冠名只能等合区，还得花更多钱才能超过别人。","_index":27},{"text":"合区先手：合区后正式上线蓬莱仙岛，后续还会开九幽争霸全新玩法，现在充钱提战力，新榜单新玩法的首杀首奖直接抢；等合区了再充，别人早就把差距拉开，追都追不上。","_index":28},{"text":"三、小氪入门档：预算200到1000元，轻松爽玩甩开零氪","_index":29},{"text":"首充双倍：200平台币档","_index":30},{"text":"＋充200到手400平台币，直接翻倍","_index":31},{"text":"这是全游戏性价比最高的一笔充值，这一笔不先冲，后面每一单都等于多花冤枉钱。","_index":32},{"text":"88元新传说限定法宝","_index":33},{"text":"＋首日双倍直接到手10888天地机缘 ＋十几套法宝碎片 ＋8000传说粉尘","_index":34},{"text":"开局就能凑齐一身毕业法宝，不买就得慢慢攒碎片熬半个月，推图速度慢一倍，斗法也打动不了大部分玩家。","_index":35},{"text":"188元神话法宝套装","_index":36},{"text":"＋首日双倍18888天地机缘 ＋全套神级法宝碎片 ＋5000神话粉尘","_index":37},{"text":"预算稍高不加这个，法宝系统拉不满，新手区斗法稳不住前20，每日斗法的高阶奖励天天流给对手。","_index":38},{"text":"实充200元日榜16至20名","_index":39},{"text":"＋100平台币 ＋99元特惠人气礼包 ＋临睨万网名帖 ＋真武大帝碎片自选箱 ＋万妖之巅称号","_index":40},{"text":"充200还返100平台币，里外里等于半价，还白拿限定称号和礼包，这个返点不去拿等于送的钱不要。","_index":41},{"text":"这个档位下来，开局资源和战力甩开80%的零氪玩家，日常刷图无压力，所有玩法轻松参与。首充双倍和首日礼包都是过了就没的福利，现在入手最划算。","_index":42},{"text":"四、中氪进阶档：预算3000到8000元，区服大佬种子选手","_index":43},{"text":"平台币三档：200、800、1500","_index":44},{"text":"＋总共充2500到手5000平台币，直接翻倍，平台币后面买任何礼包都能用","_index":45},{"text":"这是所有充值里最赚的部分，不拉满等于2500块钱打水漂。","_index":46},{"text":"新手礼包：88、188、688","_index":47},{"text":"＋三个档位全入手，首日双倍福利拉满，法宝、仙缘、材料全部直接毕业","_index":48},{"text":"这三档不全拿，开服首日双倍就浪费了，后面再补只能按原价。","_index":49},{"text":"688元神话仙缘豪礼","_index":50},{"text":"＋双倍之后88888天地机缘 ＋泛舟、萤火之夜等上百个外观道具 ＋全套8种仙缘自选箱各8个 ＋海量仙酿、道书、仙品聚灵瓶","_index":51},{"text":"仙缘系统直接拉满，战力暴涨一大截。这个礼包只有开服第一天有，错过再也没有这个价格。","_index":52},{"text":"实充3000元日榜4至5名","_index":53},{"text":"＋1000平台币 ＋998元特惠至尊礼包2个 ＋临睨万网名帖 ＋烛龙魔君称号 ＋万象主宰称号","_index":54},{"text":"这些称号都加实战属性，不冲榜就被别人占位，绝版称号和返币全是对方的。","_index":55},{"text":"实充5000元日榜2至3名","_index":56},{"text":"＋2000平台币直接返 ＋1999元增减伤皮肤礼包 ＋998特惠至尊礼包 ＋天马腾霄名帖 ＋烛龙魔君、真武大帝、不朽主宰三个绝版称号","_index":57},{"text":"增减伤皮肤是实打实的PK神器，减伤加攻还是限定不再出，不拿就等于打架永远矮人一头。","_index":58},{"text":"单日充值8000元山头冠名","_index":59},{"text":"＋自定义山头名字，全服邮件恭贺，还返4000平台币，等于充8000返4000，五折拿冠名加所有排行奖励","_index":60},{"text":"合区后按充值最高者冠名整个合区山头，现在不拿，整个大区的永久排面就是别人的名字。","_index":61},{"text":"战力提上来后，斗法每周稳拿前五奖励，五色石、仙玉和皮肤宝箱比普通玩家多好几倍，等于一次充值持续拿收益，后续蓬莱仙岛、九幽争霸你也能第一时间冲榜拿首奖。","_index":62},{"text":"五、大氪霸服档：预算10000元以上，登顶全服","_index":63},{"text":"基础先拉满：平台币200、800、1500三档首次双倍全拿下，5000平台币先到手，打底的五折福利必须吃满。","_index":64},{"text":"新手五档：88至5999元","_index":65},{"text":"＋88＋188＋688＋1999＋5999五个档位全部入手，吃满首日双倍","_index":66},{"text":"这些全是新手专属，过了就没，不拉满就是在给同区对手留位置。","_index":67},{"text":"1999元增减伤皮肤礼包","_index":68},{"text":"＋双倍之后199999天地机缘 ＋68个随机增减皮肤宝箱 ＋200个许愿随机皮肤宝箱 ＋80个随机座驾皮肤宝箱","_index":69},{"text":"皮肤库直接拉满，不拿这档，稀有皮肤以后有钱也补不回来。","_index":70},{"text":"5999元增减伤皮肤礼包","_index":71},{"text":"＋归邪、飞雪、燎天、岚羽、奉先五大顶级皮肤各25个 ＋100个随机增减皮肤宝箱 ＋80个菩提悟道皮肤","_index":72},{"text":"增减伤属性拉到天花板，别人打你如同刮痧，你出手秒伤翻倍；不拿，PK就只能挨别人的压制。","_index":73},{"text":"实充6000元日榜第1名","_index":74},{"text":"＋2000平台币 ＋5999元增减伤皮肤礼包 ＋天马腾霄、临睨万网名帖 ＋九天玄女、烛龙魔君、真武大帝、瑶光神驹、酆都大帝、玉京天尊等九大绝版称号","_index":75},{"text":"全服只有1个人能拿全套称号，叠加战力夸张还是绝版身份，不抢，这个焦点位置就是别人的，以后充多少钱都买不到。","_index":76},{"text":"单日充8000元照样能冠名山头，全服公告庆贺还返4000平台币，合区后充值最高者冠名整个合区山头，现在多充一点，整个大区永久挂你的名字。","_index":77},{"text":"登顶之后，斗法、群英榜、问道盛会、征战诸天所有榜单的头名奖励都归你，每周拿满最高档的五色石、仙玉、注灵晶石、皮肤宝箱，别人一周攒的资源还没你一天拿的多，合区后的蓬莱仙岛、九幽争霸你也冲在首杀首奖最前面。","_index":78},{"text":"六、现在就做","_index":79},{"text":"开服期是整个游戏最值得充值的窗口期，首次双倍、首日礼包、绝版排行奖励、冠名权，全是过了这村没这店的福利。越晚充，福利越少，差距越大，想追上来就要花更多的钱。趁着合区前的最后窗口期，把该拿的福利都拿了，开局快人一步，后面步步领先。","_index":80},{"text":"防骗再说一遍：只走本攻略和官方入口，群里、私聊里主动送码、折扣代充、要你转账加好友的全部是骗子。","_index":81},{"text":"所有福利、价格与奖励以游戏内实际为准，最终解释权归游戏方所有。","_index":82}],"firstSpend":{"title":"法宝先定方向，资源才花得值","label":"先确定这次养成目标","reward":"主力缺口 → 匹配资源 → 当前游戏里选择","body":"上线直邮与三个兑换码领完，先确定自己要培养的法宝。想更快成型，回游戏对比新传说限定法宝礼包，重点看法宝是否适合现有搭配，以及双倍规则是否仍对本角色有效。","anchor":"guide-row-17","documentedOffer":false},"guide":[{"text":"新手起号全攻略！（起号 + 充值 + 冠名）"},{"text":"30秒速读：先领上线直邮和FMDQ555、FMDQ666、FMDQ888三个兑换码，第一单买88元新传说限定法宝礼包吃首日双倍，平台币首充双倍三档和每日充值榜把福利开满，开服充一块顶以后两块，要充的钱一天凑一档。"},{"text":"防骗提醒：只走本攻略和官方入口，群里或私聊给你折扣代充、送码还让你转账加好友的都是骗子。"},{"text":"一、先领空：上线直邮＋三个兑换码＋每日在线"},{"text":"进游戏第一件事，先把所有白给的福利全领完，不用肝不用氪，上线就有收获。"},{"text":"上线直邮福利直接发到背包：海量天地机缘、仙玉、金币、各类法宝碎片、皮肤宝箱，还有传说级法宝、坐骑和强化材料，领完直接推图升级，前期不愁资源。"},{"text":"三个专属兑换码必须兑："},{"text":"FMDQ555兑换码"},{"text":"＋大量天地机缘 ＋仙玉 ＋皮肤宝箱 ＋珍稀材料"},{"text":"FMDQ666兑换码"},{"text":"＋大量天地机缘 ＋仙玉 ＋皮肤宝箱 ＋珍稀材料"},{"text":"FMDQ888兑换码"},{"text":"＋大量天地机缘 ＋仙玉 ＋皮肤宝箱 ＋珍稀材料"},{"text":"三个码等于白送一大笔启动资金，不兑就亏在起跑线，零氪靠这些也能平稳度过新手期。"},{"text":"每日在线奖励：每天挂够5分钟、10分钟、30分钟、1小时、2小时、3小时，都能领天地机缘、净水、仙玉、天灵草，还有印花礼包和玄神匣，挂着就能拿资源。"},{"text":"日常玩法：斗法、群英榜、问道盛会、征战诸天，参与就有基础奖励，排名越高奖励越丰厚。"},{"text":"但要明白：白嫖只能拿保底资源，想快速成型、冲榜拿高阶奖励、不肝也能爽玩，就必须踩中开服的充值福利节点，用最少的钱拿最多的资源。"},{"text":"二、为什么值得充：开服五大红利，错过就没了"},{"text":"首充双倍：200、800、1500"},{"text":"＋平台币首次购买直接翻倍到账，充200到手400平台币，全游戏通用可买礼包，每个账号只有一次"},{"text":"首充双倍不吃，同样的钱到手平台币直接少一半，错过永久没有。"},{"text":"首日双倍：88至5999元礼包"},{"text":"＋从88元到5999元的所有新手专属礼包，开服第一天购买全部双倍资源"},{"text":"过了当天立刻恢复原价，晚买一天亏一半。"},{"text":"每日充值榜全是绝版奖励：称号、皮肤、名帖都是限定道具，不仅加实战战力还是身份象征，全服只有对应名次能拿，以后不会返场，有钱都买不到。"},{"text":"山头冠名：单日充值8000元"},{"text":"＋自定义本区山头名字，全服玩家进游戏第一眼就能看到，还额外送4000平台币"},{"text":"马上就要合区，合区后按充值最高者冠名整个合区山头，现在不抢，晚了被别人抢先，再想冠名只能等合区，还得花更多钱才能超过别人。"},{"text":"合区先手：合区后正式上线蓬莱仙岛，后续还会开九幽争霸全新玩法，现在充钱提战力，新榜单新玩法的首杀首奖直接抢；等合区了再充，别人早就把差距拉开，追都追不上。"},{"text":"三、小氪入门档：预算200到1000元，轻松爽玩甩开零氪"},{"text":"首充双倍：200平台币档"},{"text":"＋充200到手400平台币，直接翻倍"},{"text":"这是全游戏性价比最高的一笔充值，这一笔不先冲，后面每一单都等于多花冤枉钱。"},{"text":"88元新传说限定法宝"},{"text":"＋首日双倍直接到手10888天地机缘 ＋十几套法宝碎片 ＋8000传说粉尘"},{"text":"开局就能凑齐一身毕业法宝，不买就得慢慢攒碎片熬半个月，推图速度慢一倍，斗法也打动不了大部分玩家。"},{"text":"188元神话法宝套装"},{"text":"＋首日双倍18888天地机缘 ＋全套神级法宝碎片 ＋5000神话粉尘"},{"text":"预算稍高不加这个，法宝系统拉不满，新手区斗法稳不住前20，每日斗法的高阶奖励天天流给对手。"},{"text":"实充200元日榜16至20名"},{"text":"＋100平台币 ＋99元特惠人气礼包 ＋临睨万网名帖 ＋真武大帝碎片自选箱 ＋万妖之巅称号"},{"text":"充200还返100平台币，里外里等于半价，还白拿限定称号和礼包，这个返点不去拿等于送的钱不要。"},{"text":"这个档位下来，开局资源和战力甩开80%的零氪玩家，日常刷图无压力，所有玩法轻松参与。首充双倍和首日礼包都是过了就没的福利，现在入手最划算。"},{"text":"四、中氪进阶档：预算3000到8000元，区服大佬种子选手"},{"text":"平台币三档：200、800、1500"},{"text":"＋总共充2500到手5000平台币，直接翻倍，平台币后面买任何礼包都能用"},{"text":"这是所有充值里最赚的部分，不拉满等于2500块钱打水漂。"},{"text":"新手礼包：88、188、688"},{"text":"＋三个档位全入手，首日双倍福利拉满，法宝、仙缘、材料全部直接毕业"},{"text":"这三档不全拿，开服首日双倍就浪费了，后面再补只能按原价。"},{"text":"688元神话仙缘豪礼"},{"text":"＋双倍之后88888天地机缘 ＋泛舟、萤火之夜等上百个外观道具 ＋全套8种仙缘自选箱各8个 ＋海量仙酿、道书、仙品聚灵瓶"},{"text":"仙缘系统直接拉满，战力暴涨一大截。这个礼包只有开服第一天有，错过再也没有这个价格。"},{"text":"实充3000元日榜4至5名"},{"text":"＋1000平台币 ＋998元特惠至尊礼包2个 ＋临睨万网名帖 ＋烛龙魔君称号 ＋万象主宰称号"},{"text":"这些称号都加实战属性，不冲榜就被别人占位，绝版称号和返币全是对方的。"},{"text":"实充5000元日榜2至3名"},{"text":"＋2000平台币直接返 ＋1999元增减伤皮肤礼包 ＋998特惠至尊礼包 ＋天马腾霄名帖 ＋烛龙魔君、真武大帝、不朽主宰三个绝版称号"},{"text":"增减伤皮肤是实打实的PK神器，减伤加攻还是限定不再出，不拿就等于打架永远矮人一头。"},{"text":"单日充值8000元山头冠名"},{"text":"＋自定义山头名字，全服邮件恭贺，还返4000平台币，等于充8000返4000，五折拿冠名加所有排行奖励"},{"text":"合区后按充值最高者冠名整个合区山头，现在不拿，整个大区的永久排面就是别人的名字。"},{"text":"战力提上来后，斗法每周稳拿前五奖励，五色石、仙玉和皮肤宝箱比普通玩家多好几倍，等于一次充值持续拿收益，后续蓬莱仙岛、九幽争霸你也能第一时间冲榜拿首奖。"},{"text":"五、大氪霸服档：预算10000元以上，登顶全服"},{"text":"基础先拉满：平台币200、800、1500三档首次双倍全拿下，5000平台币先到手，打底的五折福利必须吃满。"},{"text":"新手五档：88至5999元"},{"text":"＋88＋188＋688＋1999＋5999五个档位全部入手，吃满首日双倍"},{"text":"这些全是新手专属，过了就没，不拉满就是在给同区对手留位置。"},{"text":"1999元增减伤皮肤礼包"},{"text":"＋双倍之后199999天地机缘 ＋68个随机增减皮肤宝箱 ＋200个许愿随机皮肤宝箱 ＋80个随机座驾皮肤宝箱"},{"text":"皮肤库直接拉满，不拿这档，稀有皮肤以后有钱也补不回来。"},{"text":"5999元增减伤皮肤礼包"},{"text":"＋归邪、飞雪、燎天、岚羽、奉先五大顶级皮肤各25个 ＋100个随机增减皮肤宝箱 ＋80个菩提悟道皮肤"},{"text":"增减伤属性拉到天花板，别人打你如同刮痧，你出手秒伤翻倍；不拿，PK就只能挨别人的压制。"},{"text":"实充6000元日榜第1名"},{"text":"＋2000平台币 ＋5999元增减伤皮肤礼包 ＋天马腾霄、临睨万网名帖 ＋九天玄女、烛龙魔君、真武大帝、瑶光神驹、酆都大帝、玉京天尊等九大绝版称号"},{"text":"全服只有1个人能拿全套称号，叠加战力夸张还是绝版身份，不抢，这个焦点位置就是别人的，以后充多少钱都买不到。"},{"text":"单日充8000元照样能冠名山头，全服公告庆贺还返4000平台币，合区后充值最高者冠名整个合区山头，现在多充一点，整个大区永久挂你的名字。"},{"text":"登顶之后，斗法、群英榜、问道盛会、征战诸天所有榜单的头名奖励都归你，每周拿满最高档的五色石、仙玉、注灵晶石、皮肤宝箱，别人一周攒的资源还没你一天拿的多，合区后的蓬莱仙岛、九幽争霸你也冲在首杀首奖最前面。"},{"text":"六、现在就做"},{"text":"开服期是整个游戏最值得充值的窗口期，首次双倍、首日礼包、绝版排行奖励、冠名权，全是过了这村没这店的福利。越晚充，福利越少，差距越大，想追上来就要花更多的钱。趁着合区前的最后窗口期，把该拿的福利都拿了，开局快人一步，后面步步领先。"},{"text":"防骗再说一遍：只走本攻略和官方入口，群里、私聊里主动送码、折扣代充、要你转账加好友的全部是骗子。"},{"text":"所有福利、价格与奖励以游戏内实际为准，最终解释权归游戏方所有。"}],"tiers":[],"avoid":[],"points":["安卓苹果双端","不卡不掉","持续更新"],"slogan":"不卡不掉 · 持续更新","bottom":"我们只想给各位玩家一个长久的家","registerInternal":false,"noRegister":false,"rechargeInternal":false,"publicAt":"","url":"/x52/"}];var CHIPS=["全部","热门","仙侠修仙","寻道大千"];var META={"ver":"6d1d38559580ff89","n":1,"sumClicks":3697};var CONFIG={"homeUrl":"/","initialId":"x52","qqGroup":{"url":"https://qm.qq.com/q/Rns2qI2HWq","sub":"链接失效 · 防失联 · 找客服"},"siteName":"飞鱼手游","preview":false,"version":"6d1d38559580ff89","liveVersionUrl":"/build-ver.json"};</script>
 <script>
 (function(){
-  var toastEl=document.getElementById('toast');
-  function toast(m){toastEl.textContent=m;toastEl.classList.add('show');clearTimeout(window.__t);
-    window.__t=setTimeout(function(){toastEl.classList.remove('show');},1500);}
-  function copy(text,btn){
-    var done=function(){if(btn){var o=btn.textContent;btn.textContent='已复制 ✓';btn.classList.add('ok');
-      setTimeout(function(){btn.textContent=o;btn.classList.remove('ok');},1500);}toast('已复制：'+text);};
-    if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(text).then(done,function(){fb(text,done);});}else{fb(text,done);}
+'use strict';
+var byId={};GAMES.forEach(function(g){byId[g.id]=g});
+function LSget(k,d){try{var v=JSON.parse(localStorage.getItem(k));return v==null?d:v}catch(e){return d}}
+function LSset(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
+var S=Object.assign({mode:'tiles',chip:'全部',q:''},LSget('fy2_ui',{}));
+function saveUI(){LSset('fy2_ui',{mode:S.mode,chip:S.chip})}
+var esc=function(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')};
+var PUB={};GAMES.forEach(function(g){if(g.publicAt)PUB[g.id]=g.publicAt});
+function badgeCls(b){return b==='HOT'?'badge hot':(b==='公测'?'badge pub':'badge')}
+function fmt(n){return (n||0).toLocaleString('en-US')}
+function matchQ(g,q){
+  if(!q)return true;
+  var hay=(g.name+' '+g.sell+' '+g.tagline+' '+g.family+' '+g.genres.join(' ')).toLowerCase();
+  if(hay.indexOf(q)>=0)return true;
+  var a=q.replace(/[^a-z]/g,'');
+  return a.length>=2&&g.py.indexOf(a)>=0;
+}
+function list(){
+  var q=S.q.trim().toLowerCase();
+  var r=GAMES.filter(function(g){
+    if(S.chip==='热门'){if(!(g.badge==='HOT'||g.badge==='热门'))return false}
+    else if(S.chip!=='全部'){if(g.genres.indexOf(S.chip)<0&&g.family!==S.chip)return false}
+    return matchQ(g,q);
+  });
+  r.sort(function(a,b){return (b.clicks||0)-(a.clicks||0)});
+  return r;
+}
+/* ---------- 首页 ---------- */
+function cardWall(g){
+  return '<article class="card" style="--g:'+g.glow+'"><a href="'+esc(g.url)+'">'+
+    (g.badge?'<span class="'+badgeCls(g.badge)+'">'+g.badge+'</span>':'')+
+    '<img src="'+esc(g.icon)+'" alt="" loading="lazy" decoding="async">'+
+    '<div class="nm'+(g.badge==='HOT'||g.badge==='公测'?' flow':'')+'">'+esc(g.name)+'</div></a><span class="glow"></span></article>';
+}
+function cardTile(g){
+  return '<article class="card" style="--g:'+g.glow+'"><a href="'+esc(g.url)+'">'+
+    (g.badge?'<span class="'+badgeCls(g.badge)+'">'+g.badge+'</span>':'')+
+    '<img src="'+esc(g.icon)+'" alt="" loading="lazy" decoding="async">'+
+    '<span><span class="nm'+(g.badge==='HOT'||g.badge==='公测'?' flow':'')+'">'+esc(g.name)+'</span>'+
+    '<span class="sell">'+esc(g.sell||g.tagline||'精品版本 · 丝滑畅玩')+'</span></span></a><span class="glow"></span></article>';
+}
+function cardRow(g){
+  return '<article class="card" style="--g:'+g.glow+'"><a href="'+esc(g.url)+'">'+
+    (g.badge?'<span class="'+badgeCls(g.badge)+'">'+g.badge+'</span>':'')+
+    '<img src="'+esc(g.icon)+'" alt="" loading="lazy" decoding="async">'+
+    '<span><span class="nm'+(g.badge==='HOT'||g.badge==='公测'?' flow':'')+'">'+esc(g.name)+'</span>'+
+    '<span class="sell">'+esc(g.sell||g.tagline||'')+'</span></span>'+
+    '<span class="enter">进入 ›</span></a><span class="glow"></span></article>';
+}
+function focusCard(){
+  var g=byId.mhxy;if(!g||!PUB[g.id]||Date.parse(PUB[g.id])<=Date.now())return '';
+  return '<section class="focus" style="--g:'+g.glow+'"><a href="'+esc(g.url)+'">'+
+    '<img src="'+esc(g.icon)+'" alt="">'+
+    '<span><span class="lab">NEXT UP · 即将公测</span><span class="nm flow" style="display:block">'+esc(g.name)+'</span>'+
+    '<span class="sell">'+esc(g.sell||g.tagline||'')+'</span></span>'+
+    '<span class="cd"><span class="t" id="cd">—</span><span class="u">10.11 12:00 开服</span></span></a></section>';
+}
+function renderHome(){
+  var L=list();
+  var chips=CHIPS.map(function(c){
+    var g=GAMES.filter(function(x){return c!=='全部'&&c!=='热门'&&(x.genres.indexOf(c)>=0||x.family===c)}).length;
+    var found=GAMES.find(function(x){return x.genres.indexOf(c)>=0||x.family===c});
+    var col=(c==='热门')?'#ff5d73':({'全部':'#2ee6d6'}[c])||(found&&found.glow)||'#2ee6d6';
+    return '<button class="chip'+(c===S.chip?' on':'')+'" data-c="'+esc(c)+'" style="--g:'+col+'"><span class="d"></span>'+esc(c)+(g&&c!=='全部'?'<i style="font-style:normal;opacity:.6;font-size:11px">'+g+'</i>':'')+'</button>';
+  }).join('');
+  var cards=L.map(S.mode==='wall'?cardWall:(S.mode==='rows'?cardRow:cardTile)).join('');
+  document.getElementById('top').innerHTML=
+   '<div class="top"><div class="wrap">'+
+    '<div class="topbar"><span class="brand"><span class="b1">'+esc(CONFIG.siteName)+'</span></span><span class="tag">收藏本站 防失联</span>'+
+     '<span class="sp"></span><span class="save">'+GAMES.length+' 款在架</span></div>'+
+    '<div class="tools"><div class="bar">'+
+      '<label class="sbox"><span style="color:#61748f">🔍</span><input id="q" type="search" placeholder="搜游戏名 / 品类，也支持拼音首字母（如 xyzw）" value="'+esc(S.q)+'" autocomplete="off" enterkeyhint="search"><span class="k">中文·首字母</span></label>'+
+      '<div class="seg"><button data-m="wall" class="'+(S.mode==='wall'?'on':'')+'" title="图标墙">▦</button>'+
+      '<button data-m="tiles" class="'+(S.mode==='tiles'?'on':'')+'" title="双列">▤</button>'+
+      '<button data-m="rows" class="'+(S.mode==='rows'?'on':'')+'" title="详细">☰</button></div></div>'+
+      '<div class="chips">'+chips+'</div>'+
+      '<div class="count"><span>共 <b>'+GAMES.length+'</b> 款 · 已显示 <b>'+L.length+'</b> 款'+(S.chip!=='全部'?' · 筛选：'+esc(S.chip):'')+'</span>'+
+      '<span>按热度排序</span></div></div></div></div>';
+  document.getElementById('app').innerHTML='<main class="wrap"><div class="grid '+S.mode+'">'+
+    (focusCard()?'':'')+ (S.chip==='全部'&&!S.q?focusCard():'') + cards+'</div>'+
+    '<div class="empty" id="e1">没找到匹配的游戏 —— 进玩家群问客服要入口最快</div></main>';
+  document.getElementById('e1').style.display=L.length?'none':'block';
+  var q=document.getElementById('q');
+  if(q)q.addEventListener('input',function(){S.q=this.value;var p=this.selectionStart;renderHome();var n=document.getElementById('q');if(n){n.focus();try{n.setSelectionRange(p,p)}catch(e){}}});
+  [].forEach.call(document.querySelectorAll('.seg button'),function(b){b.addEventListener('click',function(){S.mode=b.getAttribute('data-m');saveUI();renderHome()})});
+  [].forEach.call(document.querySelectorAll('.chip'),function(b){b.addEventListener('click',function(){S.chip=b.getAttribute('data-c');saveUI();renderHome()})});
+  tick();
+}
+/* ---------- 详情页 ---------- */
+function clsLine(t){
+  if(/^[一二三四五六七八九十]+\s*、/.test(t))return 'sec';
+  var s=t.replace(/^[\s\d、（）()·\-—]+/,'');
+  var kw=['元','充值','累充','限购','礼包','档位','档','CDK','兑换码','兑换','比例','周卡','月卡','终身卡','大月卡','新手','返利','首充'];
+  var hit=kw.some(function(k){return s.indexOf(k)>=0});
+  if([...s].length<=18&&/[0-9]/.test(s)&&hit&&!/＋/.test(t)&&!/[。！？]$/.test(t))return 'gold';
+  return 'p';
+}
+function paint(t){
+  return esc(t).replace(/([0-9][0-9,\.]*\s*(?:元|万元|万|亿|折|倍|次|个|把|片|枚|级|星|天|周|月|分钟))/g,'<span class="amt">$1</span>')
+              .replace(/([0-9]{4,})/g,'<span class="big">$1</span>')
+              .replace(/&lt;(\/?)(strong|em|b|i|br)\s*\/?&gt;/gi,'<$1$2>');
+}
+function groupCard(title){
+  var q=CONFIG.qqGroup;if(!q)return '';
+  return '<a class="qqcard" href="'+esc(q.url)+'" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer" data-entry="qqgroup"><span class="qq-label">'+esc(title||'官方售后群')+'</span><span class="qq-sub">'+esc(q.sub||'链接失效 · 防失联 · 找客服')+'</span><span class="qq-action">进群</span></a>';
+}
+function safeGuideText(t){
+  return String(t||'').replace(/账号：密码：区服：/g,'账号：区服：').replace(/老区区号 账号 密码 角色ID/g,'老区区号 账号 角色ID');
+}
+function rowText(row){return typeof row==='string'?row:[row.day,row.title,row.text].filter(Boolean).join(' ')}
+function headingFor(row){return row.title||(!row.day&&clsLine(row.text||'')==='sec'?row.text:'')}
+function containsValue(t,value){
+  var index=t.indexOf(value);
+  while(index>=0){var before=t[index-1]||'',after=t[index+value.length]||'';if(!/[A-Za-z0-9_-]/.test(before)&&!/[A-Za-z0-9_-]/.test(after))return true;index=t.indexOf(value,index+1)}return false;
+}
+function copyButton(value,label){return '<button type="button" class="copy-value" data-cp="'+esc(value)+'" aria-label="'+esc(label)+'">'+esc(label)+'</button>'}
+function textGuide(row,g,index){
+  if(typeof row==='string')row={text:row};row=row||{};
+  var extras=(g.copyItems||[]).filter(function(item){return !g.codes.some(function(code){return code.code.toUpperCase()===item.value.toUpperCase()})&&containsValue(rowText(row),item.value)}).map(function(item){return copyButton(item.value,/模板/.test(item.label)?'复制'+item.label:'复制 '+item.value)}).join('');
+  var tail=extras?'<div class="inline-copies">'+extras+'</div>':'';
+  if(row.day||row.title)return '<div class="gday" id="guide-row-'+index+'">'+(row.day?'<div class="day">'+paint(safeGuideText(row.day))+'</div>':'')+(row.title?'<h3 class="sec">'+paint(safeGuideText(row.title))+'</h3>':'')+(row.text?'<p>'+paint(safeGuideText(row.text))+'</p>':'')+tail+'</div>';
+  var t=safeGuideText(row.text||''),k=clsLine(t),id=' id="guide-row-'+index+'"';return (k==='sec'?'<h3 class="sec"'+id+'>'+paint(t)+'</h3>':(k==='gold'?'<div class="gold"'+id+'>'+paint(t)+'</div>':'<p'+id+'>'+paint(t)+'</p>'))+tail;
+}
+function growthPlan(g,next){
+  if(!g.plan)return '';
+  var p=g.plan;
+  return '<aside class="purchase-plan"'+(next?'':' id="growth-plan"')+' aria-label="本服养成投入建议"><div class="eyebrow">'+(next?'下一段成长':'本服养成路线')+'</div><h3>'+esc(next?p.nextTitle:p.title)+'</h3><p>'+esc(next?p.nextBody:p.body)+'</p><p class="plan-action">回到当前游戏 · 核对对应礼包，再把资源用于这条养成路线</p><p class="plan-note">价格、活动和奖励先看当前游戏说明；按自己的预算选择。</p></aside>';
+}
+function firstSpend(g){
+  var p=g.firstSpend;if(!p)return '';
+  var offer='<div class="spend-option"><span class="spend-label">'+esc(p.documentedOffer?'本服攻略推荐项目':'先看这一条养成路线')+'</span><b>'+esc(p.label.replace(/必冲|直接拿下/g,''))+'</b><span>'+esc(p.reward)+'</span></div>';
+  return '<aside class="first-spend" id="growth-plan" aria-label="本服首笔投入建议"><div class="spend-kicker">'+(p.documentedOffer?'想玩得更顺 · 先看这一笔':'先定目标 · 再选适合你的资源')+'</div><h2>'+esc(p.title)+'</h2>'+offer+'<p>'+esc(p.body)+'</p><div class="spend-actions">'+(p.anchor?'<a href="#'+esc(p.anchor)+'">'+(p.documentedOffer?'看礼包与领取说明':'看本服养成建议')+'</a>':'<a href="#guide">看本服养成建议</a>')+'</div><small>'+(p.documentedOffer?'项目与奖励取自本服攻略；先核对当前游戏显示与领取条件。':'本服未列明确首笔档位，先确认游戏里的实际内容。')+'</small></aside>';
+}
+function renderDetail(g){
+  var q=CONFIG.qqGroup;
+  document.documentElement.style.cssText=g.theme.style;document.body.classList.add('detail-page');
+  var future=PUB[g.id]&&Date.parse(PUB[g.id])>Date.now();
+  var meta=future?'<i class="pub">⏳ 待公测</i>':'<i class="live">● 运营中</i>';
+  meta+='<i>安卓 · 苹果双端</i><i>持续更新</i>';
+  if(g.rechargeInternal&&!g.links.recharge)meta+='<i>充值在游戏内</i>';
+  function launch(label,sub,url,key,kind){
+    var inside='<span class="btn-title">'+esc(label)+'</span><span class="btn-sub">'+esc(sub)+'</span>';
+    return url?'<a class="launch-button '+(kind||'')+'" href="'+esc(url)+'" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer" data-entry="'+key+'">'+inside+'</a>':'<span class="launch-button '+(kind||'off')+'" aria-disabled="true">'+inside+'</span>';
   }
-  function fb(text,done){
-    var ta=document.createElement('textarea');ta.value=text;ta.style.position='fixed';ta.style.opacity='0';
-    document.body.appendChild(ta);ta.select();
-    try{document.execCommand('copy');done();}catch(e){toast('复制失败，请长按手动选择');}
-    document.body.removeChild(ta);
-  }
-  var btns=document.querySelectorAll('.cp');
-  for(var i=0;i<btns.length;i++){btns[i].addEventListener('click',function(){copy(this.getAttribute('data-code'),this);});}
+  var registration;
+  if(g.links.register)registration=launch('注册账号','使用本页注册地址',g.links.register,'register');
+  else if(g.registerInternal)registration=launch('游戏内注册','下载安装后按游戏内提示注册','','register','internal');
+  else if(g.noRegister)registration=launch('下载注册一体','无需单独打开注册页','','register','internal');
+  else registration=launch('注册入口整理中','联系售后群获取当前入口','','register','off');
+  var launchHtml=registration+launch('下载游戏',g.links.download?'安装说明以下载页为准':'下载入口整理中',g.links.download,'download');
+  if(g.links.recharge)launchHtml+=launch('立即充值','使用本服充值入口',g.links.recharge,'recharge','muted');
+  else if(g.rechargeInternal)launchHtml+=launch('游戏内充值','本服游戏内直充 · 按游戏内提示操作','','recharge','internal');
+  else launchHtml+=launch('充值入口整理中','联系售后群获取当前说明','','recharge','off');
+  var mentioned=(g.copyItems||[]).filter(function(item){return /邀请码|推广码/.test(item.label)&&item.source==='攻略原文'&&item.value!==g.invite});
+  var invite=g.invite?'<div class="invite-note"><div class="invite-row"><span>本服邀请码<br><b>'+esc(g.invite)+'</b></span>'+copyButton(g.invite,'复制邀请码')+'</div><small class="source-note">复制后粘贴到注册页要求的对应字段。</small></div>':'';
+  if(mentioned.length)invite+='<div class="invite-note"><div>攻略中的推广 / 邀请信息</div><div class="inline-copies">'+mentioned.map(function(item){return copyButton(item.value,'复制 '+item.label+' '+item.value)}).join('')+'</div><small class="source-note">'+(g.invite?'邀请码有不同填写说明，请核对注册页要求后使用。':'已随注册入口带入时，无需重复填写。')+'</small></div>';
+  var codes=g.codes.map(function(c){
+    return '<div class="crow"><span class="cmain"><span class="c">'+esc(c.code)+'</span><span class="d">'+esc(c.desc||'进服直接兑，先领先爽')+'</span></span><span class="cbtns"><button type="button" class="cp" data-cp="'+esc(c.code)+'" aria-label="复制兑换码 '+esc(c.code)+'">复制</button></span></div>';
+  }).join('');
+  var wf=g.welfare.length?'<section class="wf welfare" id="welfare" aria-label="福利长图"><div class="hd">福利长图 · '+g.welfare.length+' 张</div><div class="wfrow">'+g.welfare.map(function(item,i){return '<button data-lb="'+i+'" aria-label="查看福利长图 '+(i+1)+'"><img src="'+esc(item.src)+'" alt="'+esc(item.caption)+'" loading="lazy"><em>'+esc(item.caption||('第 '+(i+1)+' 张 · 点开看大图'))+'</em></button>'}).join('')+'</div></section>':'';
+  var guide='<section class="gd" id="guide" aria-label="游戏攻略">'+(g.readingGuide||g.guide).map(function(row,i){return textGuide(row,g,row._index==null?i:row._index)}).join('')+growthPlan(g,true)+'</section>';
+  var supportTemplate=/账号.*密码|账号：区服：问题/.test(g.guide.map(rowText).join(' '))?'区服：\n角色ID：\n账号（非密码）：\n问题说明：\n订单号（充值问题时填写）：':'';
+  var support=supportTemplate?'<div class="support-copy">售后反馈请填写区服、角色与问题，充值问题可附订单记录。无需提供登录密码、验证码或支付密码。<br>'+copyButton(supportTemplate,'复制售后反馈模板')+'</div>':'';
+  var shortcuts='<nav class="section-shortcuts" aria-label="文档快速导航">'+(g.codes.length?'<a href="#cdk">兑换码</a>':'')+(g.welfare.length?'<a href="#welfare">福利图</a>':'')+'<a href="#guide">看攻略</a>'+(g.plan?'<a href="#growth-plan">养成路线</a>':'')+'</nav>';
+
+  function entry(label,url,key){return '<div class="entry-row"><span><span class="ti">'+esc(label)+'</span></span><a class="go" href="'+esc(url)+'" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer" data-entry="'+key+'">打开</a></div>';}
+  var entrances='';
+  if(g.links.downloadBackup)entrances+=entry('备用下载',g.links.downloadBackup,'downloadBackup');
+  if(g.links.vpn)entrances+=entry('网络加速',g.links.vpn,'vpn');
+  g.extras.forEach(function(item,i){entrances+=entry(item.label,item.url,'extra'+i)});
+  var codeJump=g.codes.length?'<p class="registration-note">进服后先领兑换码 · <button type="button" data-jump="cdk" style="color:var(--cy);text-decoration:underline;text-underline-offset:3px">查看全部 '+g.codes.length+' 个兑换码</button></p>':'';
+  var category=g.genres.join(' · ')||g.family;
+  document.getElementById('top').innerHTML='<div class="dtop"><a class="bk" href="'+esc(CONFIG.homeUrl)+'" aria-label="返回主站">‹</a><span class="t">'+esc(g.name)+'</span></div>';
+  document.getElementById('app').innerHTML='<main class="wrap"><section class="dhero">'+(category?'<div class="doc-category">'+esc(category)+'</div>':'')+'<div class="row">'+(g.icon?'<img src="'+esc(g.icon)+'" alt="'+esc(g.name)+'" decoding="async" fetchpriority="high">':'<span class="hero-initial" aria-hidden="true">'+esc(g.name.slice(0,1))+'</span>')+'<span><h1>'+esc(g.name)+'</h1><div class="sl">'+esc(g.sell||g.tagline||'')+'</div></span></div><div class="meta">'+meta+'</div><div class="sub">'+esc(g.slogan)+'<br>'+esc(g.bottom)+'</div><div class="points">'+g.points.map(function(point){return '<span>✅ '+esc(point)+'</span>'}).join('')+'</div></section>'+
+    '<section class="launch" aria-label="注册下载与充值"><div class="launch-grid">'+launchHtml+'</div>'+firstSpend(g)+invite+codeJump+shortcuts+'<p class="copy-status" id="copy-status" role="status" aria-live="polite"></p></section>'+groupCard('官方售后群')+
+    (entrances?'<section class="entrances" aria-label="更多入口">'+entrances+'</section>':'')+
+    (g.codes.length?'<section class="cdk" id="cdk" aria-label="兑换码"><div class="hd"><b>兑换码 '+g.codes.length+' 个</b></div>'+codes+'</section>':'')+wf+guide+support+
+    (q?'<div class="feedback">有问题请联系群管理员 · <a href="'+esc(q.url)+'" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer" data-entry="qqgroup">点击进群反馈</a></div>':'')+
+    '<div class="trust">🛡 <b>防骗提醒</b>：注册、下载、领码只走本页按钮与游戏内官方入口。任何群里或私聊喊「折扣代充」「送码让你转账加好友」的都是骗子——兑换码全免费，凡先收费的都是骗子。'+(q?'<br>官方售后群只处理售后、群内不产生任何充值。':'')+'<br>所有福利、价格与奖励以游戏内实际为准，最终解释权归游戏方所有。</div>'+groupCard('别走丢 · 进官方售后群')+'</main>';
+  var registrationBar=g.links.register?'<a class="b1" href="'+esc(g.links.register)+'" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer" data-entry="register">注册账号</a>':'';
+  var downloadBar=g.links.download?'<a class="b2" href="'+esc(g.links.download)+'" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer" data-entry="download">下载游戏</a>':'';
+  var rechargeBar=g.links.recharge?'<a class="b3" href="'+esc(g.links.recharge)+'" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer" data-entry="recharge">立即充值</a>':'';
+  var qqFloat=q?'<div class="qqfloat-wrap"><a class="qqfloat qqg" href="'+esc(q.url)+'" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer" data-entry="qqgroup"><span class="ic">💬</span><span class="tx">售后群</span></a></div>':'';
+  document.getElementById('persistent-actions').innerHTML='<div class="bar">'+registrationBar+downloadBar+rechargeBar+'<a class="b4" href="'+esc(CONFIG.homeUrl)+'">返回主站</a></div>'+qqFloat;
+  [].forEach.call(document.querySelectorAll('[data-jump]'),function(el){el.addEventListener('click',function(){var node=document.getElementById(el.getAttribute('data-jump'));if(node)node.scrollIntoView({behavior:'smooth',block:'start'})})});
+  [].forEach.call(document.querySelectorAll('[data-cp]'),function(el){el.addEventListener('click',function(){var c=el.getAttribute('data-cp'),label=el.getAttribute('data-copy-label')||el.textContent;el.setAttribute('data-copy-label',label);copy(c,function(ok){el.textContent=ok?'已复制 ✓':'复制失败';var status=document.getElementById('copy-status');if(status)status.textContent=ok?'已复制，可直接粘贴使用。':'复制未成功，请重试或长按上方内容复制。';clearTimeout(el._copyTimer);el._copyTimer=setTimeout(function(){el.textContent=label},1600)})})});
+  [].forEach.call(document.querySelectorAll('[data-lb]'),function(el){el.addEventListener('click',function(){openLb(g,+el.getAttribute('data-lb'))})});
+}
+function copy(t,cb){
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(function(){cb(true)},function(){fb()})}else fb();
+  function fb(){try{var a=document.createElement('textarea');a.value=t;a.style.position='fixed';a.style.opacity='0';document.body.appendChild(a);a.select();var ok=document.execCommand('copy');document.body.removeChild(a);cb(ok)}catch(e){cb(false)}}
+}
+var lbi=0,lbarr=[],lbFocus=null,lbOverflow='';
+function closeLb(){document.getElementById('lb').classList.remove('on');document.body.style.overflow=lbOverflow;if(lbFocus&&document.contains(lbFocus))lbFocus.focus();lbFocus=null;}
+function openLb(g,i){
+  lbarr=g.welfare.map(function(item){return item.src});lbi=i||0;
+  var box=document.getElementById('lbi');box.innerHTML=lbarr.map(function(u,k){return '<img src="'+esc(u)+'" alt="" data-k="'+k+'">'}).join('');
+  lbFocus=document.activeElement;lbOverflow=document.body.style.overflow;document.body.style.overflow='hidden';document.getElementById('lb').classList.add('on');document.getElementById('lbx').focus();
+  document.getElementById('lbt').textContent=g.name+' · 福利长图 '+(lbi+1)+'/'+lbarr.length;
+  setTimeout(function(){var el=box.querySelector('[data-k="'+lbi+'"]');if(el)el.scrollIntoView({block:'start'})},30);
+}
+document.getElementById('lbx').addEventListener('click',closeLb);
+document.getElementById('lb').addEventListener('keydown',function(e){if(!this.classList.contains('on'))return;if(e.key==='Escape'){e.preventDefault();closeLb()}else if(e.key==='Tab'){e.preventDefault();document.getElementById('lbx').focus()}});
+function route(){
+  var m=location.hash.match(/^#\/g\/(.+)$/),id=CONFIG.initialId||(m&&m[1]);
+  document.getElementById('lb').classList.remove('on');
+  if(id&&byId[id]){renderDetail(byId[id])}else{document.getElementById('persistent-actions').innerHTML='';document.documentElement.style.cssText='';document.body.classList.remove('detail-page');renderHome()}
+  window.scrollTo(0,0);
+}
+var t0;
+function tick(){
+  var el=document.getElementById('cd');if(!el)return;
+  var d=new Date(PUB.mhxy).getTime()-Date.now();
+  if(d<=0){el.textContent='已开服';return}
+  var day=Math.floor(d/864e5),h=Math.floor(d%864e5/36e5),m=Math.floor(d%36e5/6e4),s=Math.floor(d%6e4/1e3);
+  el.textContent=day+'天 '+('0'+h).slice(-2)+':'+('0'+m).slice(-2)+':'+('0'+s).slice(-2);
+  clearTimeout(t0);t0=setTimeout(tick,1000);
+}
+window.addEventListener('hashchange',function(){if(!CONFIG.initialId)route()});
+route();
 })();
 </script>
-<script>(function(){
-    var current="3380a75ff3585c2b", endpoint="/build-ver.json";
-    function check(){
-      var url=endpoint+(endpoint.indexOf('?')<0?'?':'&')+'_t='+Date.now();
-      fetch(url,{cache:'no-store'}).then(function(r){return r.ok?r.json():null}).then(function(j){
-        if(!j||!j.v||String(j.v)===current)return;
-        var next=new URL(location.href); if(next.searchParams.get('_v')===String(j.v))return;
-        next.searchParams.set('_v',String(j.v)); location.replace(next.href);
-      }).catch(function(){});
-    }
-    check(); setInterval(check,3000);
-    document.addEventListener('visibilitychange',function(){if(!document.hidden)check();});
-  })();</script>
 <script>
 (function(){
   var EPS=['https://9c69f4640a41403f94f584653b806a7b.app.workbuddy.host/api/track','https://71ab064eb4464de488335811670a6949.app.workbuddy.host/api/track'];
@@ -439,3 +484,17 @@
 </script>
 </body>
 </html>
+
+<script>(function(){
+    var current="6d1d38559580ff89", endpoint="/build-ver.json";
+    function check(){
+      var url=endpoint+(endpoint.indexOf('?')<0?'?':'&')+'_t='+Date.now();
+      fetch(url,{cache:'no-store'}).then(function(r){return r.ok?r.json():null}).then(function(j){
+        if(!j||!j.v||String(j.v)===current)return;
+        var next=new URL(location.href); if(next.searchParams.get('_v')===String(j.v))return;
+        next.searchParams.set('_v',String(j.v)); location.replace(next.href);
+      }).catch(function(){});
+    }
+    check(); setInterval(check,3000);
+    document.addEventListener('visibilitychange',function(){if(!document.hidden)check();});
+  })();</script>

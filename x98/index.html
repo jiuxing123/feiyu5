@@ -1,363 +1,405 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<base href="/">
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#f2f5f9">
-<meta name="referrer" content="no-referrer">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; connect-src 'self' https://9c69f4640a41403f94f584653b806a7b.app.workbuddy.host https://71ab064eb4464de488335811670a6949.app.workbuddy.host; base-uri 'self'; object-src 'none'; frame-src 'none'">
-<link rel="canonical" href="https://feiyu5.com/x98/"><meta name="site-version" content="3380a75ff3585c2b"><meta name="feiyu-release" content="3380a75ff3585c2b">
-<title>海外大东家 —— 回到古代做点生意 · 开店当东家 日进斗金 · 上线直升V18</title>
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#070b14">
+<title>我是大东家 · 飞鱼手游</title>
+<meta name="build-version" content="6d1d38559580ff89"><meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: ; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; connect-src 'self' https://9c69f4640a41403f94f584653b806a7b.app.workbuddy.host https://71ab064eb4464de488335811670a6949.app.workbuddy.host; base-uri 'self'; object-src 'none'; frame-src 'none'">
 <style>
-  *{margin:0;padding:0;box-sizing:border-box;}
-  body{
-    font-family:"PingFang SC","Microsoft YaHei","Helvetica Neue",sans-serif;
-    background:#f2f5f9;color:#1f2937;line-height:1.85;font-size:16px;
-    -webkit-text-size-adjust:100%;padding-bottom:96px;
-  }
-  a{text-decoration:none;}
-  .wrap{max-width:580px;margin:0 auto;background:#ffffff;min-height:100vh;box-shadow:0 0 20px rgba(15,23,42,.06);}
+/* ================= 飞鱼自有设计语言 V2：暗夜霓虹 + 品类发光 ================= */
+:root{
+  --bg:#070b14; --pnl:#0d1526; --pnl2:#121d33; --line:rgba(120,160,255,.14); --line2:rgba(120,160,255,.26);
+  --ink:#eaf1fb; --dim:#8ea3c2; --dim2:#61748f;
+  --cy:#2ee6d6; --gd:#ffc44d; --rs:#ff5d73; --blu:#4d9bff;
+  --glow:var(--cy);
+  --r:16px; --sb:env(safe-area-inset-bottom,0px); --st:env(safe-area-inset-top,0px);
+  --bg:#0c1313;--pnl:#162222;--pnl2:#1c3031;--ink:#f3ede7;--dim:#cec5bf;--dim2:#ada29b;--cy:#75e6ea;--g:#75e6ea;--glow:#75e6ea;--blu:#b8e8e9;--gd:#9cc6ec;--rs:#ef9ba4;--line:rgba(117,230,234,0.17);--line2:rgba(117,230,234,0.33);--accent-soft:rgba(117,230,234,0.11);--accent-mid:rgba(117,230,234,0.21);--accent-line:rgba(117,230,234,0.35);--button-ink:#122a2b;--button-gradient:linear-gradient(120deg,#75e6ea,#b8e8e9);--panel-gradient:linear-gradient(145deg,#1c3031,#162222);--hero-wash:rgba(117,230,234,0.18);--page-header:rgba(12,19,19,.94);--amount-wash:rgba(117,230,234,0.13);
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","HarmonyOS Sans SC","Microsoft YaHei",sans-serif;
+  -webkit-font-smoothing:antialiased}
+body{padding-bottom:calc(76px + var(--sb))}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+input,select{font:inherit}
+.wrap{max-width:1180px;margin:0 auto;padding:0 12px}
+/* ---------- 顶栏：品牌 + 防失联（不做大 hero，把首屏让给游戏）---------- */
+.top{position:sticky;top:0;z-index:40;background:rgba(7,11,20,.86);backdrop-filter:blur(14px) saturate(1.5);
+  -webkit-backdrop-filter:blur(14px) saturate(1.5);border-bottom:1px solid var(--line);padding-top:var(--st)}
+.topbar{display:flex;align-items:center;gap:10px;height:46px}
+.brand{font-size:19px;font-weight:900;letter-spacing:-.02em}
+.brand .b1{background:linear-gradient(96deg,var(--cy),var(--gd) 55%,var(--cy));background-size:220% auto;
+  -webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;
+  animation:flow 4.6s linear infinite}
+.tag{font-size:10px;font-weight:800;color:#062028;background:linear-gradient(120deg,var(--cy),#7be8dd);
+  padding:3px 7px;border-radius:6px;white-space:nowrap}
+.top .sp{flex:1}
+.top .save{font-size:11px;color:var(--dim);border:1px solid var(--line2);border-radius:999px;padding:5px 10px;white-space:nowrap}
+/* ---------- 搜索 + 密度 + 分类 ---------- */
+.tools{padding:10px 0 8px}
+.bar{display:flex;gap:8px;align-items:center}
+.sbox{flex:1;min-width:0;display:flex;align-items:center;gap:8px;background:var(--pnl);
+  border:1px solid var(--line);border-radius:13px;padding:0 12px;min-height:44px}
+.sbox input{flex:1;min-width:0;background:none;border:0;outline:0;color:var(--ink);font-size:16px}
+.sbox input::placeholder{color:var(--dim2);font-size:14px}
+.sbox .k{font-size:12px;color:var(--dim2);white-space:nowrap}
+.seg{display:flex;background:var(--pnl);border:1px solid var(--line);border-radius:13px;overflow:hidden}
+.seg button{width:42px;min-height:44px;color:var(--dim2);font-size:15px;display:grid;place-items:center}
+.seg button.on{background:linear-gradient(160deg,#1a2b47,#142037);color:var(--cy);box-shadow:inset 0 0 0 1px var(--line2)}
+.chips{display:flex;gap:7px;overflow-x:auto;padding:10px 0 2px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.chips::-webkit-scrollbar{display:none}
+.chip{flex:0 0 auto;display:flex;align-items:center;gap:5px;border:1px solid var(--line);background:var(--pnl);
+  color:var(--dim);font-size:13px;font-weight:700;padding:7px 13px;border-radius:999px;min-height:34px;transition:.16s}
+.chip .d{width:6px;height:6px;border-radius:2px;background:var(--g,var(--cy));opacity:.85}
+.chip.on{color:#04121a;background:linear-gradient(120deg,var(--cy),#8ff0e6);border-color:transparent;box-shadow:0 6px 18px rgba(46,230,214,.22)}
+.chip.on .d{background:#04121a}
+.count{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:6px 2px 0;font-size:12px;color:var(--dim2)}
+.count b{color:var(--cy);font-weight:900}
+.count select{background:var(--pnl);color:var(--dim);border:1px solid var(--line);border-radius:9px;font-size:12px;min-height:30px;padding:0 6px}
+/* ---------- 焦点位（时间驱动，他们完全没有）---------- */
+.focus{position:relative;overflow:hidden;margin:12px 0 4px;border:1px solid var(--line2);border-radius:18px;
+  background:radial-gradient(120% 130% at 88% -20%,rgba(255,196,77,.20),transparent 60%),
+             radial-gradient(100% 120% at 0% 100%,rgba(46,230,214,.16),transparent 55%),var(--pnl2)}
+.focus a{display:grid;grid-template-columns:64px minmax(0,1fr) auto;gap:14px;align-items:center;padding:14px 16px}
+.focus img{width:64px;height:64px;border-radius:14px;object-fit:cover;box-shadow:0 0 0 1px var(--line2),0 8px 22px rgba(0,0,0,.5)}
+.focus .lab{font-size:10px;font-weight:900;letter-spacing:.14em;color:var(--gd)}
+.focus .nm{font-size:17px;font-weight:900;margin-top:3px;letter-spacing:-.01em}
+.focus .sell{font-size:11.5px;color:var(--dim);margin-top:4px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.cd{text-align:right;font-variant-numeric:tabular-nums}
+.cd .t{font-size:20px;font-weight:900;color:var(--cy);letter-spacing:-.02em}
+.cd .u{font-size:10px;color:var(--dim2);margin-top:2px}
+/* ---------- 三种密度 ---------- */
+.grid{display:grid;gap:11px;margin-top:12px}
+.grid.wall{grid-template-columns:repeat(5,minmax(0,1fr));gap:9px}
+.grid.tiles{grid-template-columns:repeat(2,minmax(0,1fr))}
+.grid.rows{grid-template-columns:1fr}
+@media (min-width:760px){.grid.wall{grid-template-columns:repeat(8,minmax(0,1fr))}.grid.tiles{grid-template-columns:repeat(3,minmax(0,1fr))}.grid.rows{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (min-width:1040px){.grid.wall{grid-template-columns:repeat(10,minmax(0,1fr))}.grid.tiles{grid-template-columns:repeat(4,minmax(0,1fr))}.grid.rows{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.card{position:relative;overflow:hidden;border:1px solid var(--line);border-radius:var(--r);background:var(--pnl);
+  transition:transform .16s,border-color .16s,background .16s;animation:rise .3s cubic-bezier(.2,.7,.3,1) both}
+.card:before{content:"";position:absolute;inset:0 0 auto 0;height:2px;background:linear-gradient(90deg,transparent,var(--g),transparent);opacity:.75}
+.card:active{transform:scale(.975);border-color:var(--line2);background:var(--pnl2)}
+.card .glow{position:absolute;inset:auto -30% -60% -30%;height:70%;background:radial-gradient(50% 60% at 50% 100%,var(--g),transparent 70%);opacity:.16;pointer-events:none}
+/* 墙：只有图标+名字，一屏 30 款 */
+.wall .card a{display:block;padding:9px 5px 10px;text-align:center}
+.wall img{width:100%;aspect-ratio:1;border-radius:13px;object-fit:cover}
+.wall .nm{margin-top:6px;font-size:11.5px;font-weight:800;line-height:1.25;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+/* 格：图标+名字+卖点，一屏 12 款 */
+.tiles .card a{display:grid;grid-template-columns:52px minmax(0,1fr);gap:10px;align-items:center;padding:11px 12px;min-height:74px}
+.tiles img{width:52px;height:52px;border-radius:12px;object-fit:cover}
+.tiles .nm,.rows .nm{font-size:14.5px;font-weight:900;line-height:1.25;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.tiles .sell,.rows .sell{font-size:11px;color:var(--dim2);margin-top:4px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+/* 行：完整信息 + 进入 */
+.rows .card a{display:grid;grid-template-columns:60px minmax(0,1fr) auto;gap:13px;align-items:center;padding:13px 15px;min-height:92px}
+.rows img{width:60px;height:60px;border-radius:13px;object-fit:cover}
+.enter{padding:8px 13px;border-radius:999px;font-size:12px;font-weight:900;white-space:nowrap;
+  color:var(--g);background:color-mix(in srgb,var(--g) 14%,transparent);border:1px solid color-mix(in srgb,var(--g) 34%,transparent)}
+/* 徽章：切角六边形 + 跳动 + 光泽扫过（保留你喜欢的动效，造型是我们的） */
+.badge{position:absolute;top:6px;right:6px;z-index:3;overflow:hidden;padding:3px 8px 3px 10px;font-size:9.5px;font-weight:900;
+  color:#08101c;background:linear-gradient(120deg,var(--gd),#ffe08a);letter-spacing:.02em;
+  clip-path:polygon(6px 0,100% 0,100% 100%,0 100%,0 6px);animation:beat 2.2s ease-in-out infinite}
+.badge.hot{background:linear-gradient(120deg,var(--rs),#ffa8b4)}
+.badge.pub{background:linear-gradient(120deg,var(--cy),#a5f5ec)}
+.badge:after{content:"";position:absolute;top:0;bottom:0;left:-60%;width:40%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.9),transparent);animation:shine 2.6s ease-in-out infinite}
+.wall .badge{top:3px;right:3px;padding:2px 6px 2px 8px;font-size:8.5px}
+/* 流光只给 HOT/公测——动效承载信息，不是纯装饰 */
+.flow{background-image:linear-gradient(96deg,var(--g),#fff 42%,var(--gd) 62%,var(--g));background-size:240% auto;
+  -webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;animation:flow 3.6s linear infinite}
+/* ---------- 游戏专属资料页 ---------- */
+.dtop{position:sticky;top:0;top:var(--st);z-index:35;display:flex;align-items:center;gap:10px;min-height:52px;max-width:760px;margin:0 auto;padding:8px 12px;background:var(--page-header,var(--bg));border-bottom:1px solid var(--line);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.dtop .bk{flex:0 0 34px;width:34px;height:34px;border-radius:10px;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:19px;color:var(--dim)}
+.dtop .t{flex:1;min-width:0;font-size:14px;font-weight:750;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.detail-page .wrap{max-width:760px;padding:0 16px}.detail-page{padding-bottom:calc(100px + var(--sb));background:var(--bg)}
+.dhero{position:relative;margin-top:18px;padding:21px 18px;border:1px solid var(--line);border-radius:18px;background:radial-gradient(ellipse at 95% 0,var(--hero-wash),transparent 67%),var(--panel-gradient)}
+.dhero .row{display:grid;grid-template-columns:76px minmax(0,1fr);gap:15px;align-items:center}.dhero img{width:76px;height:76px;border-radius:16px;object-fit:cover;box-shadow:0 0 0 1px var(--accent-line),0 9px 25px #0004}.dhero .hero-initial{width:76px;height:76px;border-radius:16px;display:flex;align-items:center;justify-content:center;background:var(--accent-soft);color:var(--cy);font-size:28px;font-weight:750}
+.dhero h1{margin:0;font-size:23px;font-weight:750;letter-spacing:.2px;line-height:1.4;overflow-wrap:anywhere;color:var(--ink)}.dhero .sl{font-size:13px;color:var(--dim);margin-top:7px;line-height:1.8;overflow-wrap:anywhere}.doc-category{font-size:11px;letter-spacing:.6px;color:var(--cy);margin-bottom:13px;line-height:1.6}
+.meta{display:flex;flex-wrap:wrap;gap:7px;margin-top:17px}.meta i{font-style:normal;font-size:11px;font-weight:600;color:var(--dim);background:rgba(255,255,255,.035);border:1px solid var(--line);border-radius:6px;padding:4px 8px}.meta i.live,.meta i.pub{color:var(--cy);border-color:var(--accent-line);background:var(--accent-soft)}
+.sub{margin-top:15px;padding-top:14px;border-top:1px solid var(--line);color:var(--dim);font-size:12px;line-height:1.9}.points{display:flex;flex-wrap:wrap;gap:6px 12px;margin-top:9px}.points span{font-size:11px;color:var(--dim);line-height:1.7}
+.launch{margin:18px 0 0}.section-heading{display:flex;align-items:center;gap:10px;margin:25px 0 13px;font-size:16px;line-height:1.5;font-weight:750;color:var(--ink)}.section-heading::before{content:'';width:3px;height:18px;border-radius:2px;background:var(--cy)}.section-heading small{margin-left:auto;color:var(--dim2);font-size:11px;font-weight:500}
+.launch-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.launch-button{display:flex;flex-direction:column;justify-content:center;gap:4px;min-width:0;min-height:70px;padding:12px 14px;border:1px solid var(--accent-line);border-radius:12px;background:var(--button-gradient);color:var(--button-ink);text-align:left}.launch-button .btn-title{display:block;font-size:15px;font-weight:750;line-height:1.4}.launch-button .btn-sub{display:block;font-size:11px;line-height:1.65;opacity:.83;overflow-wrap:anywhere}.launch-button.muted{background:var(--accent-soft);color:var(--cy)}.launch-button.internal{background:var(--pnl);border-color:var(--line);color:var(--dim)}.launch-button.off{background:var(--pnl);border-color:var(--line);color:var(--dim2)}
+.invite-note{margin-top:13px;padding:11px 13px;border-left:3px solid var(--cy);background:var(--accent-soft);border-radius:0 9px 9px 0;font-size:12px;color:var(--dim);line-height:1.85;overflow-wrap:anywhere}.invite-note b{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;color:var(--cy);letter-spacing:1px}.registration-note{font-size:12px;color:var(--dim);line-height:1.9;margin:11px 2px 0}.registration-note strong{color:var(--cy)}
+.entrances{margin:24px 0 0;border-top:1px solid var(--line)}.entry-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:14px;align-items:center;padding:13px 1px;border-bottom:1px solid var(--line)}.entry-row .ti,.entry-row .de{display:block}.entry-row .ti{font-size:13px;line-height:1.6;font-weight:650}.entry-row .de{font-size:11px;color:var(--dim2);line-height:1.7;margin-top:3px}.entry-row .go{font-size:12px;font-weight:650;color:var(--cy);padding:8px 12px;background:var(--accent-soft);border:1px solid var(--accent-line);border-radius:8px;white-space:nowrap}
+.cdk{margin-top:25px}.cdk .hd{display:flex;align-items:baseline;gap:10px;margin:0 0 12px}.cdk .hd b{font-size:17px;font-weight:750;color:var(--ink)}
+.crow{padding:15px 0 14px;border-bottom:1px solid var(--line)}.crow .cmain{display:block}.crow .c{display:block;line-height:1.55;font-size:17px;font-weight:750;letter-spacing:.6px;color:var(--cy);font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;overflow-wrap:anywhere}.crow .d{display:block;font-size:12px;color:var(--dim);line-height:1.9;margin-top:5px;white-space:pre-wrap;overflow-wrap:anywhere}.crow .cbtns{display:flex;justify-content:flex-end;gap:8px;margin-top:10px}.crow .cp{min-height:36px;padding:7px 13px;border-radius:8px;font-size:12px;line-height:1.5;font-weight:650}.crow .cp{color:var(--button-ink);background:var(--button-gradient);border:1px solid var(--accent-line)}
+.wf{margin-top:26px}.wf .hd{font-size:15px;font-weight:750;color:var(--ink);margin:0 0 12px;line-height:1.6}.wfrow{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.wfrow button{position:relative;border:1px solid var(--line);border-radius:11px;overflow:hidden;background:var(--pnl)}.wfrow img{width:100%;height:116px;object-fit:cover;object-position:top;display:block}.wfrow em{position:absolute;left:0;right:0;bottom:0;font-style:normal;font-size:10px;color:var(--ink);background:linear-gradient(transparent,#000c);padding:15px 6px 6px;line-height:1.5}
+.gd{margin-top:29px;padding:0;border:0;background:transparent}.gd .sec{font-size:17px;font-weight:750;line-height:1.65;color:var(--cy);margin:26px 0 12px;padding:0 0 10px;border-bottom:1px solid var(--line)}.gd .gold{margin:18px 0 10px;padding:10px 13px;border-left:3px solid var(--cy);border-radius:0 9px 9px 0;background:var(--amount-wash);font-size:15px;font-weight:700;line-height:1.7;color:var(--cy)}.gd p{font-size:14px;line-height:2.05;color:var(--dim);margin:11px 0;white-space:pre-wrap;overflow-wrap:anywhere}.gd strong,.gd b{color:var(--ink);font-weight:700}.gd em{color:var(--cy);font-style:normal;font-weight:650}.gd .amt{color:var(--gd);font-weight:700}.gd .big{color:var(--cy);font-weight:750}.gday{margin:24px 0}.gday .day{font-size:12px;color:var(--cy);font-weight:650;line-height:1.7}.gday h3.sec{margin-top:7px}
+.trust{margin-top:23px;padding:15px 0;border-top:1px dashed var(--line2);border-bottom:1px dashed var(--line2);font-size:12px;color:var(--dim);line-height:1.95}.trust b{color:var(--rs)}.feedback{font-size:12px;color:var(--dim);line-height:1.9;margin:20px 0}.feedback a{color:var(--cy);text-decoration:underline;text-underline-offset:3px}
+.qqcard{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:7px 10px;align-items:center;margin:19px 0;padding:12px 14px;border:1px solid var(--line);border-radius:11px;background:var(--accent-soft)}.qqcard .qq-label{font-size:13px;font-weight:650;line-height:1.5}.qqcard .qq-sub{grid-column:1;font-size:11px;line-height:1.7;color:var(--dim2)}.qqcard .qq-action{grid-row:1/3;grid-column:2;color:var(--cy);font-size:12px;font-weight:650;white-space:nowrap}.pending{opacity:.58;cursor:default}
+/* 常驻底部导航仅呈现可操作入口，所有颜色来自当前游戏主题。 */
+.detail-page .bar{position:fixed;left:0;right:0;bottom:0;z-index:60;display:flex;gap:8px;padding:10px 12px;max-width:580px;margin:0 auto;background:var(--page-header,var(--pnl));border-top:1px solid var(--line2);box-shadow:0 -3px 18px rgba(0,0,0,.18);padding-bottom:calc(10px + var(--sb));backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.detail-page .bar a{flex:1;min-width:0;min-height:44px;display:flex;align-items:center;justify-content:center;text-align:center;font-size:15px;font-weight:700;line-height:1.35;padding:12px 0;border-radius:10px;color:var(--button-ink);background:var(--button-gradient);border:1px solid var(--accent-line)}
+.detail-page .bar .b4{background:var(--accent-soft);color:var(--cy);border-color:var(--line2)}
+/* 原站右侧中部常驻售后群：原格式、位置和尺寸。 */
+.qqfloat-wrap{position:fixed;right:0;top:50%;transform:translateY(-50%);z-index:70;pointer-events:none;}
+.qqfloat{pointer-events:auto;display:flex;flex-direction:column;align-items:center;gap:5px;background:linear-gradient(160deg,#16c47a,#059669);color:#fff;padding:12px 9px;border-radius:13px 0 0 13px;box-shadow:-3px 4px 16px rgba(5,150,105,.34);animation:qqfloatIn .5s cubic-bezier(.22,1,.36,1);}
+.qqfloat .ic{font-size:18px;line-height:1;}.qqfloat .tx{font-size:12.5px;font-weight:800;letter-spacing:2px;writing-mode:vertical-rl;text-orientation:upright;line-height:1.15;}.qqfloat:active{transform:scale(.95);}@keyframes qqfloatIn{from{opacity:0;transform:translateX(26px)}to{opacity:1;transform:translateX(0)}}
+.launch-button:nth-child(3){grid-column:1/-1;min-height:58px;flex-direction:row;align-items:center;justify-content:space-between;gap:15px}.launch-button:nth-child(3) .btn-title{flex:0 0 auto}.launch-button:nth-child(3) .btn-sub{text-align:right;max-width:64%}
+@supports ((-webkit-background-clip:text) or (background-clip:text)){.dhero h1{background-image:linear-gradient(105deg,var(--cy),var(--ink) 40%,var(--cy) 70%);background-size:220% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:docTitleGlow 3.6s linear infinite}}@keyframes docTitleGlow{to{background-position:220% center}}
+@media(max-width:800px){.gd,.feedback,.trust{padding-right:34px}.crow .cmain,.crow .cbtns{padding-right:34px}.launch-button:nth-child(2) .btn-sub{padding-right:20px}}
+@media(min-width:640px){.detail-page .wrap{padding:0 24px}.dhero{padding:25px}.dhero .row{grid-template-columns:88px minmax(0,1fr);gap:19px}.dhero img,.dhero .hero-initial{width:88px;height:88px}.dhero h1{font-size:28px}.launch-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.launch-button:nth-child(3){grid-column:auto;min-height:70px;flex-direction:column;align-items:stretch;justify-content:center;gap:4px}.launch-button:nth-child(3) .btn-sub{text-align:left;max-width:none}.gd p{font-size:15px}.wfrow img{height:150px}}
+@media(max-width:359px){.detail-page .wrap{padding:0 12px}.gd,.feedback,.trust{padding-right:38px}.crow .cmain,.crow .cbtns{padding-right:38px}.dhero{padding:17px 14px}.dhero .row{grid-template-columns:66px minmax(0,1fr);gap:12px}.dhero img,.dhero .hero-initial{width:66px;height:66px}.dhero h1{font-size:20px}.detail-page .bar a{font-size:13px}.cdk .hd{gap:7px}.cdk .hd b{font-size:15px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+/* 灯箱 */
+.lb{position:fixed;inset:0;z-index:100;background:rgba(3,6,12,.96);display:none;flex-direction:column}
+.lb.on{display:flex}
+.lb .h{display:flex;align-items:center;gap:10px;padding:calc(10px + var(--st)) 14px 10px;color:var(--dim);font-size:12.5px}
+.lb .h .x{margin-left:auto;width:34px;height:34px;border-radius:11px;border:1px solid var(--line);display:grid;place-items:center}
+.lb .bd{flex:1;overflow:auto;-webkit-overflow-scrolling:touch;padding:0 10px calc(14px + var(--sb))}
+.lb .bd img{width:100%;max-width:760px;display:block;margin:0 auto;border-radius:12px}
+.lb .tip{text-align:center;font-size:11px;color:var(--dim2);padding:10px 0 16px}
+.demo{margin:10px 0 0;padding:8px 11px;border-radius:11px;border:1px dashed rgba(255,196,77,.4);
+  background:rgba(255,196,77,.07);color:#ffd68a;font-size:11px;font-weight:800;display:flex;gap:8px;align-items:center}
+.demo b{color:var(--gd)}
+.empty{display:none;margin:18px 0;padding:34px 14px;text-align:center;color:var(--dim2);font-size:13px;
+  border:1px dashed var(--line2);border-radius:16px}
+@keyframes flow{to{background-position:240% center}}
+@keyframes beat{0%,100%{transform:scale(1)}50%{transform:scale(1.06)}}
+@keyframes shine{0%,30%{left:-60%;opacity:0}55%{opacity:1}100%{left:115%;opacity:0}}
+@keyframes rise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 
-  .topbar{
-    background:#ffffff;border-bottom:1px solid #e5e9f0;
-    padding:12px 18px;display:flex;align-items:center;justify-content:space-between;
-    position:sticky;top:0;z-index:50;
-  }
-  .topbar .logo{font-size:15px;font-weight:bold;color:#0f172a;letter-spacing:.5px;}
-  .topbar a{color:#2563eb;font-size:13px;border:1px solid #dbe3ee;padding:5px 12px;border-radius:16px;}
-
-  .hero{
-    background:linear-gradient(165deg,#eef4ff 0%,#dbeafe 100%);
-    padding:38px 22px 34px;text-align:center;position:relative;overflow:hidden;
-    display:flex;flex-direction:column;align-items:center;
-  }
-  .hero .badge{
-    display:inline-block;background:#2563eb;color:#fff;font-size:12px;font-weight:bold;
-    padding:6px 18px;border-radius:20px;letter-spacing:1px;margin:0 auto 14px;position:relative;z-index:2;
-    box-shadow:0 3px 10px rgba(37,99,235,.35);
-  }
-  .hero h1{font-size:24px;color:#0f172a;line-height:1.45;position:relative;z-index:2;font-weight:800;max-width:100%;}
-  .hero .sub{color:#334155;font-size:14px;margin-top:12px;position:relative;z-index:2;}
-  .points{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:18px;position:relative;z-index:2;}
-  .points span{
-    background:#fff;border:1px solid #cddcf5;font-size:12px;padding:5px 12px;
-    border-radius:16px;color:#1e40af;box-shadow:0 1px 3px rgba(15,23,42,.06);
-  }
-
-  .btn{
-    display:block;text-align:center;color:#fff;font-size:17px;font-weight:bold;letter-spacing:.5px;
-    padding:16px 0;border-radius:14px;margin:12px 0;box-shadow:0 3px 10px rgba(37,99,235,.22);
-    transition:transform .12s;
-  }
-  .btn:active{transform:scale(.98);}
-  .btn.blue{background:linear-gradient(135deg,#2563eb,#1d4ed8);}
-  .btn.orange{background:linear-gradient(135deg,#f59e0b,#ea580c);box-shadow:0 3px 10px rgba(234,88,12,.25);}
-  .btn.purple{background:linear-gradient(135deg,#7c3aed,#5b21b6);box-shadow:0 3px 10px rgba(124,58,237,.22);}
-  .btn.green{background:linear-gradient(135deg,#059669,#047857);box-shadow:0 3px 10px rgba(5,150,105,.22);}
-  .btn.pending{background:linear-gradient(135deg,#94a3b8,#64748b)!important;box-shadow:none;}
-  .btn.info{background:linear-gradient(135deg,#0891b2,#0e7490)!important;box-shadow:0 3px 10px rgba(8,145,178,.25);}
-  .heropic{width:88px;height:88px;border-radius:50%;border:3px solid #fff;box-shadow:0 4px 12px rgba(15,23,42,.18);margin-bottom:12px;object-fit:cover;}
-  .btn .small{display:block;font-size:12px;font-weight:normal;opacity:.92;margin-top:3px;letter-spacing:0;}
-
-  section{padding:28px 20px 6px;}
-  h2{font-size:20px;color:#0f172a;margin-bottom:14px;padding-left:12px;border-left:5px solid #2563eb;line-height:1.4;font-weight:800;}
-  h3{font-size:16px;color:#2563eb;margin:18px 0 8px;font-weight:700;}
-  p{margin-bottom:12px;color:#374151;}
-  strong{color:#b45309;}
-  em{color:#dc2626;font-style:normal;font-weight:bold;}
-
-  .card{background:#f8fafc;border:1px solid #e5e9f0;border-radius:14px;padding:18px;margin:14px 0;}
-  .card h4{color:#1e40af;font-size:16px;margin-bottom:8px;}
-  .card.gold{background:#fffbeb;border-color:#fde68a;}
-  .card.gold h4{color:#b45309;}
-  .card.warn{background:#fef2f2;border-color:#fecaca;}
-  .card.warn h4{color:#dc2626;}
-  .divider{text-align:center;color:#94a3b8;font-size:12px;margin:30px 0 0;letter-spacing:4px;}
-
-  .step{display:flex;gap:12px;margin-bottom:18px;}
-  .step .no{flex:0 0 30px;height:30px;border-radius:50%;background:#2563eb;color:#fff;font-weight:bold;text-align:center;line-height:30px;font-size:15px;}
-  .step .body{flex:1;}
-  .step .btn{margin-left:-42px;} /* 抵消数字圆圈+gap 缩进，按钮与页面主体卡片左右对齐（星哥 21:29 指令） */
-  .step .body h4{color:#0f172a;font-size:16px;margin-bottom:6px;}
-
-  ul.codes{list-style:none;}
-  ul.codes li{
-    background:#f8fafc;border:1px dashed #cbd5e1;border-radius:12px;padding:12px;margin-bottom:8px;
-    display:flex;align-items:center;gap:10px;
-  }
-  ul.codes li .code{flex:0 0 auto;font-size:16px;font-weight:800;color:#1e40af;letter-spacing:1px;font-family:Consolas,Monaco,monospace;}
-  ul.codes li .desc{flex:1;font-size:13px;color:#475569;line-height:1.65;}
-  ul.codes li .cp{flex:0 0 auto;background:#2563eb;color:#fff;border:0;border-radius:8px;font-size:12px;padding:7px 12px;cursor:pointer;}
-  ul.codes li .cp.ok{background:#059669;}
-
-  .tip{background:#fffbeb;border-left:4px solid #f59e0b;padding:13px 15px;border-radius:0 12px 12px 0;margin:14px 0;font-size:15px;color:#78350f;}
-  .alarm{background:#fef2f2;border-left:4px solid #dc2626;padding:13px 15px;border-radius:0 12px 12px 0;margin:14px 0;font-size:15px;color:#7f1d1d;}
-  .alarm strong{color:#dc2626;}
-  .tag{display:inline-block;background:#2563eb;color:#fff;font-weight:bold;border-radius:6px;padding:2px 10px;font-size:13px;margin-right:6px;}
-
-  .welfare img{width:100%;height:auto;border-radius:14px;display:block;margin:10px 0;}
-  .welfare .ph{background:#f1f5f9;border:1px dashed #cbd5e1;border-radius:14px;padding:26px;text-align:center;color:#94a3b8;font-size:14px;}
-
-  .bar{
-    position:fixed;left:0;right:0;bottom:0;z-index:60;background:rgba(255,255,255,.97);
-    border-top:1px solid #e5e9f0;display:flex;gap:8px;padding:10px 12px;max-width:580px;margin:0 auto;
-    box-shadow:0 -2px 12px rgba(15,23,42,.06);
-  }
-  .bar a{flex:1;text-align:center;font-size:15px;font-weight:bold;padding:12px 0;border-radius:12px;color:#fff;}
-  .bar .b1{background:linear-gradient(135deg,#2563eb,#1d4ed8);padding:12px 0;border-radius:12px;color:#fff;}
-  .bar .b2{background:linear-gradient(135deg,#f59e0b,#ea580c);padding:12px 0;border-radius:12px;color:#fff;}
-  .bar .b3{background:linear-gradient(135deg,#7c3aed,#5b21b6);padding:12px 0;border-radius:12px;color:#fff;}
-  .bar .off{opacity:.55;filter:grayscale(.4);}
-  .footer{text-align:center;color:#94a3b8;font-size:12px;padding:30px 20px 0;line-height:2;}
-  /* 返回主站按钮 */
-  .topbar .back{background:#2563eb;color:#fff;border:0;font-size:13px;font-weight:bold;padding:6px 14px;border-radius:16px;box-shadow:0 2px 6px rgba(37,99,235,.25);}
-  /* 邀请码 */
-  .invite{background:#fffbeb;border:1px solid #fde68a;border-radius:14px;padding:16px;margin:14px 0;text-align:center;}
-  .invite-t{font-size:14px;color:#92400e;font-weight:bold;}
-  .invite-row{display:flex;align-items:center;justify-content:center;gap:10px;margin:10px 0 6px;}
-  .invite-code{font-family:Consolas,Monaco,monospace;font-size:24px;font-weight:800;color:#b45309;letter-spacing:3px;}
-  .cp-big{background:#f59e0b;color:#fff;border:0;border-radius:10px;padding:10px 18px;font-size:14px;font-weight:bold;cursor:pointer;}
-  .cp-big.ok{background:#059669;}
-  .invite-tip{font-size:12px;color:#a16207;}
-  /* 攻略正文 */
-  .guide{margin-top:4px;}
-  .guide-title{font-size:20px;color:#0f172a;margin-bottom:14px;padding-left:12px;border-left:5px solid #2563eb;line-height:1.4;font-weight:800;}
-  .guide .gsec-divider{text-align:center;color:#94a3b8;font-size:12px;margin:26px 0 10px;letter-spacing:3px;}
-  .guide h3.section-head{font-size:17px;color:#0f172a;margin:22px 0 14px;padding:10px 14px;background:#f1f5f9;border-radius:10px;border-left:4px solid #2563eb;font-weight:800;}
-  /* v6.9 星哥口谕（2026-09-26）：金额/充值档位标题必须醒目——金色高亮块 + 正文金额数字自动描色，全量游戏 + 新增自动生效 */
-  .guide .money-head{font-size:15.5px;font-weight:800;color:#7c2d12;margin:14px 0 8px;padding:9px 13px;background:linear-gradient(90deg,#fff3cd,#ffe9a8);border:1px solid #f5c451;border-left:5px solid #f59e0b;border-radius:10px;box-shadow:0 2px 6px rgba(245,158,11,.18);}
-  /* v6.9 所有小标题都高亮：非金额的短标题行→靛蓝块，和金色金额块、灰色大标题形成层级 */
-  .guide .sub-head{font-size:15px;font-weight:800;color:#1e3a8a;margin:14px 0 8px;padding:8px 13px;background:#eef2ff;border:1px solid #c7d2fe;border-left:5px solid #4f46e5;border-radius:10px;}
-  .guide .amt{color:#b45309;font-weight:800;}
-  .guide .amt-big{color:#dc2626;font-weight:800;}
-  .guide .gcard{background:#f8fafc;border:1px solid #e5e9f0;border-radius:14px;padding:16px;margin:14px 0;}
-  .guide .gcard h4{color:#1e40af;font-size:15px;margin-bottom:10px;font-weight:800;}
-  .guide .gcard>:last-child{margin-bottom:0;}
-  .guide p{margin-bottom:14px;color:#374151;line-height:1.85;}
-  .guide p:last-child{margin-bottom:0;}
-  .guide ul.glist{list-style:none;margin:10px 0 14px;}
-  .guide ul.glist li{position:relative;padding-left:22px;margin-bottom:8px;color:#374151;line-height:1.7;}
-  .guide ul.glist li::before{content:"";position:absolute;left:6px;top:10px;width:6px;height:6px;border-radius:50%;background:#2563eb;}
-  .guide .gtip{background:#fffbeb;border-left:4px solid #f59e0b;padding:12px 14px;border-radius:0 12px 12px 0;margin:14px 0;font-size:14px;color:#78350f;}
-  .guide .galarm{background:#fef2f2;border-left:4px solid #dc2626;padding:12px 14px;border-radius:0 12px 12px 0;margin:14px 0;font-size:14px;color:#7f1d1d;}
-  .guide .gday{display:flex;gap:12px;margin-bottom:16px;}
-  .guide .gday .no{flex:0 0 46px;height:46px;border-radius:12px;background:#2563eb;color:#fff;font-weight:bold;text-align:center;font-size:12px;display:flex;align-items:center;justify-content:center;line-height:1.2;padding:4px;}
-  .guide .gday .body{flex:1;background:#f8fafc;border:1px solid #e5e9f0;border-radius:14px;padding:14px 16px;}
-  .guide .gday .body h4{color:#1e40af;font-size:15px;margin-bottom:6px;font-weight:800;}
-  .guide .gday .body p{margin-bottom:0;}
-  /* 福利图 */
-  .welfare img{width:100%;height:auto;border-radius:14px;display:block;margin:10px 0;box-shadow:0 4px 14px rgba(15,23,42,.12);}
-  .muted{font-size:13px;color:#94a3b8;}
-  /* 正文里内联的兑换码 + 复制键 */
-  .cc{display:inline-flex;align-items:center;gap:6px;vertical-align:middle;margin:0 2px;}
-  .cc b{font-family:Consolas,Monaco,monospace;font-size:14px;color:#b45309;background:#fffbeb;
-    border:1px solid #fde68a;border-radius:6px;padding:1px 6px;letter-spacing:.5px;font-weight:800;}
-  .cc .cp{background:#f59e0b;color:#fff;border:0;border-radius:6px;padding:2px 8px;font-size:11px;
-    font-weight:bold;cursor:pointer;line-height:1.6;}
-  .cc .cp.ok{background:#059669;}
-  .bar .b4{background:linear-gradient(135deg,#059669,#047857);padding:12px 0;border-radius:12px;color:#fff;flex:1;font-size:15px;}
-  .toast{position:fixed;left:50%;bottom:96px;transform:translateX(-50%);background:rgba(15,23,42,.9);color:#fff;
-    font-size:14px;padding:10px 18px;border-radius:20px;opacity:0;transition:opacity .25s;pointer-events:none;z-index:99;}
-  .toast.show{opacity:1;}
-  /* v6.8 QQ 售后群引导（方案二+三，2026-09-23 星哥拍板）：金卡 + 绿按钮，全站统一 */
-  .qqcard{display:flex;align-items:center;gap:10px;margin:12px 0;padding:10px 12px;border-radius:12px;
-    background:linear-gradient(135deg,#fffbeb,#fef3c7);border:1.5px solid #f59e0b;transition:transform .12s;}
-  .qqcard:active{transform:scale(.985);}
-  .qqcard .qq-ic{flex:0 0 26px;width:26px;height:26px;border-radius:8px;background:linear-gradient(135deg,#059669,#047857);
-    color:#fff;font-weight:800;font-size:13px;display:flex;align-items:center;justify-content:center;}
-  .qqcard .tx{flex:1;min-width:0;}
-  .qqcard .tx b{display:block;font-size:14.5px;color:#92400e;font-weight:800;}
-  .qqcard .tx span{display:block;font-size:12px;color:#a16207;margin-top:2px;}
-  .qqcard .go{flex:0 0 auto;background:linear-gradient(135deg,#059669,#047857);color:#fff;font-size:13px;font-weight:800;
-    padding:8px 14px;border-radius:8px;box-shadow:0 2px 6px rgba(5,150,105,.3);}
-  .qq-inline{display:inline-block;background:linear-gradient(135deg,#059669,#047857);color:#fff;font-size:12.5px;font-weight:800;
-    padding:3px 10px;border-radius:6px;margin-left:6px;white-space:nowrap;}
-  .qq-pending{display:block;text-align:center;font-size:13.5px;font-weight:700;color:#047857;padding:8px 0 2px;}
-  .qq-final{display:block;margin:14px 0;padding:18px 16px;text-align:center;border-radius:14px;
-    background:linear-gradient(135deg,#fffbeb,#fde68a);border:2px solid #f59e0b;transition:transform .12s;}
-  .qq-final:active{transform:scale(.985);}
-  .qq-final b{display:block;font-size:17px;color:#92400e;font-weight:800;}
-  .qq-final .sub{display:block;font-size:13px;color:#a16207;margin:6px 0 12px;line-height:1.7;}
-  .qq-final .go{display:inline-block;background:linear-gradient(135deg,#059669,#047857);color:#fff;font-size:15px;font-weight:800;
-    padding:12px 34px;border-radius:10px;box-shadow:0 3px 10px rgba(5,150,105,.3);}
-  /* 方案一：右侧中部常驻售后群入口（竖向小标签贴右缘，避开底栏与主按钮，视觉克制） */
-  .qqfloat-wrap{position:fixed;right:0;top:50%;transform:translateY(-50%);z-index:70;pointer-events:none;}
-  .qqfloat{pointer-events:auto;display:flex;flex-direction:column;align-items:center;gap:5px;
-    background:linear-gradient(160deg,#16c47a,#059669);color:#fff;
-    padding:12px 9px;border-radius:13px 0 0 13px;
-    box-shadow:-3px 4px 16px rgba(5,150,105,.34);
-    animation:qqfloatIn .5s cubic-bezier(.22,1,.36,1);}
-  .qqfloat .ic{font-size:18px;line-height:1;}
-  .qqfloat .tx{font-size:12.5px;font-weight:800;letter-spacing:2px;writing-mode:vertical-rl;text-orientation:upright;line-height:1.15;}
-  .qqfloat:active{transform:scale(.95);}
-  @keyframes qqfloatIn{from{opacity:0;transform:translateX(26px)}to{opacity:1;transform:translateX(0)}}
-  @media (prefers-reduced-motion:reduce){.qqfloat{animation:none;}}
+.invite-row{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}.invite-row b{font-size:17px;overflow-wrap:anywhere}.copy-value{display:inline-flex;align-items:center;justify-content:center;min-height:44px;max-width:100%;padding:8px 12px;border:1px solid var(--accent-line);background:var(--accent-soft);color:var(--cy);border-radius:9px;font-size:12px;font-weight:650;overflow-wrap:anywhere;white-space:normal;text-align:left;cursor:pointer}.copy-value:focus-visible{outline:2px solid var(--cy);outline-offset:3px}.inline-copies{display:flex;flex-wrap:wrap;gap:7px;margin:6px 0 14px}.copy-status{font-size:12px;color:var(--cy);min-height:22px}.invite-note .source-note{display:block;margin-top:8px;color:var(--dim);font-size:11px}.guide-nav{margin:22px 0 10px;border:1px solid var(--line2);border-radius:13px;background:var(--panel-gradient);padding:14px 16px}.guide-nav summary{font-size:14px;color:var(--ink);font-weight:700;cursor:pointer;min-height:30px}.guide-nav .toc-links{display:flex;flex-direction:column;margin-top:10px;gap:4px}.guide-nav .toc-links a{min-height:44px;display:flex;align-items:center;color:var(--cy);font-size:13px;line-height:1.6;padding:7px 0;overflow-wrap:anywhere}.gd [id],#guide,#cdk,#welfare,#growth-plan{scroll-margin-top:70px}.purchase-plan{margin:22px 0;padding:18px 18px 18px 20px;border:1px solid var(--accent-line);border-left:3px solid var(--cy);border-radius:13px;background:var(--panel-gradient)}.purchase-plan .eyebrow{font-size:10px;color:var(--cy);letter-spacing:1.4px;margin-bottom:7px}.purchase-plan h3{color:var(--ink);font-size:16px;line-height:1.65;margin:0}.purchase-plan p{font-size:13px;line-height:1.9;color:var(--dim);margin:10px 0}.purchase-plan .plan-action{margin:13px 0 0;padding-top:10px;border-top:1px solid var(--line);font-size:12px;color:var(--cy);font-weight:600}.purchase-plan .plan-note{font-size:11px;color:var(--dim2);margin-bottom:0}.section-shortcuts{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px}.section-shortcuts a{min-height:44px;padding:9px 12px;border:1px solid var(--line2);border-radius:8px;color:var(--cy);font-size:12px;display:flex;align-items:center}.support-copy{border:1px solid var(--line);padding:13px;border-radius:11px;margin:16px 0;font-size:12px;color:var(--dim);line-height:1.8}.support-copy button{margin-top:8px}.lb.on{overscroll-behavior:contain}.lb .h{padding-right:8px}.lb .x{min-height:44px;min-width:44px}
+.first-spend{margin:16px 0;padding:17px;border:1px solid var(--accent-line);border-radius:14px;background:linear-gradient(135deg,var(--hero-wash),var(--pnl));box-shadow:inset 0 1px 0 rgba(255,255,255,.07)}.spend-kicker{font-size:11px;color:var(--cy);font-weight:650;letter-spacing:.7px}.first-spend h2{font-size:18px;line-height:1.6;color:var(--ink);margin:7px 0 12px}.spend-option{padding:11px 12px;border-left:3px solid var(--cy);background:var(--accent-soft);border-radius:0 9px 9px 0;display:flex;flex-direction:column;gap:4px;overflow-wrap:anywhere}.spend-label{font-size:10px;color:var(--dim2)}.spend-option b{font-size:16px;color:var(--cy);line-height:1.65}.spend-option>span:last-child{font-size:12px;color:var(--ink);line-height:1.8}.first-spend p{font-size:12px;line-height:1.95;color:var(--dim);margin:12px 0}.spend-actions a{min-height:44px;padding:10px 13px;display:inline-flex;align-items:center;justify-content:center;background:var(--button-gradient);color:var(--button-ink);border-radius:9px;font-size:12px;font-weight:700}.first-spend small{display:block;font-size:10px;line-height:1.8;color:var(--dim2);margin-top:10px}
+@media(max-width:800px){.first-spend{padding-right:34px}}
+.detail-page .cp{min-height:44px;min-width:52px}
+@media(max-width:800px){.purchase-plan,.invite-note,.guide-nav,.support-copy{padding-right:34px}}
 </style>
 </head>
 <body>
-<div class="wrap">
+<div id="top"></div>
+<div id="app"></div>
+<div id="persistent-actions"></div>
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-labelledby="lbt" tabindex="-1"><div class="h"><span id="lbt">福利长图</span><button class="x" id="lbx">✕</button></div>
+  <div class="bd"><div id="lbi"></div><div class="tip">长按图片可保存到手机 · 左右滑动查看其他图</div></div></div>
 
-  <div class="topbar">
-    <div class="logo">🎮  海外大东家</div>
-    <a class="back" href="/">🏠 返回主站</a>
-  </div>
-
-  <div class="hero">
-    <img class="heropic" src="/assets/published/a6f20c9f11b8203f2245.jpg?v=3380a75ff3585c2b" alt="" width="96" height="96" decoding="async" fetchpriority="high">
-    <div class="badge">回到古代做点生意 · 开店当东家 日进斗金 · 上线直升V18</div>
-    <h1>海外大东家</h1>
-    <p class="sub">不卡不掉 · 持续更新<br>我们只想给各位玩家一个长久的家</p>
-    <div class="points"><span>✅ 安卓苹果双端</span><span>✅ 不卡不掉</span><span>✅ 持续更新</span></div>
-  </div>
-
-  <section>
-    <a class="btn blue" href="http://ab.xrzz-aoz.com/reg/feiyu66" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">📝 点击注册账号（1 分钟搞定）<span class="small">必须走这个链接注册，否则无售后</span></a>
-    <div class="btn green info">💳 充值在游戏内<span class="small">本服没有外部充值链接：进游戏 → 打开「充值 / 商城」→ 选档位支付即可</span></div>
-    <a class="btn orange" href="https://xgame7.ru/ddj.htm" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">⬇ 点击下载游戏（安卓 / 苹果通用）<span class="small">安装后选「账号密码登录」</span></a>
-    <a class="qqcard qqg" href="https://qm.qq.com/q/Rns2qI2HWq" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer"><span class="qq-ic">Q</span><span class="tx"><b>官方售后群</b><span>链接失效 · 防失联 · 找客服</span></span><span class="go">进群 ➜</span></a>
-    <div class="invite">
-      <div class="invite-t">🎁 本服专属邀请码（注册必填）</div>
-      <div class="invite-row"><span class="invite-code" id="inviteCode">feiyu66</span><button class="cp cp-big" data-code="feiyu66">复制</button></div>
-      <div class="invite-tip">填错邀请码没有售后，请复制后粘贴使用</div>
-    </div>
-  </section>
-
-  <div class="divider">—·— 三 步 开 玩 —·—</div>
-
-  <section>
-    <h2>一、三步开玩（点一下就走，两分钟进游戏）</h2>
-    <div class="step">
-      <div class="no">1</div>
-      <div class="body">
-        <h4>注册账号</h4>
-        <p>点下面的按钮直接进注册页。这是<strong>唯一有效注册地址</strong>——不是从这个链接注册的<em>没有售后</em>。</p><a class="btn blue" href="http://ab.xrzz-aoz.com/reg/feiyu66" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">📝 点击注册账号</a>
-      </div>
-    </div>
-    <div class="step">
-      <div class="no">2</div>
-      <div class="body">
-        <h4>下载游戏</h4>
-        <p>点按钮直接下载，安卓苹果都能装。主线路走不通就用备用线路。</p><a class="btn orange" href="https://xgame7.ru/ddj.htm" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">⬇ 点击下载（主线路）</a><a class="btn green" href="https://media.meilinvps.com/f.php?id=3z9JulG527fk.apk" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">📦 备用下载通道</a>
-      </div>
-    </div>
-    <div class="step">
-      <div class="no">3</div>
-      <div class="body">
-        <h4>登录游戏</h4>
-        <p>打开游戏后，<strong>选择「账号密码登录」，不要用手机号登录</strong>，账号就是第 1 步注册的那个；<strong>本服充值在游戏内直接进行</strong>，无需外部充值链接。</p>
-      </div>
-    </div>
-    <div class="card warn">
-      <h4>⚠️ 登录提示网络异常怎么办？</h4>
-      <p>装个「爱加速」，把本地网络切到<strong>上海</strong>再登录，基本一次解决。</p>
-      <a class="btn green" href="https://m.91ajs.com" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">🔧 点击下载爱加速</a>
-    </div>
-  </section>
-
-  <div class="divider">—·— 进 服 先 领 —·—</div>
-  <section>
-    <h2>二、进服先白嫖：兑换码全部领满</h2>
-    <p class="muted">兑换路径：游戏内 设置 → 礼包兑换码（点右侧按钮可直接复制）</p>
-    <ul class="codes">
-      <li><span class="code">haiwai666</span><span class="desc">元宝1590万·VIP经验275万·银两196亿·阅历61亿·资质卷轴1698·大钱袋482·30元代金券167·128/328/648元各27</span><button class="cp" data-code="haiwai666">复制</button></li>
-    </ul>
-    <a class="btn orange" href="https://xgame7.ru/ddj.htm" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">还没下载？点击下载，马上领码 ⬇</a>
-  </section>
-
-  <div class="divider">—·— 新 手 起 号 攻 略 —·—</div>
-  <section>
-    <div class="guide">
-<h2 class="guide-title">新手起号全攻略！（起号 + 充值 + 冠名）</h2><p>30秒速读：进服先把兑换码、每日福利、上线奖励三样一次领空，白嫖1590万元宝加275万VIP经验；要充就照「每日限购礼包→每日充值礼包→累计实充」这个顺序打，同一笔钱同时喂进三张奖励表，八档限购全买满一天实付<span class="amt">2274元</span>、拿到的代金券面额合计<span class="amt">26720元</span>，累计实充摸到<span class="amt">5000元</span>还多送自选时装和小区冠名资格。</p><p>防骗提醒：注册下载只走本攻略所在页面顶部的按钮和游戏内官方入口，任何群里或私聊发链接、喊折扣代充、送码还让你加好友转账的，全是骗子。</p><h3 class="section-head">一、先进服（安卓苹果双端，入口都在本页顶部）</h3><p>注册、下载、备用下载三个按钮都在本页顶部，点哪个跳哪个，不用复制链接。下载按钮进的是分发页，页面里安卓和苹果（iOS企业签）两条通道各点各的；备用下载是安卓直包，主通道卡了再用它。</p><p>充值没有外部网页：进游戏之后点元宝后面那个加号，就是充值页，所有档位都在游戏内直接下。</p><p>这服叫海外大东家，主打回到古代做点生意，开店当东家、日进斗金，玩的是宅门商战加门客养成，不是无脑砍数的打架服，钱要花在铺商路、养门客、攒名望上才看得见回报。</p><h3 class="section-head">二、先领空（一分钱不花把家底囤满）</h3><div class="money-head">充值比例<span class="amt">1元</span>5万通宝</div><p><span class="amt">1元</span>＝5万通宝＋2.5万VIP经验。通宝就是游戏里的元宝口径，VIP经验直接决定你几级VIP，所以这服充的每一块钱都是资源和等级两条腿同时给。</p><p>元宝1590万＋VIP经验275万＋银两196亿＋阅历61亿＋资质卷轴1698＋大钱袋482＋蓬莱仙鹿10＋青焰雷神10＋赤金炎龙10＋浴火万凰10＋时雨神龙10＋挑战书66＋玉扳指66＋粗布帽66＋粗布衣66＋加速令66＋<span class="amt">30元</span>代金券167＋<span class="amt">128元</span>代金券27＋<span class="amt">328元</span>代金券27＋<span class="amt">648元</span>代金券27＋体力丹1＋精力丹1＋活力丹1</p><p>不兑等于白扔：这一整串是公测礼包，进服两分钟就能全拿。跳过它，你后面每一笔充值都要多花好几倍才追得上这个起点。</p><div class="money-head">每日福利<span class="amt">188888元</span>宝</div><p>元宝188888＋一统路程1888＋百宝匣188＋鱼翅5＋鹿茸5＋<span class="amt">30元</span>代金券1＋<span class="amt">68元</span>代金券1＋<span class="amt">128元</span>代金券1＋<span class="amt">328元</span>代金券1＋<span class="amt">648元</span>代金券1</p><p>每天上线第一件事就是领它。别小看这四张代金券，攒着叠到限购礼包那一档一起用，才是这服正确的省钱姿势。</p><div class="money-head">上线奖励10万元宝</div><p>开局直接给到V18，元宝10万＋阅历1亿＋银两1亿＋<span class="amt">30元</span>代金券1＋<span class="amt">128元</span>代金券1＋<span class="amt">328元</span>代金券1＋<span class="amt">648元</span>代金券1＋大钱袋88＋美人令88＋西行令88＋群英令88＋名望20万，另外六张门客卡一并到手。</p><p>完整清单在本页福利图最后一张上，逐项对得上，照着勾一遍，缺一个就是自己的损失。</p><h3 class="section-head">三、为什么值得充（不是让你多花钱，是让你别充亏）</h3><p>这服划不划算，全看有没有把一笔钱同时喂进三张表。</p><p>每日限购礼包：每个礼包每天限购1次，买就送对应档位的代金券，代金券还能继续在游戏内当钱花。</p><p>每日充值礼包：按你当天攒到的VIP经验发奖，<span class="amt">1元</span>给2.5万VIP经验，档位是自然往上爬的。</p><p>累计实充：只看历史总实付，每档限领一次，是一次性投资，永久有效，不会重复消耗。</p><p>同样一笔钱，闷头一次充进去，和拆成「限购礼包买满＋跟着每日充值礼包爬档＋顺手把累计实充一档档点满」，最后到手的东西差着一大截。会玩的人不是充得多，是把每一笔都卡在能同时触发最多奖励的那一档上。</p><h3 class="section-head">四、必买清单（按不买就亏排序，代金券面额都是按图上档位实算）</h3><div class="money-head">每日限购<span class="amt">888元</span>档</div><p>百宝匣88.8万＋一统路程888万＋鱼翅30＋鹿茸30＋龙涎香888＋流云锦25＋浮光锦25＋朝暮锦25＋<span class="amt">648元</span>代金券20</p><p>不买代价：<span class="amt">648元</span>代金券20张，光代金券面额合计就是<span class="amt">12960元</span>，约是实付的14.6倍，八档限购里回本倍数最高的一档。预算够却跳过它，等于把最厚的一层奖励让给同服别人。</p><div class="money-head">每日限购<span class="amt">98元</span>档</div><p>百宝匣9.8万＋一统路程98万＋烧鸡20＋卤猪20＋龙涎香98＋流云锦4＋浮光锦4＋朝暮锦4＋<span class="amt">128元</span>代金券10</p><p>不买代价：<span class="amt">128元</span>代金券10张面额合计<span class="amt">1280元</span>，实付<span class="amt">98元</span>，约13倍，是中小预算里最尖的一档。98块换一千二百多的券，这钱不花才是真亏。</p><div class="money-head">每日限购<span class="amt">588元</span>档</div><p>百宝匣58.8万＋一统路程588万＋鱼翅20＋鹿茸20＋龙涎香588＋流云锦15＋浮光锦15＋朝暮锦15＋<span class="amt">648元</span>代金券10</p><p>不买代价：<span class="amt">648元</span>代金券10张面额<span class="amt">6480元</span>，实付<span class="amt">588元</span>，约11倍，大额档里唯一同时给满鱼翅鹿茸和三类锦的。</p><div class="money-head">每日限购<span class="amt">68元</span>档</div><p>百宝匣6.8万＋一统路程68万＋烧鸡15＋卤猪15＋龙涎香68＋流云锦3＋浮光锦3＋朝暮锦3＋<span class="amt">68元</span>代金券10</p><p>不买代价：<span class="amt">68元</span>代金券10张面额<span class="amt">680元</span>，正好10倍。刚想花钱试水的人，这一档是最优解，跳过它你就只能用原价买资源。</p><div class="money-head">每日限购<span class="amt">188元</span>档</div><p>百宝匣18.8万＋一统路程188万＋鱼翅5＋鹿茸5＋龙涎香188＋流云锦6＋浮光锦6＋朝暮锦6＋<span class="amt">168元</span>代金券10</p><p>不买代价：<span class="amt">168元</span>代金券10张面额<span class="amt">1680元</span>，约8.9倍，而且从这一档开始才给鱼翅鹿茸，食材线断不得。</p><div class="money-head">每日限购<span class="amt">388元</span>档</div><p>百宝匣38.8万＋一统路程388万＋鱼翅10＋鹿茸10＋龙涎香388＋流云锦10＋浮光锦10＋朝暮锦10＋<span class="amt">328元</span>代金券10</p><p>不买代价：<span class="amt">328元</span>代金券10张面额<span class="amt">3280元</span>，约8.5倍，锦类直接给到10个，门客养成靠这三类锦续命。</p><div class="money-head">每日限购<span class="amt">38元</span>档</div><p>百宝匣3.8万＋一统路程38万＋烧鸡10＋卤猪10＋龙涎香38＋流云锦2＋浮光锦2＋朝暮锦2＋<span class="amt">30元</span>代金券10</p><p>不买代价：<span class="amt">30元</span>代金券10张面额<span class="amt">300元</span>，接近8倍。38块买不了什么，但能买到别人没拿的开局。</p><div class="money-head">每日限购<span class="amt">18元</span>档</div><p>百宝匣1.8万＋一统路程18万＋烧鸡5＋卤猪5＋龙涎香18＋流云锦1＋浮光锦1＋朝暮锦1＋<span class="amt">6元</span>代金券10</p><p>不买代价：<span class="amt">6元</span>代金券10张面额<span class="amt">60元</span>，3倍出头，是这服最低门槛的一笔。18块都舍不得，后面所有累充档位和冠名都跟你没关系。</p><p>八档全买满一天实付<span class="amt">2274元</span>，到手代金券面额合计<span class="amt">26720元</span></p><p>这是每天都能重来一次的固定收益，不是只有一次的大额活动。哪天忘了买满，哪天就少一层。</p><div class="money-head">日常礼包<span class="amt">50元</span>档</div><p>玉扳指10＋粗布帽10＋粗布衣10＋阅历50亿＋天命石50＋龙纹玉牌50＋羁绊信物50＋百宝匣5万＋一统路程50万＋高级家族礼盒50＋灵豆500万＋兽元500万</p><p>日常礼包不限购买次数，往上还有<span class="amt">100元</span>、<span class="amt">300元</span>、<span class="amt">500元</span>、<span class="amt">800元</span>、<span class="amt">1500元</span>、<span class="amt">3000元</span>、<span class="amt">5000元</span>七档，档位越高阅历、天命石、龙纹玉牌、羁绊信物、百宝匣、一统路程、高级家族礼盒、灵豆、兽元同步放大，<span class="amt">5000元</span>档给到阅历5000亿、灵豆5亿、兽元5亿。缺哪类补哪类，比闷头抽卡划算得多。</p><h3 class="section-head">五、每日充值礼包（跟着VIP经验爬档，够档不领就是纯亏）</h3><div class="money-head">每日充值VIP经验50000</div><p>元宝5万＋玉扳指50＋粗布衣50＋粗布帽50＋资质卷轴50＋百宝袋50＋精力丹50＋体力丹50＋活力丹50＋加速令50＋挑战书50＋阅历1亿＋群英令10＋三国虎符50＋桃园灵契50</p><div class="money-head">每日充值VIP经验1000000</div><p>元宝30万＋玉扳指300＋粗布衣300＋粗布帽300＋资质卷轴300＋百宝袋300＋精力丹300＋体力丹300＋活力丹300＋加速令300＋挑战书300＋阅历6亿＋美人令20＋天香扇100＋驭灵石100＋后院经验2万＋灵豆20万＋兽元20万</p><p>这张表从VIP经验50000一路排到10000000，共16档，按当天累计的VIP经验发奖。<span class="amt">1元</span>给2.5万VIP经验，所以每天哪怕只充一小笔，也要先看清自己踩在哪一档上，差一点的补一笔跨过去，档位奖励整份多一截。VIP经验2000000那档开始给羁绊信物、龙纹玉牌、百宝匣、一统路程和三类锦，3000000档再往上还会给到东方教主、金虎呈祥这类门客和高级家族礼盒。</p><h3 class="section-head">六、累计实充（一次性投资，每档只领一次，最容易被忽略）</h3><div class="money-head">累计实充<span class="amt">500元</span>档</div><p>元宝5万＋百宝匣50万＋一统路程500万＋羁绊信物500＋阅历50亿＋<span class="amt">128元</span>代金券5＋<span class="amt">328元</span>代金券5＋<span class="amt">648元</span>代金券5＋朝暮锦10</p><div class="money-head">累计实充<span class="amt">5000元</span>档</div><p>元宝50万＋百宝匣500万＋一统路程5000万＋羁绊信物5000＋阅历500亿＋<span class="amt">128元</span>代金券50＋<span class="amt">328元</span>代金券50＋<span class="amt">648元</span>代金券50＋自选时装1</p><p>累计实充从<span class="amt">500元</span>起步，500到5000每<span class="amt">500元</span>一档，再往上是10000到50000每<span class="amt">5000元</span>一档，共19档，每档奖励限领一次。<span class="amt">5000元</span>往上每一档都多送一套自选时装，摸到<span class="amt">50000元</span>那档，元宝500万、百宝匣5000万、一统路程5亿、阅历5000亿、三档代金券各500张，再加自选时装1。</p><p>这张表只看历史总实付，不重复消耗，早一天点满早一天白拿，晚一天就是纯亏一天。</p><h3 class="section-head">七、冠名（把这服变成你家开的，唯一一次性的东西）</h3><div class="money-head">小区冠名<span class="amt">5000元</span></div><p>累计充值满<span class="amt">5000元</span>拿小区冠名资格，另给元宝8888888＋一统路程8888888＋百宝匣888888＋羁绊信物8888＋灵豆88888888＋兽元88888888＋<span class="amt">128元</span>代金券38＋<span class="amt">328元</span>代金券38＋<span class="amt">648元</span>代金券38</p><div class="money-head">大区冠名<span class="amt">20000元</span></div><p>累计充值满<span class="amt">20000元</span>拿大区冠名资格，奖励整档拉到元宝58888888＋一统路程58888888＋百宝匣5888888＋羁绊信物58888＋灵豆588888888＋兽元588888888＋<span class="amt">128元</span>代金券128＋<span class="amt">328元</span>代金券128＋<span class="amt">648元</span>代金券128</p><p>累计充值金额以游戏内实际充值记录为准，数据实时更新。名字挂在整条街的牌坊上，全服的人都得从你家招牌底下过，这是这服最硬的面子，也是花钱买不到第二次的位置。</p><h3 class="section-head">八、分人群怎么充（照自己预算抄作业，别越档）</h3><p>零氪：兑换码、每日福利、上线奖励三样领全，一天两分钟，够你把前期商路和门客铺起来，卡关就等资源产出，别急着掏钱。</p><p>微氪：只买每日限购<span class="amt">18元</span>档和<span class="amt">98元</span>档。<span class="amt">98元</span>档那<span class="amt">1280元</span>代金券面额是这一档的核心，<span class="amt">18元</span>档顺手补上，一天<span class="amt">116元</span>，剩下的钱留着爬每日充值礼包。</p><p>小氪：六十八、九十八、一百八十八三档买满，同时把每日充值礼包推到VIP经验1000000，阅历和门客材料一起起来。</p><p>中氪：八档限购全买满，一天实付<span class="amt">2274元</span>代金券面额<span class="amt">26720元</span>，另外盯住累计实充的<span class="amt">5000元</span>档，自选时装从这一档开始给。</p><p>大氪：直接冲累计实充<span class="amt">20000元</span>档，小区冠名<span class="amt">5000元</span>和大区冠名<span class="amt">20000元</span>两道门槛一起踩过去，元宝、百宝匣、一统路程、灵豆、兽元五样同步拉满，日常礼包按缺口补。</p><h3 class="section-head">九、现在就做</h3><p>第一步：用本页顶部注册按钮进游戏，邀请码已经带在链接里，不用手填。</p><p>第二步：下载按钮进分发页，安卓点安卓、苹果点iOS企业签，备用下载是安卓直包。</p><p>第三步：进服先兑，再把每日福利和上线奖励领空，这三样是白送的，不领就是给别人领。</p><p>第四步：点元宝后面的加号进充值页，从每日限购<span class="amt">98元</span>档开始，一天一档凑累计，别一次梭哈。</p><p>第五步：把本页福利图从头滑到尾，逐张对一遍档位，缺哪档补哪档。</p><p>所有福利、价格与奖励以游戏内实际为准，最终解释权归游戏方所有。</p><div style="margin-top:14px;padding:12px 14px;border-radius:10px;background:#fffbeb;border:1px solid #fde68a;color:#92400e;font-size:14px;line-height:1.7">📢 温馨提示：如遇任何链接打不开、按钮点击没反应或页面报错，请联系群管理员反馈，管理员会第一时间安排技术修复！<a class="qq-inline qqg" href="https://qm.qq.com/q/Rns2qI2HWq" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">点击进群反馈 ➜</a></div>
-    </div>
-  </section>
-
-  <div class="divider">—·— 活 动 福 利 图 —·—</div>
-  <section>
-    <h2>充值活动福利图</h2>
-    
-    
-    <div class="welfare">
-      <img src="/assets/published/ea5e817a7679326becb1.jpg?v=3380a75ff3585c2b" alt="充值活动福利图" width="884" height="1280" loading="lazy" decoding="async" fetchpriority="low">
-      <img src="/assets/published/e602a26eb91895271244.jpg?v=3380a75ff3585c2b" alt="充值活动福利图" width="1163" height="1123" loading="lazy" decoding="async" fetchpriority="low">
-      <img src="/assets/published/750d31c00e476a7a542d.jpg?v=3380a75ff3585c2b" alt="充值活动福利图" width="1400" height="9010" loading="lazy" decoding="async" fetchpriority="low">
-      <img src="/assets/published/4854361cbee9598c7dfe.jpg?v=3380a75ff3585c2b" alt="充值活动福利图" width="1400" height="1888" loading="lazy" decoding="async" fetchpriority="low">
-      <img src="/assets/published/1521232eb41a03dcf72e.jpg?v=3380a75ff3585c2b" alt="充值活动福利图" width="1320" height="16385" loading="lazy" decoding="async" fetchpriority="low">
-      <img src="/assets/published/1206a15e5dda33ec3d2e.jpg?v=3380a75ff3585c2b" alt="充值活动福利图" width="1400" height="2100" loading="lazy" decoding="async" fetchpriority="low">
-      <img src="/assets/published/9059fca71e873ef4b2cb.jpg?v=3380a75ff3585c2b" alt="充值活动福利图" width="1400" height="8235" loading="lazy" decoding="async" fetchpriority="low">
-    </div>
-  </section>
-
-
-
-  <div class="divider">—·— 充 值 说 明 —·—</div>
-  <section>
-    <h2>充值说明（本服在游戏内直接充值）</h2>
-    <div class="tip">💳 本服<strong>没有外部充值链接</strong>，充值在游戏内直接进行：进游戏 → 打开「充值 / 商城」→ 选好档位按提示支付即可。首充、月卡、基金、冠名活动都在游戏内活动页。<br><br>❗ 再次提醒：任何 QQ 群里的「折扣充值」「便宜充值」都是骗子，一律不要信！</div>
-  </section>
-
-  <div class="divider">—·— 注 意 —·—</div>
-  <section>
-    <h2>防骗提醒</h2>
-    <div class="alarm">❗<strong>任何 QQ 群里的「折扣充值」「便宜充值」都是骗子，一律不要信！</strong>本服充值请在游戏内或官方渠道进行。<br>官方售后群只处理售后，群内不产生任何充值；私聊你收费的都是骗子。</div>
-  </section>
-
-
-  <section><a class="qq-final qqg" href="https://qm.qq.com/q/Rns2qI2HWq" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer"><b>🎮 别走丢 · 进官方售后群</b><span class="sub">新游上架通知 · 链接失效秒找回 · 客服在线答疑</span><span class="go">一键进群 ➜</span></a></section>
-
-  <section>
-    <h2>玩腻了？主站还有上百款</h2>
-    <p>本站收录 <strong>上百款精品手游</strong>，全部免费领码、直接下载，随时回来换着玩。</p>
-    <a class="btn blue" href="/">🏠 返回主站，看看还有什么好玩的</a>
-  </section>
-
-  <p class="footer">
-     海外大东家 · 回到古代做点生意 · 开店当东家 日进斗金 · 上线直升V18<br>
-    <br>
-    建议收藏主站，游戏随便换着玩
-  </p>
-</div>
-
-<div class="bar">
-  <a class="b1" href="http://ab.xrzz-aoz.com/reg/feiyu66" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">注册账号</a>
-  <a class="b2" href="https://xgame7.ru/ddj.htm" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">下载游戏</a>
-  <a class="b4" href="/">返回主站</a>
-</div>
-<div class="qqfloat-wrap"><a class="qqfloat qqg" href="https://qm.qq.com/q/Rns2qI2HWq" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer"><span class="ic">💬</span><span class="tx">售后群</span></a></div>
-<div class="toast" id="toast">已复制</div>
+<script>var GAMES=[{"id":"x98","name":"我是大东家","sell":"上线直送V18·兑换码白嫖1590万元宝·98元档送1280元代金券","tagline":"回到古代做点生意 · 开店当东家 日进斗金 · 上线直升V18","family":"","genres":["全部游戏"],"glow":"#75e6ea","icon":"/assets/published/a6f20c9f11b8203f2245.jpg?v=6d1d38559580ff89","clicks":721,"badge":"","theme":{"color":"#75e6ea","background":"#0c1313","panelTint":"#1c3031","buttonGradient":"linear-gradient(120deg,#75e6ea,#b8e8e9)","vars":{"--bg":"#0c1313","--pnl":"#162222","--pnl2":"#1c3031","--ink":"#f3ede7","--dim":"#cec5bf","--dim2":"#ada29b","--cy":"#75e6ea","--g":"#75e6ea","--glow":"#75e6ea","--blu":"#b8e8e9","--gd":"#9cc6ec","--rs":"#ef9ba4","--line":"rgba(117,230,234,0.17)","--line2":"rgba(117,230,234,0.33)","--accent-soft":"rgba(117,230,234,0.11)","--accent-mid":"rgba(117,230,234,0.21)","--accent-line":"rgba(117,230,234,0.35)","--button-ink":"#122a2b","--button-gradient":"linear-gradient(120deg,#75e6ea,#b8e8e9)","--panel-gradient":"linear-gradient(145deg,#1c3031,#162222)","--hero-wash":"rgba(117,230,234,0.18)","--page-header":"rgba(12,19,19,.94)","--amount-wash":"rgba(117,230,234,0.13)"},"style":"--bg:#0c1313;--pnl:#162222;--pnl2:#1c3031;--ink:#f3ede7;--dim:#cec5bf;--dim2:#ada29b;--cy:#75e6ea;--g:#75e6ea;--glow:#75e6ea;--blu:#b8e8e9;--gd:#9cc6ec;--rs:#ef9ba4;--line:rgba(117,230,234,0.17);--line2:rgba(117,230,234,0.33);--accent-soft:rgba(117,230,234,0.11);--accent-mid:rgba(117,230,234,0.21);--accent-line:rgba(117,230,234,0.35);--button-ink:#122a2b;--button-gradient:linear-gradient(120deg,#75e6ea,#b8e8e9);--panel-gradient:linear-gradient(145deg,#1c3031,#162222);--hero-wash:rgba(117,230,234,0.18);--page-header:rgba(12,19,19,.94);--amount-wash:rgba(117,230,234,0.13);"},"py":"wsddj","invite":"feiyu66","links":{"register":"http://ab.xrzz-aoz.com/reg/feiyu66","download":"https://xgame7.ru/ddj.htm","downloadBackup":"https://media.meilinvps.com/f.php?id=3z9JulG527fk.apk","recharge":"","vpn":""},"extras":[],"codes":[{"code":"haiwai666","desc":"元宝1590万·VIP经验275万·银两196亿·阅历61亿·资质卷轴1698·大钱袋482·30元代金券167·128/328/648元各27"}],"welfare":[{"src":"/assets/published/ea5e817a7679326becb1.jpg?v=6d1d38559580ff89","caption":""},{"src":"/assets/published/e602a26eb91895271244.jpg?v=6d1d38559580ff89","caption":""},{"src":"/assets/published/750d31c00e476a7a542d.jpg?v=6d1d38559580ff89","caption":""},{"src":"/assets/published/4854361cbee9598c7dfe.jpg?v=6d1d38559580ff89","caption":""},{"src":"/assets/published/1521232eb41a03dcf72e.jpg?v=6d1d38559580ff89","caption":""},{"src":"/assets/published/1206a15e5dda33ec3d2e.jpg?v=6d1d38559580ff89","caption":""},{"src":"/assets/published/9059fca71e873ef4b2cb.jpg?v=6d1d38559580ff89","caption":""}],"copyItems":[{"value":"feiyu66","label":"本服邀请码","source":"后台"},{"value":"haiwai666","label":"兑换码","source":"码表"}],"plan":{"title":"门客先成型，再补经营资源","body":"兑换码与每日福利先领，确定当前主力门客和经营目标。想加快成长，回游戏比较每日限购礼包的门客、材料与代金券，优先挑能补当前短板的一项。","nextTitle":"三张奖励表按实付分别核对","nextBody":"准备继续投入时，看限购、每日充值与累计实充各按什么计算，再选择对应礼包。代金券面额是游戏额度，先看实际能买什么，不把面额当成现金回报。","insertAt":19},"readingGuide":[{"text":"新手起号全攻略！（起号 + 充值 + 冠名）","_index":0},{"text":"30秒速读：进服先把兑换码、每日福利、上线奖励三样一次领空，白嫖1590万元宝加275万VIP经验；要充就照「每日限购礼包→每日充值礼包→累计实充」这个顺序打，同一笔钱同时喂进三张奖励表，八档限购全买满一天实付2274元、拿到的代金券面额合计26720元，累计实充摸到5000元还多送自选时装和小区冠名资格。","_index":1},{"text":"防骗提醒：注册下载只走本攻略所在页面顶部的按钮和游戏内官方入口，任何群里或私聊发链接、喊折扣代充、送码还让你加好友转账的，全是骗子。","_index":2},{"text":"一、先进服（安卓苹果双端，入口都在本页顶部）","_index":3},{"text":"注册、下载、备用下载三个按钮都在本页顶部，点哪个跳哪个，不用复制链接。下载按钮进的是分发页，页面里安卓和苹果（iOS企业签）两条通道各点各的；备用下载是安卓直包，主通道卡了再用它。","_index":4},{"text":"充值没有外部网页：进游戏之后点元宝后面那个加号，就是充值页，所有档位都在游戏内直接下。","_index":5},{"text":"这服叫海外大东家，主打回到古代做点生意，开店当东家、日进斗金，玩的是宅门商战加门客养成，不是无脑砍数的打架服，钱要花在铺商路、养门客、攒名望上才看得见回报。","_index":6},{"text":"二、先领空（一分钱不花把家底囤满）","_index":7},{"text":"充值比例1元5万通宝","_index":8},{"text":"1元＝5万通宝＋2.5万VIP经验。通宝就是游戏里的元宝口径，VIP经验直接决定你几级VIP，所以这服充的每一块钱都是资源和等级两条腿同时给。","_index":9},{"text":"元宝1590万＋VIP经验275万＋银两196亿＋阅历61亿＋资质卷轴1698＋大钱袋482＋蓬莱仙鹿10＋青焰雷神10＋赤金炎龙10＋浴火万凰10＋时雨神龙10＋挑战书66＋玉扳指66＋粗布帽66＋粗布衣66＋加速令66＋30元代金券167＋128元代金券27＋328元代金券27＋648元代金券27＋体力丹1＋精力丹1＋活力丹1","_index":11},{"text":"不兑等于白扔：这一整串是公测礼包，进服两分钟就能全拿。跳过它，你后面每一笔充值都要多花好几倍才追得上这个起点。","_index":12},{"text":"每日福利188888元宝","_index":13},{"text":"元宝188888＋一统路程1888＋百宝匣188＋鱼翅5＋鹿茸5＋30元代金券1＋68元代金券1＋128元代金券1＋328元代金券1＋648元代金券1","_index":14},{"text":"每天上线第一件事就是领它。别小看这四张代金券，攒着叠到限购礼包那一档一起用，才是这服正确的省钱姿势。","_index":15},{"text":"上线奖励10万元宝","_index":16},{"text":"开局直接给到V18，元宝10万＋阅历1亿＋银两1亿＋30元代金券1＋128元代金券1＋328元代金券1＋648元代金券1＋大钱袋88＋美人令88＋西行令88＋群英令88＋名望20万，另外六张门客卡一并到手。","_index":17},{"text":"完整清单在本页福利图最后一张上，逐项对得上，照着勾一遍，缺一个就是自己的损失。","_index":18},{"text":"三、为什么值得充（不是让你多花钱，是让你别充亏）","_index":19},{"text":"这服划不划算，全看有没有把一笔钱同时喂进三张表。","_index":20},{"text":"每日限购礼包：每个礼包每天限购1次，买就送对应档位的代金券，代金券还能继续在游戏内当钱花。","_index":21},{"text":"每日充值礼包：按你当天攒到的VIP经验发奖，1元给2.5万VIP经验，档位是自然往上爬的。","_index":22},{"text":"累计实充：只看历史总实付，每档限领一次，是一次性投资，永久有效，不会重复消耗。","_index":23},{"text":"同样一笔钱，闷头一次充进去，和拆成「限购礼包买满＋跟着每日充值礼包爬档＋顺手把累计实充一档档点满」，最后到手的东西差着一大截。会玩的人不是充得多，是把每一笔都卡在能同时触发最多奖励的那一档上。","_index":24},{"text":"四、必买清单（按不买就亏排序，代金券面额都是按图上档位实算）","_index":25},{"text":"每日限购888元档","_index":26},{"text":"百宝匣88.8万＋一统路程888万＋鱼翅30＋鹿茸30＋龙涎香888＋流云锦25＋浮光锦25＋朝暮锦25＋648元代金券20","_index":27},{"text":"不买代价：648元代金券20张，光代金券面额合计就是12960元，约是实付的14.6倍，八档限购里回本倍数最高的一档。预算够却跳过它，等于把最厚的一层奖励让给同服别人。","_index":28},{"text":"每日限购98元档","_index":29},{"text":"百宝匣9.8万＋一统路程98万＋烧鸡20＋卤猪20＋龙涎香98＋流云锦4＋浮光锦4＋朝暮锦4＋128元代金券10","_index":30},{"text":"不买代价：128元代金券10张面额合计1280元，实付98元，约13倍，是中小预算里最尖的一档。98块换一千二百多的券，这钱不花才是真亏。","_index":31},{"text":"每日限购588元档","_index":32},{"text":"百宝匣58.8万＋一统路程588万＋鱼翅20＋鹿茸20＋龙涎香588＋流云锦15＋浮光锦15＋朝暮锦15＋648元代金券10","_index":33},{"text":"不买代价：648元代金券10张面额6480元，实付588元，约11倍，大额档里唯一同时给满鱼翅鹿茸和三类锦的。","_index":34},{"text":"每日限购68元档","_index":35},{"text":"百宝匣6.8万＋一统路程68万＋烧鸡15＋卤猪15＋龙涎香68＋流云锦3＋浮光锦3＋朝暮锦3＋68元代金券10","_index":36},{"text":"不买代价：68元代金券10张面额680元，正好10倍。刚想花钱试水的人，这一档是最优解，跳过它你就只能用原价买资源。","_index":37},{"text":"每日限购188元档","_index":38},{"text":"百宝匣18.8万＋一统路程188万＋鱼翅5＋鹿茸5＋龙涎香188＋流云锦6＋浮光锦6＋朝暮锦6＋168元代金券10","_index":39},{"text":"不买代价：168元代金券10张面额1680元，约8.9倍，而且从这一档开始才给鱼翅鹿茸，食材线断不得。","_index":40},{"text":"每日限购388元档","_index":41},{"text":"百宝匣38.8万＋一统路程388万＋鱼翅10＋鹿茸10＋龙涎香388＋流云锦10＋浮光锦10＋朝暮锦10＋328元代金券10","_index":42},{"text":"不买代价：328元代金券10张面额3280元，约8.5倍，锦类直接给到10个，门客养成靠这三类锦续命。","_index":43},{"text":"每日限购38元档","_index":44},{"text":"百宝匣3.8万＋一统路程38万＋烧鸡10＋卤猪10＋龙涎香38＋流云锦2＋浮光锦2＋朝暮锦2＋30元代金券10","_index":45},{"text":"不买代价：30元代金券10张面额300元，接近8倍。38块买不了什么，但能买到别人没拿的开局。","_index":46},{"text":"每日限购18元档","_index":47},{"text":"百宝匣1.8万＋一统路程18万＋烧鸡5＋卤猪5＋龙涎香18＋流云锦1＋浮光锦1＋朝暮锦1＋6元代金券10","_index":48},{"text":"不买代价：6元代金券10张面额60元，3倍出头，是这服最低门槛的一笔。18块都舍不得，后面所有累充档位和冠名都跟你没关系。","_index":49},{"text":"八档全买满一天实付2274元，到手代金券面额合计26720元","_index":50},{"text":"这是每天都能重来一次的固定收益，不是只有一次的大额活动。哪天忘了买满，哪天就少一层。","_index":51},{"text":"日常礼包50元档","_index":52},{"text":"玉扳指10＋粗布帽10＋粗布衣10＋阅历50亿＋天命石50＋龙纹玉牌50＋羁绊信物50＋百宝匣5万＋一统路程50万＋高级家族礼盒50＋灵豆500万＋兽元500万","_index":53},{"text":"日常礼包不限购买次数，往上还有100元、300元、500元、800元、1500元、3000元、5000元七档，档位越高阅历、天命石、龙纹玉牌、羁绊信物、百宝匣、一统路程、高级家族礼盒、灵豆、兽元同步放大，5000元档给到阅历5000亿、灵豆5亿、兽元5亿。缺哪类补哪类，比闷头抽卡划算得多。","_index":54},{"text":"五、每日充值礼包（跟着VIP经验爬档，够档不领就是纯亏）","_index":55},{"text":"每日充值VIP经验50000","_index":56},{"text":"元宝5万＋玉扳指50＋粗布衣50＋粗布帽50＋资质卷轴50＋百宝袋50＋精力丹50＋体力丹50＋活力丹50＋加速令50＋挑战书50＋阅历1亿＋群英令10＋三国虎符50＋桃园灵契50","_index":57},{"text":"每日充值VIP经验1000000","_index":58},{"text":"元宝30万＋玉扳指300＋粗布衣300＋粗布帽300＋资质卷轴300＋百宝袋300＋精力丹300＋体力丹300＋活力丹300＋加速令300＋挑战书300＋阅历6亿＋美人令20＋天香扇100＋驭灵石100＋后院经验2万＋灵豆20万＋兽元20万","_index":59},{"text":"这张表从VIP经验50000一路排到10000000，共16档，按当天累计的VIP经验发奖。1元给2.5万VIP经验，所以每天哪怕只充一小笔，也要先看清自己踩在哪一档上，差一点的补一笔跨过去，档位奖励整份多一截。VIP经验2000000那档开始给羁绊信物、龙纹玉牌、百宝匣、一统路程和三类锦，3000000档再往上还会给到东方教主、金虎呈祥这类门客和高级家族礼盒。","_index":60},{"text":"六、累计实充（一次性投资，每档只领一次，最容易被忽略）","_index":61},{"text":"累计实充500元档","_index":62},{"text":"元宝5万＋百宝匣50万＋一统路程500万＋羁绊信物500＋阅历50亿＋128元代金券5＋328元代金券5＋648元代金券5＋朝暮锦10","_index":63},{"text":"累计实充5000元档","_index":64},{"text":"元宝50万＋百宝匣500万＋一统路程5000万＋羁绊信物5000＋阅历500亿＋128元代金券50＋328元代金券50＋648元代金券50＋自选时装1","_index":65},{"text":"累计实充从500元起步，500到5000每500元一档，再往上是10000到50000每5000元一档，共19档，每档奖励限领一次。5000元往上每一档都多送一套自选时装，摸到50000元那档，元宝500万、百宝匣5000万、一统路程5亿、阅历5000亿、三档代金券各500张，再加自选时装1。","_index":66},{"text":"这张表只看历史总实付，不重复消耗，早一天点满早一天白拿，晚一天就是纯亏一天。","_index":67},{"text":"七、冠名（把这服变成你家开的，唯一一次性的东西）","_index":68},{"text":"小区冠名5000元","_index":69},{"text":"累计充值满5000元拿小区冠名资格，另给元宝8888888＋一统路程8888888＋百宝匣888888＋羁绊信物8888＋灵豆88888888＋兽元88888888＋128元代金券38＋328元代金券38＋648元代金券38","_index":70},{"text":"大区冠名20000元","_index":71},{"text":"累计充值满20000元拿大区冠名资格，奖励整档拉到元宝58888888＋一统路程58888888＋百宝匣5888888＋羁绊信物58888＋灵豆588888888＋兽元588888888＋128元代金券128＋328元代金券128＋648元代金券128","_index":72},{"text":"累计充值金额以游戏内实际充值记录为准，数据实时更新。名字挂在整条街的牌坊上，全服的人都得从你家招牌底下过，这是这服最硬的面子，也是花钱买不到第二次的位置。","_index":73},{"text":"八、分人群怎么充（照自己预算抄作业，别越档）","_index":74},{"text":"零氪：上方礼包码、每日福利、上线奖励三样领全，一天两分钟，够你把前期商路和门客铺起来，卡关就等资源产出，别急着掏钱。","_index":75},{"text":"微氪：只买每日限购18元档和98元档。98元档那1280元代金券面额是这一档的核心，18元档顺手补上，一天116元，剩下的钱留着爬每日充值礼包。","_index":76},{"text":"小氪：六十八、九十八、一百八十八三档买满，同时把每日充值礼包推到VIP经验1000000，阅历和门客材料一起起来。","_index":77},{"text":"中氪：八档限购全买满，一天实付2274元代金券面额26720元，另外盯住累计实充的5000元档，自选时装从这一档开始给。","_index":78},{"text":"大氪：直接冲累计实充20000元档，小区冠名5000元和大区冠名20000元两道门槛一起踩过去，元宝、百宝匣、一统路程、灵豆、兽元五样同步拉满，日常礼包按缺口补。","_index":79},{"text":"九、现在就做","_index":80},{"text":"第一步：用本页顶部注册按钮进游戏，邀请码已经带在链接里，不用手填。","_index":81},{"text":"第二步：下载按钮进分发页，安卓点安卓、苹果点iOS企业签，备用下载是安卓直包。","_index":82},{"text":"第三步：进服先兑 上方礼包码，再把每日福利和上线奖励领空，这三样是白送的，不领就是给别人领。","_index":83},{"text":"第四步：点元宝后面的加号进充值页，从每日限购98元档开始，一天一档凑累计，别一次梭哈。","_index":84},{"text":"第五步：把本页福利图从头滑到尾，逐张对一遍档位，缺哪档补哪档。","_index":85},{"text":"所有福利、价格与奖励以游戏内实际为准，最终解释权归游戏方所有。","_index":86}],"firstSpend":{"title":"门客先成型，再补经营资源","label":"先确定这次养成目标","reward":"主力缺口 → 匹配资源 → 当前游戏里选择","body":"兑换码与每日福利先领，确定当前主力门客和经营目标。想加快成长，回游戏比较每日限购礼包的门客、材料与代金券，优先挑能补当前短板的一项。","anchor":"guide-row-19","documentedOffer":false},"guide":[{"text":"新手起号全攻略！（起号 + 充值 + 冠名）"},{"text":"30秒速读：进服先把兑换码、每日福利、上线奖励三样一次领空，白嫖1590万元宝加275万VIP经验；要充就照「每日限购礼包→每日充值礼包→累计实充」这个顺序打，同一笔钱同时喂进三张奖励表，八档限购全买满一天实付2274元、拿到的代金券面额合计26720元，累计实充摸到5000元还多送自选时装和小区冠名资格。"},{"text":"防骗提醒：注册下载只走本攻略所在页面顶部的按钮和游戏内官方入口，任何群里或私聊发链接、喊折扣代充、送码还让你加好友转账的，全是骗子。"},{"text":"一、先进服（安卓苹果双端，入口都在本页顶部）"},{"text":"注册、下载、备用下载三个按钮都在本页顶部，点哪个跳哪个，不用复制链接。下载按钮进的是分发页，页面里安卓和苹果（iOS企业签）两条通道各点各的；备用下载是安卓直包，主通道卡了再用它。"},{"text":"充值没有外部网页：进游戏之后点元宝后面那个加号，就是充值页，所有档位都在游戏内直接下。"},{"text":"这服叫海外大东家，主打回到古代做点生意，开店当东家、日进斗金，玩的是宅门商战加门客养成，不是无脑砍数的打架服，钱要花在铺商路、养门客、攒名望上才看得见回报。"},{"text":"二、先领空（一分钱不花把家底囤满）"},{"text":"充值比例1元5万通宝"},{"text":"1元＝5万通宝＋2.5万VIP经验。通宝就是游戏里的元宝口径，VIP经验直接决定你几级VIP，所以这服充的每一块钱都是资源和等级两条腿同时给。"},{"text":"兑换码haiwai666"},{"text":"元宝1590万＋VIP经验275万＋银两196亿＋阅历61亿＋资质卷轴1698＋大钱袋482＋蓬莱仙鹿10＋青焰雷神10＋赤金炎龙10＋浴火万凰10＋时雨神龙10＋挑战书66＋玉扳指66＋粗布帽66＋粗布衣66＋加速令66＋30元代金券167＋128元代金券27＋328元代金券27＋648元代金券27＋体力丹1＋精力丹1＋活力丹1"},{"text":"不兑等于白扔：这一整串是公测礼包，进服两分钟就能全拿。跳过它，你后面每一笔充值都要多花好几倍才追得上这个起点。"},{"text":"每日福利188888元宝"},{"text":"元宝188888＋一统路程1888＋百宝匣188＋鱼翅5＋鹿茸5＋30元代金券1＋68元代金券1＋128元代金券1＋328元代金券1＋648元代金券1"},{"text":"每天上线第一件事就是领它。别小看这四张代金券，攒着叠到限购礼包那一档一起用，才是这服正确的省钱姿势。"},{"text":"上线奖励10万元宝"},{"text":"开局直接给到V18，元宝10万＋阅历1亿＋银两1亿＋30元代金券1＋128元代金券1＋328元代金券1＋648元代金券1＋大钱袋88＋美人令88＋西行令88＋群英令88＋名望20万，另外六张门客卡一并到手。"},{"text":"完整清单在本页福利图最后一张上，逐项对得上，照着勾一遍，缺一个就是自己的损失。"},{"text":"三、为什么值得充（不是让你多花钱，是让你别充亏）"},{"text":"这服划不划算，全看有没有把一笔钱同时喂进三张表。"},{"text":"每日限购礼包：每个礼包每天限购1次，买就送对应档位的代金券，代金券还能继续在游戏内当钱花。"},{"text":"每日充值礼包：按你当天攒到的VIP经验发奖，1元给2.5万VIP经验，档位是自然往上爬的。"},{"text":"累计实充：只看历史总实付，每档限领一次，是一次性投资，永久有效，不会重复消耗。"},{"text":"同样一笔钱，闷头一次充进去，和拆成「限购礼包买满＋跟着每日充值礼包爬档＋顺手把累计实充一档档点满」，最后到手的东西差着一大截。会玩的人不是充得多，是把每一笔都卡在能同时触发最多奖励的那一档上。"},{"text":"四、必买清单（按不买就亏排序，代金券面额都是按图上档位实算）"},{"text":"每日限购888元档"},{"text":"百宝匣88.8万＋一统路程888万＋鱼翅30＋鹿茸30＋龙涎香888＋流云锦25＋浮光锦25＋朝暮锦25＋648元代金券20"},{"text":"不买代价：648元代金券20张，光代金券面额合计就是12960元，约是实付的14.6倍，八档限购里回本倍数最高的一档。预算够却跳过它，等于把最厚的一层奖励让给同服别人。"},{"text":"每日限购98元档"},{"text":"百宝匣9.8万＋一统路程98万＋烧鸡20＋卤猪20＋龙涎香98＋流云锦4＋浮光锦4＋朝暮锦4＋128元代金券10"},{"text":"不买代价：128元代金券10张面额合计1280元，实付98元，约13倍，是中小预算里最尖的一档。98块换一千二百多的券，这钱不花才是真亏。"},{"text":"每日限购588元档"},{"text":"百宝匣58.8万＋一统路程588万＋鱼翅20＋鹿茸20＋龙涎香588＋流云锦15＋浮光锦15＋朝暮锦15＋648元代金券10"},{"text":"不买代价：648元代金券10张面额6480元，实付588元，约11倍，大额档里唯一同时给满鱼翅鹿茸和三类锦的。"},{"text":"每日限购68元档"},{"text":"百宝匣6.8万＋一统路程68万＋烧鸡15＋卤猪15＋龙涎香68＋流云锦3＋浮光锦3＋朝暮锦3＋68元代金券10"},{"text":"不买代价：68元代金券10张面额680元，正好10倍。刚想花钱试水的人，这一档是最优解，跳过它你就只能用原价买资源。"},{"text":"每日限购188元档"},{"text":"百宝匣18.8万＋一统路程188万＋鱼翅5＋鹿茸5＋龙涎香188＋流云锦6＋浮光锦6＋朝暮锦6＋168元代金券10"},{"text":"不买代价：168元代金券10张面额1680元，约8.9倍，而且从这一档开始才给鱼翅鹿茸，食材线断不得。"},{"text":"每日限购388元档"},{"text":"百宝匣38.8万＋一统路程388万＋鱼翅10＋鹿茸10＋龙涎香388＋流云锦10＋浮光锦10＋朝暮锦10＋328元代金券10"},{"text":"不买代价：328元代金券10张面额3280元，约8.5倍，锦类直接给到10个，门客养成靠这三类锦续命。"},{"text":"每日限购38元档"},{"text":"百宝匣3.8万＋一统路程38万＋烧鸡10＋卤猪10＋龙涎香38＋流云锦2＋浮光锦2＋朝暮锦2＋30元代金券10"},{"text":"不买代价：30元代金券10张面额300元，接近8倍。38块买不了什么，但能买到别人没拿的开局。"},{"text":"每日限购18元档"},{"text":"百宝匣1.8万＋一统路程18万＋烧鸡5＋卤猪5＋龙涎香18＋流云锦1＋浮光锦1＋朝暮锦1＋6元代金券10"},{"text":"不买代价：6元代金券10张面额60元，3倍出头，是这服最低门槛的一笔。18块都舍不得，后面所有累充档位和冠名都跟你没关系。"},{"text":"八档全买满一天实付2274元，到手代金券面额合计26720元"},{"text":"这是每天都能重来一次的固定收益，不是只有一次的大额活动。哪天忘了买满，哪天就少一层。"},{"text":"日常礼包50元档"},{"text":"玉扳指10＋粗布帽10＋粗布衣10＋阅历50亿＋天命石50＋龙纹玉牌50＋羁绊信物50＋百宝匣5万＋一统路程50万＋高级家族礼盒50＋灵豆500万＋兽元500万"},{"text":"日常礼包不限购买次数，往上还有100元、300元、500元、800元、1500元、3000元、5000元七档，档位越高阅历、天命石、龙纹玉牌、羁绊信物、百宝匣、一统路程、高级家族礼盒、灵豆、兽元同步放大，5000元档给到阅历5000亿、灵豆5亿、兽元5亿。缺哪类补哪类，比闷头抽卡划算得多。"},{"text":"五、每日充值礼包（跟着VIP经验爬档，够档不领就是纯亏）"},{"text":"每日充值VIP经验50000"},{"text":"元宝5万＋玉扳指50＋粗布衣50＋粗布帽50＋资质卷轴50＋百宝袋50＋精力丹50＋体力丹50＋活力丹50＋加速令50＋挑战书50＋阅历1亿＋群英令10＋三国虎符50＋桃园灵契50"},{"text":"每日充值VIP经验1000000"},{"text":"元宝30万＋玉扳指300＋粗布衣300＋粗布帽300＋资质卷轴300＋百宝袋300＋精力丹300＋体力丹300＋活力丹300＋加速令300＋挑战书300＋阅历6亿＋美人令20＋天香扇100＋驭灵石100＋后院经验2万＋灵豆20万＋兽元20万"},{"text":"这张表从VIP经验50000一路排到10000000，共16档，按当天累计的VIP经验发奖。1元给2.5万VIP经验，所以每天哪怕只充一小笔，也要先看清自己踩在哪一档上，差一点的补一笔跨过去，档位奖励整份多一截。VIP经验2000000那档开始给羁绊信物、龙纹玉牌、百宝匣、一统路程和三类锦，3000000档再往上还会给到东方教主、金虎呈祥这类门客和高级家族礼盒。"},{"text":"六、累计实充（一次性投资，每档只领一次，最容易被忽略）"},{"text":"累计实充500元档"},{"text":"元宝5万＋百宝匣50万＋一统路程500万＋羁绊信物500＋阅历50亿＋128元代金券5＋328元代金券5＋648元代金券5＋朝暮锦10"},{"text":"累计实充5000元档"},{"text":"元宝50万＋百宝匣500万＋一统路程5000万＋羁绊信物5000＋阅历500亿＋128元代金券50＋328元代金券50＋648元代金券50＋自选时装1"},{"text":"累计实充从500元起步，500到5000每500元一档，再往上是10000到50000每5000元一档，共19档，每档奖励限领一次。5000元往上每一档都多送一套自选时装，摸到50000元那档，元宝500万、百宝匣5000万、一统路程5亿、阅历5000亿、三档代金券各500张，再加自选时装1。"},{"text":"这张表只看历史总实付，不重复消耗，早一天点满早一天白拿，晚一天就是纯亏一天。"},{"text":"七、冠名（把这服变成你家开的，唯一一次性的东西）"},{"text":"小区冠名5000元"},{"text":"累计充值满5000元拿小区冠名资格，另给元宝8888888＋一统路程8888888＋百宝匣888888＋羁绊信物8888＋灵豆88888888＋兽元88888888＋128元代金券38＋328元代金券38＋648元代金券38"},{"text":"大区冠名20000元"},{"text":"累计充值满20000元拿大区冠名资格，奖励整档拉到元宝58888888＋一统路程58888888＋百宝匣5888888＋羁绊信物58888＋灵豆588888888＋兽元588888888＋128元代金券128＋328元代金券128＋648元代金券128"},{"text":"累计充值金额以游戏内实际充值记录为准，数据实时更新。名字挂在整条街的牌坊上，全服的人都得从你家招牌底下过，这是这服最硬的面子，也是花钱买不到第二次的位置。"},{"text":"八、分人群怎么充（照自己预算抄作业，别越档）"},{"text":"零氪：兑换码haiwai666、每日福利、上线奖励三样领全，一天两分钟，够你把前期商路和门客铺起来，卡关就等资源产出，别急着掏钱。"},{"text":"微氪：只买每日限购18元档和98元档。98元档那1280元代金券面额是这一档的核心，18元档顺手补上，一天116元，剩下的钱留着爬每日充值礼包。"},{"text":"小氪：六十八、九十八、一百八十八三档买满，同时把每日充值礼包推到VIP经验1000000，阅历和门客材料一起起来。"},{"text":"中氪：八档限购全买满，一天实付2274元代金券面额26720元，另外盯住累计实充的5000元档，自选时装从这一档开始给。"},{"text":"大氪：直接冲累计实充20000元档，小区冠名5000元和大区冠名20000元两道门槛一起踩过去，元宝、百宝匣、一统路程、灵豆、兽元五样同步拉满，日常礼包按缺口补。"},{"text":"九、现在就做"},{"text":"第一步：用本页顶部注册按钮进游戏，邀请码已经带在链接里，不用手填。"},{"text":"第二步：下载按钮进分发页，安卓点安卓、苹果点iOS企业签，备用下载是安卓直包。"},{"text":"第三步：进服先兑 haiwai666，再把每日福利和上线奖励领空，这三样是白送的，不领就是给别人领。"},{"text":"第四步：点元宝后面的加号进充值页，从每日限购98元档开始，一天一档凑累计，别一次梭哈。"},{"text":"第五步：把本页福利图从头滑到尾，逐张对一遍档位，缺哪档补哪档。"},{"text":"所有福利、价格与奖励以游戏内实际为准，最终解释权归游戏方所有。"}],"tiers":[],"avoid":[],"points":["安卓苹果双端","不卡不掉","持续更新"],"slogan":"不卡不掉 · 持续更新","bottom":"我们只想给各位玩家一个长久的家","registerInternal":false,"noRegister":false,"rechargeInternal":true,"publicAt":"","url":"/x98/"}];var CHIPS=["全部","热门","全部游戏"];var META={"ver":"6d1d38559580ff89","n":1,"sumClicks":721};var CONFIG={"homeUrl":"/","initialId":"x98","qqGroup":{"url":"https://qm.qq.com/q/Rns2qI2HWq","sub":"链接失效 · 防失联 · 找客服"},"siteName":"飞鱼手游","preview":false,"version":"6d1d38559580ff89","liveVersionUrl":"/build-ver.json"};</script>
 <script>
 (function(){
-  var toastEl=document.getElementById('toast');
-  function toast(m){toastEl.textContent=m;toastEl.classList.add('show');clearTimeout(window.__t);
-    window.__t=setTimeout(function(){toastEl.classList.remove('show');},1500);}
-  function copy(text,btn){
-    var done=function(){if(btn){var o=btn.textContent;btn.textContent='已复制 ✓';btn.classList.add('ok');
-      setTimeout(function(){btn.textContent=o;btn.classList.remove('ok');},1500);}toast('已复制：'+text);};
-    if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(text).then(done,function(){fb(text,done);});}else{fb(text,done);}
+'use strict';
+var byId={};GAMES.forEach(function(g){byId[g.id]=g});
+function LSget(k,d){try{var v=JSON.parse(localStorage.getItem(k));return v==null?d:v}catch(e){return d}}
+function LSset(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
+var S=Object.assign({mode:'tiles',chip:'全部',q:''},LSget('fy2_ui',{}));
+function saveUI(){LSset('fy2_ui',{mode:S.mode,chip:S.chip})}
+var esc=function(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')};
+var PUB={};GAMES.forEach(function(g){if(g.publicAt)PUB[g.id]=g.publicAt});
+function badgeCls(b){return b==='HOT'?'badge hot':(b==='公测'?'badge pub':'badge')}
+function fmt(n){return (n||0).toLocaleString('en-US')}
+function matchQ(g,q){
+  if(!q)return true;
+  var hay=(g.name+' '+g.sell+' '+g.tagline+' '+g.family+' '+g.genres.join(' ')).toLowerCase();
+  if(hay.indexOf(q)>=0)return true;
+  var a=q.replace(/[^a-z]/g,'');
+  return a.length>=2&&g.py.indexOf(a)>=0;
+}
+function list(){
+  var q=S.q.trim().toLowerCase();
+  var r=GAMES.filter(function(g){
+    if(S.chip==='热门'){if(!(g.badge==='HOT'||g.badge==='热门'))return false}
+    else if(S.chip!=='全部'){if(g.genres.indexOf(S.chip)<0&&g.family!==S.chip)return false}
+    return matchQ(g,q);
+  });
+  r.sort(function(a,b){return (b.clicks||0)-(a.clicks||0)});
+  return r;
+}
+/* ---------- 首页 ---------- */
+function cardWall(g){
+  return '<article class="card" style="--g:'+g.glow+'"><a href="'+esc(g.url)+'">'+
+    (g.badge?'<span class="'+badgeCls(g.badge)+'">'+g.badge+'</span>':'')+
+    '<img src="'+esc(g.icon)+'" alt="" loading="lazy" decoding="async">'+
+    '<div class="nm'+(g.badge==='HOT'||g.badge==='公测'?' flow':'')+'">'+esc(g.name)+'</div></a><span class="glow"></span></article>';
+}
+function cardTile(g){
+  return '<article class="card" style="--g:'+g.glow+'"><a href="'+esc(g.url)+'">'+
+    (g.badge?'<span class="'+badgeCls(g.badge)+'">'+g.badge+'</span>':'')+
+    '<img src="'+esc(g.icon)+'" alt="" loading="lazy" decoding="async">'+
+    '<span><span class="nm'+(g.badge==='HOT'||g.badge==='公测'?' flow':'')+'">'+esc(g.name)+'</span>'+
+    '<span class="sell">'+esc(g.sell||g.tagline||'精品版本 · 丝滑畅玩')+'</span></span></a><span class="glow"></span></article>';
+}
+function cardRow(g){
+  return '<article class="card" style="--g:'+g.glow+'"><a href="'+esc(g.url)+'">'+
+    (g.badge?'<span class="'+badgeCls(g.badge)+'">'+g.badge+'</span>':'')+
+    '<img src="'+esc(g.icon)+'" alt="" loading="lazy" decoding="async">'+
+    '<span><span class="nm'+(g.badge==='HOT'||g.badge==='公测'?' flow':'')+'">'+esc(g.name)+'</span>'+
+    '<span class="sell">'+esc(g.sell||g.tagline||'')+'</span></span>'+
+    '<span class="enter">进入 ›</span></a><span class="glow"></span></article>';
+}
+function focusCard(){
+  var g=byId.mhxy;if(!g||!PUB[g.id]||Date.parse(PUB[g.id])<=Date.now())return '';
+  return '<section class="focus" style="--g:'+g.glow+'"><a href="'+esc(g.url)+'">'+
+    '<img src="'+esc(g.icon)+'" alt="">'+
+    '<span><span class="lab">NEXT UP · 即将公测</span><span class="nm flow" style="display:block">'+esc(g.name)+'</span>'+
+    '<span class="sell">'+esc(g.sell||g.tagline||'')+'</span></span>'+
+    '<span class="cd"><span class="t" id="cd">—</span><span class="u">10.11 12:00 开服</span></span></a></section>';
+}
+function renderHome(){
+  var L=list();
+  var chips=CHIPS.map(function(c){
+    var g=GAMES.filter(function(x){return c!=='全部'&&c!=='热门'&&(x.genres.indexOf(c)>=0||x.family===c)}).length;
+    var found=GAMES.find(function(x){return x.genres.indexOf(c)>=0||x.family===c});
+    var col=(c==='热门')?'#ff5d73':({'全部':'#2ee6d6'}[c])||(found&&found.glow)||'#2ee6d6';
+    return '<button class="chip'+(c===S.chip?' on':'')+'" data-c="'+esc(c)+'" style="--g:'+col+'"><span class="d"></span>'+esc(c)+(g&&c!=='全部'?'<i style="font-style:normal;opacity:.6;font-size:11px">'+g+'</i>':'')+'</button>';
+  }).join('');
+  var cards=L.map(S.mode==='wall'?cardWall:(S.mode==='rows'?cardRow:cardTile)).join('');
+  document.getElementById('top').innerHTML=
+   '<div class="top"><div class="wrap">'+
+    '<div class="topbar"><span class="brand"><span class="b1">'+esc(CONFIG.siteName)+'</span></span><span class="tag">收藏本站 防失联</span>'+
+     '<span class="sp"></span><span class="save">'+GAMES.length+' 款在架</span></div>'+
+    '<div class="tools"><div class="bar">'+
+      '<label class="sbox"><span style="color:#61748f">🔍</span><input id="q" type="search" placeholder="搜游戏名 / 品类，也支持拼音首字母（如 xyzw）" value="'+esc(S.q)+'" autocomplete="off" enterkeyhint="search"><span class="k">中文·首字母</span></label>'+
+      '<div class="seg"><button data-m="wall" class="'+(S.mode==='wall'?'on':'')+'" title="图标墙">▦</button>'+
+      '<button data-m="tiles" class="'+(S.mode==='tiles'?'on':'')+'" title="双列">▤</button>'+
+      '<button data-m="rows" class="'+(S.mode==='rows'?'on':'')+'" title="详细">☰</button></div></div>'+
+      '<div class="chips">'+chips+'</div>'+
+      '<div class="count"><span>共 <b>'+GAMES.length+'</b> 款 · 已显示 <b>'+L.length+'</b> 款'+(S.chip!=='全部'?' · 筛选：'+esc(S.chip):'')+'</span>'+
+      '<span>按热度排序</span></div></div></div></div>';
+  document.getElementById('app').innerHTML='<main class="wrap"><div class="grid '+S.mode+'">'+
+    (focusCard()?'':'')+ (S.chip==='全部'&&!S.q?focusCard():'') + cards+'</div>'+
+    '<div class="empty" id="e1">没找到匹配的游戏 —— 进玩家群问客服要入口最快</div></main>';
+  document.getElementById('e1').style.display=L.length?'none':'block';
+  var q=document.getElementById('q');
+  if(q)q.addEventListener('input',function(){S.q=this.value;var p=this.selectionStart;renderHome();var n=document.getElementById('q');if(n){n.focus();try{n.setSelectionRange(p,p)}catch(e){}}});
+  [].forEach.call(document.querySelectorAll('.seg button'),function(b){b.addEventListener('click',function(){S.mode=b.getAttribute('data-m');saveUI();renderHome()})});
+  [].forEach.call(document.querySelectorAll('.chip'),function(b){b.addEventListener('click',function(){S.chip=b.getAttribute('data-c');saveUI();renderHome()})});
+  tick();
+}
+/* ---------- 详情页 ---------- */
+function clsLine(t){
+  if(/^[一二三四五六七八九十]+\s*、/.test(t))return 'sec';
+  var s=t.replace(/^[\s\d、（）()·\-—]+/,'');
+  var kw=['元','充值','累充','限购','礼包','档位','档','CDK','兑换码','兑换','比例','周卡','月卡','终身卡','大月卡','新手','返利','首充'];
+  var hit=kw.some(function(k){return s.indexOf(k)>=0});
+  if([...s].length<=18&&/[0-9]/.test(s)&&hit&&!/＋/.test(t)&&!/[。！？]$/.test(t))return 'gold';
+  return 'p';
+}
+function paint(t){
+  return esc(t).replace(/([0-9][0-9,\.]*\s*(?:元|万元|万|亿|折|倍|次|个|把|片|枚|级|星|天|周|月|分钟))/g,'<span class="amt">$1</span>')
+              .replace(/([0-9]{4,})/g,'<span class="big">$1</span>')
+              .replace(/&lt;(\/?)(strong|em|b|i|br)\s*\/?&gt;/gi,'<$1$2>');
+}
+function groupCard(title){
+  var q=CONFIG.qqGroup;if(!q)return '';
+  return '<a class="qqcard" href="'+esc(q.url)+'" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer" data-entry="qqgroup"><span class="qq-label">'+esc(title||'官方售后群')+'</span><span class="qq-sub">'+esc(q.sub||'链接失效 · 防失联 · 找客服')+'</span><span class="qq-action">进群</span></a>';
+}
+function safeGuideText(t){
+  return String(t||'').replace(/账号：密码：区服：/g,'账号：区服：').replace(/老区区号 账号 密码 角色ID/g,'老区区号 账号 角色ID');
+}
+function rowText(row){return typeof row==='string'?row:[row.day,row.title,row.text].filter(Boolean).join(' ')}
+function headingFor(row){return row.title||(!row.day&&clsLine(row.text||'')==='sec'?row.text:'')}
+function containsValue(t,value){
+  var index=t.indexOf(value);
+  while(index>=0){var before=t[index-1]||'',after=t[index+value.length]||'';if(!/[A-Za-z0-9_-]/.test(before)&&!/[A-Za-z0-9_-]/.test(after))return true;index=t.indexOf(value,index+1)}return false;
+}
+function copyButton(value,label){return '<button type="button" class="copy-value" data-cp="'+esc(value)+'" aria-label="'+esc(label)+'">'+esc(label)+'</button>'}
+function textGuide(row,g,index){
+  if(typeof row==='string')row={text:row};row=row||{};
+  var extras=(g.copyItems||[]).filter(function(item){return !g.codes.some(function(code){return code.code.toUpperCase()===item.value.toUpperCase()})&&containsValue(rowText(row),item.value)}).map(function(item){return copyButton(item.value,/模板/.test(item.label)?'复制'+item.label:'复制 '+item.value)}).join('');
+  var tail=extras?'<div class="inline-copies">'+extras+'</div>':'';
+  if(row.day||row.title)return '<div class="gday" id="guide-row-'+index+'">'+(row.day?'<div class="day">'+paint(safeGuideText(row.day))+'</div>':'')+(row.title?'<h3 class="sec">'+paint(safeGuideText(row.title))+'</h3>':'')+(row.text?'<p>'+paint(safeGuideText(row.text))+'</p>':'')+tail+'</div>';
+  var t=safeGuideText(row.text||''),k=clsLine(t),id=' id="guide-row-'+index+'"';return (k==='sec'?'<h3 class="sec"'+id+'>'+paint(t)+'</h3>':(k==='gold'?'<div class="gold"'+id+'>'+paint(t)+'</div>':'<p'+id+'>'+paint(t)+'</p>'))+tail;
+}
+function growthPlan(g,next){
+  if(!g.plan)return '';
+  var p=g.plan;
+  return '<aside class="purchase-plan"'+(next?'':' id="growth-plan"')+' aria-label="本服养成投入建议"><div class="eyebrow">'+(next?'下一段成长':'本服养成路线')+'</div><h3>'+esc(next?p.nextTitle:p.title)+'</h3><p>'+esc(next?p.nextBody:p.body)+'</p><p class="plan-action">回到当前游戏 · 核对对应礼包，再把资源用于这条养成路线</p><p class="plan-note">价格、活动和奖励先看当前游戏说明；按自己的预算选择。</p></aside>';
+}
+function firstSpend(g){
+  var p=g.firstSpend;if(!p)return '';
+  var offer='<div class="spend-option"><span class="spend-label">'+esc(p.documentedOffer?'本服攻略推荐项目':'先看这一条养成路线')+'</span><b>'+esc(p.label.replace(/必冲|直接拿下/g,''))+'</b><span>'+esc(p.reward)+'</span></div>';
+  return '<aside class="first-spend" id="growth-plan" aria-label="本服首笔投入建议"><div class="spend-kicker">'+(p.documentedOffer?'想玩得更顺 · 先看这一笔':'先定目标 · 再选适合你的资源')+'</div><h2>'+esc(p.title)+'</h2>'+offer+'<p>'+esc(p.body)+'</p><div class="spend-actions">'+(p.anchor?'<a href="#'+esc(p.anchor)+'">'+(p.documentedOffer?'看礼包与领取说明':'看本服养成建议')+'</a>':'<a href="#guide">看本服养成建议</a>')+'</div><small>'+(p.documentedOffer?'项目与奖励取自本服攻略；先核对当前游戏显示与领取条件。':'本服未列明确首笔档位，先确认游戏里的实际内容。')+'</small></aside>';
+}
+function renderDetail(g){
+  var q=CONFIG.qqGroup;
+  document.documentElement.style.cssText=g.theme.style;document.body.classList.add('detail-page');
+  var future=PUB[g.id]&&Date.parse(PUB[g.id])>Date.now();
+  var meta=future?'<i class="pub">⏳ 待公测</i>':'<i class="live">● 运营中</i>';
+  meta+='<i>安卓 · 苹果双端</i><i>持续更新</i>';
+  if(g.rechargeInternal&&!g.links.recharge)meta+='<i>充值在游戏内</i>';
+  function launch(label,sub,url,key,kind){
+    var inside='<span class="btn-title">'+esc(label)+'</span><span class="btn-sub">'+esc(sub)+'</span>';
+    return url?'<a class="launch-button '+(kind||'')+'" href="'+esc(url)+'" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer" data-entry="'+key+'">'+inside+'</a>':'<span class="launch-button '+(kind||'off')+'" aria-disabled="true">'+inside+'</span>';
   }
-  function fb(text,done){
-    var ta=document.createElement('textarea');ta.value=text;ta.style.position='fixed';ta.style.opacity='0';
-    document.body.appendChild(ta);ta.select();
-    try{document.execCommand('copy');done();}catch(e){toast('复制失败，请长按手动选择');}
-    document.body.removeChild(ta);
-  }
-  var btns=document.querySelectorAll('.cp');
-  for(var i=0;i<btns.length;i++){btns[i].addEventListener('click',function(){copy(this.getAttribute('data-code'),this);});}
+  var registration;
+  if(g.links.register)registration=launch('注册账号','使用本页注册地址',g.links.register,'register');
+  else if(g.registerInternal)registration=launch('游戏内注册','下载安装后按游戏内提示注册','','register','internal');
+  else if(g.noRegister)registration=launch('下载注册一体','无需单独打开注册页','','register','internal');
+  else registration=launch('注册入口整理中','联系售后群获取当前入口','','register','off');
+  var launchHtml=registration+launch('下载游戏',g.links.download?'安装说明以下载页为准':'下载入口整理中',g.links.download,'download');
+  if(g.links.recharge)launchHtml+=launch('立即充值','使用本服充值入口',g.links.recharge,'recharge','muted');
+  else if(g.rechargeInternal)launchHtml+=launch('游戏内充值','本服游戏内直充 · 按游戏内提示操作','','recharge','internal');
+  else launchHtml+=launch('充值入口整理中','联系售后群获取当前说明','','recharge','off');
+  var mentioned=(g.copyItems||[]).filter(function(item){return /邀请码|推广码/.test(item.label)&&item.source==='攻略原文'&&item.value!==g.invite});
+  var invite=g.invite?'<div class="invite-note"><div class="invite-row"><span>本服邀请码<br><b>'+esc(g.invite)+'</b></span>'+copyButton(g.invite,'复制邀请码')+'</div><small class="source-note">复制后粘贴到注册页要求的对应字段。</small></div>':'';
+  if(mentioned.length)invite+='<div class="invite-note"><div>攻略中的推广 / 邀请信息</div><div class="inline-copies">'+mentioned.map(function(item){return copyButton(item.value,'复制 '+item.label+' '+item.value)}).join('')+'</div><small class="source-note">'+(g.invite?'邀请码有不同填写说明，请核对注册页要求后使用。':'已随注册入口带入时，无需重复填写。')+'</small></div>';
+  var codes=g.codes.map(function(c){
+    return '<div class="crow"><span class="cmain"><span class="c">'+esc(c.code)+'</span><span class="d">'+esc(c.desc||'进服直接兑，先领先爽')+'</span></span><span class="cbtns"><button type="button" class="cp" data-cp="'+esc(c.code)+'" aria-label="复制兑换码 '+esc(c.code)+'">复制</button></span></div>';
+  }).join('');
+  var wf=g.welfare.length?'<section class="wf welfare" id="welfare" aria-label="福利长图"><div class="hd">福利长图 · '+g.welfare.length+' 张</div><div class="wfrow">'+g.welfare.map(function(item,i){return '<button data-lb="'+i+'" aria-label="查看福利长图 '+(i+1)+'"><img src="'+esc(item.src)+'" alt="'+esc(item.caption)+'" loading="lazy"><em>'+esc(item.caption||('第 '+(i+1)+' 张 · 点开看大图'))+'</em></button>'}).join('')+'</div></section>':'';
+  var guide='<section class="gd" id="guide" aria-label="游戏攻略">'+(g.readingGuide||g.guide).map(function(row,i){return textGuide(row,g,row._index==null?i:row._index)}).join('')+growthPlan(g,true)+'</section>';
+  var supportTemplate=/账号.*密码|账号：区服：问题/.test(g.guide.map(rowText).join(' '))?'区服：\n角色ID：\n账号（非密码）：\n问题说明：\n订单号（充值问题时填写）：':'';
+  var support=supportTemplate?'<div class="support-copy">售后反馈请填写区服、角色与问题，充值问题可附订单记录。无需提供登录密码、验证码或支付密码。<br>'+copyButton(supportTemplate,'复制售后反馈模板')+'</div>':'';
+  var shortcuts='<nav class="section-shortcuts" aria-label="文档快速导航">'+(g.codes.length?'<a href="#cdk">兑换码</a>':'')+(g.welfare.length?'<a href="#welfare">福利图</a>':'')+'<a href="#guide">看攻略</a>'+(g.plan?'<a href="#growth-plan">养成路线</a>':'')+'</nav>';
+
+  function entry(label,url,key){return '<div class="entry-row"><span><span class="ti">'+esc(label)+'</span></span><a class="go" href="'+esc(url)+'" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer" data-entry="'+key+'">打开</a></div>';}
+  var entrances='';
+  if(g.links.downloadBackup)entrances+=entry('备用下载',g.links.downloadBackup,'downloadBackup');
+  if(g.links.vpn)entrances+=entry('网络加速',g.links.vpn,'vpn');
+  g.extras.forEach(function(item,i){entrances+=entry(item.label,item.url,'extra'+i)});
+  var codeJump=g.codes.length?'<p class="registration-note">进服后先领兑换码 · <button type="button" data-jump="cdk" style="color:var(--cy);text-decoration:underline;text-underline-offset:3px">查看全部 '+g.codes.length+' 个兑换码</button></p>':'';
+  var category=g.genres.join(' · ')||g.family;
+  document.getElementById('top').innerHTML='<div class="dtop"><a class="bk" href="'+esc(CONFIG.homeUrl)+'" aria-label="返回主站">‹</a><span class="t">'+esc(g.name)+'</span></div>';
+  document.getElementById('app').innerHTML='<main class="wrap"><section class="dhero">'+(category?'<div class="doc-category">'+esc(category)+'</div>':'')+'<div class="row">'+(g.icon?'<img src="'+esc(g.icon)+'" alt="'+esc(g.name)+'" decoding="async" fetchpriority="high">':'<span class="hero-initial" aria-hidden="true">'+esc(g.name.slice(0,1))+'</span>')+'<span><h1>'+esc(g.name)+'</h1><div class="sl">'+esc(g.sell||g.tagline||'')+'</div></span></div><div class="meta">'+meta+'</div><div class="sub">'+esc(g.slogan)+'<br>'+esc(g.bottom)+'</div><div class="points">'+g.points.map(function(point){return '<span>✅ '+esc(point)+'</span>'}).join('')+'</div></section>'+
+    '<section class="launch" aria-label="注册下载与充值"><div class="launch-grid">'+launchHtml+'</div>'+firstSpend(g)+invite+codeJump+shortcuts+'<p class="copy-status" id="copy-status" role="status" aria-live="polite"></p></section>'+groupCard('官方售后群')+
+    (entrances?'<section class="entrances" aria-label="更多入口">'+entrances+'</section>':'')+
+    (g.codes.length?'<section class="cdk" id="cdk" aria-label="兑换码"><div class="hd"><b>兑换码 '+g.codes.length+' 个</b></div>'+codes+'</section>':'')+wf+guide+support+
+    (q?'<div class="feedback">有问题请联系群管理员 · <a href="'+esc(q.url)+'" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer" data-entry="qqgroup">点击进群反馈</a></div>':'')+
+    '<div class="trust">🛡 <b>防骗提醒</b>：注册、下载、领码只走本页按钮与游戏内官方入口。任何群里或私聊喊「折扣代充」「送码让你转账加好友」的都是骗子——兑换码全免费，凡先收费的都是骗子。'+(q?'<br>官方售后群只处理售后、群内不产生任何充值。':'')+'<br>所有福利、价格与奖励以游戏内实际为准，最终解释权归游戏方所有。</div>'+groupCard('别走丢 · 进官方售后群')+'</main>';
+  var registrationBar=g.links.register?'<a class="b1" href="'+esc(g.links.register)+'" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer" data-entry="register">注册账号</a>':'';
+  var downloadBar=g.links.download?'<a class="b2" href="'+esc(g.links.download)+'" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer" data-entry="download">下载游戏</a>':'';
+  var rechargeBar=g.links.recharge?'<a class="b3" href="'+esc(g.links.recharge)+'" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer" data-entry="recharge">立即充值</a>':'';
+  var qqFloat=q?'<div class="qqfloat-wrap"><a class="qqfloat qqg" href="'+esc(q.url)+'" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer" data-entry="qqgroup"><span class="ic">💬</span><span class="tx">售后群</span></a></div>':'';
+  document.getElementById('persistent-actions').innerHTML='<div class="bar">'+registrationBar+downloadBar+rechargeBar+'<a class="b4" href="'+esc(CONFIG.homeUrl)+'">返回主站</a></div>'+qqFloat;
+  [].forEach.call(document.querySelectorAll('[data-jump]'),function(el){el.addEventListener('click',function(){var node=document.getElementById(el.getAttribute('data-jump'));if(node)node.scrollIntoView({behavior:'smooth',block:'start'})})});
+  [].forEach.call(document.querySelectorAll('[data-cp]'),function(el){el.addEventListener('click',function(){var c=el.getAttribute('data-cp'),label=el.getAttribute('data-copy-label')||el.textContent;el.setAttribute('data-copy-label',label);copy(c,function(ok){el.textContent=ok?'已复制 ✓':'复制失败';var status=document.getElementById('copy-status');if(status)status.textContent=ok?'已复制，可直接粘贴使用。':'复制未成功，请重试或长按上方内容复制。';clearTimeout(el._copyTimer);el._copyTimer=setTimeout(function(){el.textContent=label},1600)})})});
+  [].forEach.call(document.querySelectorAll('[data-lb]'),function(el){el.addEventListener('click',function(){openLb(g,+el.getAttribute('data-lb'))})});
+}
+function copy(t,cb){
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(function(){cb(true)},function(){fb()})}else fb();
+  function fb(){try{var a=document.createElement('textarea');a.value=t;a.style.position='fixed';a.style.opacity='0';document.body.appendChild(a);a.select();var ok=document.execCommand('copy');document.body.removeChild(a);cb(ok)}catch(e){cb(false)}}
+}
+var lbi=0,lbarr=[],lbFocus=null,lbOverflow='';
+function closeLb(){document.getElementById('lb').classList.remove('on');document.body.style.overflow=lbOverflow;if(lbFocus&&document.contains(lbFocus))lbFocus.focus();lbFocus=null;}
+function openLb(g,i){
+  lbarr=g.welfare.map(function(item){return item.src});lbi=i||0;
+  var box=document.getElementById('lbi');box.innerHTML=lbarr.map(function(u,k){return '<img src="'+esc(u)+'" alt="" data-k="'+k+'">'}).join('');
+  lbFocus=document.activeElement;lbOverflow=document.body.style.overflow;document.body.style.overflow='hidden';document.getElementById('lb').classList.add('on');document.getElementById('lbx').focus();
+  document.getElementById('lbt').textContent=g.name+' · 福利长图 '+(lbi+1)+'/'+lbarr.length;
+  setTimeout(function(){var el=box.querySelector('[data-k="'+lbi+'"]');if(el)el.scrollIntoView({block:'start'})},30);
+}
+document.getElementById('lbx').addEventListener('click',closeLb);
+document.getElementById('lb').addEventListener('keydown',function(e){if(!this.classList.contains('on'))return;if(e.key==='Escape'){e.preventDefault();closeLb()}else if(e.key==='Tab'){e.preventDefault();document.getElementById('lbx').focus()}});
+function route(){
+  var m=location.hash.match(/^#\/g\/(.+)$/),id=CONFIG.initialId||(m&&m[1]);
+  document.getElementById('lb').classList.remove('on');
+  if(id&&byId[id]){renderDetail(byId[id])}else{document.getElementById('persistent-actions').innerHTML='';document.documentElement.style.cssText='';document.body.classList.remove('detail-page');renderHome()}
+  window.scrollTo(0,0);
+}
+var t0;
+function tick(){
+  var el=document.getElementById('cd');if(!el)return;
+  var d=new Date(PUB.mhxy).getTime()-Date.now();
+  if(d<=0){el.textContent='已开服';return}
+  var day=Math.floor(d/864e5),h=Math.floor(d%864e5/36e5),m=Math.floor(d%36e5/6e4),s=Math.floor(d%6e4/1e3);
+  el.textContent=day+'天 '+('0'+h).slice(-2)+':'+('0'+m).slice(-2)+':'+('0'+s).slice(-2);
+  clearTimeout(t0);t0=setTimeout(tick,1000);
+}
+window.addEventListener('hashchange',function(){if(!CONFIG.initialId)route()});
+route();
 })();
 </script>
-<script>(function(){
-    var current="3380a75ff3585c2b", endpoint="/build-ver.json";
-    function check(){
-      var url=endpoint+(endpoint.indexOf('?')<0?'?':'&')+'_t='+Date.now();
-      fetch(url,{cache:'no-store'}).then(function(r){return r.ok?r.json():null}).then(function(j){
-        if(!j||!j.v||String(j.v)===current)return;
-        var next=new URL(location.href); if(next.searchParams.get('_v')===String(j.v))return;
-        next.searchParams.set('_v',String(j.v)); location.replace(next.href);
-      }).catch(function(){});
-    }
-    check(); setInterval(check,3000);
-    document.addEventListener('visibilitychange',function(){if(!document.hidden)check();});
-  })();</script>
 <script>
 (function(){
   var EPS=['https://9c69f4640a41403f94f584653b806a7b.app.workbuddy.host/api/track','https://71ab064eb4464de488335811670a6949.app.workbuddy.host/api/track'];
@@ -442,3 +484,17 @@
 </script>
 </body>
 </html>
+
+<script>(function(){
+    var current="6d1d38559580ff89", endpoint="/build-ver.json";
+    function check(){
+      var url=endpoint+(endpoint.indexOf('?')<0?'?':'&')+'_t='+Date.now();
+      fetch(url,{cache:'no-store'}).then(function(r){return r.ok?r.json():null}).then(function(j){
+        if(!j||!j.v||String(j.v)===current)return;
+        var next=new URL(location.href); if(next.searchParams.get('_v')===String(j.v))return;
+        next.searchParams.set('_v',String(j.v)); location.replace(next.href);
+      }).catch(function(){});
+    }
+    check(); setInterval(check,3000);
+    document.addEventListener('visibilitychange',function(){if(!document.hidden)check();});
+  })();</script>
