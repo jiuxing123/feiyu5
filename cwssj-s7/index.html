@@ -208,6 +208,13 @@ input,select{font:inherit}
 @media(max-width:800px){.purchase-plan,.invite-note,.guide-nav,.support-copy{padding-right:34px}}
 @media(hover:none),(pointer:coarse){.detail-page .top{-webkit-backdrop-filter:none;backdrop-filter:none;background:var(--bg)}.detail-page .dhero h1{animation:mobileDocLift 3.6s ease-in-out infinite}@keyframes mobileDocLift{0%,55%,100%{transform:translateY(0)}70%{transform:translateY(-1px)}}}
 .entry-help-notice{display:flex;align-items:center;gap:16px;margin:12px 0 18px;padding:15px 16px;border:1px solid var(--accent-line);border-left:3px solid var(--cy);border-radius:12px;background:var(--panel-gradient)}.entry-help-notice>div{min-width:0;flex:1}.entry-help-notice h2{margin:0;color:var(--ink);font-size:14px;line-height:1.6}.entry-help-notice p{margin:6px 0 0;color:var(--dim);font-size:12px;line-height:1.85;overflow-wrap:anywhere}.entry-help-notice a{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:9px 13px;border:1px solid var(--accent-line);border-radius:9px;background:var(--accent-soft);color:var(--cy);font-size:12px;font-weight:700;white-space:nowrap;flex-shrink:0}.entry-help-notice a:focus-visible{outline:2px solid var(--cy);outline-offset:3px}@media(max-width:520px){.entry-help-notice{display:block;padding-right:34px}.entry-help-notice a{margin-top:10px}}
+.wfrow img{opacity:0}.wfrow img.is-ready{opacity:1}.wfrow button{background:var(--pnl2)}
+.fy-welfare-frame{margin:0 auto 18px;max-width:760px}.fy-welfare-imagebox{position:relative;overflow:hidden;background:#201a20;width:100%;min-height:120px}
+.fy-welfare-imagebox .fy-welfare-full{position:absolute;inset:0;width:100%;height:100%;margin:0;object-fit:contain;visibility:visible}
+.fy-welfare-loading{display:block;position:absolute;top:24px;left:16px;right:16px;text-align:center;color:var(--dim);font-size:14px;line-height:1.7}
+.fy-welfare-loading button{display:block;margin:12px auto;min-height:44px;padding:8px 18px;border:1px solid var(--line2);border-radius:9px;background:var(--pnl2);color:var(--ink);cursor:pointer}
+.fy-welfare-original{display:inline-flex;align-items:center;min-height:44px;padding:8px 0;color:var(--cy);font-size:13px}
+
 </style>
 </head>
 <body>
@@ -417,7 +424,7 @@ function renderDetail(g){
   var codes=g.codes.map(function(c){
     return '<div class="crow"><span class="cmain"><span class="c">'+esc(c.code)+'</span><span class="d">'+esc(c.desc||'进服直接兑，先领先爽')+'</span></span><span class="cbtns"><button type="button" class="cp" data-cp="'+esc(c.code)+'" aria-label="复制兑换码 '+esc(c.code)+'">复制</button></span></div>';
   }).join('');
-  var wf=g.welfare.length?'<section class="wf welfare" id="welfare" aria-label="福利长图"><div class="hd">福利长图 · '+g.welfare.length+' 张</div><div class="wfrow">'+g.welfare.map(function(item,i){return '<button data-lb="'+i+'" aria-label="查看福利长图 '+(i+1)+'"><img src="'+esc(item.src)+'" alt="'+esc(item.caption)+'"'+(item.size?' width="'+item.size[0]+'" height="'+item.size[1]+'"':'')+' loading="lazy" decoding="async"><em>'+esc(item.caption||('第 '+(i+1)+' 张 · 点开看大图'))+'</em></button>'}).join('')+'</div></section>':'';
+  var wf=welfareGallery(g);
   var guide='<section class="gd" id="guide" aria-label="游戏攻略">'+welfarePacks(g)+(g.readingGuide||g.guide).map(function(row,i){return textGuide(row,g,row._index==null?i:row._index)}).join('')+growthPlan(g,true)+'</section>';
   var supportTemplate=/账号.*密码|账号：区服：问题/.test(g.guide.map(rowText).join(' '))?'区服：\n角色ID：\n账号（非密码）：\n问题说明：\n订单号（充值问题时填写）：':'';
   var support=supportTemplate?'<div class="support-copy">售后反馈请填写区服、角色与问题，充值问题可附订单记录。无需提供登录密码、验证码或支付密码。<br>'+copyButton(supportTemplate,'复制售后反馈模板')+'</div>':'';
@@ -446,6 +453,7 @@ function renderDetail(g){
   [].forEach.call(document.querySelectorAll('[data-jump]'),function(el){el.addEventListener('click',function(){var node=document.getElementById(el.getAttribute('data-jump'));if(node)node.scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'})})});
   [].forEach.call(document.querySelectorAll('[data-cp]'),function(el){el.addEventListener('click',function(){var c=el.getAttribute('data-cp'),label=el.getAttribute('data-copy-label')||el.textContent;el.setAttribute('data-copy-label',label);copy(c,function(ok){el.textContent=ok?'已复制 ✓':'复制失败';var status=document.getElementById('copy-status');if(status)status.textContent=ok?'已复制，可直接粘贴使用。':'复制未成功，请重试或长按上方内容复制。';clearTimeout(el._copyTimer);el._copyTimer=setTimeout(function(){el.textContent=label},1600)})})});
   [].forEach.call(document.querySelectorAll('[data-lb]'),function(el){el.addEventListener('click',function(){openLb(g,+el.getAttribute('data-lb'))})});
+  bindWelfare(g);
   bindExperience(g);
 }
 function copy(t,cb){
@@ -453,21 +461,45 @@ function copy(t,cb){
   if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(function(){cb(true)},function(){fb()})}else fb();
   function fb(){var a=document.createElement('textarea'),ok=false;try{a.value=t;a.style.position='fixed';a.style.opacity='0';document.body.appendChild(a);a.select();ok=document.execCommand('copy')}catch(e){ok=false}finally{if(a.parentNode)a.parentNode.removeChild(a);if(previousFocus&&document.contains(previousFocus))previousFocus.focus({preventScroll:true})}cb(ok)}
 }
-var lbi=0,lbarr=[],lbFocus=null,lbOverflow='',lbRevision=0,lbAutoAlign=true;
+var welfareCache=new Map(),welfareQueue=[],welfarePending=0,welfareQueued=new Set();
+function welfareSource(item){return item.src;}
+function loadWelfare(item){
+ var url=welfareSource(item),existing=welfareCache.get(url);if(existing)return existing.promise;
+ var image=new Image(),entry={image:image,state:'loading'};welfareCache.set(url,entry);
+ image.decoding='async';image.loading='eager';if(item.size){image.width=item.size[0];image.height=item.size[1];}
+ entry.promise=new Promise(function(resolve){
+  image.onload=function(){var decoded=typeof image.decode==='function'?image.decode():Promise.resolve();decoded.then(function(){entry.state='ready';resolve(entry);},function(){entry.state='error';resolve(entry);});};
+  image.onerror=function(){entry.state='error';resolve(entry);};
+  image.src=url;
+ });return entry.promise;
+}
+function pumpWelfare(){while(welfarePending<2&&welfareQueue.length){var item=welfareQueue.shift();welfarePending++;loadWelfare(item).then(function(){welfarePending--;pumpWelfare();});}}
+function warmWelfare(g){g.welfare.forEach(function(item){var url=welfareSource(item);if(!welfareQueued.has(url)){welfareQueued.add(url);welfareQueue.push(item);}});pumpWelfare();}
+function bindWelfare(g){
+ var wf=document.getElementById('welfare');if(!wf)return;
+ var thumbs=wf.querySelectorAll('img');[].forEach.call(thumbs,function(image){var ready=function(){if(typeof image.decode==='function')image.decode().then(function(){image.classList.add('is-ready');},function(){image.classList.add('is-ready');});else image.classList.add('is-ready');};if(image.complete&&image.naturalWidth)ready();else image.addEventListener('load',ready,{once:true});});
+ var start=function(){warmWelfare(g);};
+ // Warm only this document's full images, with two concurrent loads; thumbnails stay small.
+ if('requestIdleCallback' in window)requestIdleCallback(start,{timeout:1000});else setTimeout(start,250);
+ document.querySelectorAll('a[href="#welfare"]').forEach(function(link){link.addEventListener('pointerenter',start,{once:true});link.addEventListener('touchstart',start,{once:true,passive:true});link.addEventListener('click',start);});
+ document.querySelectorAll('[data-lb]').forEach(function(button){button.addEventListener('pointerenter',function(){loadWelfare(g.welfare[+button.dataset.lb]);},{once:true});});
+ if(location.hash==='#welfare'){start();requestAnimationFrame(function(){wf.scrollIntoView({block:'start'});});}
+}
+function welfareGallery(g){return g.welfare.length?'<section class="wf welfare" id="welfare" aria-label="福利长图"><div class="hd">福利长图 · '+g.welfare.length+' 张</div><div class="wfrow">'+g.welfare.map(function(item,i){return '<button data-lb="'+i+'" aria-label="查看福利长图 '+(i+1)+'"><img src="'+esc(item.thumb||item.src)+'" alt="'+esc(item.caption||g.name+'福利图片 '+(i+1))+'" loading="eager" decoding="async"><em>'+esc(item.caption||('第 '+(i+1)+' 张 · 点开看大图'))+'</em></button>';}).join('')+'</div></section>':'';}
+var lbi=0,lbarr=[],lbFocus=null,lbOverflow='',lbRevision=0;
 function closeLb(){lbRevision++;document.getElementById('lb').classList.remove('on');document.body.style.overflow=lbOverflow;if(lbFocus&&document.contains(lbFocus))lbFocus.focus({preventScroll:true});lbFocus=null;}
 function openLb(g,i){
-  lbarr=g.welfare.map(function(item){return item.src});lbi=i||0;
-  var box=document.getElementById('lbi'),scroll=document.getElementById('lb-scroll'),revision=++lbRevision;lbAutoAlign=true;box.innerHTML=lbarr.map(function(u,k){var size=g.welfare[k].size;return '<img src="'+esc(u)+'" alt="'+esc(g.welfare[k].caption||g.name+'福利图片 '+(k+1))+'" data-k="'+k+'"'+(size?' width="'+size[0]+'" height="'+size[1]+'"':'')+' loading="'+(k===lbi?'eager':'lazy')+'" decoding="async">'}).join('');scroll.scrollTop=0;
-  lbFocus=document.activeElement;lbOverflow=document.body.style.overflow;document.body.style.overflow='hidden';document.getElementById('lb').classList.add('on');document.getElementById('lbx').focus();
-  document.getElementById('lbt').textContent=g.name+' · 福利长图 '+(lbi+1)+'/'+lbarr.length;
-  var target=box.querySelector('[data-k="'+lbi+'"]');
-  // Earlier images determine the selected image's position; wait for their real heights.
-  Promise.all([].slice.call(box.querySelectorAll('img'),0,lbi+1).map(function(img){return new Promise(function(resolve){if(img.complete||img.hasAttribute('width'))resolve();else{img.loading='eager';img.addEventListener('load',resolve,{once:true});img.addEventListener('error',resolve,{once:true})}})})).then(function(){if(revision!==lbRevision||!lbAutoAlign||!target)return;scroll.scrollTop+=target.getBoundingClientRect().top-scroll.getBoundingClientRect().top});
+ lbi=Math.max(0,Math.min(g.welfare.length-1,i||0));lbarr=g.welfare.map(welfareSource);warmWelfare(g);
+ var box=document.getElementById('lbi'),scroll=document.getElementById('lb-scroll'),revision=++lbRevision;
+ box.innerHTML=g.welfare.map(function(item,k){var size=item.size||[1,1],ratio=size[0]+'/'+size[1];return '<figure class="fy-welfare-frame" data-k="'+k+'"><div class="fy-welfare-imagebox" style="aspect-ratio:'+ratio+'"><span class="fy-welfare-loading" role="status">正在加载清晰大图…</span></div><a class="fy-welfare-original" href="'+esc(item.originalSrc||item.src)+'" target="_blank" rel="noopener noreferrer">查看原图 ↗</a></figure>';}).join('');
+ scroll.scrollTop=0;if(!document.getElementById('lb').classList.contains('on')){lbFocus=document.activeElement;lbOverflow=document.body.style.overflow;}document.body.style.overflow='hidden';document.getElementById('lb').classList.add('on');document.getElementById('lbx').focus();
+ document.getElementById('lbt').textContent=g.name+' · 福利长图 '+(lbi+1)+'/'+lbarr.length;
+ var target=box.querySelector('[data-k="'+lbi+'"]');if(target)scroll.scrollTop=target.offsetTop-box.offsetTop;
+ g.welfare.forEach(function(item,k){loadWelfare(item).then(function(entry){if(revision!==lbRevision)return;var frame=box.querySelector('[data-k="'+k+'"]'),holder=frame.querySelector('.fy-welfare-imagebox'),message=holder.querySelector('.fy-welfare-loading');if(entry.state==='ready'){var image=entry.image;image.alt=item.caption||g.name+'福利图片 '+(k+1);image.className='fy-welfare-full is-ready';holder.appendChild(image);message.remove();}else{message.textContent='图片暂未加载成功，可重试或查看原图';var retry=document.createElement('button');retry.type='button';retry.textContent='重新加载';retry.onclick=function(){welfareCache.delete(item.src);openLb(g,k);};message.appendChild(retry);}});});
 }
+
 document.getElementById('lbx').addEventListener('click',closeLb);
-document.getElementById('lb-scroll').addEventListener('wheel',function(){lbAutoAlign=false},{passive:true});
-document.getElementById('lb-scroll').addEventListener('touchstart',function(){lbAutoAlign=false},{passive:true});
-document.getElementById('lb').addEventListener('keydown',function(e){if(!this.classList.contains('on'))return;var close=document.getElementById('lbx'),scroll=document.getElementById('lb-scroll');if(e.key==='Escape'){e.preventDefault();closeLb()}else if(e.key==='Tab'){e.preventDefault();(document.activeElement===close?scroll:close).focus({preventScroll:true})}else if(['ArrowDown','ArrowUp','PageDown','PageUp','Home','End'].indexOf(e.key)!==-1){lbAutoAlign=false;e.preventDefault();if(e.key==='Home')scroll.scrollTop=0;else if(e.key==='End')scroll.scrollTop=scroll.scrollHeight;else scroll.scrollTop+=(e.key==='ArrowDown'?40:e.key==='ArrowUp'?-40:e.key==='PageDown'?scroll.clientHeight*.85:-scroll.clientHeight*.85)}});
+document.getElementById('lb').addEventListener('keydown',function(e){if(!this.classList.contains('on'))return;var close=document.getElementById('lbx'),scroll=document.getElementById('lb-scroll');if(e.key==='Escape'){e.preventDefault();closeLb()}else if(e.key==='Tab'){var stops=[].slice.call(this.querySelectorAll('button,a[href],[tabindex="0"]')).filter(function(n){return !n.disabled&&n.getClientRects().length;}),first=stops[0],last=stops[stops.length-1];if((e.shiftKey&&document.activeElement===first)||(!e.shiftKey&&document.activeElement===last)){e.preventDefault();(e.shiftKey?last:first).focus({preventScroll:true})}}else if(['ArrowDown','ArrowUp','PageDown','PageUp','Home','End'].indexOf(e.key)!==-1){e.preventDefault();if(e.key==='Home')scroll.scrollTop=0;else if(e.key==='End')scroll.scrollTop=scroll.scrollHeight;else scroll.scrollTop+=(e.key==='ArrowDown'?40:e.key==='ArrowUp'?-40:e.key==='PageDown'?scroll.clientHeight*.85:-scroll.clientHeight*.85)}});
 function route(){
   var m=location.hash.match(/^#\/g\/(.+)$/),id=CONFIG.initialId||(m&&m[1]);
   document.getElementById('lb').classList.remove('on');
