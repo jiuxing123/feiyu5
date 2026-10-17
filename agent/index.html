@@ -34,7 +34,7 @@ if(/Mobile|Android|iPhone|iPad/i.test(navigator.userAgent)){var a=document.getEl
 </script><script>
 (function(){
   if(typeof location!=='undefined' && /(?:^|[?&])preview=1(?:&|$)/.test(location.search||''))return;
-  var EPS=['https://9c69f4640a41403f94f584653b806a7b.app.workbuddy.host/api/track','https://71ab064eb4464de488335811670a6949.app.workbuddy.host/api/track'];
+  var EPS=['https://collect.feiyu5.com/t'];
   /* v8.0 浏览器持久访客 ID：localStorage 优先，退回 cookie，都没有就现造一个。
      这是"换网络、换出口 IP 仍算同一个人"的唯一办法——UA 做不到，IP 更做不到。 */
   var vid='';
@@ -84,7 +84,8 @@ if(/Mobile|Android|iPhone|iPad/i.test(navigator.userAgent)){var a=document.getEl
   if(gm)window.fyTrack('view',gm[1]);
   /* 兼容老写端：hub 只存 5 个字段会丢掉 vid 字段，所以再补一条 page='vid/<id>' 的"身份证记录"。
      统计端（tiepai/lib/store.js isIdRecSafe）把它从访问量/点击量里摘出去，只用来数设备，绝不灌水。 */
-  if(vid){ try{
+  /* 收集端有正经 vid 字段，身份证记录只是给旧 hub 的补丁——单写收集端时不发（每天省 ~4 千行 D1 写入） */
+  if(vid && false){ try{
     var scope=page;
     if(gm){var catalogue=(window.FY_EXPERIENCE||{}).games||[],known=catalogue.find(function(g){return g.id===gm[1];});scope='g/'+(known?known.trackId:gm[1]);}
     var identityPath='vid/'+vid+'/'+scope;
