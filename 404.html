@@ -5,13 +5,49 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="robots" content="noindex">
   <meta name="referrer" content="no-referrer">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; base-uri 'self'; object-src 'none'; frame-src 'none'">
+  <!-- 本页允许内联脚本，用于自动脱困；不加载任何第三方资源，风险可控 -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; base-uri 'self'; object-src 'none'; frame-src 'none'">
   <title>页面不存在 · 飞鱼手游</title>
   <style>
     *{box-sizing:border-box}body{margin:0;background:#f2f5f9;color:#1f2937;font-family:"Microsoft YaHei",sans-serif;min-height:100vh;display:grid;place-items:center}
     main{width:min(92vw,520px);background:#fff;border:1px solid #e5e9f0;border-radius:18px;padding:36px 24px;text-align:center;box-shadow:0 8px 28px rgba(15,23,42,.08)}
-    h1{margin:0 0 10px;color:#1e40af;font-size:24px}p{margin:0 0 22px;color:#64748b}a{display:inline-block;background:#2563eb;color:#fff;text-decoration:none;font-weight:700;padding:11px 22px;border-radius:12px}
+    h1{margin:0 0 10px;color:#1e40af;font-size:24px}p{margin:0 0 14px;color:#64748b}.tip{font-size:13px;color:#94a3b8;margin:0 0 22px}
+    a{display:inline-block;background:#2563eb;color:#fff;text-decoration:none;font-weight:700;padding:11px 22px;border-radius:12px;margin:4px}
+    a.ghost{background:#eef2ff;color:#2563eb}
   </style>
 </head>
-<body><main><h1>页面不存在</h1><p>链接可能已更新，请从主站重新进入。</p><a href="/">返回主站</a></main></body>
+<body><main>
+  <h1>页面不存在</h1>
+  <p id="msg">链接可能已更新，正在为你自动回到主站…</p>
+  <p class="tip" id="tip">若停留在此页，说明当前网络暂时抽风，点下面的按钮手动进入。</p>
+  <a href="/">返回主站</a>
+  <a class="ghost" id="retry" href="/">刷新重试</a>
+</main>
+<script>
+(function(){
+  try {
+    var path = location.pathname || '/';
+    var retries = 0;
+    try { retries = parseInt(sessionStorage.getItem('fy404r') || '0', 10) || 0; } catch(e){}
+    // 根路径（含空）被边缘节点缓存成 404：用带时间戳的查询绕过缓存重试
+    if (path === '/' || path === '') {
+      if (retries < 3) {
+        try { sessionStorage.setItem('fy404r', String(retries + 1)); } catch(e){}
+        location.replace('/?_=' + Date.now());
+        return;
+      }
+      // 多次仍失败：清标记，展示按钮兜底
+      try { sessionStorage.removeItem('fy404r'); } catch(e){}
+      document.getElementById('msg').textContent = '链接可能已更新，请从主站重新进入。';
+      return;
+    }
+    // 深层 / 旧链接 404：直接回到主站首页（首页在绝大多数节点是正常的）
+    location.replace('/');
+  } catch(e) {
+    // 任何异常都不卡死，保持按钮可见
+    document.getElementById('msg').textContent = '链接可能已更新，请从主站重新进入。';
+  }
+})();
+</script>
+</body>
 </html>
