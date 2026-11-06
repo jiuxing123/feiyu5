@@ -2,6 +2,7 @@
   "schema": 1,
   "owner": "feiyu-workbench",
   "files": [
+    ".nojekyll",
     "404.html",
     "agent/index.html",
     "assets/agent/recharge_01.png",
