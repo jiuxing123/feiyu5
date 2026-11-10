@@ -4,6 +4,7 @@
   "files": [
     ".nojekyll",
     "404.html",
+    "account/index.html",
     "agent/index.html",
     "assets/agent/recharge_01.png",
     "assets/agent/recharge_02.png",
@@ -1255,7 +1256,6 @@
     "assets/published/f6524a09ceccc6971b98.jpg",
     "assets/published/f6c7e26656bd01fa1c6d.png",
     "assets/published/f72ec267e6e8d1a0cb9b.jpg",
-    "assets/published/f77a33311d166c05729a.jpg",
     "assets/published/f78bb4d15dc5c7382ec1.jpg",
     "assets/published/f8a9269ca8210d70e75e.jpg",
     "assets/published/f8f7513a3c0e5c82dd6a.jpg",
@@ -1540,7 +1540,6 @@
     "x96/index.html",
     "x98/index.html",
     "x99/index.html",
-    "xmrkp/index.html",
     "xxyz/index.html",
     "yxmys/index.html"
   ]
